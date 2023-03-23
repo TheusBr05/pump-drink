@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+
+<body>
+    Gastos convencionais para o teste de aceitação: <input id="input_gasto_convencional"><br><br>
+    Quantidade de máquinas que deseja alugar:<input id="input_qtd_maquinas"> <br><br>
+    Quantidade de meses que deseja alugar <input id="input_qtd_meses" type="number" min="6"><br><br>
+
+    <button onclick="calcular_economia()">
+        Simular Economia
+    </button><br>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular_economia() {
+
+        var gastoConvencional = Number(input_gasto_convencional.value);
+        var qtdMaquinas = Number(input_qtd_maquinas.value);
+        var qtdMeses = Number(input_qtd_meses.value);
+        var custoBase = 2000;
+
+        var custoMaquina = 36000;
+        var porcValorMaquina = (custoMaquina * 0.008) //  aluguel de uma maquina por mes
+
+        var valorTotalAluguel = ((porcValorMaquina * qtdMaquinas) * qtdMeses) // valor total da quantidade das maquinas
+        var valorSoftware = (valorTotalAluguel * 0.05)  // custo
+        var valorTotalPlano = valorSoftware + valorTotalAluguel + custoBase
+
+        var economia = gastoConvencional - valorTotalPlano 
+
+        div_resultado.innerHTML = `
+        O valor atual de um teste de aceitação é de <span style="color: red">R$${gastoConvencional}</span> <br>
+        O valor do nosso serviço é de <span style="color: blue">R$${valorTotalPlano}</span> <br>
+        Contratando nosso serviço você economizará:
+        <b style="color: green">R$${economia}</b>`
+    }
+</script>
