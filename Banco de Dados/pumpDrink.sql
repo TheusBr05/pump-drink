@@ -2,13 +2,6 @@ DROP database pumpdrink;
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
-create table tb_usuario(
-	id_usuario int primary key auto_increment,
-    nome_usuario varchar(150),
-    email varchar(150),
-    senha varchar(50)
-);
-
 create table tb_empresa(
 	id_empresa int primary key auto_increment,
     nome_empresa varchar(150),
@@ -16,30 +9,74 @@ create table tb_empresa(
     CNPJ char(14),
     cep char(8),
     email varchar(150)
+    -- inicio_contrato date
+    -- fim_contrato date
+    -- ou
+    -- fk_contrato 
+    
+    -- duracao_contrato int, constraint chkDuracao check (duracaoContrato >= 6) 
+);
+
+/*
+create table tb_contrato(
+	id_contrato int primary key auto_increment,
+    inicio_contrato date,
+    fim_contrato date
+);
+*/
+
+create table tb_usuario(
+	id_usuario int primary key auto_increment,
+    nome_usuario varchar(150),
+    email varchar(150),
+    senha varchar(50),
+    id_empresa int,
+    constraint fkEmpresa_usuario foreign key (id_empresa) references tb_empresa(id_empresa)
 );
 
 create table tb_maquina(
-	id_maquina int primary key auto_increment
+	id_maquina int primary key auto_increment,
+    endereco varchar(150)
+);
+
+create table tb_slot(
+	id_slot int primary key auto_increment,
+    id_maquina int, 
+    posicao int -- (1,2,3 ou 4)
+);
+
+create table tb_historicoBebidas(
+	id_historico int primary key auto_increment,
+    id_bebida int,
+    id_slot int,
+    inicio date, 
+    fim date
 );
 
 create table tb_bebida(
-	id_bebida int primary key auto_increment
+	id_bebida int primary key auto_increment,
+    nome_bebida varchar(50),
+    tipo varchar(15),
+    constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
+    -- marca varchar(50),
+    experimental char(1),
+    constraint chkExperimental CHECK (experimental IN('S','N'))
 );
 
 create table tb_sensor(
     id_sensor int primary key auto_increment,
     validade date,
     instalacao date,
-    operando char(1)
+    operando char(1), 
+    constraint chkOperando CHECK (operando IN('S','N'))
 );
 
 create table tb_registro(
-	id_registro int primary key auto_increment
+	id_registro int primary key auto_increment,
+    datahora_registro datetime default(current_timestamp())
 );
 
-create table tb_contrato(
-	id_contrato int primary key auto_increment
-);
+-- ------------------------------------------------------------- ANTIGA VERSÃO ----------------------------------------------------------------
 
 CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY auto_increment,
@@ -55,7 +92,7 @@ telefone CHAR(11) NOT NULL,
 email VARCHAR(100) NOT NULL,
 senha VARCHAR(40) NOT NULL,
 dtContrato DATETIME DEFAULT current_timestamp,
-duracaoContrato tinyint constraint chkDuracao check (duracaoContrato >= 6)
+duracaoContrato tinyint constraint chkDuracao check (duracaoContrato >= 6) 
 );
 
 CREATE TABLE Bebidas (
@@ -64,17 +101,20 @@ nomeBebida VARCHAR(50) NOT NULL,
 tipoBebida CHAR(15),
 marca VARCHAR(50),
 experimental CHAR(1) constraint chkExperimental CHECK (experimental IN('S','N')),
-disponibilidade VARCHAR(1) constraint chkDisp CHECK (disponibilidade IN('S','N')));
+disponibilidade VARCHAR(1) constraint chkDisp CHECK (disponibilidade IN('S','N'))
+);
 
 CREATE TABLE SensorTCRT5000 (
-idSensor INT PRIMARY KEY auto_increment,
-operando VARCHAR(1), constraint chkOperando CHECK (operando IN('S','N'))); 
+idSensor INT PRIMARY KEY auto_increment, -- 
+operando VARCHAR(1), constraint chkOperando CHECK (operando IN('S','N'))
+); 
 -- fkIdBebida
 
 CREATE TABLE DadosSensores (
 idDadosSensores INT PRIMARY KEY auto_increment,
 dtAtual DATETIME DEFAULT current_timestamp ,
-presenca tinyint constraint chkpresenca CHECK (presenca IN(1)));
+presenca tinyint constraint chkpresenca CHECK (presenca IN(1))
+);
 -- fkIdSensor
 
 CREATE TABLE Maquina (
@@ -84,9 +124,9 @@ nomeLocal VARCHAR(50) NOT NULL,
 endereco VARCHAR(80) NOT NULL);
 -- fkIdSensor   --  fkIdBebida
 
-INSERT INTO Usuario (nomeUsuario,razaoSocial,cnpj,endereco,bairro,cep,cidade,estado,telefone,email,senha,duracaoContrato) VALUES
-('Integralmedica','BRG Suplementos Nutricionais LTDA','57235426000141','Rodovia Jose Simoes Louro Junior 40582' ,
-'VAL FLOR','06906100','EMBU-GUACU','SP','01146627300','grupo-fiscal@integralmedica.com.br','000000000','6'),
+INSERT INTO Usuario (nomeUsuario, razaoSocial, cnpj, endereco, bairro, cep, cidade, estado, telefone, email, senha, duracaoContrato) VALUES
+('Integralmedica', 'BRG Suplementos Nutricionais LTDA', '57235426000141', 'Rodovia Jose Simoes Louro Junior 40582' ,
+'VAL FLOR', '06906100', 'EMBU-GUACU', 'SP', '01146627300', 'grupo-fiscal@integralmedica.com.br', '000000000', '6'),
 ('GROWTH SUPPLEMENTS', 'GROWTH SUPPLEMENTS - PRODUTOS ALIMENTICIOS LTDA', '10832644000108', 'Av Wilson Lemos, 2850', 
 'Santa Luzia', '88200000', 'Tijucas', 'SC', '4892116480', 'fiscalgrowthsupplements@gmail.com', '0000000000','6'),
 ('MAX Titanium', 'SUPLEY LABORATORIO DE ALIMENTOS E SUPLEMENTOS NUTRICIONAIS LTDA', '07578713000429', 'Avenida Jose Pilo, 161', 
