@@ -1,0 +1,92 @@
+.header {
+  display: flex;
+  flex-wrap: row;
+  justify-content: space-between;
+  height: 1000px;
+}
+
+.container-1 {
+  background-color: #1d676d;
+  width: 50%;
+}
+
+.container-2 {
+  background-color: #022a2d;
+  width: 50%;
+}
+
+.container-3 {
+  color: #022a2d;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 10rem;
+  border-radius: 30px 10px;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+}
+
+.container-3 .login input {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_forms {
+  display: flex;
+}
+
+.btn_entrar,
+.btn_voltar {
+  margin: 10px 5px 10px 0;
+  padding: 8px 0;
+  background-color: #022a2d;
+  border-radius: 4px;
+  color: white;
+  border: 0;
+  align-self: center;
+  width: 140px;
+  cursor: pointer;
+}
+
+.recuperacao_cadastro {
+  display: flex;
+}
+
+.recuperacao_cadastro .recuperar_senha,
+.sem_conta {
+  margin: 10px 50px 0 0;
+}
+
+.fields input {
+  font-size: 1em;
+  /* width: 98%;
+  height: 46%; */
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #022a2d;
+  box-sizing: border-box;
+  padding: 8px;
+  padding-left: 40px;
+}
+
+label {
+  position: relative;
+}
+label::after {
+  font-family: FontAwesome;
+  /* float: left;
+  margin-left: -1.5em; */
+  content: "\f007";
+  color: white;
+  background-color: #022a2d;
+  padding: 5px;
+
+  left: 3px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* label:nth-child(18)::after {
+  content: "\f13e";
+} */
