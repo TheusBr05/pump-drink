@@ -8,13 +8,9 @@ create table tb_empresa(
     razao_social varchar(150),
     CNPJ char(14),
     cep char(8),
-    email varchar(150)
-    -- inicio_contrato date
-    -- fim_contrato date
-    -- ou
-    -- fk_contrato 
-    
-    -- duracao_contrato int, constraint chkDuracao check (duracaoContrato >= 6) 
+    email varchar(150),
+    duracao_contrato tinyint, 
+    constraint chkDuracao check (duracaoContrato >= 6) 
 );
 
 /*
@@ -31,26 +27,13 @@ create table tb_usuario(
     email varchar(150),
     senha varchar(50),
     id_empresa int,
-    constraint fkEmpresa_usuario foreign key (id_empresa) references tb_empresa(id_empresa)
+    constraint fk_empresa_usuario foreign key (id_empresa) references tb_empresa(id_empresa)
 );
 
 create table tb_maquina(
 	id_maquina int primary key auto_increment,
-    endereco varchar(150)
-);
-
-create table tb_slot(
-	id_slot int primary key auto_increment,
-    id_maquina int, 
-    posicao int -- (1,2,3 ou 4)
-);
-
-create table tb_historicoBebidas(
-	id_historico int primary key auto_increment,
-    id_bebida int,
-    id_slot int,
-    inicio date, 
-    fim date
+    endereco varchar(150),
+    local_referencia varchar(50)
 );
 
 create table tb_bebida(
@@ -58,22 +41,47 @@ create table tb_bebida(
     nome_bebida varchar(50),
     tipo varchar(15),
     constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
-    -- marca varchar(50),
     experimental char(1),
-    constraint chkExperimental CHECK (experimental IN('S','N'))
+    constraint chkExperimental CHECK (experimental IN('S','N')),
+    id_empresa int,
+    constraint fk_empresa_bebida foreign key (id_empresa) references tb_empresa(id_empresa)
 );
+
+
+create table tb_dispenser(
+	id_dispenser int primary key auto_increment,
+    posicao tinyint, 
+    constraint chkPosicao check (posicao in(1, 2, 3, 4)),
+    id_maquina int, 
+    constraint fk_maquina foreign key (id_maquina) references tb_maquina(id_maquina)
+);
+
+/*
+create table tb_historicoBebidas(
+	id_historico int primary key auto_increment,
+    id_bebida int,
+    id_slot int,
+    inicio date, 
+    fim date
+);
+*/
+
 
 create table tb_sensor(
     id_sensor int primary key auto_increment,
     validade date,
     instalacao date,
     operando char(1), 
-    constraint chkOperando CHECK (operando IN('S','N'))
+    constraint chkOperando CHECK (operando IN('S','N')),
+    id_dispenser int,
+    constraint fk_dispenser foreign key (id_dispenser) references tb_dispenser(id_dispenser)
 );
 
 create table tb_registro(
 	id_registro int primary key auto_increment,
-    datahora_registro datetime default(current_timestamp())
+    datahora_registro datetime default(current_timestamp()),
+    id_sensor int,
+    constraint fk_senser foreign key (id_sensor) references tb_sensor(id_sensor)
 );
 
 -- ------------------------------------------------------------- ANTIGA VERSÃO ----------------------------------------------------------------
