@@ -1,4 +1,3 @@
-DROP database pumpdrink;
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
@@ -78,7 +77,7 @@ constraint fk_dispenser FOREIGN KEY (id_dispenser) references tb_dispenser(id_di
 
 CREATE TABLE tb_registro(
 id_registro INT PRIMARY KEY  auto_increment,
-datahora_registro DATETIME DEFAULT (current_timestamp()),
+datahora_registro DATETIME DEFAULT current_timestamp() ,
 id_sensor INT,
 constraint fk_senser FOREIGN KEY (id_sensor) references tb_sensor(id_sensor)
 );
@@ -99,7 +98,7 @@ telefone CHAR(11) NOT NULL,
 email VARCHAR(100) NOT NULL,
 senha VARCHAR(40) NOT NULL,
 dtContrato DATETIME DEFAULT current_timestamp,
-duracaoContrato TINYINT constraint chkDuracao CHECK (duracaoContrato >= 6) 
+duracaoContrato TINYINT, constraint chkDuracao CHECK (duracaoContrato >= 6) 
 );
 
 CREATE TABLE Bebidas (
