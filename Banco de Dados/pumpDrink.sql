@@ -1,20 +1,15 @@
-DROP database pumpdrink;
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
-create table tb_empresa(
-	id_empresa int primary key auto_increment,
-    nome_empresa varchar(150),
-    razao_social varchar(150),
-    CNPJ char(14),
-    cep char(8),
-    email varchar(150)
-    -- inicio_contrato date
-    -- fim_contrato date
-    -- ou
-    -- fk_contrato 
-    
-    -- duracao_contrato int, constraint chkDuracao check (duracaoContrato >= 6) 
+CREATE TABLE tb_empresa(
+id_empresa INT PRIMARY KEY auto_increment,
+nome_empresa VARCHAR(150),
+razao_social VARCHAR(150),
+CNPJ CHAR(14),
+cep CHAR(8),
+email VARCHAR(150),
+duracao_contrato TINYINT, 
+constraint chkDuracao CHECK (duracaoContrato >= 6) 
 );
 
 /*
@@ -25,26 +20,43 @@ create table tb_contrato(
 );
 */
 
-create table tb_usuario(
-	id_usuario int primary key auto_increment,
-    nome_usuario varchar(150),
-    email varchar(150),
-    senha varchar(50),
-    id_empresa int,
-    constraint fkEmpresa_usuario foreign key (id_empresa) references tb_empresa(id_empresa)
+CREATE TABLE tb_usuario(
+id_usuario INT PRIMARY KEY auto_increment,
+nome_usuario VARCHAR(150),
+email VARCHAR(150),
+senha VARCHAR(50),
+id_empresa INT,
+constraint fk_empresa_usuario FOREIGN KEY (id_empresa) references tb_empresa(id_empresa)
 );
 
-create table tb_maquina(
-	id_maquina int primary key auto_increment,
-    endereco varchar(150)
+CREATE TABLE tb_maquina(
+id_maquina INT PRIMARY KEY auto_increment,
+endereco VARCHAR(150),
+local_referencia VARCHAR(50)
+
 );
 
-create table tb_slot(
-	id_slot int primary key auto_increment,
-    id_maquina int, 
-    posicao int -- (1,2,3 ou 4)
+CREATE TABLE tb_bebida(
+id_bebida INT PRIMARY KEY auto_increment,
+nome_bebida VARCHAR(50),
+tipo VARCHAR(15),
+constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
+experimental CHAR(1),
+constraint chkExperimental CHECK (experimental IN('S','N')),
+id_empresa INT,
+constraint fk_empresa_bebida FOREIGN KEY (id_empresa) references tb_empresa(id_empresa)
 );
 
+
+CREATE TABLE tb_dispenser(
+id_dispenser INT PRIMARY KEY auto_increment,
+posicao TINYINT, 
+constraint chkPosicao CHECK (posicao IN(1, 2, 3, 4)),
+id_maquina INT, 
+constraint fk_maquina FOREIGN KEY (id_maquina) references tb_maquina(id_maquina)
+);
+
+/*
 create table tb_historicoBebidas(
 	id_historico int primary key auto_increment,
     id_bebida int,
@@ -52,28 +64,23 @@ create table tb_historicoBebidas(
     inicio date, 
     fim date
 );
+*/
 
-create table tb_bebida(
-	id_bebida int primary key auto_increment,
-    nome_bebida varchar(50),
-    tipo varchar(15),
-    constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
-    -- marca varchar(50),
-    experimental char(1),
-    constraint chkExperimental CHECK (experimental IN('S','N'))
+CREATE TABLE tb_sensor(
+id_sensor INT PRIMARY KEY auto_increment,
+validade DATE,
+instalacao DATE,
+operando CHAR(1), 
+constraint chkOperando CHECK (operando IN('S','N')),
+id_dispenser INT,
+constraint fk_dispenser FOREIGN KEY (id_dispenser) references tb_dispenser(id_dispenser)
 );
 
-create table tb_sensor(
-    id_sensor int primary key auto_increment,
-    validade date,
-    instalacao date,
-    operando char(1), 
-    constraint chkOperando CHECK (operando IN('S','N'))
-);
-
-create table tb_registro(
-	id_registro int primary key auto_increment,
-    datahora_registro datetime default(current_timestamp())
+CREATE TABLE tb_registro(
+id_registro INT PRIMARY KEY  auto_increment,
+datahora_registro DATETIME DEFAULT current_timestamp() ,
+id_sensor INT,
+constraint fk_senser FOREIGN KEY (id_sensor) references tb_sensor(id_sensor)
 );
 
 -- ------------------------------------------------------------- ANTIGA VERSÃO ----------------------------------------------------------------
@@ -92,7 +99,7 @@ telefone CHAR(11) NOT NULL,
 email VARCHAR(100) NOT NULL,
 senha VARCHAR(40) NOT NULL,
 dtContrato DATETIME DEFAULT current_timestamp,
-duracaoContrato tinyint constraint chkDuracao check (duracaoContrato >= 6) 
+duracaoContrato TINYINT, constraint chkDuracao CHECK (duracaoContrato >= 6) 
 );
 
 CREATE TABLE Bebidas (
@@ -100,26 +107,30 @@ idBebida INT PRIMARY KEY auto_increment,
 nomeBebida VARCHAR(50) NOT NULL,
 tipoBebida CHAR(15),
 marca VARCHAR(50),
-experimental CHAR(1) constraint chkExperimental CHECK (experimental IN('S','N')),
-disponibilidade VARCHAR(1) constraint chkDisp CHECK (disponibilidade IN('S','N'))
+experimental CHAR(1),
+constraint chkBebidaExperimental CHECK (experimental IN('S','N')),
+disponibilidade VARCHAR(1),
+constraint chkDisp CHECK (disponibilidade IN('S','N'))
 );
 
 CREATE TABLE SensorTCRT5000 (
 idSensor INT PRIMARY KEY auto_increment, -- 
-operando VARCHAR(1), constraint chkOperando CHECK (operando IN('S','N'))
+operando VARCHAR(1),
+constraint chkSensor CHECK (operando IN('S','N'))
 ); 
 -- fkIdBebida
 
 CREATE TABLE DadosSensores (
 idDadosSensores INT PRIMARY KEY auto_increment,
-dtAtual DATETIME DEFAULT current_timestamp ,
-presenca tinyint constraint chkpresenca CHECK (presenca IN(1))
+dtAtual DATETIME DEFAULT current_timestamp,
+presenca TINYINT,
+constraint chkpresenca CHECK (presenca IN(1))
 );
 -- fkIdSensor
 
 CREATE TABLE Maquina (
 idMaquina INT PRIMARY KEY auto_increment,
-slotMaquina tinyint,
+slotMaquina TINYINT,
 nomeLocal VARCHAR(50) NOT NULL,
 endereco VARCHAR(80) NOT NULL);
 -- fkIdSensor   --  fkIdBebida
