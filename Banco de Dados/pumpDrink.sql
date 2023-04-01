@@ -33,6 +33,7 @@ CREATE TABLE tb_maquina(
 id_maquina INT PRIMARY KEY auto_increment,
 endereco VARCHAR(150),
 local_referencia VARCHAR(50)
+
 );
 
 CREATE TABLE tb_bebida(
