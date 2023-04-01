@@ -4,36 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width= <div class=" container">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/login.css">
-    <link rel="stylesheet" type="text/css" media="screen"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
     <title>Pump Drink | Login</title>
-
 </head>
 
 <body>
-    <div class="header">
-        <div class="container-1"></div>
-        <div class="container-2"></div>
-        <div class="container-3">
-            <div class="login">
-                <div class="fields">
-                    <label><input type="email" maxlength="30" name="email" id="email" placeholder="e-mail"></label>
-                    <label><input type="password" maxlength="16" name="pwd" id="pwd" placeholder="senha"></label>
-                    <div class="btn_forms">
-                        <button type="button" class="btn_entrar">Entrar</button>
-                        <button type="submit" class="btn_voltar" routerLink="/jumbotron"> Voltar </button>
-                    </div>
-                    <div class="recuperacao_cadastro">
-                        <a class="recuperar_senha" href="index.html">Esqueceu sua senha?</a>
-                        <p class="sem_conta"> Não tem um conta? <a class="cadastrar" href="register.html">
-                                Cadastre-se</a></p>
-                    </div>
+
+
+    <div class="container-1">
+        <!-- HEADER PUMPDRINK -->
+        <div class="header">
+            <div class="container">
+                <div>
+                    <a href="home.html"><img src="./img/1.png" href="home.html" class="ppdrink"></a>
+                    <a href="home.html"><img src="./img/2.png" href="home.html" class="ppdrink"></a>
                 </div>
+                <ul class="navbar">
+                    <li><a href="home.html">INÍCIO</a></li>
+                    <li><a href="">ENTRAR</a></li>
+                    <li><a href="">SOBRE NÓS</a></li>
+                    <li><a href="">SIMULE</a></li>
+                    <li><a href="">CONTATE-NOS</a></li>
+                </ul>
             </div>
+        </div>
+    </div>
+
+    <div class="container-2">
+        <div class="login">
+            <h1>
+                Login
+            </h1>
+            <input class="email" type="email" maxlength="30" placeholder="*E-mail">
+            <input class="senha" type="password" maxlength="10" placeholder="*Senha">
+            <div class="btn_forms">
+                <button type="button" class="btn_entrar">Entrar</button>
+                <button type="submit" class="btn_voltar" routerLink="/jumbotron"> Voltar </button>
+            </div>
+            <div class="recuperacao_cadastro">
+                <a class="recuperar_senha" href="index.html">Esqueceu sua senha?</a>
+                <p class="sem_conta"> Não tem um conta? <a class="cadastrar" href="register.html">
+                        Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container-3">
+        <div class="logo">
+            <img class="img_logo" src="./assets/logo_sem_fundo.png">
+            <p class="pipe">|</p>
+            <p> Queremos fazer a diferença!</p>
         </div>
     </div>
 
