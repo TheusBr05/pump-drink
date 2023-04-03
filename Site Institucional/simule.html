@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PumpDrink | Home</title>
     <link rel="stylesheet" href="CSS/home.css">
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <link rel="shortcut icon" href="img/3.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/simule.css">
+
+
 </head>
+
 <body>
     <!-- HEADER PUMPDRINK -->
     <div class="header">
@@ -21,15 +26,32 @@
                 <li><a href="home.html">HOME</a></li>
                 <li><a href="">LOGIN</a></li>
                 <li><a href="">SOBRE NÓS</a></li>
-                <li><a href="">SIMULE</a></li>
+                <li><a href="../Calculadora Financeira/calculadora_financeira.html">SIMULE</a></li>
                 <li><a href="">CONTATE-NOS</a></li>
             </ul>
         </div>
     </div>
+    <div class="campos_calculadora meio">
+        <div class="container">
+            <h2>Simule aqui!</h2>
+            Gastos convencionais para o teste de aceitação: <input id="input_gasto_convencional">
+            Quantidade de máquinas que deseja alugar:<input id="input_qtd_maquinas">
+            Quantidade de meses que deseja alugar <input id="input_qtd_meses" type="number" min="6">
+            <button onclick="calcular_economia()">
+
+                Simular Economia
+            </button>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div id="div_resultado"></div>
 
     <!-- Sobre nós -->
 
-    <div class="meio">
+    <!-- <div class="meio"> 
         <div class="container">
             <div class="primeira_parte">
                 <div class="primeiro_texto">
@@ -64,14 +86,40 @@
                 <button>Enviar</button>
             </div>
         </div>
-    </div>
+     </div> -->
 
     <!-- FOOTER PUMPDRINK -->
     <div class="footer">
         <div class="container">
             <h4>©PumpDrink 2023</h4>
+        </div>
+
     </div>
-     
-</div>
 </body>
+
 </html>
+
+<script>
+    function calcular_economia() {
+
+        var gastoConvencional = Number(input_gasto_convencional.value);
+        var qtdMaquinas = Number(input_qtd_maquinas.value);
+        var qtdMeses = Number(input_qtd_meses.value);
+        var custoBase = 2000;
+
+        var custoMaquina = 36000;
+        var porcValorMaquina = (custoMaquina * 0.008) //  aluguel de uma maquina por mes
+
+        var valorTotalAluguel = ((porcValorMaquina * qtdMaquinas) * qtdMeses) // valor total da quantidade das maquinas
+        var valorSoftware = (valorTotalAluguel * 0.05)  // custo
+        var valorTotalPlano = valorSoftware + valorTotalAluguel + custoBase
+
+        var economia = gastoConvencional - valorTotalPlano
+
+        div_resultado.innerHTML = `
+        <h5 class="resultado_calculo">O valor atual de um teste de aceitação é de <span style="color: red">R$${gastoConvencional}</span> <br>
+        O valor do nosso serviço é de <span style="color: blue">R$${valorTotalPlano}</span> <br>
+        Contratando nosso serviço você economizará:
+        <b style="color: green">R$${economia}</b></h5>`
+    }
+</script>
