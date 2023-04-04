@@ -1,13 +1,13 @@
-*{
+* {
   font-family: arial;
 }
 
-body{
+body {
   margin: 0;
   border: 0;
 }
 
-.container{
+.container {
   display: flex;
   width: 80%;
   margin: auto;
@@ -15,13 +15,12 @@ body{
 
 /* HEADER */
 
-.ppdrink{
+.ppdrink {
   max-width: 100px;
-
 }
 
-.header{
-  background-color: #1D676D;
+.header {
+  background-color: #1d676d;
   /* border-bottom: 3px solid #32b9cd; */
   /* position: fixed; */
   width: 100vw;
@@ -30,16 +29,16 @@ body{
 /* para colocar a header para descer junto com a pagina tem que colocar: "position: fixed;
 width: 100vw;" na header */
 
-.header .container{
+.header .container {
   justify-content: space-between;
 }
 
-.titulo{
+.titulo {
   color: #32b9cd;
   font-weight: 900;
 }
 
-.navbar{
+.navbar {
   display: flex;
 
   gap: 30px;
@@ -47,17 +46,17 @@ width: 100vw;" na header */
   list-style: none;
 }
 
-.navbar a{
+.navbar a {
   color: #ffff;
   text-decoration: none;
 }
 
 /* começo do footer */
 
-.footer{
+.footer {
   width: 100vw;
   height: 100px;
-  background-color: #1D676D;
+  background-color: #1d676d;
   color: white;
   /* display: flex; */
   /* justify-content: center; */
@@ -66,7 +65,7 @@ width: 100vw;" na header */
 /* utilizando o height nao precisa colocar o diplay flex 
 no footer */
 
-.footer .container{
+.footer .container {
   justify-content: center;
   align-items: center;
   height: 100%;
