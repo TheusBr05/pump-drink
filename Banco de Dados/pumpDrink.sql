@@ -60,7 +60,7 @@ constraint fk_maquina FOREIGN KEY (id_maquina) references tb_maquina(id_maquina)
 create table tb_historicoBebidas(
 	id_historico int primary key auto_increment,
     id_bebida int,
-    id_slot int,
+    id_dispenser int,
     inicio date, 
     fim date
 );
