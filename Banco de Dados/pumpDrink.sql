@@ -1,3 +1,4 @@
+
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
@@ -19,11 +20,11 @@ CREATE TABLE tb_empresa(
 id_empresa INT PRIMARY KEY auto_increment,
 nome_empresa VARCHAR(150),
 razao_social VARCHAR(150),
-CNPJ CHAR(14),
-cep CHAR(8),
+CNPJ CHAR(18),
+cep CHAR(9),
 email VARCHAR(150),
 duracao_contrato TINYINT, 
-constraint chkDuracao CHECK (duracaoContrato >= 6) 
+constraint chkDuracao CHECK (duracao_contrato >= 6) 
 );
 
 CREATE TABLE tb_usuario(
@@ -32,15 +33,19 @@ nome_usuario VARCHAR(150),
 email VARCHAR(150),
 senha VARCHAR(50),
 id_empresa INT,
+nivel_usuario char(3),
+constraint chk_nivelUser check (nivel_usuario in ("adm", "cmm")),
 constraint fk_empresa_usuario FOREIGN KEY (id_empresa) references tb_empresa(id_empresa)
 );
+
 
 CREATE TABLE tb_maquina(
 id_maquina INT PRIMARY KEY auto_increment,
 descricao TEXT,
-fk_endereco int,
-constraint fk_endereco_maquina foreign key (fk_endereco) references tb_endereco(id_endereco)
+fk_local int,
+constraint fk_local_maquina foreign key (fk_local) references tb_local(id_local)
 );
+
 
 CREATE TABLE tb_bebida(
 id_bebida INT PRIMARY KEY auto_increment,
@@ -89,90 +94,37 @@ id_sensor INT,
 constraint fk_senser FOREIGN KEY (id_sensor) references tb_sensor(id_sensor)
 );
 
--- ------------------------------------------------------------- ANTIGA VERSÃO ----------------------------------------------------------------
+-- ------------------------------------------------------------- INSERTS----------------------------------------------------------------
 
-CREATE TABLE usuario (
-idUsuario INT PRIMARY KEY auto_increment,
-nomeUsuario VARCHAR(100) NOT NULL,
-razaoSocial VARCHAR(100) NOT NULL,
-cnpj CHAR(14) NOT NULL UNIQUE,
-endereco VARCHAR(80) NOT NULL,
-bairro VARCHAR(50) NOT NULL,
-cep CHAR(8) NOT NULL,
-cidade VARCHAR(40) NOT NULL,
-estado VARCHAR(10) NOT NULL,
-telefone CHAR(11) NOT NULL,
-email VARCHAR(100) NOT NULL,
-senha VARCHAR(40) NOT NULL,
-dtContrato DATETIME DEFAULT current_timestamp,
-duracaoContrato TINYINT, constraint chkDuracao CHECK (duracaoContrato >= 6) 
-);
+SHOW TABLES;
 
-CREATE TABLE Bebidas (
-idBebida INT PRIMARY KEY auto_increment,
-nomeBebida VARCHAR(50) NOT NULL,
-tipoBebida CHAR(15),
-marca VARCHAR(50),
-experimental CHAR(1),
-constraint chkBebidaExperimental CHECK (experimental IN('S','N')),
-disponibilidade VARCHAR(1),
-constraint chkDisp CHECK (disponibilidade IN('S','N'))
-);
+DESC tb_empresa;
+INSERT INTO tb_empresa VALUES 
+	(NULL, "Growth", "Growth Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@growth.com", 72),
+    (NULL, "StarBucks", "StarBucks - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@starbucks.com", 48),
+    (NULL, "YoPRO", "YoPRO - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@yopro.com", 55),
+    (NULL, "Dux", "Dux Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@gdux.com", 36),
+    (NULL, "Piracanjuba", "Piracanjuba - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@piracanjuba.com", 12);
 
-CREATE TABLE SensorTCRT5000 (
-idSensor INT PRIMARY KEY auto_increment, -- 
-operando VARCHAR(1),
-constraint chkSensor CHECK (operando IN('S','N'))
-); 
--- fkIdBebida
+DESC tb_usuario;
+INSERT INTO tb_usuario VALUES
+	(NULL, "Melissa", "melissa@gmail.com", "12345", 2, "adm"),
+    (NULL, "Ciliberti", "ciliberti@gmail.com", "seliberte",2 , "cmm"),
+    (NULL, "Matheus", "mat_henri@gmail.com", "eus",5 , "adm"),
+    (NULL, "Ivete Sangalo", "ivete@gmail.com", "sangalo",5 , "cmm"),
+    (NULL, "Felipe", "naufel@gmail.com", "felps",1 , "adm"),
+    (NULL, "Arthur Ali", "ali@gmail.com", "ali",4 , "adm"),
+    (NULL, "Isabel", "isinha@gmail.com", "bel",3 , "adm");
 
-CREATE TABLE DadosSensores (
-idDadosSensores INT PRIMARY KEY auto_increment,
-dtAtual DATETIME DEFAULT current_timestamp,
-presenca TINYINT,
-constraint chkpresenca CHECK (presenca IN(1))
-);
--- fkIdSensor
+DESC tb_local;
+INSERT INTO tb_local VALUES 
+	("Starbucks Haddock Lobo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Cerqueira César", "Rua Haddock Lobo", 608, NULL),
+    ("SmartFit Capão Redondo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Capão redondo", "Av. Comendador Sant'Anna", 634, NULL),
+    ("Shopping mais", "Sudeste", "São Paulo", "São Paulo", "Santo Amaro", "Rua Haddock Lobo", 608, NULL);
+SELECT * FROM tb_empresa;
+    
+    
+    
+    
 
-CREATE TABLE Maquina (
-idMaquina INT PRIMARY KEY auto_increment,
-slotMaquina TINYINT,
-nomeLocal VARCHAR(50) NOT NULL,
-endereco VARCHAR(80) NOT NULL);
--- fkIdSensor   --  fkIdBebida
 
-INSERT INTO Usuario (nomeUsuario, razaoSocial, cnpj, endereco, bairro, cep, cidade, estado, telefone, email, senha, duracaoContrato) VALUES
-('Integralmedica', 'BRG Suplementos Nutricionais LTDA', '57235426000141', 'Rodovia Jose Simoes Louro Junior 40582' ,
-'VAL FLOR', '06906100', 'EMBU-GUACU', 'SP', '01146627300', 'grupo-fiscal@integralmedica.com.br', '000000000', '6'),
-('GROWTH SUPPLEMENTS', 'GROWTH SUPPLEMENTS - PRODUTOS ALIMENTICIOS LTDA', '10832644000108', 'Av Wilson Lemos, 2850', 
-'Santa Luzia', '88200000', 'Tijucas', 'SC', '4892116480', 'fiscalgrowthsupplements@gmail.com', '0000000000','6'),
-('MAX Titanium', 'SUPLEY LABORATORIO DE ALIMENTOS E SUPLEMENTOS NUTRICIONAIS LTDA', '07578713000429', 'Avenida Jose Pilo, 161', 
-'DISTRITO INDUSTRIAL ADOLFO BALDAN', '15991312', 'Matão', 'SP', '1635062045','sueli@supley.com.br', '00000000','6');
-
-INSERT INTO Bebidas VALUES
-(NULL, 'Huger Maçã','Pré-Treino', ' Integralmedica', 'N', 'S'),
-(NULL, 'Bebida Fictícia 01','Pré-Treino', ' Integralmedica', 'S', 'S'),
-(NULL, 'Bebida Fictícia 02','Pós-Treino', ' Integralmedica', 'S', 'S'),
-(NULL, 'R4:1 Recovery Powder Limão', 'Pós-treino',' Integralmedica', 'N', 'S'),
-(NULL, 'Whey Protein Isolado Morango', 'Pós-Treino','Growth', 'N','S'),
-(NULL, 'Haze Hardcore Tutti-Frutti', 'Pré-Treino','Growth', 'N', 'S'),
-(NULL, 'Bebida Fictícia 03', 'Pré-Treino','Growth', 'S', 'S'),
-(NULL, 'Bebida Fictícia 04', 'Pós-Treino','Growth', 'S', 'S'),
-(NULL, 'IsoWhey Baunilha', 'Pós-Treino','MaxTitanium', 'N', 'S'),
-(NULL, 'Égide Frutas Vermelhas', 'Pré-Treino','MaxTitanium', 'N', 'S'),
-(NULL, 'Bebida Fictícia 05', 'Pré-Treino','MaxTitanium', 'S', 'S'),
-(NULL, 'Bebida Fictícia 06', 'Pós-Treino','MaxTitanium', 'S', 'S');
-
-INSERT INTO sensortcrt5000 VALUES
-(NULL, 'S'),
-(NULL, 'N'),
-(NULL, 'S'),
-(NULL, 'N'),
-(NULL, 'S'),
-(NULL, 'N'),
-(NULL, 'S'),
-(NULL, 'S'),
-(NULL, 'S'),
-(NULL, 'S'),
-(NULL, 'N'),
-(NULL, 'S');
