@@ -1,6 +1,20 @@
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
+create table tb_local(
+	id_local INT PRIMARY KEY auto_increment,
+    nome VARCHAR(50),
+    pais VARCHAR(50),
+    regiao VARCHAR(50),
+    estado VARCHAR(50),
+    cidade VARCHAR(50),
+    bairro VARCHAR(50),
+    rua VARCHAR(50),
+    numero INT,
+    complemento VARCHAR(100),
+    cep char(9)
+);
+
 CREATE TABLE tb_empresa(
 id_empresa INT PRIMARY KEY auto_increment,
 nome_empresa VARCHAR(150),
@@ -11,14 +25,6 @@ email VARCHAR(150),
 duracao_contrato TINYINT, 
 constraint chkDuracao CHECK (duracaoContrato >= 6) 
 );
-
-/*
-create table tb_contrato(
-	id_contrato int primary key auto_increment,
-    inicio_contrato date,
-    fim_contrato date
-);
-*/
 
 CREATE TABLE tb_usuario(
 id_usuario INT PRIMARY KEY auto_increment,
@@ -31,9 +37,9 @@ constraint fk_empresa_usuario FOREIGN KEY (id_empresa) references tb_empresa(id_
 
 CREATE TABLE tb_maquina(
 id_maquina INT PRIMARY KEY auto_increment,
-endereco VARCHAR(150),
-local_referencia VARCHAR(50)
-
+descricao TEXT,
+fk_endereco int,
+constraint fk_endereco_maquina foreign key (fk_endereco) references tb_endereco(id_endereco)
 );
 
 CREATE TABLE tb_bebida(
