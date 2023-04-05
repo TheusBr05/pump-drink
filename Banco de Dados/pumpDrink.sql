@@ -32,10 +32,10 @@ id_usuario INT PRIMARY KEY auto_increment,
 nome_usuario VARCHAR(150),
 email VARCHAR(150),
 senha VARCHAR(50),
-id_empresa INT,
+fk_empresa INT,
 nivel_usuario char(3),
 constraint chk_nivelUser check (nivel_usuario in ("adm", "cmm")),
-constraint fk_empresa_usuario FOREIGN KEY (id_empresa) references tb_empresa(id_empresa)
+constraint fk_empresa_usuario FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
 );
 
 
@@ -54,8 +54,8 @@ tipo VARCHAR(15),
 constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
 experimental CHAR(1),
 constraint chkExperimental CHECK (experimental IN('S','N')),
-id_empresa INT,
-constraint fk_empresa_bebida FOREIGN KEY (id_empresa) references tb_empresa(id_empresa)
+fk_empresa INT,
+constraint fk_empresa_bebida FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
 );
 
 
@@ -63,8 +63,8 @@ CREATE TABLE tb_dispenser(
 id_dispenser INT PRIMARY KEY auto_increment,
 posicao TINYINT, 
 constraint chkPosicao CHECK (posicao IN(1, 2, 3, 4)),
-id_maquina INT, 
-constraint fk_maquina FOREIGN KEY (id_maquina) references tb_maquina(id_maquina)
+fk_maquina INT, 
+constraint fkMaquina FOREIGN KEY (fk_maquina) references tb_maquina(id_maquina)
 );
 
 /*
@@ -83,15 +83,15 @@ validade DATE,
 instalacao DATE,
 operando CHAR(1), 
 constraint chkOperando CHECK (operando IN('S','N')),
-id_dispenser INT,
-constraint fk_dispenser FOREIGN KEY (id_dispenser) references tb_dispenser(id_dispenser)
+fk_dispenser INT,
+constraint fkDispenser FOREIGN KEY (fk_dispenser) references tb_dispenser(id_dispenser)
 );
 
 CREATE TABLE tb_registro(
 id_registro INT PRIMARY KEY  auto_increment,
 datahora_registro DATETIME DEFAULT current_timestamp() ,
-id_sensor INT,
-constraint fk_senser FOREIGN KEY (id_sensor) references tb_sensor(id_sensor)
+fk_sensor INT,
+constraint fkSenser FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor)
 );
 
 -- ------------------------------------------------------------- INSERTS----------------------------------------------------------------
@@ -118,13 +118,110 @@ INSERT INTO tb_usuario VALUES
 
 DESC tb_local;
 INSERT INTO tb_local VALUES 
-	("Starbucks Haddock Lobo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Cerqueira César", "Rua Haddock Lobo", 608, NULL),
-    ("SmartFit Capão Redondo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Capão redondo", "Av. Comendador Sant'Anna", 634, NULL),
-    ("Shopping mais", "Sudeste", "São Paulo", "São Paulo", "Santo Amaro", "Rua Haddock Lobo", 608, NULL);
-SELECT * FROM tb_empresa;
+	(NULL,"Starbucks Haddock Lobo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Cerqueira César", "Rua Haddock Lobo", 608, NULL, "00000-000"),
+    (NULL,"SmartFit Capão Redondo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Capão redondo", "Av. Comendador Sant'Anna", 634, NULL, "00000-000"),
+    (NULL,"Shopping mais", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Santo Amaro", "Rua Haddock Lobo", 608, NULL, "00000-000"),
+	(NULL,"Parque Ibirapuera", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Vila Mariana", "Av. Pedro Álvares Cabral", NULL, NULL, "00000-000"),
+    (NULL,"Smart Fit - Prado Boulevard", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Vila Mariana", "Av. Pedro Álvares Cabral", 2480, NULL, "00000-000");
     
+DESC tb_maquina;
+INSERT INTO tb_maquina VALUES
+	(NULL, "Essa máquina está localizada perto da entrada da academia", 2),
+    (NULL, "Primeira máquina em que a bebida x foi lançada", 1),
+    (NULL, "Está pocalizado ao lado da loja sports", 3),
+    (NULL, "Localizado na saída", 4),
+    (NULL, "Ao lado do bebedouro", 5);
+
+DESC tb_dispenser;
+INSERT INTO tb_dispenser VALUES
+	-- Máquina 1
+	(NULL, 1, 1),
+    (NULL, 2, 1),
+    (NULL, 3, 1),
+    (NULL, 4, 1),
+    -- Máquina 2
+	(NULL, 1, 2),
+    (NULL, 2, 2),
+    (NULL, 3, 2),
+    (NULL, 4, 2),
+    -- Máquina 3
+	(NULL, 1, 3),
+    (NULL, 2, 3),
+    (NULL, 3, 3),
+    (NULL, 4, 3),
+    -- Máquina 4
+	(NULL, 1, 4),
+    (NULL, 2, 4),
+    (NULL, 3, 4),
+    (NULL, 4, 4),
+     -- Máquina 5
+	(NULL, 1, 5),
+    (NULL, 2, 5),
+    (NULL, 3, 5),
+    (NULL, 4, 5);
+
+DESC tb_bebida; 
+INSERT INTO tb_bebida VALUES
+    (NULL, "Suco de uva", "Pré-Treino", "S", 1),
+    (NULL, "Suco de Manga", "Pós-Treino", "N", 1),
+    (NULL, "Café", "Pré-Treino", "S", 2),
+    (NULL, "Chá", "Pós-Treino", "N", 2),
+    (NULL, "Coca-cola", "Pré-Treino", "S", 3),
+    (NULL, "Guaraná", "Pós-Treino", "N", 3),
+    (NULL, "Gatorade", "Pré-Treino", "S", 4),
+    (NULL, "Ironage", "Pós-Treino", "N", 4),
+	(NULL, "Todynho", "Pré-Treino", "S", 5),
+    (NULL, "Nescau", "Pós-Treino", "N", 5);
     
-    
+SHOW TABLES;
+
+DESC tb_sensor;
+INSERT INTO tb_sensor VALUES
+	(NULL, "2025-05-11", "2022-04-04", "S", "1"),
+    (NULL, "2025-05-11", "2022-04-04", "S", "2"),
+    (NULL, "2025-05-11", "2022-04-04", "S", "3"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "4"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "5"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "6"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "7"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "8"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "9"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "10"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "11"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "12"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "13"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "14"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "15"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "16"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "17"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "18"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "19"),
+	(NULL, "2025-05-11", "2022-04-04", "S", "20");
+
+
+DESC tb_registro;
+INSERT INTO tb_registro VALUES
+    (NULL, default, "1"),
+    (NULL, default, "2"),
+    (NULL, default, "3"),
+	(NULL, default,"4"),
+	(NULL, default,"5"),
+	(NULL, default,"6"),
+	(NULL, default,"7"),
+	(NULL, default,"8"),
+	(NULL, default,"9"),
+	(NULL, default,"10"),
+	(NULL, default,"11"),
+	(NULL, default,"12"),
+	(NULL, default,"13"),
+	(NULL, default,"14"),
+	(NULL, default,"15"),
+	(NULL, default,"16"),
+	(NULL, default,"17"),
+	(NULL, default,"18"),
+	(NULL, default,"19"),
+	(NULL, default,"20");
+       
     
 
 
