@@ -1,4 +1,3 @@
-
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
@@ -17,54 +16,54 @@ create table tb_local(
 );
 
 CREATE TABLE tb_empresa(
-id_empresa INT PRIMARY KEY auto_increment,
-nome_empresa VARCHAR(150),
-razao_social VARCHAR(150),
-CNPJ CHAR(18),
-cep CHAR(9),
-email VARCHAR(150),
-duracao_contrato TINYINT, 
-constraint chkDuracao CHECK (duracao_contrato >= 6) 
+ 	id_empresa INT PRIMARY KEY auto_increment,
+	nome_empresa VARCHAR(150),
+	razao_social VARCHAR(150),
+	CNPJ CHAR(18),
+	cep CHAR(9),
+	email VARCHAR(150),
+	duracao_contrato TINYINT, 
+	constraint chkDuracao CHECK (duracao_contrato >= 6) 
 );
 
 CREATE TABLE tb_usuario(
-id_usuario INT PRIMARY KEY auto_increment,
-nome_usuario VARCHAR(150),
-email VARCHAR(150),
-senha VARCHAR(50),
-fk_empresa INT,
-nivel_usuario char(3),
-constraint chk_nivelUser check (nivel_usuario in ("adm", "cmm")),
-constraint fk_empresa_usuario FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
+	id_usuario INT PRIMARY KEY auto_increment,
+	nome_usuario VARCHAR(150),
+	email VARCHAR(150),
+	senha VARCHAR(50),
+	fk_empresa INT,
+	nivel_usuario char(3),
+	constraint chk_nivelUser check (nivel_usuario in ("adm", "cmm")),
+	constraint fk_empresa_usuario FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
 );
 
 
 CREATE TABLE tb_maquina(
-id_maquina INT PRIMARY KEY auto_increment,
-descricao TEXT,
-fk_local int,
-constraint fk_local_maquina foreign key (fk_local) references tb_local(id_local)
+	id_maquina INT PRIMARY KEY auto_increment,	
+	descricao TEXT,
+	fk_local int,
+	constraint fk_local_maquina foreign key (fk_local) references tb_local(id_local)
 );
 
 
 CREATE TABLE tb_bebida(
-id_bebida INT PRIMARY KEY auto_increment,
-nome_bebida VARCHAR(50),
-tipo VARCHAR(15),
-constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
-experimental CHAR(1),
-constraint chkExperimental CHECK (experimental IN('S','N')),
-fk_empresa INT,
-constraint fk_empresa_bebida FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
+	id_bebida INT PRIMARY KEY auto_increment,
+	nome_bebida VARCHAR(50),
+	tipo VARCHAR(15),
+	constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
+	experimental CHAR(1),
+	constraint chkExperimental CHECK (experimental IN('S','N')),
+	fk_empresa INT,
+	constraint fk_empresa_bebida FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
 );
 
 
 CREATE TABLE tb_dispenser(
-id_dispenser INT PRIMARY KEY auto_increment,
-posicao TINYINT, 
-constraint chkPosicao CHECK (posicao IN(1, 2, 3, 4)),
-fk_maquina INT, 
-constraint fkMaquina FOREIGN KEY (fk_maquina) references tb_maquina(id_maquina)
+	id_dispenser INT PRIMARY KEY auto_increment,
+	posicao TINYINT, 
+	constraint chkPosicao CHECK (posicao IN(1, 2, 3, 4)),
+	fk_maquina INT, 
+	constraint fkMaquina FOREIGN KEY (fk_maquina) references tb_maquina(id_maquina)
 );
 
 /*
@@ -78,20 +77,20 @@ create table tb_historicoBebidas(
 */
 
 CREATE TABLE tb_sensor(
-id_sensor INT PRIMARY KEY auto_increment,
-validade DATE,
-instalacao DATE,
-operando CHAR(1), 
-constraint chkOperando CHECK (operando IN('S','N')),
-fk_dispenser INT,
-constraint fkDispenser FOREIGN KEY (fk_dispenser) references tb_dispenser(id_dispenser)
+	id_sensor INT PRIMARY KEY auto_increment,
+	validade DATE,
+	instalacao DATE,
+	operando CHAR(1), 
+	constraint chkOperando CHECK (operando IN('S','N')),
+	fk_dispenser INT,
+	constraint fkDispenser FOREIGN KEY (fk_dispenser) references tb_dispenser(id_dispenser)
 );
 
 CREATE TABLE tb_registro(
-id_registro INT PRIMARY KEY  auto_increment,
-datahora_registro DATETIME DEFAULT current_timestamp() ,
-fk_sensor INT,
-constraint fkSenser FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor)
+	id_registro INT PRIMARY KEY  auto_increment,
+	datahora_registro DATETIME DEFAULT current_timestamp() ,
+	fk_sensor INT,
+	constraint fkSenser FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor)
 );
 
 -- ------------------------------------------------------------- INSERTS----------------------------------------------------------------
