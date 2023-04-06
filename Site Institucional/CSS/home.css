@@ -1,4 +1,7 @@
 /* Sobre nós */
+body {
+  overflow-x: hidden;
+}
 
 .meio {
   background-color: #77a4a6;
