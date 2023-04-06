@@ -1,8 +1,8 @@
-.campos_calculadora {
+.calculadora {
   display: flex;
   flex-direction: column;
-  justify-content: right;
-  align-items: right;
+}
+.campos_calculadora {
   width: 100vw;
   /* width: 100%;
     height: 100%;
@@ -12,16 +12,43 @@
 .campos_calculadora h2 {
   color: #1d676d;
   margin-bottom: 25px;
+  margin-left: 15px;
 }
 
 .meio {
   background-color: #77a4a6;
 }
 
-.btn_calculadora {
+.calculadora .btn_calculadora {
+  width: 265px;
+  margin-top: 10px;
 }
 
 spam {
   color: white;
   margin: 0;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 3px;
+}
+
+.calculadora #input_gasto_convencional {
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+.calculadora #input_qtd_maquinas {
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+.calculadora #input_qtd_meses {
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+
+.calculadora h2,
+spam {
+  width: 300px;
 }
