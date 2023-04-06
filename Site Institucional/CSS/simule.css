@@ -1,0 +1,29 @@
+.container-simulador {
+  width: 100%;
+}
+
+.campos_calculadora_meio {
+    display: flex;
+     flex-direction: column;
+  padding: 5px;
+  margin: 150px;
+  margin-left: 1px;
+}
+
+.campos_calculadora_meio h2 {
+  color: #1d676d;
+  margin-bottom: px;
+  
+}
+
+.btn_simular{
+    margin-top: 5px;
+    padding: 0 20px;
+    background-color: #1d676d;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    width: 260px;
+    cursor: pointer;
+}
