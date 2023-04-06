@@ -1,182 +1,111 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  body {
-    background-color: #77a4a6;
-  }
-
-
-/* HEADER */  
-
-.ppdrink{
-    max-width: 100px;
-}
-
-.header{
-    background-color: #1D676D;
-    /* border-bottom: 3px solid #32b9cd; */
-    /* position: fixed; */
-    /* width: 100%; */
-}
-
-/* para colocar a header para descer junto com a pagina tem que colocar: "position: fixed;
-width: 100vw;" na header */
-
-.header .container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-} 
-
-.titulo{
-    color: #32b9cd;
-    font-weight: 900;
-}
-
-.navbar{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    list-style: none;
-}
-
-.navbar a{
-    color: #ffff;
-    text-decoration: none;
-}
-
-/* começo do footer */
-
-.footer{
-    width: 100%;
-    height: 100px;
-    background-color: #1D676D;
-    color: white;
-    /* display: flex; */
-    /* justify-content: center; */
-}
-
-/* utilizando o height nao precisa colocar o diplay flex 
-no footer */
-
-.footer .container{
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
 /* Sobre nós */
 
 .meio {
-    background-color: #77a4a6;
+  background-color: #77a4a6;
+  width: 100vw;
 }
 
-.meio h2{
-    color: #1D676D;
-    margin: 0;
-    padding-top: 70px;
-    font-size: 35px;
-    font-weight: 800;
+.meio h2 {
+  color: #1d676d;
+  margin: 0;
+  padding-top: 70px;
+  font-size: 35px;
+  font-weight: 800;
 }
 
-.meio .container{
-    width: 70%;
-    flex-direction: column;
-    padding-bottom: 100px;
+.meio .container {
+  width: 70%;
+  flex-direction: column;
+  padding-bottom: 100px;
 }
 
-.meio p{
-    width: 500px;
-    color: white;
+.meio p {
+  width: 500px;
+  color: white;
 }
 
 /* Conheça a pump drink */
 
-.imagem1{
-    background-color: #1D676D;
-    height: 300px;
-    width: 300px;
-    margin-top: 100px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: baseline;
+.imagem1 {
+  background-color: #1d676d;
+  height: 300px;
+  width: 300px;
+  margin-top: 100px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
 }
 
-.primeira_parte{
-    display: flex; 
-    justify-content: space-around;
+.primeira_parte {
+  display: flex;
+  justify-content: space-around;
 }
 
 /* Saiba um pouco mais */
 
-.segunda_parte{
-    display: flex; 
-    justify-content: space-around;
+.segunda_parte {
+  display: flex;
+  justify-content: space-around;
 }
 
-.meio span{
-    color: #1D676D;
-    font-size: 35px;
-    font-weight: 700;
+.meio span {
+  color: #1d676d;
+  font-size: 35px;
+  font-weight: 700;
 }
 
-.segunda_parte h2{
-    padding-left: 8px;
+.segunda_parte h2 {
+  padding-left: 8px;
 }
 
-.imagem2{
-    background-color: #1D676D;
-    height: 517px;
-    width: 270px;
-    margin-top: 100px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
+.imagem2 {
+  background-color: #1d676d;
+  height: 517px;
+  width: 270px;
+  margin-top: 100px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 /* contato  */
 
-.contato{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.contato p{
-    width: 600px;
-    font-size: 25px;
-    text-align: center;
+.contato p {
+  width: 600px;
+  font-size: 25px;
+  text-align: center;
 }
 
-input{
-    margin: 10px 0;
-    border-radius: 10px;
-    height: 30px;
-    width: 250px;
-    border: 0;
-    background-color: #DEDEDE;
-    padding: 8px;
-    
+input {
+  margin: 10px 0;
+  border-radius: 10px;
+  height: 30px;
+  width: 250px;
+  border: 0;
+  background-color: #dedede;
+  padding: 8px;
 }
-#msg{
-    background-color: #DEDEDE;
-    border-radius: 10px;
-    width: 250px;
-    height: 100px;
-    padding: 8px;
-    margin-bottom: 50px;
+#msg {
+  background-color: #dedede;
+  border-radius: 10px;
+  width: 250px;
+  height: 100px;
+  padding: 8px;
+  margin-bottom: 50px;
 }
 
-button{
-    background-color: #1D676D;
-    color: white;
-    border: 0;
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
+button {
+  background-color: #1d676d;
+  color: white;
+  border: 0;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
 }

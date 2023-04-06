@@ -1,29 +1,27 @@
-.container-simulador {
-  width: 100%;
+.campos_calculadora {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right;
+  width: 100vw;
+  /* width: 100%;
+    height: 100%;
+    padding: 5%; */
 }
 
-.campos_calculadora_meio {
-    display: flex;
-     flex-direction: column;
-  padding: 5px;
-  margin: 150px;
-  margin-left: 1px;
-}
-
-.campos_calculadora_meio h2 {
+.campos_calculadora h2 {
   color: #1d676d;
-  margin-bottom: px;
-  
+  margin-bottom: 25px;
 }
 
-.btn_simular{
-    margin-top: 5px;
-    padding: 0 20px;
-    background-color: #1d676d;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    border: 0;
-    width: 260px;
-    cursor: pointer;
+.meio {
+  background-color: #77a4a6;
+}
+
+.btn_calculadora {
+}
+
+spam {
+  color: white;
+  margin: 0;
 }
