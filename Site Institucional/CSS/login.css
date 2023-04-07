@@ -1,25 +1,19 @@
-.container-1 {
-  background-color: #022a2d;
-  width: 50%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-radius: 0px 0px 20px 0px;
-}
-
 .container-2 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #77a4a6;
+  
+  flex-grow: 1;
+  flex-basis: auto;
+}
 
-  position: absolute;
-  left: 9%;
-  right: 60%;
-  top: 25%;
-  bottom: 25%;
+.login{
+  background-color: #022a2d;
+  padding: 20px 40px;
+  border-radius: 20px;
+  
 }
 
 .container-2 h1 {
@@ -28,22 +22,18 @@
   color: #1d676d;
   font-size: 300%;
   font-weight: bold;
+  margin-bottom: 70px;
 }
 
 .container-2 .login input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 70px;
+  margin-bottom: 40px;
   border: 0;
   border-radius: 5px;
   padding: 20px;
   padding-right: 400px;
-}
-
-.container-2 .login .senha {
-  margin-top: 40px;
-  margin-bottom: 30px;
 }
 
 .btn_forms {
@@ -79,30 +69,4 @@
   margin-left: 8px;
   text-decoration: none;
 }
-.container-3 {
-  margin-top: 5%;
-  position: fixed;
-  left: 55%;
-  right: 10%;
-  top: 18%;
-  bottom: 20%;
-}
 
-.container-3 .logo {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-  width: 25rem;
-  height: 25rem;
-}
-
-.container-3 .logo p {
-  color: white;
-  font-weight: 600;
-  font-size: 50px;
-  align-self: center;
-}
-
-.pipe {
-  margin-right: 30px;
-}

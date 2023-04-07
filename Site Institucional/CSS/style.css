@@ -3,8 +3,12 @@
 }
 
 body {
+  display: flex;
+    flex-flow: column;
+    height: 100vh;
   margin: 0;
   border: 0;
+  height: 100vh;
 }
 
 .container {
@@ -20,6 +24,8 @@ body {
 }
 
 .header {
+  flex-grow: 0;
+  flex-basis: auto;
   background-color: #1d676d;
   /* border-bottom: 3px solid #32b9cd; */
   /* position: fixed; */
@@ -54,6 +60,7 @@ width: 100vw;" na header */
 /* começo do footer */
 
 .footer {
+  flex-grow: 0;
   width: 100vw;
   height: 100px;
   background-color: #1d676d;

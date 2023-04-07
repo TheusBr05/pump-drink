@@ -1,0 +1,29 @@
+html,
+body {
+    height: 100vh;
+    margin: 0
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.box .header {
+    flex-grow: 0;
+    flex-basis: auto;
+    background-color: hotpink;
+}
+
+.box .content {
+    flex-grow: 1;
+    flex-basis: auto;
+    background-color: gold;
+}
+
+.box .footer {
+    flex-grow: 0;
+    flex-basis: 100px;
+    background-color: indianred;
+}

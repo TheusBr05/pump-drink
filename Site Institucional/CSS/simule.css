@@ -17,6 +17,8 @@
 
 .meio {
   background-color: #77a4a6;
+  flex-grow: 1;
+    flex-basis: auto;
 }
 
 .calculadora .btn_calculadora {
