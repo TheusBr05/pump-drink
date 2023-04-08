@@ -5,8 +5,8 @@
 body {
   overflow-x: hidden;
   display: flex;
-    flex-flow: column;
-    height: 100vh;
+  flex-flow: column;
+  height: 100vh;
   margin: 0;
   border: 0;
   height: 100vh;

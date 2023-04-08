@@ -4,16 +4,20 @@
   justify-content: center;
   align-items: center;
   background-color: #77a4a6;
+  justify-content: center;
   
   flex-grow: 1;
   flex-basis: auto;
 }
 
 .login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #022a2d;
-  padding: 20px 40px;
   border-radius: 20px;
-  
+  padding: 20px;
 }
 
 .container-2 h1 {
@@ -22,7 +26,7 @@
   color: #1d676d;
   font-size: 300%;
   font-weight: bold;
-  margin-bottom: 70px;
+  margin-bottom: 70px
 }
 
 .container-2 .login input {
@@ -45,6 +49,7 @@
 .btn_entrar,
 .btn_voltar {
   padding: 15px;
+  margin: 0px 15px;
   background-color: #1d676d;
   border-radius: 5px;
   color: white;
