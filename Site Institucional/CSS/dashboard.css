@@ -2,4 +2,37 @@
     flex-grow: 1;
     flex-basis: auto;
     background-color: #77a4a6;
+    padding: 10px;
+    display: flex;
+    width: 100vw;
+}
+
+.container-graficos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.graficos{
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    height: 300px;
+    margin: 10px 10px;
+}
+.graficos-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.graficos-2 .graficos{
+    width: 50%;
+}
+
+.container-graficos span{
+    color: #1d676d;
+    font-size: 35px;
+    font-weight: 700;
+    margin: 40px 0px;
 }
