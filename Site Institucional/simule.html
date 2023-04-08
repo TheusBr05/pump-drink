@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PumpDrink | Simule</title>
-    <link rel="stylesheet" href="CSS/home.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="shortcut icon" href="img/3.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/simule.css">
@@ -33,30 +32,30 @@
     </div>
 
     <!-- SIMULE -->
-    <div class="campos_calculadora meio">
-        <div class="container calculadora">
-            <div id="div_resultado">
-            
+    <div class="tela_inteira">
+        <div class="container_left">
+            <div class="container_calculadora calculadora">
+
+
+                <h2>Simule aqui!</h2>
+                <spam> Gastos convencionais para o teste de aceitação:</spam>
+                <input id="input_gasto_convencional" placeholder="Gastos convencionais para o teste">
+
+                <spam> Quantidade de máquinas que deseja alugar:</spam>
+                <input id="input_qtd_maquinas" placeholder=" Quantidade de máquinas que deseja">
+
+                <spam> Quantidade de meses que deseja alugar:</spam>
+                <input id="input_qtd_meses" type="number" min="6" placeholder=" Quantidade de meses que deseja">
+
+                <button onclick="calcular_economia()" class="btn_calculadora btn-white btn_calculadora_animated">
+
+                    Simular Economia
+                </button>
+            </div>
         </div>
-        <h2>Simule aqui!</h2>
-        <spam> Gastos convencionais para o teste de aceitação:</spam> 
-        <input id="input_gasto_convencional" placeholder="Gastos convencionais para o teste">
+        <div id="div_resultado" class="container_right">
+        </div>
 
-        <spam> Quantidade de máquinas que deseja alugar:</spam>
-        <input id="input_qtd_maquinas" placeholder=" Quantidade de máquinas que deseja">
-
-        <spam> Quantidade de meses que deseja alugar:</spam> 
-        <input id="input_qtd_meses" type="number" min="6" placeholder=" Quantidade de meses que deseja">
-        
-        <button onclick="calcular_economia()"
-        class="btn_calculadora btn-white btn_calculadora_animated">
-        
-        Simular Economia
-    </button>
-    
-</div>
-</div>
-        
     </div>
 
     <!-- FOOTER PUMPDRINK -->
