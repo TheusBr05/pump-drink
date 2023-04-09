@@ -42,10 +42,10 @@
                 <input id="input_gasto_convencional" placeholder="Gastos convencionais para o teste">
 
                 <spam> Quantidade de máquinas que deseja alugar:</spam>
-                <input id="input_qtd_maquinas" placeholder=" Quantidade de máquinas que deseja">
+                <input id="input_qtd_maquinas" placeholder="Quantidade de máquinas que deseja">
 
                 <spam> Quantidade de meses que deseja alugar:</spam>
-                <input id="input_qtd_meses" type="number" min="6" placeholder=" Quantidade de meses que deseja">
+                <input id="input_qtd_meses" type="number" min="6" placeholder="Quantidade de meses que deseja">
 
                 <button onclick="calcular_economia()" class="btn_calculadora btn-white btn_calculadora_animated">
 
@@ -71,25 +71,33 @@
 
 <script>
     function calcular_economia() {
-
+        
         var gastoConvencional = Number(input_gasto_convencional.value);
         var qtdMaquinas = Number(input_qtd_maquinas.value);
         var qtdMeses = Number(input_qtd_meses.value);
         var custoBase = 2000;
-
         var custoMaquina = 36000;
         var porcValorMaquina = (custoMaquina * 0.008) //  aluguel de uma maquina por mes
-
         var valorTotalAluguel = ((porcValorMaquina * qtdMaquinas) * qtdMeses) // valor total da quantidade das maquinas
         var valorSoftware = (valorTotalAluguel * 0.05)  // custo
         var valorTotalPlano = valorSoftware + valorTotalAluguel + custoBase
-
         var economia = gastoConvencional - valorTotalPlano
 
-        div_resultado.innerHTML = `
+
+        if (gastoConvencional > 0 && qtdMaquinas > 0 && qtdMeses >= 6) {
+
+            div_resultado.innerHTML = `
         <h5>O valor atual de um teste de aceitação é de <span style="color: red">R$${gastoConvencional}</span> <br>
         O valor do nosso serviço é de <span style="color: blue">R$${valorTotalPlano}</span> <br>
         Contratando nosso serviço você economizará:
         <b style="color: green">R$${economia}</b></h5>`
+        } else if (gastoConvencional == 0 && qtdMaquinas == 0 && qtdMeses == 0) {
+        alert("Atenção! Preencha os campos para que a simulação seja efetuada")
+        } else if (gastoConvencional == 0 || qtdMaquinas == 0 || qtdMeses == 0) {
+        alert("Atenção! Preencha todos os campos para que a simulação seja efetuada")
+        } else if(qtdMeses < 6) {
+            alert("Atenção! Infelizmente nossos contratos têm um período mínimo de 6 meses. Saiba mais no link abaixo do botão de simulação")
+        }
     }
+        
 </script>

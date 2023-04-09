@@ -130,6 +130,7 @@ spam {
   margin-top: 10px;
   border-radius: 70px;
   margin-left: 60px;
+  cursor: pointer;
 }
 
 
@@ -223,3 +224,6 @@ h5{
   font-size: 20px;
 }
 
+#input_gasto_convencional::placeholder{
+  margin-left: 5px;
+}
