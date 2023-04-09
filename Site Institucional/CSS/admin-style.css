@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+
+}
+
+.container{
+    display: flex;
+    margin: 0;
+    width: 80%;
+
+}
+
+
+/* ---------------------- Header Dashboard----------------------- */
+.header .container{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header{
+    background-color: #1d676d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+
+}
+
+.logo{
+    max-width: 100px;
+
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-decoration: none;
+    list-style: none;
+    align-items: center;
+    
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+/* ---------------------- PESQUISAR ----------------------- */
+.search-bar{
+    max-width: 500px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    background-color: rgba(255,255,255, 0.2);
+   justify-self: center;
+   justify-content: center;
+ 
+    
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 15px;
+    color: white;
+}
+
+::placeholder{
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.search-bar button img{
+    width: 25px;
+}
+
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+/* ---------------------- Footer ----------------------- */
+.footer {
+    flex-grow: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #1d676d;
+    color: white;
+    display: flex; 
+    justify-content: center;
+  }
+  
+  .footer .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }

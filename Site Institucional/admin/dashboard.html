@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/3.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../CSS/admin-style.css" />
+    <link rel="stylesheet" href="../CSS/graficos-style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+    <title>PumpDrink | DashBoard</title>
+</head>
+
+<body>
+    <!-- HEADER PUMPDRINK -->
+    <div class="header">
+        <div class="container">
+
+            <div>
+                <img src="../img/logo.png" class="logo">
+                <img src="../img/text_logo.png" class="logo">
+            </div>
+
+            <div class="search-bar">
+                <input type="search" placeholder="Pesquisar">
+                <button type="submit">
+                    <img src="../img/pesquisar.png" alt="">
+                </button>
+            </div>
+
+            <ul class="navbar">
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Bebidas</a></li>
+                <li><a href="">Locais</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+        <div class="container">
+
+            <div class="graficos">
+                <!-- titulo -->
+                <div class="titulo">
+                    <h2>Dashboard</h2>
+                </div>
+
+                <!-- sessao 1 - primeiro gráfico -->
+                <div class="sessao-1">
+                    <div class="card-grafico">
+                        <canvas id="myChart" class="vetor"></canvas>
+                    </div>
+                </div>
+
+                <!-- sessao 2 - segundo e terceiro gráfico -->
+                <div class="sessao-2">
+                    <div class="card-grafico">
+  
+                    </div>
+                    <div class="card-grafico">
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER PUMPDRINK -->
+    <div class="footer">
+        <div class="container">
+            <h4>©PumpDrink 2023</h4>
+        </div>
+    </div>
+</body>
+</html>
