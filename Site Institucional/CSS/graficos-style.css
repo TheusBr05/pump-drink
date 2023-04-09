@@ -1,0 +1,58 @@
+.dashboard{
+    flex-grow: 1;
+    flex-basis: auto;
+    background-color: #77a4a6;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard .container{
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.graficos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* -------------- Sessão 1 - Gráfico --------------------- */
+.card-grafico{
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px 10px;
+    height: 300px;
+}
+.vetor{
+    width: 100%;
+    
+}
+
+/* -------------- Sessão 2 - Gráficos --------------------- */
+.sessao-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sessao-2 .card-grafico{
+    width: 50%;
+}
+
+/* ---------------Titulo-------------------- */
+.titulo{
+    display: flex;
+    padding: 20px 0;
+    justify-content: left;
+    color: white    ;
+}
+
+.titulo h2{
+   font-size: 35px;
+}
