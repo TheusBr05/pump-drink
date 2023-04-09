@@ -42,8 +42,8 @@
     }
   });
 
-  new Chart(graficoBarra_hoje, {
-    type: 'bar',
+  new Chart(graficoLinha_semana, {
+    type: 'line',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{
