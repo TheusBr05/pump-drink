@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/3.png" type="image/x-icon" />
     <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <link rel="stylesheet" href="./CSS/formulario.css">
     <title>Pump Drink | Login</title>
 </head>
 
@@ -16,8 +16,8 @@
     <div class="header">
         <div class="container">
             <div>
-                <a href="home.html"><img src="./img/1.png" href="home.html" class="ppdrink" /></a>
-                <a href="home.html"><img src="./img/2.png" href="home.html" class="ppdrink" /></a>
+                <a href="home.html"><img src="img/logo.png" href="home.html" class="ppdrink" /></a>
+                <a href="home.html"><img src="img/text_logo.png" href="home.html" class="ppdrink" /></a>
             </div>
             <ul class="navbar">
                 <li><a href="home.html">HOME</a></li>
@@ -33,19 +33,16 @@
     <div class="container-2">
         <div class="login">
             <h1>
-                Login
+                Cadastro
             </h1>
-            <input class="email" type="email" maxlength="30" placeholder="*E-mail">
-            <input class="senha" type="password" maxlength="10" placeholder="*Senha">
+            <input type="text" maxlength="150" placeholder="Nome Completo">
+            <input type="text" maxlength="150" placeholder="Empresa">
+            <input class="email" type="email" maxlength="150" placeholder="E-mail">
+            <input class="senha" type="password" maxlength="50" placeholder="Senha">
+            <input class="senha" type="password" maxlength="50" placeholder="Confirme a senha">
             <div class="btn_forms">
                 <button type="button" class="btn_entrar">Entrar</button>
                 <button type="submit" class="btn_voltar" routerLink="/jumbotron"> Voltar </button>
-            </div>
-            <div class="recuperacao_cadastro">
-                <a class="recuperar_senha" href="index.html">Esqueceu sua senha?</a>
-                <p class="sem_conta"> Não tem um conta? 
-                    <a class="cadastrar" href="register.html">Cadastre-se</a>
-                </p>
             </div>
         </div>
     </div>
