@@ -15,6 +15,14 @@ create table tb_local(
     cep char(9)
 );
 
+INSERT INTO tb_local VALUES 
+	(NULL,"Starbucks Haddock Lobo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Cerqueira César", "Rua Haddock Lobo", 608, NULL, "00000-000"),
+    (NULL,"SmartFit Capão Redondo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Capão redondo", "Av. Comendador Sant'Anna", 634, NULL, "00000-000"),
+    (NULL,"Shopping mais", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Santo Amaro", "Rua Haddock Lobo", 608, NULL, "00000-000"),
+	(NULL,"Parque Ibirapuera", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Vila Mariana", "Av. Pedro Álvares Cabral", NULL, NULL, "00000-000"),
+    (NULL,"Smart Fit - Prado Boulevard", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Vila Mariana", "Av. Pedro Álvares Cabral", 2480, NULL, "00000-000");
+
+
 CREATE TABLE tb_empresa(
  	id_empresa INT PRIMARY KEY auto_increment,
 	nome_empresa VARCHAR(150),
@@ -25,6 +33,15 @@ CREATE TABLE tb_empresa(
 	duracao_contrato TINYINT, 
 	constraint chkDuracao CHECK (duracao_contrato >= 6) 
 );
+
+DESC tb_empresa;
+INSERT INTO tb_empresa VALUES 
+	(NULL, "Growth", "Growth Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@growth.com", 72),
+    (NULL, "StarBucks", "StarBucks - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@starbucks.com", 48),
+    (NULL, "YoPRO", "YoPRO - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@yopro.com", 55),
+    (NULL, "Dux", "Dux Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@gdux.com", 36),
+    (NULL, "Piracanjuba", "Piracanjuba - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@piracanjuba.com", 12);
+    
 
 CREATE TABLE tb_usuario(
 	id_usuario INT PRIMARY KEY auto_increment,
@@ -37,6 +54,15 @@ CREATE TABLE tb_usuario(
 	constraint fk_empresa_usuario FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
 );
 
+INSERT INTO tb_usuario VALUES
+	(NULL, "Melissa", "melissa@gmail.com", "12345", 2, "adm"),
+    (NULL, "Ciliberti", "ciliberti@gmail.com", "seliberte",2 , "cmm"),
+    (NULL, "Matheus", "mat_henri@gmail.com", "eus",5 , "adm"),
+    (NULL, "Ivete Sangalo", "ivete@gmail.com", "sangalo",5 , "cmm"),
+    (NULL, "Felipe", "naufel@gmail.com", "felps",1 , "adm"),
+    (NULL, "Arthur Ali", "ali@gmail.com", "ali",4 , "adm"),
+    (NULL, "Isabel", "isinha@gmail.com", "bel",3 , "adm");
+
 
 CREATE TABLE tb_maquina(
 	id_maquina INT PRIMARY KEY auto_increment,	
@@ -44,6 +70,13 @@ CREATE TABLE tb_maquina(
 	fk_local int,
 	constraint fk_local_maquina foreign key (fk_local) references tb_local(id_local)
 );
+
+INSERT INTO tb_maquina VALUES
+	(NULL, "Essa máquina está localizada perto da entrada da academia", 2),
+    (NULL, "Primeira máquina em que a bebida x foi lançada", 1),
+    (NULL, "Está pocalizado ao lado da loja sports", 3),
+    (NULL, "Localizado na saída", 4),
+    (NULL, "Ao lado do bebedouro", 5);
 
 
 CREATE TABLE tb_bebida(
@@ -57,6 +90,18 @@ CREATE TABLE tb_bebida(
 	constraint fk_empresa_bebida FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa)
 );
 
+INSERT INTO tb_bebida VALUES
+    (NULL, "Suco de uva", "Pré-Treino", "S", 1),
+    (NULL, "Suco de Manga", "Pós-Treino", "N", 1),
+    (NULL, "Café", "Pré-Treino", "S", 2),
+    (NULL, "Chá", "Pós-Treino", "N", 2),
+    (NULL, "Coca-cola", "Pré-Treino", "S", 3),
+    (NULL, "Guaraná", "Pós-Treino", "N", 3),
+    (NULL, "Gatorade", "Pré-Treino", "S", 4),
+    (NULL, "Ironage", "Pós-Treino", "N", 4),
+	(NULL, "Todynho", "Pré-Treino", "S", 5),
+    (NULL, "Nescau", "Pós-Treino", "N", 5);
+
 
 CREATE TABLE tb_dispenser(
 	id_dispenser INT PRIMARY KEY auto_increment,
@@ -66,72 +111,6 @@ CREATE TABLE tb_dispenser(
 	constraint fkMaquina FOREIGN KEY (fk_maquina) references tb_maquina(id_maquina)
 );
 
-/*
-create table tb_historicoBebidas(
-	id_historico int primary key auto_increment,
-    id_bebida int,
-    id_dispenser int,
-    inicio date, 
-    fim date
-);
-*/
-
-CREATE TABLE tb_sensor(
-	id_sensor INT PRIMARY KEY auto_increment,
-	validade DATE,
-	instalacao DATE,
-	operando CHAR(1), 
-	constraint chkOperando CHECK (operando IN('S','N')),
-	fk_dispenser INT,
-	constraint fkDispenser FOREIGN KEY (fk_dispenser) references tb_dispenser(id_dispenser)
-);
-
-CREATE TABLE tb_registro(
-	id_registro INT PRIMARY KEY  auto_increment,
-	datahora_registro DATETIME DEFAULT current_timestamp() ,
-	fk_sensor INT,
-	constraint fkSenser FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor)
-);
-
--- ------------------------------------------------------------- INSERTS----------------------------------------------------------------
-
-SHOW TABLES;
-
-DESC tb_empresa;
-INSERT INTO tb_empresa VALUES 
-	(NULL, "Growth", "Growth Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@growth.com", 72),
-    (NULL, "StarBucks", "StarBucks - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@starbucks.com", 48),
-    (NULL, "YoPRO", "YoPRO - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@yopro.com", 55),
-    (NULL, "Dux", "Dux Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@gdux.com", 36),
-    (NULL, "Piracanjuba", "Piracanjuba - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@piracanjuba.com", 12);
-
-DESC tb_usuario;
-INSERT INTO tb_usuario VALUES
-	(NULL, "Melissa", "melissa@gmail.com", "12345", 2, "adm"),
-    (NULL, "Ciliberti", "ciliberti@gmail.com", "seliberte",2 , "cmm"),
-    (NULL, "Matheus", "mat_henri@gmail.com", "eus",5 , "adm"),
-    (NULL, "Ivete Sangalo", "ivete@gmail.com", "sangalo",5 , "cmm"),
-    (NULL, "Felipe", "naufel@gmail.com", "felps",1 , "adm"),
-    (NULL, "Arthur Ali", "ali@gmail.com", "ali",4 , "adm"),
-    (NULL, "Isabel", "isinha@gmail.com", "bel",3 , "adm");
-
-DESC tb_local;
-INSERT INTO tb_local VALUES 
-	(NULL,"Starbucks Haddock Lobo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Cerqueira César", "Rua Haddock Lobo", 608, NULL, "00000-000"),
-    (NULL,"SmartFit Capão Redondo", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Capão redondo", "Av. Comendador Sant'Anna", 634, NULL, "00000-000"),
-    (NULL,"Shopping mais", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Santo Amaro", "Rua Haddock Lobo", 608, NULL, "00000-000"),
-	(NULL,"Parque Ibirapuera", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Vila Mariana", "Av. Pedro Álvares Cabral", NULL, NULL, "00000-000"),
-    (NULL,"Smart Fit - Prado Boulevard", "Brasil", "Sudeste", "São Paulo", "São Paulo", "Vila Mariana", "Av. Pedro Álvares Cabral", 2480, NULL, "00000-000");
-    
-DESC tb_maquina;
-INSERT INTO tb_maquina VALUES
-	(NULL, "Essa máquina está localizada perto da entrada da academia", 2),
-    (NULL, "Primeira máquina em que a bebida x foi lançada", 1),
-    (NULL, "Está pocalizado ao lado da loja sports", 3),
-    (NULL, "Localizado na saída", 4),
-    (NULL, "Ao lado do bebedouro", 5);
-
-DESC tb_dispenser;
 INSERT INTO tb_dispenser VALUES
 	-- Máquina 1
 	(NULL, 1, 1),
@@ -159,22 +138,17 @@ INSERT INTO tb_dispenser VALUES
     (NULL, 3, 5),
     (NULL, 4, 5);
 
-DESC tb_bebida; 
-INSERT INTO tb_bebida VALUES
-    (NULL, "Suco de uva", "Pré-Treino", "S", 1),
-    (NULL, "Suco de Manga", "Pós-Treino", "N", 1),
-    (NULL, "Café", "Pré-Treino", "S", 2),
-    (NULL, "Chá", "Pós-Treino", "N", 2),
-    (NULL, "Coca-cola", "Pré-Treino", "S", 3),
-    (NULL, "Guaraná", "Pós-Treino", "N", 3),
-    (NULL, "Gatorade", "Pré-Treino", "S", 4),
-    (NULL, "Ironage", "Pós-Treino", "N", 4),
-	(NULL, "Todynho", "Pré-Treino", "S", 5),
-    (NULL, "Nescau", "Pós-Treino", "N", 5);
-    
-SHOW TABLES;
 
-DESC tb_sensor;
+CREATE TABLE tb_sensor(
+	id_sensor INT PRIMARY KEY auto_increment,
+	validade DATE,
+	instalacao DATE,
+	operando CHAR(1), 
+	constraint chkOperando CHECK (operando IN('S','N')),
+	fk_dispenser INT,
+	constraint fkDispenser FOREIGN KEY (fk_dispenser) references tb_dispenser(id_dispenser)
+);
+
 INSERT INTO tb_sensor VALUES
 	(NULL, "2025-05-11", "2022-04-04", "S", "1"),
     (NULL, "2025-05-11", "2022-04-04", "S", "2"),
@@ -196,9 +170,15 @@ INSERT INTO tb_sensor VALUES
 	(NULL, "2025-05-11", "2022-04-04", "S", "18"),
 	(NULL, "2025-05-11", "2022-04-04", "S", "19"),
 	(NULL, "2025-05-11", "2022-04-04", "S", "20");
+    
 
+CREATE TABLE tb_registro(
+	id_registro INT PRIMARY KEY  auto_increment,
+	datahora_registro DATETIME DEFAULT current_timestamp() ,
+	fk_sensor INT,
+	constraint fkSenser FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor)
+);
 
-DESC tb_registro;
 INSERT INTO tb_registro VALUES
     (NULL, default, "1"),
     (NULL, default, "2"),
@@ -220,6 +200,7 @@ INSERT INTO tb_registro VALUES
 	(NULL, default,"18"),
 	(NULL, default,"19"),
 	(NULL, default,"20");
+
        
     
 

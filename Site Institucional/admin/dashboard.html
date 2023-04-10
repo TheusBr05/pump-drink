@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/3.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../CSS/admin-style.css" />
+    <link rel="stylesheet" href="../CSS/graficos-style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>PumpDrink | DashBoard</title>
+</head>
+
+<body>
+    <!-- HEADER PUMPDRINK -->
+    <div class="header">
+        <div class="container">
+
+            <div>
+                <img src="../img/logo.png" class="logo">
+                <img src="../img/text_logo.png" class="logo">
+            </div>
+
+            <div class="search-bar">
+                <input type="search" placeholder="Pesquisar">
+                <button type="submit">
+                    <img src="../img/pesquisar.png" alt="">
+                </button>
+            </div>
+
+            <ul class="navbar">
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Bebidas</a></li>
+                <li><a href="">Locais</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+        <div class="container">
+
+            <div class="graficos">
+                <!-- titulo -->
+                <div class="titulo">
+                    <h2>Dashboard</h2>
+                </div>
+
+                <!-- sessao 1 - primeiro gráfico -->
+                <div class="sessao-1">
+                    <div class="card-grafico">
+                        <canvas id="desempenho_hoje" class="vetor"></canvas>
+                    </div>
+                </div>
+
+                <!-- sessao 2 - segundo e terceiro gráfico -->
+                <div class="sessao-2">
+                    <div class="card-grafico">
+                        <canvas id="desempenho_regiao" class="vetor"></canvas>
+                    </div>
+                    <div class="card-grafico">
+                        <canvas id="desempenho_semana" class="vetor"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER PUMPDRINK -->
+    <div class="footer">
+        <div class="container">
+            <h4>©PumpDrink 2023</h4>
+        </div>
+    </div>
+</body>
+<script>
+    const graficoBarra_hoje = document.getElementById('desempenho_hoje');
+    const graficoPizza_regiao = document.getElementById('desempenho_regiao');
+    const graficoLinha_semana = document.getElementById('desempenho_semana');
+
+    new Chart(graficoBarra_hoje, {
+        type: 'bar',
+        data: {
+            labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
+            datasets: [{
+                label: 'Bebida X',
+                data: [12, 19, 13, 8, 10, 13, 16, 18, 21, 16, 19, 12, 15, 12, 19, 13, 8, 10, 13, 16, 18, 21, 16, 19, 12, 15],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            maintainAspectRatio: false
+        }
+    });
+
+    new Chart(graficoPizza_regiao, {
+        type: 'pie',
+        data: {
+            labels: ['Sul', 'Sudeste', 'Norte', 'Nordeste', 'Centro-Oeste'],
+            datasets: [{
+                label: 'Regiões',
+                data: [55, 52, 31, 25, 28],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+            
+        }
+    });
+
+    new Chart(graficoLinha_semana, {
+        type: 'line',
+        data: {
+            labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+            datasets: [{
+                label: 'Bebida X',
+                data: [215, 178, 143, 168, 156, 143, 192],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            maintainAspectRatio: false
+        }
+    });
+</script>
+
+</html>
