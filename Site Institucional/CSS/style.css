@@ -1,8 +1,5 @@
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif, Arial, Helvetica, sans-serif;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed
+  font-family:  Verdana;
 }
 
 body {
@@ -12,7 +9,7 @@ body {
   height: 100vh;
   margin: 0;
   border: 0;
-  background-color: #1d676d;
+  height: 100vh;
 }
 
 .container {
