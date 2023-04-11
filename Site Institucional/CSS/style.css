@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2? family= Roboto+Condensed & family= Roboto+Slab:wght@100;200;400;500;700;800;900 & family= Roboto:wght@300 & display=swap');
 
 body {
-  background-color: #77a4a6;
   overflow-x: hidden;
   display: flex;
   flex-flow: column;
