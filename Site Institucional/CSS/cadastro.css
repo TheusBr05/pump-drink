@@ -36,7 +36,6 @@ h1{
   font-size: 16px;
   transition: all .3s ease-out;
   border-radius: 0;
-  
 }
 
 .label-float{
@@ -70,9 +69,6 @@ h1{
 
 .label-float input:focus:required:invalid{
   border-bottom: 2px solid red;
-}
-.label-float input:required:invalid + label:before{
-  content: '*';
 }
 
 button{

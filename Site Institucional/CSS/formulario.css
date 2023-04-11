@@ -1,23 +1,17 @@
 .container-2 {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  background-color: #77a4a6;
-  justify-content: center;
-  
-  flex-grow: 1;
-  flex-basis: auto;
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 4%;
 }
 
-.login{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #022a2d;
-  border-radius: 20px;
-  padding: 20px;
+
+.login {
+  background-color: #ffffff;
+  padding: 30px 60px;
+  border-radius: 4%;
+  box-shadow: 4px 4px 10px 7px #00000060;
 }
 
 .container-2 h1 {
@@ -27,38 +21,6 @@
   font-size: 300%;
   font-weight: bold;
   margin-bottom: 70px
-}
-
-.container-2 .login input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 40px;
-  border: 0;
-  border-radius: 5px;
-  padding: 10px;
-  padding-right: 50%;
-}
-
-.btn_forms {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  padding-bottom: 5%;
-}
-
-.btn_entrar,
-.btn_voltar {
-  padding: 15px;
-  margin: 0px 15px;
-  background-color: #1d676d;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  border: 0;
-  width: 250px;
-  cursor: pointer;
 }
 
 .recuperacao_cadastro,
@@ -77,23 +39,78 @@
   text-decoration: none;
 }
 
+.label-float input{
+  width: 100%;
+  padding: 5px 5px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid #1d676d;  
+  background-color: transparent;
+  outline: none;
+  min-width: 180px;
+  font-size: 16px;
+  transition: all .3s ease-out;
+  border-radius: 0;
+}
+
+.label-float{
+  position: relative;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.label-float input:focus{
+  border-bottom: 2px solid #1d676d;
+}
+
+.label-float label{
+  color: #1d676d;  
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label,
+.label-float input:valid + label{
+  font-size: 15px;
+  margin-top: 0;
+  color: #77a67e;
+}
+
+.label-float input:focus:required:invalid{
+  border-bottom: 2px solid red;
+}
+
 button{
-  background-color: #ebded5;
+  background-color: #1d676d;
   border-color: #1d676d;
   color:#77a4a6;
   text-transform: uppercase;
-  padding: 8px;
+  padding: 10px;
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 16px;
-  margin: 20px;
+  margin: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
   transition: all .5s ease-out;
+  border: 0;
+  width: 250px;
+  color: white;
 }
 
 button:hover{
   color: #ebded5;
     background-color: #77a4a6;
 }
+
+.container-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;}
