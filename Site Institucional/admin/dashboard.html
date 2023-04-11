@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../CSS/graficos-style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
     <title>PumpDrink | DashBoard</title>
 </head>
 
@@ -46,21 +48,65 @@
                 <!-- titulo -->
                 <div class="titulo">
                     <h2>Dashboard</h2>
+                    <button type="submit">DESEMPENHO ALTO</button>
                 </div>
 
-                <!-- sessao 1 - primeiro gráfico -->
+                <!-- sessao 1 - cards métricas -->
                 <div class="sessao-1">
+                    <div class="card_metrica">
+                        <h4>Desempenho</h4>
+                        <h1>90%</h1>
+
+                        <div class="icon_metricas">
+                            <span class="material-symbols-outlined">
+                                arrow_upward
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="card_metrica">
+                        <h4>Unidades acima desempenho esperado</h4>
+                        <h1>10%</h1>
+                        
+                        <div class="icon_metricas">
+                            <span class="material-symbols-outlined" id="icon_queda">
+                                arrow_downward
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="card_metrica">
+                        <h4>Unidades abaixo desempenho esperado</h4>
+                        <h1>80%</h1>
+                    
+                        <div class="icon_metricas">
+                            <span class="material-symbols-outlined">
+                                arrow_upward
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- sessao 2 - primeiro gráfico -->
+                <div class="sessao-2">
                     <div class="card-grafico">
+                        <h4>Período de teste</h4>
                         <canvas id="desempenho_hoje" class="vetor"></canvas>
                     </div>
                 </div>
 
-                <!-- sessao 2 - segundo e terceiro gráfico -->
-                <div class="sessao-2">
-                    <div class="card-grafico">
+                <!-- sessao 3 - segundo e terceiro gráfico -->
+                <div class="sessao-3">
+                    <div class="card-grafico" id="regiao">
+                        <h4>Desempenhopo região</h4>
                         <canvas id="desempenho_regiao" class="vetor"></canvas>
                     </div>
-                    <div class="card-grafico">
+
+                    <div class="card-grafico" id="semana">
+                        <h4>Desempenho por unidades <h4>
                         <canvas id="desempenho_semana" class="vetor"></canvas>
                     </div>
                 </div>
@@ -82,7 +128,7 @@
     const graficoLinha_semana = document.getElementById('desempenho_semana');
 
     new Chart(graficoBarra_hoje, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
             datasets: [{
@@ -124,13 +170,14 @@
     });
 
     new Chart(graficoLinha_semana, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+            labels: ['Unidade 1', 'Unidade 1', 'Unidade 1', 'Unidade 1', 'Unidade 1'],
             datasets: [{
                 label: 'Bebida X',
                 data: [215, 178, 143, 168, 156, 143, 192],
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: 'brown'
             }]
         },
         options: {

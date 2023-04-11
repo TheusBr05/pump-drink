@@ -20,29 +20,82 @@
     width: 100%;
 }
 
+/* -------------- Sessão 1 - Métricas --------------------- */
+.sessao-1{
+    display: flex;
+    
+}
 
-/* -------------- Sessão 1 - Gráfico --------------------- */
+.card_metrica{
+    width: 33.3%;
+    background-color: white;
+    margin: 10px 10px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid #1d676d;
+
+}
+
+.card_metrica h1{
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.card_metrica h4{
+    font-size: 17px;
+    font-weight: 150;
+}
+
+.icon_metricas span{
+    background-color: #1d6d48;
+    color: white;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.icon_metricas{
+    display: flex;
+    justify-content: right;
+}
+
+
+#icon_queda{
+    background-color: rgb(194, 43, 43);
+}
+
+
+/* -------------- Sessão 2 - Gráfico --------------------- */
 .card-grafico{
     padding: 20px;
     background-color: white;
     border-radius: 20px;
     margin: 10px 10px;
     height: 300px;
+    border: 2px solid #1d676d;
 }
 .vetor{
     width: 100%;
     
 }
 
-/* -------------- Sessão 2 - Gráficos --------------------- */
-.sessao-2{
+/* -------------- Sessão 3 - Gráficos --------------------- */
+.sessao-3{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.sessao-2 .card-grafico{
+/* .sessao-2 .card-grafico{
     width: 50%;
+} */
+
+#regiao{
+    width: 30%;
+}
+
+#semana{
+    width: 70%;
 }
 
 /* ---------------Titulo-------------------- */
@@ -51,8 +104,19 @@
     padding: 20px 0;
     justify-content: left;
     color: white    ;
+    align-items: center;
 }
 
 .titulo h2{
    font-size: 35px;
 }
+
+.titulo button{
+    background-color: rgba(138, 231, 138, 0.459);
+    color: white;
+    margin: 20px;
+    padding: 5px 25px;
+    border: 1px solid #1d676d;
+    border-radius: 15px;
+}
+
