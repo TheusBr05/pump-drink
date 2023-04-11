@@ -77,3 +77,23 @@
   text-decoration: none;
 }
 
+button{
+  background-color: #ebded5;
+  border-color: #1d676d;
+  color:#77a4a6;
+  text-transform: uppercase;
+  padding: 8px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 16px;
+  margin: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all .5s ease-out;
+}
+
+button:hover{
+  color: #ebded5;
+    background-color: #77a4a6;
+}
