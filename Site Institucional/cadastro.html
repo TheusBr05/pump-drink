@@ -2,58 +2,151 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/3.png" type="image/x-icon" />
+    <title>Pump Drink | Cadastro</title>
+    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <link rel="stylesheet" href="./CSS/home.css">
     <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/formulario.css">
-    <title>Pump Drink | Login</title>
+    <link rel="stylesheet" href="./js/cadastro.js">
 </head>
 
 <body>
-    <!-- HEADER PUMPDRINK -->
-    <div class="header">
-        <div class="container">
-            <div>
-                <a href="home.html"><img src="img/logo.png" href="home.html" class="ppdrink" /></a>
-                <a href="home.html"><img src="img/text_logo.png" href="home.html" class="ppdrink" /></a>
+
+    <div class='container-card'>
+        <div class='card'>
+            <h1> Cadastrar </h1>
+
+            <div class="label-float">
+                <!-- form-group -->
+                <input type="text" id="nome" class="form-control" placeholder=" " required>
+                <label id="labelNome" for="nome">Nome</label>
             </div>
-            <ul class="navbar">
-                <li><a href="home.html">HOME</a></li>
-                <li><a href="login.html">LOGIN</a></li>
-                <li><a href="">SOBRE NÓS</a></li>
-                <li><a href="simule.html">SIMULE</a></li>
-                <li><a href="">CONTATE-NOS</a></li>
-            </ul>
-        </div>
-    </div>
 
-    <!-- LOGIN -->
-    <div class="container-2">
-        <div class="login">
-            <h1>
-                Cadastro
-            </h1>
-            <input type="text" maxlength="150" placeholder="Nome Completo">
-            <input type="text" maxlength="150" placeholder="Empresa">
-            <input class="email" type="email" maxlength="150" placeholder="E-mail">
-            <input class="senha" type="password" maxlength="50" placeholder="Senha">
-            <input class="senha" type="password" maxlength="50" placeholder="Confirme a senha">
-            <div class="btn_forms">
-                <button type="button" class="btn_entrar">Entrar</button>
-                <button type="submit" class="btn_voltar" routerLink="/jumbotron"> Voltar </button>
+            <div class="label-float">
+                <input type="text" id="usuario" placeholder=" " required>
+                <label id="labelUsuario" for="usuario">Usuário</label>
+            </div>
+
+            <div class="label-float">
+                <input type="password" id="senha" class="form-control" placeholder=" " required>
+                <label id="labelSenha" for="senha">Senha</label>
+                <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+
+            </div>
+
+            <div class="label-float">
+                <input type="password" id="confirmSenha" class="form-control" placeholder=" " required>
+                <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
+                <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+
+            <!-- <div class="label-float">
+                <label for="tipoUsuario">Tipo de Usuario</label>
+                <br><br>
+                <select class="form-control" name="tipo" id="tipo"> -->
+
+            <!-- (change)="typeUser($event)" -->
+
+            <!-- <option>
+                        Selecione um tipo de usuário:
+                    </option>
+                    <option value="adm">Administrador</option>
+                    <option value="padrao">Padrão</option>
+                </select>
+            </div> -->
+            <div class="container-btn">
+                <div class='justify-center'>
+                    <button type="submit" onclick='cadastrar()'>Cadastrar</button>
+                </div>
+                <button type="submit" class="btn mr-3 mb-4">
+                    <!-- routerLink="./login" -->
+                    Voltar
+                </button>
             </div>
         </div>
     </div>
-
-    <!-- FOOTER PUMPDRINK -->
-    <div class="footer">
-        <div class="container">
-            <h4>©PumpDrink 2023</h4>
-        </div>
-    </div>
-
 </body>
 
 </html>
+<script>
+    let btn = verSenha.value
+    let btnConfirm = verConfirmSenha.value
+
+    let nome = nome.value
+    let labelNome = labelNome.value
+    let validNome = false
+
+    let usuario = usuario.value
+    let labelUsuario = labelUsuario.value
+    let validUsuario = false
+
+    let senha = senha.value
+    let labelSenha = labelSenha..value
+    let validSenha = false
+
+    let confirmSenha = confirmSenha.value
+    let labelConfirmSenha = labelConfirmSenha.value
+    let validConfirmSenha = false
+
+    nome.addEventListener('keyup', () => {
+        if (nome.value.length <= 4) {
+            labelNome.setAttribute('style', 'color: red')
+            labelNome.innerHTML = 'Nome *Insira no minimo 5 caracteres'
+            nome.setAttribute('style', 'border-color: red')
+            validNome = false
+        } else {
+            labelNome.setAttribute('style', 'color: green')
+            labelNome.innerHTML = 'Nome'
+            nome.setAttribute('style', 'border-color: green')
+            validNome = true
+        }
+    })
+
+    usuario.addEventListener('keyup', () => {
+        if (usuario.value.length <= 4) {
+            labelUsuario.setAttribute('style', 'color: red')
+            labelUsuario.innerHTML = 'Usuário *Insira no minimo 5 caracteres'
+            usuario.setAttribute('style', 'border-color: red')
+            validUsuario = false
+        } else {
+            labelUsuario.setAttribute('style', 'color: green')
+            labelUsuario.innerHTML = 'Usuário'
+            usuario.setAttribute('style', 'border-color: green')
+            validUsuario = true
+        }
+    })
+
+    senha.addEventListener('keyup', () => {
+        if (senha.value.length <= 5) {
+            labelSenha.setAttribute('style', 'color: red')
+            labelSenha.innerHTML = 'Senha *Insira no minimo 6 caracteres'
+            senha.setAttribute('style', 'border-color: red')
+            validSenha = false
+        } else {
+            labelSenha.setAttribute('style', 'color: green')
+            labelSenha.innerHTML = 'Senha'
+            senha.setAttribute('style', 'border-color: green')
+            validSenha = true
+        }
+    })
+
+    confirmSenha.addEventListener('keyup', () => {
+        if (senha.value != confirmSenha.value) {
+            labelConfirmSenha.setAttribute('style', 'color: red')
+            labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem'
+            confirmSenha.setAttribute('style', 'border-color: red')
+            validConfirmSenha = false
+        } else {
+            labelConfirmSenha.setAttribute('style', 'color: green')
+            labelConfirmSenha.innerHTML = 'Confirmar Senha'
+            confirmSenha.setAttribute('style', 'border-color: green')
+            validConfirmSenha = true
+        }
+    })
+
+    // function cadastrar() {
+   //     if ((validNome && validUsuario && validSenha && validConfirmSenha))       
+</script>
