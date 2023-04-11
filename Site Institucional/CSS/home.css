@@ -6,6 +6,7 @@ body {
 .meio {
   background-color: #77a4a6;
   width: 100vw;
+  margin-top: 5%;
 }
 
 .meio h2 {
@@ -14,6 +15,7 @@ body {
   padding-top: 70px;
   font-size: 35px;
   font-weight: 800;
+  text-align: justify;
 }
 
 .meio .container {
@@ -25,6 +27,7 @@ body {
 .meio p {
   width: 500px;
   color: white;
+  text-align: justify;
 }
 
 /* Conheça a pump drink */
@@ -59,7 +62,7 @@ body {
 }
 
 .segunda_parte h2 {
-  padding-left: 8px;
+  text-align: justify;
 }
 
 .imagem2 {
@@ -87,13 +90,13 @@ body {
 }
 
 input {
-  margin: 10px 0;
+  margin: 8px 8px;
   border-radius: 10px;
   height: 30px;
   width: 250px;
   border: 0;
   background-color: #dedede;
-  padding: 8px;
+  padding: 10px;
 }
 #msg {
   background-color: #dedede;
@@ -101,7 +104,7 @@ input {
   width: 250px;
   height: 100px;
   padding: 8px;
-  margin-bottom: 50px;
+  margin-bottom: 3%;
 }
 
 button {

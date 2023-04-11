@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #1d676d;
+  background-color: #77a4a6;
   overflow-x: hidden;
   display: flex;
   flex-flow: column;
@@ -30,7 +30,7 @@ body {
   flex-basis: auto;
   background-color: #1d676d;
   /* border-bottom: 3px solid #32b9cd; */
-  /* position: fixed; */
+  position: fixed;
   width: 100vw;
 }
 

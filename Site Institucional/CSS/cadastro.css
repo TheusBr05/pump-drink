@@ -1,17 +1,21 @@
+body{
+  background-image: url("../img/pexels-mudassir-ali-2680270.jpg")  !important; 
+  background-repeat: no-repeat;
+}
 
 .container-card {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 10%;
+  margin-bottom: 4%;
 }
 
 .card {
-  background-color: #ffffff80;
-  padding: 30px;
+  background-color: #ffffff;
+  padding: 30px 60px;
   border-radius: 4%;
-  box-shadow: 3px 3px 1px 0px #00000060;
-  width: 400px;
+  box-shadow: 4px 4px 10px 7px #00000060;
 }
 
 h1{
@@ -59,14 +63,11 @@ h1{
 .label-float input:focus + label,
 .label-float input:not(:placeholder-shown) + label,
 .label-float input:valid + label{
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 0;
-  color: #77a4a6;
+  color: #77a67e;
 }
 
-.label-float input:required:invalid + label{
-  color: red;
-}
 .label-float input:focus:required:invalid{
   border-bottom: 2px solid red;
 }
