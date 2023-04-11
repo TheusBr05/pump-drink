@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: #1d676d;
   overflow-x: hidden;
   display: flex;
   flex-flow: column;
