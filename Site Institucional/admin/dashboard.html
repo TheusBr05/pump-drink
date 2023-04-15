@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../CSS/graficos-style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <title>PumpDrink | DashBoard</title>
 </head>
@@ -68,7 +69,7 @@
                     <div class="card_metrica">
                         <h4>Unidades acima desempenho esperado</h4>
                         <h1>10%</h1>
-                        
+
                         <div class="icon_metricas">
                             <span class="material-symbols-outlined" id="icon_queda">
                                 arrow_downward
@@ -80,7 +81,7 @@
                     <div class="card_metrica">
                         <h4>Unidades abaixo desempenho esperado</h4>
                         <h1>80%</h1>
-                    
+
                         <div class="icon_metricas">
                             <span class="material-symbols-outlined">
                                 arrow_upward
@@ -107,7 +108,7 @@
 
                     <div class="card-grafico" id="semana">
                         <h4>Desempenho por unidades <h4>
-                        <canvas id="desempenho_semana" class="vetor"></canvas>
+                                <canvas id="desempenho_semana" class="vetor"></canvas>
                     </div>
                 </div>
             </div>
@@ -123,19 +124,26 @@
     </div>
 </body>
 <script>
-    const graficoBarra_hoje = document.getElementById('desempenho_hoje');
+    const graficoLinha_hoje = document.getElementById('desempenho_hoje');
     const graficoPizza_regiao = document.getElementById('desempenho_regiao');
-    const graficoLinha_semana = document.getElementById('desempenho_semana');
+    const graficoBarra_semana = document.getElementById('desempenho_semana');
 
-    new Chart(graficoBarra_hoje, {
-        type: 'line',
+    new Chart(graficoLinha_hoje, {
         data: {
-            labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
+            labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '15:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
             datasets: [{
+                type: 'line',
                 label: 'Bebida X',
                 data: [12, 19, 13, 8, 10, 13, 16, 18, 21, 16, 19, 12, 15, 12, 19, 13, 8, 10, 13, 16, 18, 21, 16, 19, 12, 15],
                 borderWidth: 1
-            }]
+            }, {
+                type: 'line',
+                label: 'meta',
+                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                pointStyle: false,
+                borderWidth: 1
+            }
+            ]
         },
         options: {
             scales: {
@@ -143,6 +151,7 @@
                     beginAtZero: true
                 }
             },
+            responsive: true,
             maintainAspectRatio: false
         }
     });
@@ -165,17 +174,17 @@
             },
             responsive: true,
             maintainAspectRatio: false
-            
+
         }
     });
 
-    new Chart(graficoLinha_semana, {
+    new Chart(graficoBarra_semana, {
         type: 'bar',
         data: {
             labels: ['Unidade 1', 'Unidade 1', 'Unidade 1', 'Unidade 1', 'Unidade 1'],
             datasets: [{
                 label: 'Bebida X',
-                data: [215, 178, 143, 168, 156, 143, 192],
+                data: [215, 158, 143, 168, 156, 143, 192],
                 borderWidth: 1,
                 backgroundColor: 'brown'
             }]
@@ -186,6 +195,7 @@
                     beginAtZero: true
                 }
             },
+            responsive: true,
             maintainAspectRatio: false
         }
     });

@@ -74,9 +74,9 @@
     height: 300px;
     border: 2px solid #1d676d;
 }
+
 .vetor{
     width: 100%;
-    
 }
 
 /* -------------- Sessão 3 - Gráficos --------------------- */
@@ -96,6 +96,10 @@
 
 #semana{
     width: 70%;
+}
+
+#desempenho_semana{
+    height: 300px;
 }
 
 /* ---------------Titulo-------------------- */
