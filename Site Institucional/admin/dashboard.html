@@ -63,7 +63,7 @@
                 <!-- sessao 1 - cards métricas -->
                 <div class="sessao-1">
                     <div class="card_total">
-                        
+
                         <div class="metrica_total">
                             <h4>TOTAL DE SAÍDAS </h4>
                             <h3>
@@ -77,46 +77,51 @@
                             </h3>
                         </div>
 
-                    </div>
-
-                    <!-- <div class="icon_metricas">
-                        <h5>
-                            90k/100k 
-                        </h5>
-                        <span class="material-symbols-outlined">
-                            arrow_upward
-                        </span>
-                    </div> -->
-
-                    <div class="card_metrica">
-                        <h4>Unidades acima desempenho esperado</h4>
-                        <h1>10%</h1>
-
-                        <div class="icon_metricas">
-                            <h5>
-                                90k/100k 
-                            </h5>
-                            <span class="material-symbols-outlined" id="icon_queda">
-                                arrow_downward
-                            </span>
+                        <div class="metrica_total">
+                            <h4>TEMPO DE TESTE</h4>
+                            <h3>
+                                9 <br> Semanas
+                            </h3>
+                            <h6>
+                                Início 20/03
+                            </h6>
+                        </div>
+                        <div class="metrica_total">
+                            <h4>META</h4>
+                            <h3>
+                                14
+                            </h3>
                         </div>
 
                     </div>
 
-                    <div class="card_metrica">
-                        <h4>Unidades abaixo desempenho esperado</h4>
-                        <h1>80%</h1>
+                     <div class="card_unidades"> 
+                        <div class="card_metrica">
+                            <div class="icon_metricas">
+                                <h4>Desempenho</h4>
+                                <canvas id="desempenho_geral" class="doughnut"></canvas>
+                                <div class="center_rosca">90%</div>
+                            </div>
+                        </div>
 
-                        <div class="icon_metricas">
-                            <h5>
-                                Próximo de bater a meta
-                            </h5>
-                            <span class="material-symbols-outlined">
-                                arrow_upward
-                            </span>
+                        <div class="card_metrica">
+                            <div class="icon_metricas">
+                                <h4>Unidades acima esperado</h4>
+                                <canvas id="desempenho_unidadesAcima" class="doughnut"></canvas>
+                                <div class="center_rosca">10%</div>
+                            </div>
+                        </div>
+
+                        <div class="card_metrica">
+                            <div class="icon_metricas">
+                                <h4>Unidades abaixo esperado</h4>
+                                <canvas id="desempenho_unidadesAbaixo" class="doughnut"></canvas>
+                                <div class="center_rosca">80%</div>
+                            </div>
                         </div>
 
                     </div>
+
                 </div>
 
                 <!-- sessao 2 - primeiro gráfico -->
@@ -155,6 +160,10 @@
     const graficoLinha_hoje = document.getElementById('desempenho_hoje');
     const graficoPizza_regiao = document.getElementById('desempenho_regiao');
     const graficoBarra_semana = document.getElementById('desempenho_semana');
+
+    const graficoDonut_dsp_geral = document.getElementById('desempenho_geral');
+    const graficoDonut_dsp_unidades_abaixo = document.getElementById('desempenho_unidadesAbaixo');
+    const graficoDonut_dsp_unidades_acima = document.getElementById('desempenho_unidadesAcima');
 
     new Chart(graficoLinha_hoje, {
         data: {
@@ -225,6 +234,59 @@
             },
             responsive: true,
             maintainAspectRatio: false
+        }
+    });
+
+    new Chart(graficoDonut_dsp_geral, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [90, 10],
+                cutout: 70
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+        }
+    });
+
+    new Chart(graficoDonut_dsp_unidades_abaixo, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [80, 10],
+                cutout: 70,
+                backgroundColor: [
+                 'red', 'gray' 
+                 ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+        }
+    });
+
+    new Chart(graficoDonut_dsp_unidades_acima, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [10, 90],
+                cutout: 70,
+                 backgroundColor: [
+                 'red', 'gray' 
+                 ]
+
+            }
+        ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
         }
     });
 </script>

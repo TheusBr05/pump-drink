@@ -23,14 +23,20 @@
 /* -------------- Sessão 1 - Métricas --------------------- */
 .sessao-1{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
+.card_unidades{
+    display: flex;
+    flex-direction: row;
+}
+
 .card_metrica{
-    width: 37.5%;
+    width: 33.3%;
     background-color: white;
     margin: 10px 10px;
-    height: 150px;
+    height: auto;
     border-radius: 10px;
     padding: 20px;
     border: 2px solid #1d676d;
@@ -47,36 +53,43 @@
     font-weight: 150;
 }
 
-.icon_metricas span{
-    background-color: #1d6d48;
-    color: white;
-    padding: 3px;
-    border-radius: 50%;
-}
-
 .icon_metricas{
     display: flex;
-    justify-content: right;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.center_rosca {
+    position: absolute;
+    align-self:center;
+    font-size: 30pt;
+    font-weight: 300;
+    margin-top: 20px;
+}
 
-#icon_queda{
-    background-color: rgb(194, 43, 43);
+.doughnut{
+    /* position: absolute; */
+    align-self:center;
+    max-height: 200px;
+    max-width: 300px;
+    /* margin-top: 120px; */
+    padding: -10px;
 }
 
 .card_total{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     height: 150px;
-    width: 25%;
 
     
 }
 .metrica_total{
     background-color: white;
     padding: 20px;
-    height: 50px;
+    height: 100px;
+    width: 20%;
     margin: 10px;
     border-radius: 10px;
     padding: 20px;
@@ -88,7 +101,7 @@
 }
 
 
-/* -------------- Sessão 2 - Gráfico --------------------- */
+/* -------------- Sessão 3 - Gráfico --------------------- */
 .card-grafico{
     padding: 20px;
     background-color: white;
@@ -102,8 +115,8 @@
     width: 100%;
 }
 
-/* -------------- Sessão 3 - Gráficos --------------------- */
-.sessao-3{
+/* -------------- Sessão 4 - Gráficos --------------------- */
+.sessao-4{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
