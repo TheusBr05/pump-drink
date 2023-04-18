@@ -89,8 +89,8 @@
     background-color: white;
     padding: 20px;
     height: 100px;
-    width: 20%;
     margin: 10px;
+    width: 20%;
     border-radius: 10px;
     padding: 20px;
     border: 2px solid #1d676d;
@@ -98,6 +98,25 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
+}
+
+.metrica_meta{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+    height: 100px;
+    align-self: center;
+    background-color: red;
+}
+
+.card_meta{
+    background-color: white;
+    border: 2px solid #1d676d;
+    width: 100%;
+    margin: 10px;
+
 }
 
 
@@ -115,8 +134,8 @@
     width: 100%;
 }
 
-/* -------------- Sessão 4 - Gráficos --------------------- */
-.sessao-4{
+/* -------------- Sessão 3 - Gráficos --------------------- */
+.sessao-3{
     display: flex;
     flex-direction: row;
     justify-content: space-between;

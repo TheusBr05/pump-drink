@@ -67,7 +67,7 @@
                         <div class="metrica_total">
                             <h4>TOTAL DE SAÍDAS </h4>
                             <h3>
-                                12.235
+                                9.000
                             </h3>
                         </div>
                         <div class="metrica_total">
@@ -86,16 +86,31 @@
                                 Início 20/03
                             </h6>
                         </div>
-                        <div class="metrica_total">
-                            <h4>META</h4>
-                            <h3>
-                                14
-                            </h3>
+                        <div class="metrica_meta">
+                            <div class="card_meta">
+                                <h4>META GERAL</h4>
+                                <h3>
+                                    10.000
+                                </h3>
+                            </div>
+                            <div class="card_meta">
+                                <h4>META P/ UNIDA</h4>
+                                <h3>
+                                    714 - 730
+                                </h3>
+                            </div>
+                            <div class="card_meta">
+                                <h4>META P/ SEMANAL</h4>
+                                <h3>
+                                    1.110 - 1.115
+                                </h3>
+                            </div>
+
                         </div>
 
                     </div>
 
-                     <div class="card_unidades"> 
+                    <div class="card_unidades">
                         <div class="card_metrica">
                             <div class="icon_metricas">
                                 <h4>Desempenho</h4>
@@ -137,11 +152,13 @@
                     <div class="card-grafico" id="regiao">
                         <h4>Desempenhopo região</h4>
                         <canvas id="desempenho_regiao" class="vetor"></canvas>
+
                     </div>
 
                     <div class="card-grafico" id="semana">
                         <h4>Desempenho por unidades <h4>
                                 <canvas id="desempenho_semana" class="vetor"></canvas>
+
                     </div>
                 </div>
             </div>
@@ -242,7 +259,10 @@
         data: {
             datasets: [{
                 data: [90, 10],
-                cutout: 70
+                cutout: 70,
+                backgroundColor: [
+                    'green', 'gray'
+                ]
             }]
         },
         options: {
@@ -259,8 +279,8 @@
                 data: [80, 10],
                 cutout: 70,
                 backgroundColor: [
-                 'red', 'gray' 
-                 ]
+                    'red', 'gray'
+                ]
             }]
         },
         options: {
@@ -276,12 +296,12 @@
             datasets: [{
                 data: [10, 90],
                 cutout: 70,
-                 backgroundColor: [
-                 'red', 'gray' 
-                 ]
+                backgroundColor: [
+                    'red', 'gray'
+                ]
 
             }
-        ]
+            ]
         },
         options: {
             responsive: true,
