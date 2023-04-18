@@ -102,12 +102,19 @@ input {
 
 button {
   background-color: #1d676d;
-  color: white;
+  color: #ebded5;
   border: 0;
   margin-bottom: 5%;
   width: 150px;
   height: 40px;
   border-radius: 10px;
+  transition: all .5s ease-out;
+  border: 2px solid #1d676d ;
+}
+
+button:hover{
+  color: #ebded5;
+    background-color: #77a4a6;
 }
 
 /* NAVBAR */
