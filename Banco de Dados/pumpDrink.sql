@@ -180,6 +180,7 @@ CREATE TABLE tb_registro(
 	id_registro INT auto_increment,
 	datahora_registro DATETIME DEFAULT current_timestamp() ,
 	fk_sensor INT,
+    aprox_registro CHAR (1),
 	constraint fk_sensor FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor),
     constraint pk_registro PRIMARY KEY (id_registro, fk_sensor)
 );
