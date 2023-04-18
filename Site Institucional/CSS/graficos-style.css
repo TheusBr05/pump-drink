@@ -144,7 +144,7 @@
 
 /* -------------- Sessão 3 - Gráfico --------------------- */
 .card-grafico{
-    padding: 20px;
+    padding: 30px;
     background-color: white;
     border-radius: 20px;
     margin: 10px 10px;
@@ -154,6 +154,11 @@
 
 .vetor{
     width: 100%;
+
+}
+
+canva{
+    font-family: 'Verdana' !important;
 }
 
 /* -------------- Sessão 3 - Gráficos --------------------- */
@@ -199,5 +204,9 @@
     padding: 5px 25px;
     border: 1px solid #1d676d;
     border-radius: 15px;
+}
+
+.perfil_header img{
+    cursor: pointer;
 }
 

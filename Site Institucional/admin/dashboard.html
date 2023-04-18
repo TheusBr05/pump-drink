@@ -86,7 +86,7 @@
                                 Semanas
                             </h5>
                         </div>
-                        
+
                         <div class="metrica_meta">
                             <div class="card_meta">
                                 <h4>META GERAL</h4>
@@ -114,15 +114,15 @@
                             </div>
                         </div>
 
-                        <div class="card_metrica" >
-                            <div class="icon_metricas" >
+                        <div class="card_metrica">
+                            <div class="icon_metricas">
                                 <h4>Unidades acima esperado</h4>
                                 <canvas id="desempenho_unidadesAcima" class="doughnut"></canvas>
                                 <div class="center_rosca">10%</div>
                             </div>
                         </div>
 
-                        <div class="card_metrica" >
+                        <div class="card_metrica">
 
                             <div class="icon_metricas">
                                 <h4>Unidades abaixo esperado</h4>
@@ -180,28 +180,43 @@
 
     new Chart(graficoLinha_hoje, {
         data: {
-            labels: ['Semana 1','Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9'],
+            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9'],
             datasets: [{
                 type: 'line',
                 label: 'Bebida X',
-                data: [130, 90, 85, 82, 88, 85, 81, 78, 75],
+                data: [130, 90, 89, 89, 88, 85, 81, 78, 75],
                 borderWidth: 1
             }, {
                 type: 'line',
                 label: 'Meta Semanal',
-                data: [120, 100, 80, 80,80,80,80,80,80,],
+                data: [120, 100, 80, 80, 80, 80, 80, 80, 80,],
                 borderWidth: 1
             }
             ]
         },
         options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        font: {
+                            size: 14,
+                            family: 'Verdana',
+                            weight: undefined
+                        }
+                    }
+                }
+            },
+
+
             scales: {
                 y: {
                     beginAtZero: true
                 }
             },
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            autoPadding: true
         }
     });
 
@@ -212,15 +227,11 @@
             datasets: [{
                 label: 'Regiões',
                 data: [55, 52, 31, 25, 28],
-                borderWidth: 1
+                borderWidth: 1,
+        
             }]
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
             responsive: true,
             maintainAspectRatio: false
 
