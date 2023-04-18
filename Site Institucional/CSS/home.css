@@ -1,13 +1,15 @@
-/* Sobre nós */
-body {
-  overflow-x: hidden;
+/* HOME */
+
+.containerGeralhome {
+   background-color: #AFDADB;
+  background-image: url("./assets/Linhas 1ª dobra direita.svg"), url("./assets/Linhas 1ª dobra esquerda.svg");
+  background-size: 35%, 50%;
+  background-position: right top, left top;
+  background-repeat: no-repeat;
 }
 
-.meio {
-  background-color: #77a4a6;
-  width: 100vw;
-  margin-top: 5%;
-}
+/* SOBRE NÓS */
+
 
 .meio h2 {
   color: #1d676d;
@@ -18,19 +20,17 @@ body {
   text-align: justify;
 }
 
-.meio .container {
-  width: 70%;
-  flex-direction: column;
-  padding-bottom: 100px;
-}
-
 .meio p {
   width: 500px;
   color: white;
   text-align: justify;
 }
 
-/* Conheça a pump drink */
+.meio span {
+  color: #1d676d;
+  font-size: 35px;
+  font-weight: 700;
+}
 
 .imagem1 {
   background-color: #1d676d;
@@ -48,17 +48,9 @@ body {
   justify-content: space-around;
 }
 
-/* Saiba um pouco mais */
-
 .segunda_parte {
   display: flex;
   justify-content: space-around;
-}
-
-.meio span {
-  color: #1d676d;
-  font-size: 35px;
-  font-weight: 700;
 }
 
 .segunda_parte h2 {
@@ -75,7 +67,7 @@ body {
   justify-content: center;
 }
 
-/* contato  */
+/* ENTRE EM CONTATO*/
 
 .contato {
   display: flex;
@@ -98,6 +90,7 @@ input {
   background-color: #dedede;
   padding: 10px;
 }
+
 #msg {
   background-color: #dedede;
   border-radius: 10px;
@@ -111,7 +104,96 @@ button {
   background-color: #1d676d;
   color: white;
   border: 0;
+  margin-bottom: 5%;
   width: 150px;
   height: 40px;
   border-radius: 10px;
+}
+
+/* NAVBAR */
+
+.container-header {
+  display: flex;
+  width: 100%;
+  font-family: Poppins;
+  font-size: 100%;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+  background-color: #1d676d; ;
+  padding-left: 25px;
+} 
+
+.ppdrink {
+  max-width: 100px;
+}
+
+/* para colocar a header para descer junto com a pagina tem que colocar: "position: fixed;
+width: 100vw;" na header */
+
+.navbar a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.navbarLista {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  list-style: none;
+justify-content: end;
+padding-right: 50px;
+}
+
+.navbarLista ul,
+.navbarLista li a {
+  justify-content: space-evenly;
+  padding: 5px 10px;
+  color: #0F1631;
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
+}
+
+.loginBtn {
+  padding: 7px 25px;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #c8cfee;
+}
+
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #1d676d;
+  color: white;
+}
+
+.footerContainer,
+.container-1,
+.container-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+.paragrafoFooter {
+  margin-bottom: 3%;
+  margin-top: 1.9%;
+}
+
+ .primeiro_texto h2 {
+  margin-bottom: 4%;
+}
+.segundo_texto h2{
+  margin-bottom: 4%;
+}
+.contato h2, p{
+  margin-bottom: 1%;
 }
