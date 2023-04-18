@@ -80,12 +80,13 @@
                         <div class="metrica_total">
                             <h4>TEMPO DE TESTE</h4>
                             <h3>
-                                9 <br> Semanas
+                                9
                             </h3>
-                            <h6>
-                                Início 20/03
-                            </h6>
+                            <h5>
+                                Semanas
+                            </h5>
                         </div>
+                        
                         <div class="metrica_meta">
                             <div class="card_meta">
                                 <h4>META GERAL</h4>
@@ -97,12 +98,6 @@
                                 <h4>META P/ UNIDA</h4>
                                 <h3>
                                     714 - 730
-                                </h3>
-                            </div>
-                            <div class="card_meta">
-                                <h4>META P/ SEMANAL</h4>
-                                <h3>
-                                    1.110 - 1.115
                                 </h3>
                             </div>
 
@@ -119,15 +114,16 @@
                             </div>
                         </div>
 
-                        <div class="card_metrica">
-                            <div class="icon_metricas">
+                        <div class="card_metrica" >
+                            <div class="icon_metricas" >
                                 <h4>Unidades acima esperado</h4>
                                 <canvas id="desempenho_unidadesAcima" class="doughnut"></canvas>
                                 <div class="center_rosca">10%</div>
                             </div>
                         </div>
 
-                        <div class="card_metrica">
+                        <div class="card_metrica" >
+
                             <div class="icon_metricas">
                                 <h4>Unidades abaixo esperado</h4>
                                 <canvas id="desempenho_unidadesAbaixo" class="doughnut"></canvas>
@@ -184,17 +180,16 @@
 
     new Chart(graficoLinha_hoje, {
         data: {
-            labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '15:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
+            labels: ['Semana 1','Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9'],
             datasets: [{
                 type: 'line',
                 label: 'Bebida X',
-                data: [12, 19, 13, 8, 10, 13, 16, 18, 21, 16, 19, 12, 15, 12, 19, 13, 8, 10, 13, 16, 18, 21, 16, 19, 12, 15],
+                data: [130, 90, 85, 82, 88, 85, 81, 78, 75],
                 borderWidth: 1
             }, {
                 type: 'line',
-                label: 'meta',
-                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-                pointStyle: false,
+                label: 'Meta Semanal',
+                data: [120, 100, 80, 80,80,80,80,80,80,],
                 borderWidth: 1
             }
             ]
