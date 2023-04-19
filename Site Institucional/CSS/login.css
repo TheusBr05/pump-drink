@@ -1,6 +1,14 @@
 /* background-color:#1d676d; jogando cor em cima da imagem
   background-blend-mode: multiply; filtro da imagem com a cor */
 
+  .containerGeralhome {
+    background-color: #AFDADB;
+    background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
+    background-size: 35%, 50%;
+    background-position: right top, left top;
+    background-repeat: no-repeat;
+  }
+  
 .container-2 {
   display: flex;
   justify-content: center;

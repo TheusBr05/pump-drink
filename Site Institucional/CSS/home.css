@@ -1,8 +1,8 @@
 /* HOME */
 
 .containerGeralhome {
-   background-color: #AFDADB;
-  background-image: url("./assets/Linhas 1ª dobra direita.svg"), url("./assets/Linhas 1ª dobra esquerda.svg");
+  background-color: #AFDADB;
+  background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
   background-size: 35%, 50%;
   background-position: right top, left top;
   background-repeat: no-repeat;

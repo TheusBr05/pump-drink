@@ -1,16 +1,11 @@
 
-.containerGeralCalculadora {
-  background-color: #1d676d;
-  flex-direction: row;
-}
-
 .containerCalculosGeral {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #AFDADB;
-  background-image: url("./assets/Linhas 1ª dobra direita.svg"), url("./assets/Linhas 1ª dobra esquerda.svg");
+  background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
   background-size: 20%, 35%;
   background-position: right top, left top;
   background-repeat: no-repeat;

@@ -1,11 +1,17 @@
 /* HOME */
 
-body{
-background-color: #AFDADB;
- background-image: url("./assets/Linhas 1ª dobra direita.svg"), url("./assets/Linhas 1ª dobra esquerda.svg");
- background-size: 35%, 50%;
- background-position: right top, left top;
- background-repeat: no-repeat;
+
+
+.container-card{ 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 4%;
+  background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
+  background-size: 20%, 35%;
+  background-position: right top, left top;
+  background-repeat: no-repeat;
 }
 
 .textMyData {
@@ -16,14 +22,6 @@ background-color: #AFDADB;
   height: 3%;
   padding-bottom: 3%;
   margin-top: 8%;
-}
-
-.container-card {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 5%;
-  margin-bottom: 4%;
 }
 
 .card {
