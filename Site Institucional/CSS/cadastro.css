@@ -1,21 +1,35 @@
-body{
-  background-image: url("../img/pexels-mudassir-ali-2680270.jpg")  !important; 
-  background-repeat: no-repeat;
-}
+/* HOME */
 
-.container-card {
+
+
+.container-card{ 
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-bottom: 4%;
+  background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
+  background-size: 20%, 35%;
+  background-position: right top, left top;
+  background-repeat: no-repeat;
+}
+
+.textMyData {
+  display: flex;
+  justify-content: center;
+  font-size: 200%;
+  color: #1F4662;
+  height: 3%;
+  padding-bottom: 3%;
+  margin-top: 8%;
 }
 
 .card {
   background-color: #ffffff;
-  padding: 30px 60px;
-  border-radius: 4%;
+  padding: 0 5% ;
+  border-radius: 1%;
   box-shadow: 4px 4px 10px 7px #00000060;
+  width: 45%;
 }
 
 h1{
@@ -26,7 +40,7 @@ h1{
 
 .label-float input{
   width: 100%;
-  padding: 5px 5px;
+  padding: 8px;
   display: inline-block;
   border: 0;
   border-bottom: 2px solid #1d676d;  
@@ -95,7 +109,9 @@ button:hover{
 .container-btn{
   display: flex;
   flex-direction: row;
-  justify-content: center;}
+  justify-content: center;
+margin-bottom: 8%;
+}
 
 .fa-eye{
   position: absolute;
