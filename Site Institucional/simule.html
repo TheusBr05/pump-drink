@@ -144,13 +144,18 @@
     var valorSoftware = valorTotalAluguel * 0.05; // custo
     var valorTotalPlano = valorSoftware + valorTotalAluguel + custoBase;
     var economia = (gastoConvencional - valorTotalPlano).toFixed(2);
+    var economia_porc = (economia * 100) / gastoConvencional
 
     if (gastoConvencional > 0 && qtdMaquinas > 0 && qtdMeses >= 6) {
       div_resultado.innerHTML = `
             <h5>O valor atual de um teste de aceitação é de <span style="color: red">R$${gastoConvencional.toFixed(2)}</span> <br>
             O valor do nosso serviço é de <span style="color: blue">R$${valorTotalPlano.toFixed(2)}</span> <br>
             Contratando nosso serviço você economizará:
-            <b style="color: green">R$${economia}</b></h5>`;
+            <b style="color: green">R$${economia}</b>
+            <br>
+          Uma economia de <span>${economia_porc}%</span>
+          </h5>
+            `;
     } else if (gastoConvencional == 0 && qtdMaquinas == 0 && qtdMeses == 0) {
       alert("Atenção! Preencha os campos para que a simulação seja efetuada");
     } else if (gastoConvencional == 0 || qtdMaquinas == 0 || qtdMeses == 0) {
