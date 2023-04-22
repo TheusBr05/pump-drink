@@ -1,4 +1,4 @@
-int switch_pin = 7;
+int switch_pin = 13;
 
 int metaSaidabeb1 = 10; // Meta de saída da bebida
 int metaSaidabeb2 = 20;
