@@ -66,10 +66,10 @@
 
                         <div class="metrica_total">
                             <div class="info_metrica">
-                                <h4>TOTAL DE SAÍDAS </h4>
                                 <h3>
                                     9.000
                                 </h3>
+                                <h4>TOTAL DE SAÍDAS </h4>
                             </div>
 
                             <div class="icon_total">
@@ -79,10 +79,10 @@
 
                         <div class="metrica_total">
                             <div class="info_metrica">
-                                <h4>TOTAL UNIDADE</h4>
                                 <h3>
                                     14
                                 </h3>
+                                <h4>TOTAL UNIDADE</h4>
                             </div>
 
                             <div class="icon_total">
@@ -92,13 +92,12 @@
 
                         <div class="metrica_total">
                             <div class="info_metrica">
-                                <h4>TEMPO DE TESTE</h4>
+                                
                                 <h3>
-                                    9
+                                    9  <span class="semana">Sem.</span>
                                 </h3>
-                                <h5>
-                                    Semanas
-                                </h5>
+
+                                <h4>TEMPO DE TESTE</h4>
                             </div>
 
                             <div class="icon_total">
@@ -157,7 +156,7 @@
                 <!-- sessao 2 - primeiro gráfico -->
                 <div class="sessao-2">
                     <div class="card-grafico">
-                        <h4>Período de teste</h4>
+                        <h4>Período de teste</h4> 
                         <canvas id="desempenho_hoje" class="vetor"></canvas>
                     </div>
                 </div>
@@ -165,15 +164,42 @@
                 <!-- sessao 3 - segundo e terceiro gráfico -->
                 <div class="sessao-3">
                     <div class="card-grafico" id="regiao">
-                        <h4>Desempenhopo região</h4>
+                        <div class="legenda_filtro">
+                            <h4>Desempenho por região</h4>
+                        <select name="" id="">
+                            <option value="" selected>Geral</option>
+                            <option value="">Semana 1</option>
+                            <option value="">Semana 2</option>
+                            <option value="">Semana 3</option>
+                            <option value="">Semana 4</option>
+                            <option value="">Semana 5</option>
+                            <option value="">Semana 6</option>
+                            <option value="">Semana 7</option>
+                            <option value="">Semana 8</option>
+                            <option value="">Semana 9</option>
+                        </select>
+                        </div>
                         <canvas id="desempenho_regiao" class="vetor"></canvas>
 
                     </div>
 
                     <div class="card-grafico" id="semana">
-                        <h4>Desempenho por unidades <h4>
-                                <canvas id="desempenho_semana" class="vetor"></canvas>
-
+                        <div class="legenda_filtro">
+                            <h4>Desempenho por unidades <h4>
+                                <select name="" id="">
+                                    <option value="" selected>Geral</option>
+                                    <option value="">Semana 1</option>
+                                    <option value="">Semana 2</option>
+                                    <option value="">Semana 3</option>
+                                    <option value="">Semana 4</option>
+                                    <option value="">Semana 5</option>
+                                    <option value="">Semana 6</option>
+                                    <option value="">Semana 7</option>
+                                    <option value="">Semana 8</option>
+                                    <option value="">Semana 9</option>
+                                </select>
+                        </div>
+                        <canvas id="desempenho_semana" class="vetor"></canvas>
                     </div>
                 </div>
             </div>

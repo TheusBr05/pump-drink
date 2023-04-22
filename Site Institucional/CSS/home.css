@@ -22,7 +22,7 @@
 
 .meio p {
   width: 500px;
-  color: white;
+  color: rgb(80, 80, 80);
   text-align: justify;
 }
 
@@ -122,11 +122,12 @@ button:hover{
 .container-header {
   display: flex;
   width: 100%;
-  font-family: Poppins;
-  font-size: 100%;
+  /* font-size: 100%; */
+  
   box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
   background-color: #1d676d; ;
   padding-left: 25px;
+
 } 
 
 .ppdrink {
@@ -148,6 +149,7 @@ width: 100vw;" na header */
   list-style: none;
 justify-content: end;
 padding-right: 50px;
+
 }
 
 .navbarLista ul,
@@ -158,6 +160,7 @@ padding-right: 50px;
   font-weight: 800;
   text-decoration: none;
   color: white;
+  font-weight: 400;
 }
 
 .loginBtn {
@@ -166,7 +169,7 @@ padding-right: 50px;
   letter-spacing: 1px;
   border-radius: 10px;
   text-decoration: none;
-  background-color: #c8cfee;
+  background-color: #77a4a6;
 }
 
 
