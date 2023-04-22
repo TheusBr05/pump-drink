@@ -46,18 +46,26 @@
 .icon_total{
     display: flex;
     flex-direction: column-reverse;
-    justify-content: right;
     width: 100%;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon_total img{
    width: 35px;
-}
+   background-color: rgba(209, 209, 209, 0.679);
+   padding: 3px;
+   border-radius: 10px;
+   /* border: solid 1px #1d676d; */
 
+}
 .info_metrica{
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
-
 
 .card_metrica h1{
     font-size: 50px;
@@ -67,6 +75,11 @@
 .sessao-1 h4{
     font-size: 17px;
     font-weight: 150;
+}
+
+.semana{
+    font-size: 20px;
+    margin-left: -10px;
 }
 
 .icon_metricas{
@@ -114,10 +127,10 @@
     padding: 20px;
     border: 2px solid #1d676d;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    justify-content: center;
     justify-items: center;
-    /* align-items: center; */
+    align-items: center;
 }
 
 .metrica_total h3{
@@ -162,21 +175,51 @@
 
 /* -------------- Sessão 2 - Gráfico --------------------- */
 .card-grafico{
-    padding: 30px;
+    padding: 20px 20px 50px 20px;
     background-color: white;
     border-radius: 20px;
     margin: 10px 10px;
     height: 300px;
     border: 2px solid #1d676d;
+    /* display: flex;
+    flex-direction: column;*/
+    align-items: center;
+}   
+
+.legenda_filtro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
+.legenda_filtro select{
+    background-color: rgba(209, 209, 209, 0.679);
+    padding: 4px 7px;
+    border-radius: 5px;
+    color: #1d676d;
+    font-family: 'Verdana';
+    font-weight: 500;
+    font-family: 14px;
+    border: solid 1px #1d676d;
+
+}
+
+.card-grafico h4{
+    font-size: 15px;
+    font-weight: 300;
+    align-self: center;
+}
+
+
 .vetor{
-    width: 100%;
+    width: 90%;
 
 }
 
 canva{
     font-family: 'Verdana' !important;
+    height: 90% !important;
 }
 
 /* -------------- Sessão 3 - Gráficos --------------------- */

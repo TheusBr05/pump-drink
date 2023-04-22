@@ -135,3 +135,19 @@
     align-items: center;
     height: 100%;
   }
+
+
+  /*SCROLL*/
+::-webkit-scrollbar {
+    width: 8px;
+  }  
+  /* tamanho da linha*/
+  
+  ::-webkit-scrollbar-track {
+    background-color: #0F1631;
+  } /* cor de fundo do scrool*/
+  
+   ::-webkit-scrollbar-thumb {
+    background-color: #1F4662;
+    border-radius: 20px;
+  } /* cor da barra de rolagem*/
