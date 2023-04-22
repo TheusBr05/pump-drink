@@ -1,4 +1,4 @@
-<img src=""D:\Área de Trabalho\Pump Drink\Projeto Sprint 02\Pump_Drink\Site Institucional\assets\3.png"">
+<img src="https://github.com/MatheusHenrique005/Pump_Drink/blob/main/Site%20Institucional/assets/logo.png">
 
 <h1><b>PUMP DRINK</b></h1>
 <p>Teste de aceitação e mercado de novas bebidas proteicas e automação da análise de dados.</p>
@@ -12,11 +12,11 @@ A Pump Drink é uma empresa de software de testes de aceitação e de mercado. O
 
 ✒️ Autores
 
-https://github.com/MatheusHenrique005
-https://github.com/melissaSBNeves
-https://github.com/IsabelCAlberti
-https://github.com/Arthur-Ciliberti
-https://github.com/arthursilemanali
+https://github.com/MatheusHenrique005 <br>
+https://github.com/melissaSBNeves <br>
+https://github.com/IsabelCAlberti <br>
+https://github.com/Arthur-Ciliberti <br>
+https://github.com/arthursilemanali <br>
 https://github.com/Naufel2510
 
 
