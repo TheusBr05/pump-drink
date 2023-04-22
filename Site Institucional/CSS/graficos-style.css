@@ -43,6 +43,22 @@
 
 }
 
+.icon_total{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: right;
+    width: 100%;
+}
+
+.icon_total img{
+   width: 35px;
+}
+
+.info_metrica{
+    width: 100%;
+}
+
+
 .card_metrica h1{
     font-size: 50px;
     font-weight: 300;
@@ -59,6 +75,8 @@
     justify-content: center;
     align-items: center;
 }
+
+
 
 .center_rosca {
     position: absolute;
@@ -83,7 +101,8 @@
     justify-content: space-between;
     justify-items: center;
     align-items: center;
-    height: 150px;    
+    height: 150px;  
+    
 }
 .metrica_total{
     background-color: white;
@@ -95,11 +114,10 @@
     padding: 20px;
     border: 2px solid #1d676d;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     justify-items: center;
-    justify-content: center;
-    align-items: center;
-    
+    /* align-items: center; */
 }
 
 .metrica_total h3{
@@ -142,7 +160,7 @@
 }
 
 
-/* -------------- Sessão 3 - Gráfico --------------------- */
+/* -------------- Sessão 2 - Gráfico --------------------- */
 .card-grafico{
     padding: 30px;
     background-color: white;
