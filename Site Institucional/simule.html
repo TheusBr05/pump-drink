@@ -147,10 +147,10 @@
 
     if (gastoConvencional > 0 && qtdMaquinas > 0 && qtdMeses >= 6) {
       div_resultado.innerHTML = `
-            <h5>O valor atual de um teste de aceitação é de <span style="color: red">R$${gastoConvencional.toFixed(2)}</span> <br>
-            O valor do nosso serviço é de <span style="color: blue">R$${valorTotalPlano.toFixed(2)}</span> <br>
+            <h5>O valor atual de um teste de aceitação é de <span >R$${gastoConvencional.toFixed(2)}</span> <br>
+            O valor do nosso serviço é de <span>R$${valorTotalPlano.toFixed(2)}</span> <br>
             Contratando nosso serviço você economizará:
-            <b style="color: green">R$${economia}</b></h5>`;
+            <b style="color: #0f474d">R$${economia}</b></h5>`;
     } else if (gastoConvencional == 0 && qtdMaquinas == 0 && qtdMeses == 0) {
       alert("Atenção! Preencha os campos para que a simulação seja efetuada");
     } else if (gastoConvencional == 0 || qtdMaquinas == 0 || qtdMeses == 0) {
@@ -159,7 +159,7 @@
       );
     } else if (qtdMeses < 6) {
       alert(
-        "Atenção! Infelizmente nossos contratos têm um período mínimo de 6 meses. Saiba mais no link abaixo do botão de simulação"
+        "Atenção! Infelizmente nossos contratos têm um período mínimo de 6 meses."
       );
     }
   }

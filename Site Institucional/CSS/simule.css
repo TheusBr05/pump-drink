@@ -157,3 +157,7 @@ input::placeholder {
   cursor: pointer;
   transition: 0.5s;
 }
+
+.InputEsquerdoCalculadora h3{
+  margin-bottom: 8px;
+}
