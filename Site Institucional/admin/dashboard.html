@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../img/3.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/3.png" type="image/x-icon" />
     <link rel="stylesheet" href="../CSS/admin-style.css" />
     <link rel="stylesheet" href="../CSS/graficos-style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,14 +22,14 @@
         <div class="container">
 
             <div>
-                <img src="../img/logo.png" class="logo">
-                <img src="../img/text_logo.png" class="logo">
+                <img src="../assets/logo.png" class="logo">
+                <img src="../assets/text_logo.png" class="logo">
             </div>
 
             <div class="search-bar">
                 <input type="search" placeholder="Pesquisar">
                 <button type="submit">
-                    <img src="../img/pesquisar.png">
+                    <img src="../assets/pesquisar.png">
                 </button>
             </div>
 
@@ -41,9 +41,9 @@
 
 
             <div class="perfil_header">
-                <img src="../img/notification.png"> <!--icone notificação -->
+                <img src="../assets/notification.png"> <!--icone notificação -->
                 <h5>USER CLIENTE</h5>
-                <img src="../img/seta.png" id="seta_user">
+                <img src="../assets/seta.png" id="seta_user">
             </div>
 
         </div>
@@ -65,26 +65,45 @@
                     <div class="card_total">
 
                         <div class="metrica_total">
-                            <h4>TOTAL DE SAÍDAS </h4>
-                            <h3>
-                                9.000
-                            </h3>
-                        </div>
-                        <div class="metrica_total">
-                            <h4>TOTAL UNIDADE</h4>
-                            <h3>
-                                14
-                            </h3>
+                            <div class="info_metrica">
+                                <h4>TOTAL DE SAÍDAS </h4>
+                                <h3>
+                                    9.000
+                                </h3>
+                            </div>
+
+                            <div class="icon_total">
+                                <img src="../assets/gráfico.png">
+                            </div>
                         </div>
 
                         <div class="metrica_total">
-                            <h4>TEMPO DE TESTE</h4>
-                            <h3>
-                                9
-                            </h3>
-                            <h5>
-                                Semanas
-                            </h5>
+                            <div class="info_metrica">
+                                <h4>TOTAL UNIDADE</h4>
+                                <h3>
+                                    14
+                                </h3>
+                            </div>
+
+                            <div class="icon_total">
+                                <img src="../assets/local.png">
+                            </div>
+                        </div>
+
+                        <div class="metrica_total">
+                            <div class="info_metrica">
+                                <h4>TEMPO DE TESTE</h4>
+                                <h3>
+                                    9
+                                </h3>
+                                <h5>
+                                    Semanas
+                                </h5>
+                            </div>
+
+                            <div class="icon_total">
+                                <img src="../assets/prazo.png" alt="">
+                            </div>
                         </div>
 
                         <div class="metrica_meta">
@@ -228,7 +247,7 @@
                 label: 'Regiões',
                 data: [55, 52, 31, 25, 28],
                 borderWidth: 1,
-        
+
             }]
         },
         options: {
