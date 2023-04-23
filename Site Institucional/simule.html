@@ -43,7 +43,7 @@
       </div>
       <div class="containerCalculadoraInputs">
         <div class="InputEsquerdoCalculadora">
-          <h3> Informe-nos<span> sobre:</span> </h3>
+          <h3> Informe - nos<span> sobre:</span> </h3>
           <p style="font: 16px;">Quantidade de:</p>
           <input class="InputCalculadora" id="input_gasto_convencional"
             placeholder="Gastos com teste de aceitação e mercado:">
@@ -114,11 +114,11 @@
 
     if (gastoConvencional > 0 && qtdMaquinas > 0 && qtdMeses >= 6) {
       div_resultado.innerHTML = `
-            <h5>O valor atual de um teste de aceitação é de <span style="color: red">R$${gastoConvencional.toFixed(2)}</span> <br>
-            O valor do nosso serviço é de <span style="color: blue">R$${valorTotalPlano.toFixed(2)}</span> <br>
+            <h5>O valor atual de um teste de aceitação é de <b><span style="color: black">R$${gastoConvencional.toFixed(2)}</span></b> <br>
+            O valor do nosso serviço é de <b><span style="color: black">R$${valorTotalPlano.toFixed(2)}</span></b> <br>
             Contratando nosso serviço você economizará:
-            <b style="color: green">R$${economia}</b><br>
-            <b>Uma economia de: <span style="color: black;">${economia_porc}%</span></b></h5>
+            <b style="color: black">R$${economia}</b><br>
+            Uma economia de: <b><span style="color: black;">${economia_porc.toFixed(2)}%</span></b></h5>
             `;
     } else if (gastoConvencional == 0 && qtdMaquinas == 0 && qtdMeses == 0) {
       alert("Atenção! Preencha os campos para que a simulação seja efetuada");

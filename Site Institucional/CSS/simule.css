@@ -170,3 +170,15 @@ input::placeholder {
   padding: 8% ;
   height: 0%;
 }
+
+.InputEsquerdoCalculadora h3{
+  padding-bottom: 2vw;
+}
+
+.InputEsquerdoCalculadora p{
+  padding-bottom: 1vw;
+}
+
+.InputDireitoCalculadora b{
+  font-weight: 800;
+}
