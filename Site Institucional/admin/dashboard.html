@@ -55,9 +55,19 @@
 
             <div class="graficos">
                 <!-- titulo -->
-                <div class="titulo">
-                    <h2>Dashboard</h2>
-                    <button type="submit">DESEMPENHO ALTO</button>
+                <div class="topo">
+                    <div class="titulo">
+                        <h2>Dashboard -</h2>
+
+                        <div class="info_bebida">
+                            <i> BEBIDA X</i>
+                            <img src="../assets/edit.png">
+                        </div>
+
+                        <button type="submit">DESEMPENHO ALTO</button>
+                    </div>
+
+
                 </div>
 
                 <!-- sessao 1 - cards métricas -->
@@ -92,9 +102,9 @@
 
                         <div class="metrica_total">
                             <div class="info_metrica">
-                                
+
                                 <h3>
-                                    9  <span class="semana">Sem.</span>
+                                    9 <span class="semana">Sem.</span>
                                 </h3>
 
                                 <h4>TEMPO DE TESTE</h4>
@@ -129,6 +139,8 @@
                                 <h4>Desempenho</h4>
                                 <canvas id="desempenho_geral" class="doughnut"></canvas>
                                 <div class="center_rosca">90%</div>
+
+
                             </div>
                         </div>
 
@@ -136,7 +148,8 @@
                             <div class="icon_metricas">
                                 <h4>Unidades acima esperado</h4>
                                 <canvas id="desempenho_unidadesAcima" class="doughnut"></canvas>
-                                <div class="center_rosca">10%</div>
+                                <div class="center_rosca">30%</div>
+
                             </div>
                         </div>
 
@@ -145,7 +158,8 @@
                             <div class="icon_metricas">
                                 <h4>Unidades abaixo esperado</h4>
                                 <canvas id="desempenho_unidadesAbaixo" class="doughnut"></canvas>
-                                <div class="center_rosca">80%</div>
+                                <div class="center_rosca">60%</div>
+
                             </div>
                         </div>
 
@@ -156,7 +170,27 @@
                 <!-- sessao 2 - primeiro gráfico -->
                 <div class="sessao-2">
                     <div class="card-grafico">
-                        <h4>Período de teste</h4> 
+                        <div class="topo_grafico">
+                            <h4>Período de teste</h4>
+                            <select name="" id="" class="select">
+                                <option value="" selected>Geral</option>
+                                <option value="">Unidade 1</option>
+                                <option value="">Unidade 2</option>
+                                <option value="">Unidade 3</option>
+                                <option value="">Unidade 4</option>
+                                <option value="">Unidade 5</option>
+                                <option value="">Unidade 6</option>
+                                <option value="">Unidade 7</option>
+                                <option value="">Unidade 8</option>
+                                <option value="">Unidade 9</option>
+                                <option value="">Unidade 10</option>
+                                <option value="">Unidade 11</option>
+                                <option value="">Unidade 12</option>
+                                <option value="">Unidade 13</option>
+                                <option value="">Unidade 14</option>
+                            </select>
+                        </div>
+
                         <canvas id="desempenho_hoje" class="vetor"></canvas>
                     </div>
                 </div>
@@ -166,18 +200,18 @@
                     <div class="card-grafico" id="regiao">
                         <div class="legenda_filtro">
                             <h4>Desempenho por região</h4>
-                        <select name="" id="">
-                            <option value="" selected>Geral</option>
-                            <option value="">Semana 1</option>
-                            <option value="">Semana 2</option>
-                            <option value="">Semana 3</option>
-                            <option value="">Semana 4</option>
-                            <option value="">Semana 5</option>
-                            <option value="">Semana 6</option>
-                            <option value="">Semana 7</option>
-                            <option value="">Semana 8</option>
-                            <option value="">Semana 9</option>
-                        </select>
+                            <select name="" id="" class="select">
+                                <option value="" selected>Geral</option>
+                                <option value="">Semana 1</option>
+                                <option value="">Semana 2</option>
+                                <option value="">Semana 3</option>
+                                <option value="">Semana 4</option>
+                                <option value="">Semana 5</option>
+                                <option value="">Semana 6</option>
+                                <option value="">Semana 7</option>
+                                <option value="">Semana 8</option>
+                                <option value="">Semana 9</option>
+                            </select>
                         </div>
                         <canvas id="desempenho_regiao" class="vetor"></canvas>
 
@@ -186,18 +220,22 @@
                     <div class="card-grafico" id="semana">
                         <div class="legenda_filtro">
                             <h4>Desempenho por unidades <h4>
-                                <select name="" id="">
-                                    <option value="" selected>Geral</option>
-                                    <option value="">Semana 1</option>
-                                    <option value="">Semana 2</option>
-                                    <option value="">Semana 3</option>
-                                    <option value="">Semana 4</option>
-                                    <option value="">Semana 5</option>
-                                    <option value="">Semana 6</option>
-                                    <option value="">Semana 7</option>
-                                    <option value="">Semana 8</option>
-                                    <option value="">Semana 9</option>
-                                </select>
+                                    <select name="" id="" class="select">
+                                        <option value="" selected>Geral</option>
+                                        <option value="">Semana 1</option>
+                                        <option value="">Semana 2</option>
+                                        <option value="">Semana 3</option>
+                                        <option value="">Semana 4</option>
+                                        <option value="">Semana 5</option>
+                                        <option value="">Semana 6</option>
+                                        <option value="">Semana 7</option>
+                                        <option value="">Semana 8</option>
+                                        <option value="">Semana 9</option>
+                                    </select>
+                                    <select name="" id="" class="select">
+                                        <option value="">Acima Desempenho</option>
+                                        <option value="">Abaixo Desempenho</option>
+                                    </select>
                         </div>
                         <canvas id="desempenho_semana" class="vetor"></canvas>
                     </div>
@@ -225,16 +263,16 @@
 
     new Chart(graficoLinha_hoje, {
         data: {
-            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9'],
+            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8'],
             datasets: [{
                 type: 'line',
                 label: 'Bebida X',
-                data: [130, 90, 89, 89, 88, 85, 81, 78, 75],
+                data: [770, 745, 740, 738, 735, 732, 720, 715],
                 borderWidth: 1
             }, {
                 type: 'line',
                 label: 'Meta Semanal',
-                data: [120, 100, 80, 80, 80, 80, 80, 80, 80,],
+                data: [714, 714, 714, 714, 714, 714, 714, 714],
                 borderWidth: 1
             }
             ]
@@ -286,13 +324,20 @@
     new Chart(graficoBarra_semana, {
         type: 'bar',
         data: {
-            labels: ['Unidade 1', 'Unidade 1', 'Unidade 1', 'Unidade 1', 'Unidade 1'],
+            labels: ['Unidade 1', 'Unidade 5', 'Unidade 7', 'Unidade 2', 'Unidade 9'],
             datasets: [{
                 label: 'Bebida X',
-                data: [215, 158, 143, 168, 156, 143, 192],
+                data: [85, 82, 81, 80, 79],
+                backgroundColor: '#5271FF'
+            },
+
+            {   
+                type: 'line',
+                data: [80, 80, 80, 80, 80],
                 borderWidth: 1,
-                backgroundColor: 'brown'
-            }]
+                borderColor: 'red',
+            }
+            ]
         },
         options: {
             scales: {
@@ -327,7 +372,7 @@
         type: 'doughnut',
         data: {
             datasets: [{
-                data: [80, 10],
+                data: [60, 40],
                 cutout: 70,
                 backgroundColor: [
                     'red', 'gray'
@@ -345,7 +390,7 @@
         type: 'doughnut',
         data: {
             datasets: [{
-                data: [10, 90],
+                data: [30, 70],
                 cutout: 70,
                 backgroundColor: [
                     'red', 'gray'
