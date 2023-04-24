@@ -1,8 +1,6 @@
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
-
-
 CREATE TABLE tb_empresa(
  	id_empresa INT PRIMARY KEY auto_increment,
 	nome_empresa VARCHAR(150),
@@ -88,21 +86,25 @@ CREATE TABLE tb_bebida(
 	tipo VARCHAR(15),
 	constraint chkTipo CHECK (tipo IN('Pós-Treino', 'Pré-Treino')),
 	fk_empresa INT,
+	prazo_inicio DATE,
+    prazo_final DATE,
+    meta_geral INT,
+    meta_semanal INT,
 	constraint fk_empresa_bebida FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa),
     constraint pk_bebida PRIMARY KEY (id_bebida, fk_empresa) 
 );
 
 INSERT INTO tb_bebida VALUES
-    (NULL, "Suco de uva", "Pré-Treino", 1),
-    (NULL, "Suco de Manga", "Pós-Treino", 1),
-    (NULL, "Café", "Pré-Treino", 2),
-    (NULL, "Chá", "Pós-Treino", 2),
-    (NULL, "Coca-cola", "Pré-Treino", 3),
-    (NULL, "Guaraná", "Pós-Treino", 3),
-    (NULL, "Gatorade", "Pré-Treino", 4),
-    (NULL, "Ironage", "Pós-Treino", 4),
-	(NULL, "Todynho", "Pré-Treino", 5),
-    (NULL, "Nescau", "Pós-Treino", 5);
+    (NULL, "Suco de uva", "Pré-Treino", 1, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Suco de Manga", "Pós-Treino", 1, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Café", "Pré-Treino", 2, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Chá", "Pós-Treino", 2, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Coca-cola", "Pré-Treino", 3, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Guaraná", "Pós-Treino", 3, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Gatorade", "Pré-Treino", 4, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Ironage", "Pós-Treino", 4, '2023-02-20', '2023-04-24', 10000, 730),
+	(NULL, "Todynho", "Pré-Treino", 5, '2023-02-20', '2023-04-24', 10000, 730),
+    (NULL, "Nescau", "Pós-Treino", 5, '2023-02-20', '2023-04-24', 10000, 730);
 
 
 CREATE TABLE tb_dispenser(
@@ -181,29 +183,120 @@ CREATE TABLE tb_registro(
 	datahora_registro DATETIME DEFAULT current_timestamp() ,
 	fk_sensor INT,
     aprox_registro CHAR (1),
+    total_saida INT,
 	constraint fk_sensor FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor),
     constraint pk_registro PRIMARY KEY (id_registro, fk_sensor)
 );
 
+SELECT * FROM tb_sensor;
 INSERT INTO tb_registro VALUES
-    (NULL, default, "1"),
-    (NULL, default, "2"),
-    (NULL, default, "3"),
-	(NULL, default,"4"),
-	(NULL, default,"5"),
-	(NULL, default,"6"),
-	(NULL, default,"7"),
-	(NULL, default,"8"),
-	(NULL, default,"9"),
-	(NULL, default,"10"),
-	(NULL, default,"11"),
-	(NULL, default,"12"),
-	(NULL, default,"13"),
-	(NULL, default,"14"),
-	(NULL, default,"15"),
-	(NULL, default,"16"),
-	(NULL, default,"17"),
-	(NULL, default,"18"),
-	(NULL, default,"19"),
-	(NULL, default,"20");
+    (NULL, default, 1, '1', 9000),
+    (NULL, default, 2, NULL,9743),
+    (NULL, default, 3, '1', 8999),
+	(NULL, default, 4, '1', 5768),
+	(NULL, default, 5, NULL, 9123),
+	(NULL, default, 6, '1', 9456),
+	(NULL, default, 7, NULL, 9678),
+	(NULL, default, 8, '1', 9901),
+	(NULL, default, 9, '1', 8123),
+	(NULL, default, 10, NULL, 8456),
+	(NULL, default, 11, '1', 8789),
+	(NULL, default, 12, '1', 8901),
+	(NULL, default, 13, '1', 9345),
+	(NULL, default, 14, NULL, 9453),
+	(NULL, default, 15, '1', 9534),
+	(NULL, default, 16, '1', 9657),
+	(NULL, default, 17, '1', 9839),
+	(NULL, default, 18, NULL, 9825),
+	(NULL, default, 19, '1', 7345),
+	(NULL, default,20, '1', 8019);
 
+
+-- --------------------------------------- SELECTS --------------------------------------------------------------------------------------
+
+-- BEBIDA, MÁQUINA, LOCAL E DISPENSER  
+SELECT bebida.nome_bebida AS 'Nome Bebida', tb_local.nome AS 'Local',  maquina.id_maquina AS 'Máquina',  dispenser.posicao AS 'Dispenser'  
+	FROM tb_bebida AS bebida 
+    JOIN tb_dispenser AS dispenser
+    ON bebida.id_bebida = dispenser.fk_bebida
+    JOIN tb_maquina AS maquina
+    ON maquina.id_maquina = dispenser.fk_maquina
+    JOIN tb_local 
+    ON maquina.fk_local = tb_local.id_local
+    WHERE nome_bebida = 'Guaraná';
+    
+-- PRAZO 
+SELECT bebida.nome_bebida AS 'Nome Bebida',	bebida.prazo_inicio  AS 'Ínicio Período Teste', 
+	bebida.prazo_final  AS 'Final Período Teste'
+	FROM tb_bebida AS bebida WHERE nome_bebida = 'Café';
+
+-- MOSTRAR SAÍDAS
+SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', registro.datahora_registro AS 'Saída Sensor'
+	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
+    ON bebida.id_bebida = fk_bebida 
+    JOIN tb_maquina AS maquina
+    ON dispenser.fk_maquina = maquina.id_maquina
+    JOIN tb_local AS local_maq 
+    ON maquina.fk_local = local_maq.id_local
+    JOIN tb_sensor AS sensor
+    ON sensor.fk_dispenser = dispenser.id_dispenser
+    JOIN tb_registro AS registro
+    ON sensor.id_sensor = registro.fk_sensor;
+    
+-- MOSTRAR META 
+SELECT bebida.nome_bebida AS 'Nome Bebida',  
+bebida.meta_geral AS 'Meta Geral',  bebida.meta_semanal AS 'Meta Semanal'
+	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
+    ON bebida.id_bebida = fk_bebida 
+    JOIN tb_maquina AS maquina
+    ON dispenser.fk_maquina = maquina.id_maquina
+    JOIN tb_local AS local_maq 
+    ON maquina.fk_local = local_maq.id_local
+    JOIN tb_sensor AS sensor
+    ON sensor.fk_dispenser = dispenser.id_dispenser
+    JOIN tb_registro AS registro
+    ON sensor.id_sensor = registro.fk_sensor;
+    
+-- COMPARAÇÃO META E SAÍDA
+SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', registro.total_saida AS 'Total Saídas', 
+	bebida.meta_geral AS 'Meta'
+	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
+    ON bebida.id_bebida = fk_bebida 
+    JOIN tb_maquina AS maquina
+    ON dispenser.fk_maquina = maquina.id_maquina
+    JOIN tb_local AS local_maq 
+    ON maquina.fk_local = local_maq.id_local
+    JOIN tb_sensor AS sensor
+    ON sensor.fk_dispenser = dispenser.id_dispenser
+    JOIN tb_registro AS registro
+    ON sensor.id_sensor = registro.fk_sensor
+    WHERE nome_bebida = 'Coca-cola';
+    
+-- DESEMPRENHO POR UNIDADE 
+SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', registro.total_saida AS 'Total Saídas'
+	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
+    ON bebida.id_bebida = fk_bebida 
+    JOIN tb_maquina AS maquina
+    ON dispenser.fk_maquina = maquina.id_maquina
+    JOIN tb_local AS local_maq 
+    ON maquina.fk_local = local_maq.id_local
+    JOIN tb_sensor AS sensor
+    ON sensor.fk_dispenser = dispenser.id_dispenser
+    JOIN tb_registro AS registro
+    ON sensor.id_sensor = registro.fk_sensor
+    WHERE nome_bebida = 'Gatorade';
+ 
+-- DESEMPENHO POR REGIÃO 
+SELECT bebida.nome_bebida AS 'Nome Bebida',  registro.total_saida AS 'Total Saídas', local_maq.regiao AS 'Região'
+	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
+    ON bebida.id_bebida = fk_bebida 
+    JOIN tb_maquina AS maquina
+    ON dispenser.fk_maquina = maquina.id_maquina
+    JOIN tb_local AS local_maq 
+    ON maquina.fk_local = local_maq.id_local
+    JOIN tb_sensor AS sensor
+    ON sensor.fk_dispenser = dispenser.id_dispenser
+    JOIN tb_registro AS registro
+    ON sensor.id_sensor = registro.fk_sensor
+    WHERE nome_bebida = 'Todynho'; 
+    
