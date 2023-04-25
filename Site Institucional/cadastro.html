@@ -41,53 +41,53 @@
             <h1 class="textMyData"> Cadastrar </h1>
 
             <div class="label-float">
-                <input type="text" id="nome" class="form-control" placeholder=" " required >
+                <input type="text" id="nome" class="form-control" placeholder=" " required>
                 <label id="labelNome" for="nome">Nome Empresa</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
+                <input type="text" id="rz_social" placeholder=" " required>
                 <label id="labelUsuario" for="usuario">Razão Social</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
+                <input type="text" id="cnpj" placeholder=" " required>
                 <label id="labelUsuario" for="usuario">CNPJ</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required  minlength="4" maxlength="45>
+                <input type="text" id="usuario" placeholder=" " required>
                 <label id="labelUsuario" for="usuario">Usuário</label>
             </div>
 
 
 
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Email</label>
+                <input type="text" id="email" placeholder=" " required>
+                <label id="labelEmail" for="usuario">Email</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Contato</label>
+                <input type="text" id="contato" placeholder=" " required>
+                <label id="labelContato" for="usuario">Contato</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Duração do Contrato</label>
+                <input type="text" id="dur_contrato" placeholder=" " required>
+                <label id="labelDuracaoContrato" for="usuario">Duração do Contrato</label>
             </div>
 
 
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">CEP</label>
+                <input type="text" id="cep" placeholder=" " required>
+                <label id="labelCep" for="usuario">CEP</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Endereço</label>
+                <input type="text" id="endereco" placeholder=" " required>
+                <label id="labelEndereco" for="usuario">Endereço</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
+                <input type="text" id="numero_residencia" placeholder=" " required>
                 <label id="labelUsuario" for="usuario">Numero</label>
             </div>
             <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Complemento</label>
+                <input type="text" id="complemento" placeholder=" " required>
+                <label id="labelComplemento" for="usuario">Complemento</label>
             </div>
 
 
@@ -108,10 +108,7 @@
                 <div class='btn-forms'>
                     <button type="submit" onclick='cadastrar()'>Cadastrar</button>
                 </div>
-                <button type="submit" class="btn">
-                    <!-- routerLink="./login" -->
-                    Voltar
-                </button>
+                <button type="submit" class="btn"> Voltar </button>
             </div>
         </div>
     </div>
@@ -136,90 +133,41 @@
                 ©PumpDrink 2023. Todos os direitos reservados.
             </p>
         </div>
-
     </div>
 </body>
-</body>
+
 
 </html>
 <script>
+
+    function cadastrar() {
+
+
+        var nome_empresa = nome.value
+        var usuario_empresa = usuario.value
+        var senha_empresa = senha.value
+        var confirmSenha_empresa = confirmSenha.value
+        var email_empresa = email.value
+var validacao = (email_empresa == "" && nome_empresa == "" && email_empresa == "" && senha_empresa == "" && confirmSenha_empresa== "" );
+
+if(validacao){
+    alert("Por favor, preencha todos os campos");
+} else if (nome_empresa.length <= 4) {
+            alert('Nome *Insira no minimo 3 caracteres')
+        } else if (email_empresa.length <= 8 || email_empresa == "") {
+            alert("Por favor, preencha seu e-mail");
+        } else if (!email_empresa.includes("@")) {
+            alert("Por favor, informe um E-mail válido");
+        } else if (usuario_empresa.length <= 4) {
+            alert('Usuário *Insira no minimo 5 caracteres')
+        } else if (senha_empresa.length <= 5 || senha == "") {
+            alert('Senha *Insira no minimo 6 caracteres')
+        } else if (senha_empresa != confirmSenha_empresa) {
+            alert('Confirmar Senha *As senhas não conferem')
+        } else {
+            window.location.href = '/home.html';
+        }
+    }
     // required Tornar campos obrigatórios
 
-    let btn = verSenha.value
-    let btnConfirm = verConfirmSenha.value
-
-    let nome = nome.value
-    let labelNome = labelNome.value
-    let validNome = false
-
-    let usuario = usuario.value
-    let labelUsuario = labelUsuario.value
-    let validUsuario = false
-
-    let senha = senha.value
-    let labelSenha = labelSenha.value
-    let validSenha = false
-
-    let confirmSenha = confirmSenha.value
-    let labelConfirmSenha = labelConfirmSenha.value
-    let validConfirmSenha = false
-
-    nome.addEventListener('keyup', () => {
-        if (nome.value.length <= 4) {
-            labelNome.setAttribute('style', 'color: red')
-            labelNome.innerHTML = 'Nome *Insira no minimo 5 caracteres'
-            nome.setAttribute('style', 'border-color: red')
-            validNome = false
-        } else {
-            labelNome.setAttribute('style', 'color: green')
-            labelNome.innerHTML = 'Nome'
-            nome.setAttribute('style', 'border-color: green')
-            validNome = true
-        }
-    })
-
-    usuario.addEventListener('keyup', () => {
-        if (usuario.value.length <= 4) {
-            labelUsuario.setAttribute('style', 'color: red')
-            labelUsuario.innerHTML = 'Usuário *Insira no minimo 5 caracteres'
-            usuario.setAttribute('style', 'border-color: red')
-            validUsuario = false
-        } else {
-            labelUsuario.setAttribute('style', 'color: green')
-            labelUsuario.innerHTML = 'Usuário'
-            usuario.setAttribute('style', 'border-color: green')
-            validUsuario = true
-        }
-    })
-
-    senha.addEventListener('keyup', () => {
-        if (senha.value.length <= 5) {
-            labelSenha.setAttribute('style', 'color: red')
-            labelSenha.innerHTML = 'Senha *Insira no minimo 6 caracteres'
-            senha.setAttribute('style', 'border-color: red')
-            validSenha = false
-        } else {
-            labelSenha.setAttribute('style', 'color: green')
-            labelSenha.innerHTML = 'Senha'
-            senha.setAttribute('style', 'border-color: green')
-            validSenha = true
-        }
-    })
-
-    confirmSenha.addEventListener('keyup', () => {
-        if (senha.value != confirmSenha.value) {
-            labelConfirmSenha.setAttribute('style', 'color: red')
-            labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem'
-            confirmSenha.setAttribute('style', 'border-color: red')
-            validConfirmSenha = false
-        } else {
-            labelConfirmSenha.setAttribute('style', 'color: green')
-            labelConfirmSenha.innerHTML = 'Confirmar Senha'
-            confirmSenha.setAttribute('style', 'border-color: green')
-            validConfirmSenha = true
-        }
-    })
-
-    // function cadastrar() {
-   //     if ((validNome && validUsuario && validSenha && validConfirmSenha))       
 </script>

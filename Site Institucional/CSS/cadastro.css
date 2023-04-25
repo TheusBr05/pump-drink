@@ -1,17 +1,13 @@
-/* HOME */
-
-
 
 .container-card{ 
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-top: 5%;
-  margin-bottom: 4%;
-  background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
-  background-size: 20%, 35%;
+ 
+   background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
+  background-size: 35%, 50%;
   background-position: right top, left top;
   background-repeat: no-repeat;
+  background-color: #AFDADB;
 }
 
 .textMyData {
@@ -25,8 +21,10 @@
 }
 
 .card {
-  background-color: #ffffff;
-  padding: 0 5% ;
+  margin-top: 7%; 
+  margin-bottom: 7%;
+   background-color: #ffffff;
+  padding: 0 4% ;
   border-radius: 1%;
   box-shadow: 4px 4px 10px 7px #00000060;
   width: 45%;
