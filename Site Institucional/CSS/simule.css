@@ -18,12 +18,12 @@
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100%;
-  color: #ffffff;
+  color: rgb(101, 97, 97);
   margin-top: 8%;
 }
 
 #div_resultado {
-  color: #ffffff;
+  color: rgb(101, 97, 97);
   margin-right: 11%;
   font-size: large;
   line-height: 3rem;
@@ -53,7 +53,7 @@
   width: 60%;
   font-size: 200%;
   font-weight: 900px;
-  color: #ffffff;
+  color: rgb(101, 97, 97);
 }
 
 .InputEsquerdoCalculadora h3 {
@@ -61,7 +61,7 @@
   width: 60%;
   font-size: 200%;
   font-weight: 900px;
-  color: #ffffff;
+  color: rgb(101, 97, 97);
 }
 
 .InputEsquerdoCalculadora p {
@@ -116,13 +116,13 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid rgb(101, 97, 97);
   background: transparent;
   outline: none;
 }
 
 input::placeholder {
-  color: rgb(255, 255, 255);
+  color: rgb(101, 97, 97);
   font-family: monospace;
 }
 
@@ -156,7 +156,7 @@ input::placeholder {
   border-radius: 10px;
   font-weight: bolder;
   background-color: #1d676d;
-  color: #ffffff;
+  color: white;
   border: 1px solid #0f474d;
   cursor: pointer;
   transition: 0.5s;
