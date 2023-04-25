@@ -212,16 +212,17 @@ INSERT INTO tb_registro VALUES
 	(NULL, default,20, '1', 8019);
 
 
--- --------------------------------------- SELECTS --------------------------------------------------------------------------------------
+-- --------------------------------------- SELECTS ---------------------------------------------------------------
 
 -- BEBIDA, MÁQUINA, LOCAL E DISPENSER  
-SELECT bebida.nome_bebida AS 'Nome Bebida', tb_local.nome AS 'Local',  maquina.id_maquina AS 'Máquina',  dispenser.posicao AS 'Dispenser'  
-	FROM tb_bebida AS bebida 
-    JOIN tb_dispenser AS dispenser
+SELECT bebida.nome_bebida AS 'Nome Bebida', tb_local.nome AS 'Local',  maquina.id_maquina AS 'Máquina',  
+dispenser.posicao AS 'Dispenser'  
+	FROM tb_bebida AS bebida -- BEBIDA
+    JOIN tb_dispenser AS dispenser -- DISPENSER
     ON bebida.id_bebida = dispenser.fk_bebida
-    JOIN tb_maquina AS maquina
+    JOIN tb_maquina AS maquina -- MÁQUINA
     ON maquina.id_maquina = dispenser.fk_maquina
-    JOIN tb_local 
+    JOIN tb_local -- LOCAL
     ON maquina.fk_local = tb_local.id_local
     WHERE nome_bebida = 'Guaraná';
     
@@ -246,16 +247,7 @@ SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', regist
 -- MOSTRAR META 
 SELECT bebida.nome_bebida AS 'Nome Bebida',  
 bebida.meta_geral AS 'Meta Geral',  bebida.meta_semanal AS 'Meta Semanal'
-	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
-    ON bebida.id_bebida = fk_bebida 
-    JOIN tb_maquina AS maquina
-    ON dispenser.fk_maquina = maquina.id_maquina
-    JOIN tb_local AS local_maq 
-    ON maquina.fk_local = local_maq.id_local
-    JOIN tb_sensor AS sensor
-    ON sensor.fk_dispenser = dispenser.id_dispenser
-    JOIN tb_registro AS registro
-    ON sensor.id_sensor = registro.fk_sensor;
+	FROM tb_bebida AS bebida;
     
 -- COMPARAÇÃO META E SAÍDA
 SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', registro.total_saida AS 'Total Saídas', 
@@ -272,21 +264,7 @@ SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', regist
     ON sensor.id_sensor = registro.fk_sensor
     WHERE nome_bebida = 'Coca-cola';
     
--- DESEMPRENHO POR UNIDADE 
-SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', registro.total_saida AS 'Total Saídas'
-	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
-    ON bebida.id_bebida = fk_bebida 
-    JOIN tb_maquina AS maquina
-    ON dispenser.fk_maquina = maquina.id_maquina
-    JOIN tb_local AS local_maq 
-    ON maquina.fk_local = local_maq.id_local
-    JOIN tb_sensor AS sensor
-    ON sensor.fk_dispenser = dispenser.id_dispenser
-    JOIN tb_registro AS registro
-    ON sensor.id_sensor = registro.fk_sensor
-    WHERE nome_bebida = 'Gatorade';
- 
--- DESEMPENHO POR REGIÃO 
+    -- DESEMPENHO POR REGIÃO 
 SELECT bebida.nome_bebida AS 'Nome Bebida',  registro.total_saida AS 'Total Saídas', local_maq.regiao AS 'Região'
 	FROM tb_bebida AS bebida JOIN tb_dispenser AS dispenser
     ON bebida.id_bebida = fk_bebida 
