@@ -1,0 +1,213 @@
+/* background-color:#1d676d; jogando cor em cima da imagem
+  background-blend-mode: multiply; filtro da imagem com a cor */
+
+  .containerGeralhome {
+    background-color: #AFDADB;
+    background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
+    background-size: 35%, 50%;
+    background-position: right top, left top;
+    background-repeat: no-repeat;
+  }
+  
+.container-2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.login {
+  background-color: #ffffff;
+  padding: 30px 60px;
+  border-radius: 4%;
+  box-shadow: 4px 4px 10px 7px #00000060;
+}
+
+.container-2 h1 {
+  display: flex;
+  justify-content: center;
+  color: #1d676d;
+  font-size: 300%;
+  font-weight: bold;
+  margin-bottom: 70px;
+}
+
+.recuperacao_cadastro,
+.recuperar_senha,
+.sem_conta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 10px;
+  color: #1d676d;
+  text-decoration: none;
+}
+
+.sem_conta a {
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.label-float input {
+  width: 100%;
+  padding: 5px 5px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid #1d676d;
+  background-color: transparent;
+  outline: none;
+  min-width: 180px;
+  font-size: 16px;
+  transition: all 0.3s ease-out;
+  border-radius: 0;
+}
+
+.label-float {
+  position: relative;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.label-float input:focus {
+  border-bottom: 2px solid #1d676d;
+}
+
+.label-float label {
+  color: #1d676d;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all 0.3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label,
+.label-float input:valid + label {
+  font-size: 15px;
+  margin-top: 0;
+  color: #77a67e;
+}
+
+.label-float input:focus:required:invalid {
+  border-bottom: 2px solid red;
+}
+
+button {
+  background-color: #1d676d;
+  border-color: #1d676d;
+  color: #77a4a6;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 16px;
+  margin: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s ease-out;
+  border: 0;
+  width: 250px;
+  color: white;
+}
+
+button:hover {
+  color: #ebded5;
+  background-color: #77a4a6;
+}
+
+.container-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* NAVBAR*/
+
+.container-header {
+  display: flex;
+  width: 100%;
+  font-family: Poppins;
+  font-size: 100%;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+  background-color: #1d676d;
+  padding-left: 25px;
+}
+
+.ppdrink {
+  max-width: 100px;
+}
+
+.navbar a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.navbarLista {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  list-style: none;
+  justify-content: end;
+  padding-right: 50px;
+}
+
+.navbarLista ul,
+.navbarLista li a {
+  justify-content: space-evenly;
+  padding: 5px 10px;
+  color: #0f1631;
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
+}
+
+.loginBtn {
+  padding: 7px 25px;
+  color: white;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #c8cfee;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #1d676d;
+  color: white;
+}
+
+.footerContainer,
+.container-1,
+.container-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
+.paragrafoFooter {
+  margin-bottom: 3%;
+  margin-top: 1.9%;
+}
+
+.primeiro_texto h2 {
+  margin-bottom: 4%;
+}
+.segundo_texto h2 {
+  margin-bottom: 4%;
+}
+.contato h2,
+p {
+  margin-bottom: 1%;
+}

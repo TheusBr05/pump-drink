@@ -142,7 +142,6 @@
 
     function cadastrar() {
 
-
         var nome_empresa = nome.value
         var usuario_empresa = usuario.value
         var senha_empresa = senha.value
@@ -160,12 +159,12 @@ if(validacao){
             alert("Por favor, informe um E-mail válido");
         } else if (usuario_empresa.length <= 4) {
             alert('Usuário *Insira no minimo 5 caracteres')
-        } else if (senha_empresa.length <= 5 || senha == "") {
+        } else if (senha_empresa.length <= 6 || senha == "") {
             alert('Senha *Insira no minimo 6 caracteres')
         } else if (senha_empresa != confirmSenha_empresa) {
             alert('Confirmar Senha *As senhas não conferem')
         } else {
-            window.location.href = '/home.html';
+            window.location.href = "./home.html";
         }
     }
     // required Tornar campos obrigatórios
