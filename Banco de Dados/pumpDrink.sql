@@ -1,6 +1,8 @@
 CREATE DATABASE pumpDrink;
 USE pumpDrink;
 
+DESC tb_registro;
+
 CREATE TABLE tb_empresa(
  	id_empresa INT PRIMARY KEY auto_increment,
 	nome_empresa VARCHAR(150),
@@ -248,10 +250,20 @@ SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', regist
     JOIN tb_registro AS registro
     ON sensor.id_sensor = registro.fk_sensor;
     
+DESC tb_registro;
+
+--  MOSTRAR TOTAL SAÍDAS
+SELECT count(aprox_registro) AS 'Total Saídas'  FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
+	JOIN tb_dispenser ON id_dispenser = fk_dispenser WHERE aprox_registro = 1 AND fk_bebida = 1;
+
+-- MOSTRAR UNIDADES 
+SELECT count(id_maquina) FROM tb_maquina JOIN tb_dispenser ON id_maquina = fk_maquina WHERE fk_bebida = 1;
+
+-- MOSTRAR TEMPO DE TESTE 
+SELECT nome_bebida, timestampdiff(week, prazo_inicio, prazo_final) FROM tb_bebida WHERE id_bebida = 1;
+
 -- MOSTRAR META 
-SELECT bebida.nome_bebida AS 'Nome Bebida',  
-bebida.meta_geral AS 'Meta Geral',  bebida.meta_semanal AS 'Meta Semanal'
-	FROM tb_bebida AS bebida;
+SELECT meta_geral FROM tb_bebida WHERE id_bebida = 1;
     
 -- COMPARAÇÃO META E SAÍDA
 SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', registro.total_saida AS 'Total Saídas', 
