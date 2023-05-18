@@ -8,10 +8,13 @@ CREATE TABLE tb_empresa(
 	CNPJ CHAR(18),
 	cep CHAR(9),
 	email VARCHAR(150),
-    senha varchar(45),
-	duracao_contrato TINYINT, 
+   	duracao_contrato TINYINT, 
+    senha VARCHAR(20),
 	constraint chkDuracao CHECK (duracao_contrato >= 6) 
 );
+
+
+DESC tb_empresa;
 
 INSERT INTO tb_empresa VALUES 
 	(NULL, "Growth", "Growth Supplements - Produtos Alimenticios LTDA", "11.222.333/0001-44", "00000-000", "marketing@growth.com", "1245678", 72),

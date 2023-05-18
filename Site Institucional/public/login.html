@@ -116,7 +116,7 @@
     } else {
       mensagem_erro.innerHTML = "Valeu pelo cadastro, bora iniciar?"
       setInterval(sumirMensagem, 5000)
-      window.location.href = "./dashboard.html"            // setInterval(sumirMensagem, 5000) //função assincrona tempo de intervalo
+      window.location.href = "./admin/dashboard.html"            // setInterval(sumirMensagem, 5000) //função assincrona tempo de intervalo
       return true;
     }
   }
@@ -149,11 +149,11 @@
 
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
-          sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.ID_USUARIO = json.id; 
           sessionStorage.CPF_USUARIO = json.cpf;
 
           setTimeout(function () {
-            window.location = "./dashboard/cards.html";
+            window.location = "./admin/dashboard.html";
           }, 1000); // apenas para exibir o loading
 
         });

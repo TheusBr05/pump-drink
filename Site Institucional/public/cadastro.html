@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./CSS/cadastro.css">
     <link rel="stylesheet" href="./CSS/home.css">
     <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./js/funcoes.js"></script>
 
 </head>
 
@@ -37,6 +38,12 @@
     </div>
 
     <div class='container-card'>
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
         <div class='card'>
             <h1 class="textMyData"> Cadastrar </h1>
 
@@ -45,51 +52,25 @@
                 <label id="labelNome" for="nome">Nome Empresa</label>
             </div>
             <div class="label-float">
-                <input type="text" id="rz_social" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Razão Social</label>
+                <input type="text" id="razao" placeholder=" " required>
+                <label id="labelUsuario" for="razaoSocial">Razão Social</label>
             </div>
             <div class="label-float">
                 <input type="text" id="cnpj" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">CNPJ</label>
+                <label id="labelUsuario" for="cnpj">CNPJ</label>
             </div>
-            <div class="label-float">
-                <input type="text" id="usuario" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Usuário</label>
-            </div>
-
-
-
             <div class="label-float">
                 <input type="text" id="email" placeholder=" " required>
                 <label id="labelEmail" for="usuario">Email</label>
             </div>
             <div class="label-float">
-                <input type="text" id="contato" placeholder=" " required>
-                <label id="labelContato" for="usuario">Contato</label>
-            </div>
-            <div class="label-float">
-                <input type="text" id="dur_contrato" placeholder=" " required>
+                <input type="text" id="contrato" placeholder=" " required>
                 <label id="labelDuracaoContrato" for="usuario">Duração do Contrato</label>
             </div>
-
-
             <div class="label-float">
                 <input type="text" id="cep" placeholder=" " required>
                 <label id="labelCep" for="usuario">CEP</label>
             </div>
-            <div class="label-float">
-                <input type="text" id="endereco" placeholder=" " required>
-                <label id="labelEndereco" for="usuario">Endereço</label>
-            </div>
-            <div class="label-float">
-                <input type="text" id="numero_residencia" placeholder=" " required>
-                <label id="labelUsuario" for="usuario">Numero</label>
-            </div>
-            <div class="label-float">
-                <input type="text" id="complemento" placeholder=" " required>
-                <label id="labelComplemento" for="usuario">Complemento</label>
-            </div>
-
 
             <div class="label-float">
                 <input type="password" id="senha" class="form-control" placeholder=" " required>
@@ -97,7 +78,6 @@
                 <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
                 <div class="mdc-text-field-helper-text" aria-hidden="true"></div>
             </div>
-
             <div class="label-float">
                 <input type="password" id="confirmSenha" class="form-control" placeholder=" " required>
                 <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
@@ -110,6 +90,12 @@
                 </div>
                 <button type="submit" class="btn"> Voltar </button>
             </div>
+
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
+            </div>
+
+            <div id="div_erros_login"></div>
         </div>
     </div>
     <!-- FOOTER PUMPDRINK -->
@@ -141,32 +127,109 @@
 <script>
 
     function cadastrar() {
+        aguardar();
 
         var nome_empresa = nome.value
-        var usuario_empresa = usuario.value
+        var razao_social = razao.value
+        var cnpj_empresa = cnpj.value
+        var cep_empresa = cep.value
+        var duracao_contrato = contrato.value
+        var email_empresa = email.value
         var senha_empresa = senha.value
         var confirmSenha_empresa = confirmSenha.value
-        var email_empresa = email.value
-var validacao = (email_empresa == "" && nome_empresa == "" && email_empresa == "" && senha_empresa == "" && confirmSenha_empresa== "" );
 
-if(validacao){
-    alert("Por favor, preencha todos os campos");
-} else if (nome_empresa.length <= 4) {
-            alert('Nome *Insira no minimo 3 caracteres')
+        var validacao = (email_empresa == "" && nome_empresa == "" && email_empresa == "" && senha_empresa == "" && confirmSenha_empresa == "");
+
+        if (validacao) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Mensagem de erro para todos os campos em branco";
+
+            finalizarAguardar();
+            return false;
+
+        } else if (nome_empresa.length <= 4) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(O email inválido)";
+
+            finalizarAguardar();
+            return false;
+
         } else if (email_empresa.length <= 8 || email_empresa == "") {
-            alert("Por favor, preencha seu e-mail");
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(O email inválido)";
+
+            finalizarAguardar();
+            return false;
+
         } else if (!email_empresa.includes("@")) {
-            alert("Por favor, informe um E-mail válido");
-        } else if (usuario_empresa.length <= 4) {
-            alert('Usuário *Insira no minimo 5 caracteres')
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(O email inválido)";
+
+            finalizarAguardar();
+            return false;
+
         } else if (senha_empresa.length <= 6 || senha == "") {
-            alert('Senha *Insira no minimo 6 caracteres')
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(O email inválido)";
+
+            finalizarAguardar();
+            return false;
+
         } else if (senha_empresa != confirmSenha_empresa) {
-            alert('Confirmar Senha *As senhas não conferem')
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(O email inválido)";
+
+            finalizarAguardar();
+            return false;
         } else {
-            window.location.href = "./index.html";
+            setInterval(sumirMensagem(), 5000)
         }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+
+                nomeEmpresaServer: nome_empresa,
+                razao_socialServer: razao_social,
+                cnpjServer: cnpj_empresa,
+                cepServer: cep_empresa,
+                duracao_contratoServer: duracao_contrato,
+                emailServer: email_empresa,
+                senhaServer: senha_empresa
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "index.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
     }
-    // required Tornar campos obrigatórios
+    
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
 
 </script>
