@@ -11,6 +11,10 @@ router.get("/tempo-real/:idAquario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.post("/graficoDesempenho", function (req, res) {
+    medidaController.graficoDesempenho(req, res);
+})
+
 router.post("/totalSaidas", function(req, res){
     medidaController.totalSaidas(req, res);
 })

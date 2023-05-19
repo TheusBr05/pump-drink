@@ -249,12 +249,37 @@ SELECT bebida.nome_bebida AS 'Nome Bebida',  local_maq.nome AS 'Unidade', regist
     ON sensor.fk_dispenser = dispenser.id_dispenser
     JOIN tb_registro AS registro
     ON sensor.id_sensor = registro.fk_sensor;
+
+
+-- 
+select meta_geral/100 , ((select count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
+		JOIN tb_dispenser ON id_dispenser = fk_dispenser) / meta_geral) * 100 from tb_bebida WHERE id_bebida = 1;
+        
+        
+        
+DESC tb_bebida;
+USE pumpDrink;
     
 DESC tb_registro;
 
 --  MOSTRAR TOTAL SAÍDAS
-SELECT count(aprox_registro) AS 'Total Saídas'  FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
-	JOIN tb_dispenser ON id_dispenser = fk_dispenser WHERE aprox_registro = 1 AND fk_bebida = 1;
+SELECT nome_bebida AS "nomeBebidaBD",
+		(SELECT count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
+		JOIN tb_dispenser ON id_dispenser = fk_dispenser WHERE fk_bebida = 1) AS "totalSaidasBD",
+		(select count(id_bebida) FROM tb_bebida WHERE id_bebida = 1) AS "totalUnidadesBD",
+		timestampdiff(week, prazo_inicio, prazo_final) AS "tempoTesteBD",
+        meta_geral AS "metaGeralBD"
+        FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
+		JOIN tb_dispenser ON id_dispenser = fk_dispenser 
+        JOIN tb_maquina ON id_maquina = fk_maquina 
+        JOIN tb_bebida ON fk_bebida = id_bebida WHERE id_bebida = 1
+        limit 1;
+        
+        
+
+	
+        
+		
 
 -- MOSTRAR UNIDADES 
 SELECT count(id_maquina) FROM tb_maquina JOIN tb_dispenser ON id_maquina = fk_maquina WHERE fk_bebida = 1;
