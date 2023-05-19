@@ -60,7 +60,7 @@
                         <h2>Dashboard -</h2>
 
                         <div class="info_bebida">
-                            <i> BEBIDA X</i>
+                            <i id="i_nome_bebida">BEBIDA X</i>
                             <img src="../assets/edit.png">
                         </div>
 
@@ -76,7 +76,7 @@
 
                         <div class="metrica_total">
                             <div class="info_metrica">
-                                <h3>
+                                <h3 id="h3_totalSaidas">
                                     9.000
                                 </h3>
                                 <h4>TOTAL DE SAÍDAS </h4>
@@ -89,7 +89,7 @@
 
                         <div class="metrica_total">
                             <div class="info_metrica">
-                                <h3>
+                                <h3 id="h3_totalUnidades">
                                     14
                                 </h3>
                                 <h4>TOTAL UNIDADE</h4>
@@ -103,7 +103,7 @@
                         <div class="metrica_total">
                             <div class="info_metrica">
 
-                                <h3>
+                                <h3 id="h3_totalTempo">
                                     9 <span class="semana">Sem.</span>
                                 </h3>
 
@@ -118,7 +118,7 @@
                         <div class="metrica_meta">
                             <div class="card_meta">
                                 <h4>META GERAL</h4>
-                                <h3>
+                                <h3 id="h3_totalMetaGeral">
                                     10.000
                                 </h3>
                             </div>
@@ -624,8 +624,18 @@
             return response.json()
         }).then((total)=>{
            var totalSaida = total[0]
-           console.log("O seu resultado foi ", totalSaida);
-           console.log("VAlor final: ", totalSaida.totalSaidas);
+           console.log("O seu resultado foi ", totalSaida)
+           console.log("valor final: ", totalSaida.totalSaidasBD);
+           console.log("valor UNIDADES: ", totalSaida.totalUnidadesBD);
+           console.log("TEMPO RESTANTE: ", totalSaida.tempoTesteBD);
+           console.log("meta geral: ", totalSaida.metaGeralBD);
+           
+           h3_totalSaidas.innerHTML = totalSaida.totalSaidasBD;
+           h3_totalUnidades.innerHTML = totalSaida.totalUnidadesBD;
+           h3_totalTempo = totalSaida.tempoTesteBD;
+           h3_totalMetaGeral.innerHTML = totalSaida.metaGeralBD;
+           i_nome_bebida.innerHTML = totalSaida.nomeBebidaBD;
+
         })
 </script>
 
