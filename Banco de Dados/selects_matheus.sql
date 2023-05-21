@@ -216,7 +216,7 @@ WHERE id_bebida = 1;
 
 
 
--- select diAS de teste desde o inicio até agora
+-- select dias de teste desde o inicio até agora
 SELECT nome_bebida,
     timestampdiff(day, prazo_inicio, now())
 FROM tb_bebida
@@ -224,7 +224,7 @@ WHERE id_bebida = 1;
 
 
 
--- select diAS de teste desde o inicio até fim do cONtrato
+-- select dias de teste desde o inicio até fim do cONtrato
 SELECT nome_bebida,
     timestampdiff(day, prazo_inicio, prazo_final)
 FROM tb_bebida
@@ -414,7 +414,7 @@ WHERE (
 
 
 
--- saidas de uma bebida em uma máquina
+-- select saidas de uma bebida em uma máquina
 SELECT meta_geral AS "metaUnidade"
 FROM tb_bebida
 WHERE id_bebida = 1;
@@ -428,33 +428,56 @@ WHERE aprox_registro = 1
 
 
 
--- semanas de teste de uma bebida até o prazo final
+-- select semanas de teste de uma bebida até o prazo final
 SELECT timestampdiff(week, prazo_inicio, prazo_final)
 FROM tb_bebida
 WHERE id_bebida = 1;
 
 
 
--- saídas na semana 1
+-- select saídas na semana 1
 SELECT count(id_registro) FROM tb_registro
 WHERE week(datahora_registro) = 2;
 
 
 
--- saídas por semana;
+-- select saídas por semana;
 SELECT count(*) AS total
 FROM tb_registro
 GROUP BY WEEK(datahora_registro);
 
 
 
--- saídas por semana de uma bebida
-SELECT count(*) AS total
-FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor
-JOIN tb_dispenser ON id_dispenser = fk_dispenser
+-- select saídas por semana de uma bebida
+SELECT count(*) AS 'total'
+FROM tb_registro
+    JOIN tb_dispenser ON id_dispenser = fk_dispenser
+    JOIN tb_sensor ON id_sensor = fk_sensor
 WHERE fk_bebida = 3
 GROUP BY WEEK(datahora_registro);
 
 
 
-SELECT * FROM tb_registro;
+-- select saídas de uma bebida por máquina
+SELECT
+    count(id_registro) AS 'Saida por Maquina'
+FROM tb_registro
+    JOIN tb_sensor ON fk_sensor = id_sensor
+    JOIN tb_dispenser ON id_dispenser = fk_dispenser
+    JOIN tb_maquina ON id_maquina = fk_maquina
+WHERE fk_bebida = 2
+GROUP BY descricao
+LIMIT 5;
+
+
+
+-- select saidas por região
+SELECT regiao,
+    count(id_registro) AS 'Saida por Maquina'
+FROM tb_registro
+    JOIN tb_sensor ON fk_sensor = id_sensor
+    JOIN tb_dispenser ON id_dispenser = fk_dispenser
+    JOIN tb_maquina ON id_maquina = fk_maquina
+    JOIN tb_local ON id_local = fk_local
+WHERE fk_bebida = 2
+GROUP BY regiao;
