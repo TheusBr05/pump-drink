@@ -1,0 +1,153 @@
+.unidade{
+    background-color: #77a4a6;
+}
+
+/* TOPO  */
+
+.titulo{
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.unidade .container{
+    margin: auto;
+    flex-direction: column;
+}
+
+.metrica{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    width: 20%;
+}
+
+#baixo{
+    background-color: #E4442E;
+    color: #FFFFFF;
+    width: 30%;
+    text-align: center;
+}
+
+#esperado{
+    background-color: #E4BC2E;
+    color: #FFFFFF;
+    width: 30%;
+    text-align: center;
+}
+
+#alto{
+    background-color: #54854C;
+    color: #FFFFFF;
+    width: 30%;
+    text-align: center;
+}
+
+button{
+    background-color: #1d676d;
+    border-color: #1d676d;
+    color:#FFFFFF;
+    text-transform: uppercase;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-right: 10%;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .5s ease-out;
+  }
+
+button:hover{
+    color: #ebded5;
+      background-color: #77a4a6;
+}
+
+select{
+    background-color: #1d676d;
+    border-color: #1d676d;
+    border-radius: 4px;
+    padding-right: 8px;
+    padding-left: 8px;
+    color:#FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* UNIDADE */
+
+
+.card_baixo{
+    display: flex;
+    flex-direction: column;
+    background-color: #E4442E;
+    width: 40%;
+    color: #FFFFFF;
+    padding: 2vh;
+}
+
+.card_baixo span{
+    margin: 10px;
+}
+.card_baixo p{
+    margin: 10px;
+}
+
+.card_esperado{
+    display: flex;
+    flex-direction: column;
+    background-color: #E4BC2E;
+    width: 40%;
+    color: black;
+    padding: 2vh;
+}
+
+.card_esperado span{
+    margin: 10px;
+}
+.card_esperado p{
+    margin: 10px;
+}
+
+.card_alto{
+    display: flex;
+    flex-direction: column;
+    background-color: #54854C;
+    width: 40%;
+    color: #FFFFFF;
+    padding: 2vh;
+}
+
+.card_alto span{
+    margin: 10px;
+}
+.card_alto p{
+    margin: 10px;
+}
+
+.card_unidade{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.meta{
+    display: flex;
+    flex-direction: column;
+    background: none;
+}
+
+.meta span{
+    margin-top: 0;
+    margin-bottom: 0;
+}
