@@ -14,16 +14,16 @@ WHERE nome_bebida = 'Guaraná';
 
 
 
--- PRAZO 
+-- PRAZOS
 SELECT bebida.nome_bebida AS 'Nome Bebida',
-    bebida.prazo_inicio AS 'Ínicio Período Teste',
-    bebida.prazo_final AS 'Final Período Teste'
+    DATE_FORMAT(bebida.prazo_inicio, '%Y-%m-%d %H:%i:%s') AS 'Ínicio Período Teste',
+    DATE_FORMAT(bebida.prazo_final, '%Y-%m-%d %H:%i:%s') AS 'Final Período Teste'
 FROM tb_bebida AS bebida
 WHERE nome_bebida = 'Café';
 
 
 
--- MOSTRAR saídas
+-- MOSTRAR SAÍDAS
 SELECT bebida.nome_bebida AS 'Nome Bebida',
     local_maq.nome AS 'Unidade',
     registro.datahora_registro AS 'Saída Sensor'
@@ -37,7 +37,7 @@ DESC tb_registro;
 
 
 
---  MOSTRAR TOTAL saídas DE UMA BEBIDA
+--  MOSTRAR TOTAL SAÍDAS DE UMA BEBIDA
 SELECT count(aprox_registro) AS 'Total saídas'
 FROM tb_registro
     JOIN tb_sensor ON id_sensor = fk_sensor
@@ -118,7 +118,7 @@ WHERE id_bebida = 1
 
 
 
-
+-- Não sei o que esse faz 
 SELECT nome_bebida AS "nomeBebidaBD",
     (
         SELECT count(aprox_registro) AS "totalSaidas"
@@ -147,7 +147,7 @@ WHERE id_bebida = 1
 
 
 -- select máquinas com bebida 1
-SELECT count(id_maquina)
+SELECT count(id_maquina) AS "Máquinas com Bebida1"
 FROM tb_maquina
     JOIN tb_dispenser ON fk_maquina = id_maquina
 WHERE fk_bebida = 1;
@@ -161,7 +161,7 @@ WHERE id_bebida = 1;
 
 
 
--- select meta por maquina com bebida 1
+-- select meta da bebida 1 por máquina
 SELECT format(
         meta_geral / (
             SELECT count(id_maquina)
@@ -176,7 +176,7 @@ WHERE id_bebida = 1;
 
 
 
--- select saida de uma bebida em uma bebida
+-- select saida de uma bebida em uma máquina
 SELECT count(aprox_registro) AS "Saidas"
 FROM tb_registro
     JOIN tb_sensor ON id_sensor = fk_sensor
@@ -248,7 +248,7 @@ SELECT format(
             FROM tb_bebida
             WHERE id_bebida = 1
         ),
-        2
+        0
     ) AS 'Meta da Unidade por dia'
 FROM tb_maquina
     JOIN tb_dispenser ON fk_maquina = id_maquina
@@ -258,7 +258,7 @@ WHERE id_bebida = 1
 
 
 
--- select meta dinamica dia de testes * meta diária
+-- select meta dinamica (dia de testes * meta diária) por máquina
 SELECT format(
         (
             SELECT meta_geral / (
@@ -413,11 +413,13 @@ WHERE (
     AND fk_bebida = 1;
 
 
-
--- select saidas de uma bebida em uma máquina
-SELECT meta_geral AS "metaUnidade"
+-- 
+SELECT meta_geral AS "metaBebida"
 FROM tb_bebida
 WHERE id_bebida = 1;
+
+
+-- select saidas de uma bebida em uma máquina
 SELECT count(aprox_registro) AS "Saidas"
 FROM tb_registro
     JOIN tb_sensor ON id_sensor = fk_sensor
@@ -435,9 +437,15 @@ WHERE id_bebida = 1;
 
 
 
+-- select semanas de teste
+SELECT week(datahora_registro)
+FROM tb_registro
+GROUP BY week(datahora_registro);
+
+
 -- select saídas na semana 1
 SELECT count(id_registro) FROM tb_registro
-WHERE week(datahora_registro) = 2;
+WHERE week(datahora_registro) = 20;
 
 
 
@@ -451,9 +459,9 @@ GROUP BY WEEK(datahora_registro);
 -- select saídas por semana de uma bebida
 SELECT count(*) AS 'total'
 FROM tb_registro
-    JOIN tb_dispenser ON id_dispenser = fk_dispenser
     JOIN tb_sensor ON id_sensor = fk_sensor
-WHERE fk_bebida = 3
+    JOIN tb_dispenser ON id_dispenser = fk_dispenser
+WHERE fk_bebida = 1
 GROUP BY WEEK(datahora_registro);
 
 
@@ -465,13 +473,13 @@ FROM tb_registro
     JOIN tb_sensor ON fk_sensor = id_sensor
     JOIN tb_dispenser ON id_dispenser = fk_dispenser
     JOIN tb_maquina ON id_maquina = fk_maquina
-WHERE fk_bebida = 2
-GROUP BY descricao
+WHERE fk_bebida = 1
+GROUP BY id_maquina
 LIMIT 5;
 
 
 
--- select saidas por região
+-- select saidas de uma bebida por região
 SELECT regiao,
     count(id_registro) AS 'Saida por Maquina'
 FROM tb_registro
@@ -481,3 +489,6 @@ FROM tb_registro
     JOIN tb_local ON id_local = fk_local
 WHERE fk_bebida = 2
 GROUP BY regiao;
+
+
+-- ;-;
