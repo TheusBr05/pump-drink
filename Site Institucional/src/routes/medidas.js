@@ -19,4 +19,8 @@ router.post("/totalSaidas", function(req, res){
     medidaController.totalSaidas(req, res);
 })
 
+router.post("/graficoSemana", function(req, res){
+    medidaController.graficoSemana(req, res);
+})
+
 module.exports = router;

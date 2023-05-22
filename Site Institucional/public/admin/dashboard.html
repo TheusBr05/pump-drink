@@ -255,6 +255,8 @@
 <script>
 
     // --------------------------------------------------------------------------------------------------
+    
+    var listaGraficoSemana = []
 
     const graficoLinha_hoje = document.getElementById('desempenho_hoje');
     const graficoPizza_regiao = document.getElementById('desempenho_regiao');
@@ -272,7 +274,7 @@
             datasets: [{
                 type: 'line',
                 label: 'Bebida X',
-                data: [770, 745, 740, 738, 735, 732, 720, 715],
+                data: [55],
                 borderWidth: 1
             }, {
                 type: 'line',
@@ -329,10 +331,10 @@
     new Chart(graficoBarra_semana, {
         type: 'bar',
         data: {
-            labels: ['Unidade 1', 'Unidade 5', 'Unidade 7', 'Unidade 2', 'Unidade 9'],
+            labels: [],
             datasets: [{
                 label: 'Bebida X',
-                data: [85, 82, 81, 80, 79],
+                data: [],
                 backgroundColor: '#5271FF'
             }]
         },
@@ -365,6 +367,7 @@
         }
     });
 
+
     new Chart(graficoDonut_dsp_unidades_acima, {
         type: 'doughnut',
         data: {
@@ -384,6 +387,45 @@
 
         }
     });
+
+    fetch("/medidas/graficoDesempenho", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            idBebida: 1
+        })
+    }).then((response) => {
+        console.log(response);
+        return response.json()
+    }).then((total) => {
+        var desempenho = total[0]
+        console.log("desempenho:", desempenho.desempenho) 
+
+        new Chart(graficoDonut_dsp_geral, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [desempenho.desempenho, 100 - desempenho.desempenho],
+                    cutout: 70,
+                    backgroundColor: [
+                        'green', 'gray'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+
+            }
+        });
+
+
+        div_desempenho.innerHTML = desempenho.desempenho + "%";
+
+    })
+
 
     fetch("/medidas/totalSaidas", {
         method: 'POST',
@@ -412,7 +454,7 @@
 
     })
 
-    fetch("/medidas/graficoDesempenho", {
+    fetch("/medidas/graficoSemana", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -424,30 +466,16 @@
         console.log(response);
         return response.json()
     }).then((total) => {
-        var desempenho = total[0]
-        console.log("desempenho:", desempenho.desempenho)
+        listaGraficoSemana = total[0]
+        console.log("Total Semana: "+ totalSemana.semana)
 
-        new Chart(graficoDonut_dsp_geral, {
-            type: 'doughnut',
-            data: {
-                datasets: [{
-                    data: [desempenho.desempenho, 100 - desempenho.desempenho],
-                    cutout: 70,
-                    backgroundColor: [
-                        'green', 'gray'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-
-            }
-        });
-
-        div_desempenho.innerHTML = desempenho.desempenho + "%";
-
+        for (let index = 0; index < total.length; index++) {
+            graficoBarra_semana.datasets[index].data.push(totalSemana.semana);    
+            
+        }
+            
     })
+    
 </script>
 
 </html>

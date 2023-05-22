@@ -1,66 +1,29 @@
+function plotarGrafico(resposta, idAquario) {
 
-  const graficoBarra_hoje = document.getElementById('desempenho_hoje');
-  const graficoPizza_regiao = document.getElementById('desempenho_regiao');
-  const graficoLinha_semana = document.getElementById('desempenho_semana');
+  console.log('iniciando plotagem do gráfico...');
 
+  // Criando estrutura para plotar gráfico - labels
+  let labels = [];
 
-  new Chart(graficoBarra_hoje, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  // Criando estrutura para plotar gráfico - dados
+  let dados = {
+      labels: labels,
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
+          label: 'Umidade',
+          data: [],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+      },
+      {
+          label: 'Temperatura',
+          data: [],
+          fill: false,
+          borderColor: 'rgb(199, 52, 52)',
+          tension: 0.1
       }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
+  };
 
-  new Chart(graficoBarra_hoje, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
-  new Chart(graficoLinha_semana, {
-    type: 'line',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
-
+}
   
 

@@ -1,3 +1,9 @@
+USE pumpdrink;
+
+
+
+
+
 -- BEBIDA, MÁQUINA, LOCAL E DISPENSER  
 SELECT bebida.nome_bebida AS 'Nome Bebida',
     tb_local.nome AS 'Local',
@@ -448,12 +454,25 @@ SELECT count(id_registro) FROM tb_registro
 WHERE week(datahora_registro) = 20;
 
 
+insert tb_registro values
+    (null, "2023-05-20 12:00:00", 1, "1"),
+    (null, "2023-05-21 12:00:00", 1, "1"),
+    (null, "2023-05-22 12:00:00", 1, "1"),
+    (null, "2023-05-23 12:00:00", 1, "1"),
+    (null, "2023-05-24 12:00:00", 1, "1"),
+    (null, "2023-05-25 12:00:00", 1, "1"),
+    (null, "2023-05-26 12:00:00", 1, "1"),
+    (null, "2023-05-27 12:00:00", 1, "1"),
+    (null, "2023-05-27 12:00:00", 1, "1"),
+    (null, "2023-05-27 12:00:00", 1, "1");
 
+desc tb_registro;
 -- select saídas por semana;
 SELECT count(*) AS total
 FROM tb_registro
 GROUP BY WEEK(datahora_registro);
 
+alter table tb_registro drop column total_saida;
 
 
 -- select saídas por semana de uma bebida
@@ -461,7 +480,8 @@ SELECT count(*) AS 'total'
 FROM tb_registro
     JOIN tb_sensor ON id_sensor = fk_sensor
     JOIN tb_dispenser ON id_dispenser = fk_dispenser
-WHERE fk_bebida = 1
+WHERE fk_bebida = 1 AND
+      fk_maquina = 1
 GROUP BY WEEK(datahora_registro);
 
 

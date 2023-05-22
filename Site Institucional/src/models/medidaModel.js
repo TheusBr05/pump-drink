@@ -62,10 +62,6 @@ function buscarMedidasEmTempoReal(idAquario) {
 }
 
 function totalSaidas(idBebida){
-    // instrucaoSql = `
-    // SELECT count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
-	// JOIN tb_dispenser ON id_dispenser = fk_dispenser WHERE aprox_registro = 1 AND fk_bebida = ${idBebida};
-    // `
 
     instrucaoSql = `
     SELECT nome_bebida AS "nomeBebidaBD", 
@@ -87,22 +83,33 @@ function totalSaidas(idBebida){
 }
 
 function graficoDesempenho(idBebida){
-    // instrucaoSql = `
-    // SELECT count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
-	// JOIN tb_dispenser ON id_dispenser = fk_dispenser WHERE aprox_registro = 1 AND fk_bebida = ${idBebida};
-    // `
 
-    instrucaoSql = ` select format(((select count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
+    instrucaoSql = `select format(((select count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
     JOIN tb_dispenser ON id_dispenser = fk_dispenser) / meta_geral) * 100, 2) AS "desempenho" from tb_bebida WHERE id_bebida = ${idBebida};
     `
 
     return database.executar(instrucaoSql);
 }
 
+function graficoSemana(idBebida){
+
+    instrucaoSql = `SELECT count(*) AS "semana"
+    FROM tb_registro
+        JOIN tb_sensor ON id_sensor = fk_sensor
+        JOIN tb_dispenser ON id_dispenser = fk_dispenser
+    WHERE fk_bebida = ${idBebida}
+    GROUP BY WEEK(datahora_registro);
+    `
+
+    return database.executar(instrucaoSql);
+}
+
+
 
 module.exports = {
     graficoDesempenho,
     buscarUltimasMedidas,
     totalSaidas,
+    graficoSemana,
     buscarMedidasEmTempoReal
 }
