@@ -17,12 +17,12 @@
   margin-bottom: 5%;
 }
 
-.login {
-  background-color: #ffffff;
+/* .login {
+  background-color: color: antiquewhite;  
   padding: 30px 60px;
   border-radius: 4%;
   box-shadow: 4px 4px 10px 7px #00000060;
-}
+} */
 
 .container-2 h1 {
   display: flex;
@@ -50,17 +50,11 @@
 }
 
 .label-float input {
-  width: 100%;
-  padding: 5px 5px;
-  display: inline-block;
-  border: 0;
-  border-bottom: 2px solid #1d676d;
-  background-color: transparent;
-  outline: none;
-  min-width: 180px;
-  font-size: 16px;
-  transition: all 0.3s ease-out;
-  border-radius: 0;
+   padding: 5px 5px;
+  background-color: antiquewhite;  ;
+ font-size: 16px;
+ border: none;
+  border-radius: 8px;
 }
 
 .label-float {
@@ -112,11 +106,12 @@ button {
   transition: all 0.5s ease-out;
   border: 0;
   width: 250px;
-  color: white;
+  color: antiquewhite;  
 }
 
 button:hover {
-  color: #ebded5;
+  color: antiquewhite;  
+  
   background-color: #77a4a6;
 }
 
@@ -143,7 +138,7 @@ button:hover {
 }
 
 .navbar a {
-  color: #ffff;
+  color: antiquewhite;  
   text-decoration: none;
 }
 
@@ -163,12 +158,12 @@ button:hover {
   color: #0f1631;
   font-weight: 800;
   text-decoration: none;
-  color: white;
+  color: antiquewhite;  
 }
 
 .loginBtn {
   padding: 7px 25px;
-  color: white;
+  color: antiquewhite;  
   letter-spacing: 1px;
   border-radius: 10px;
   text-decoration: none;
@@ -181,7 +176,7 @@ button:hover {
   display: flex;
   justify-content: center;
   background-color: #1d676d;
-  color: white;
+  color: antiquewhite;  
 }
 
 .footerContainer,
@@ -211,3 +206,35 @@ button:hover {
 p {
   margin-bottom: 1%;
 }
+
+.divisao{
+  display: flex;
+}
+
+/*-------------- CADASTRO DE BEBIDAS ----------------*/
+
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login label{
+ margin-left: 4%;
+}
+
+.login input{
+padding: 3% 8%;
+}
+
+.login p{
+color: #1d676d; 
+padding: 3px;
+}
+
+select{
+  background-color: antiquewhite; 
+  color: #1d676d; 
+  padding: 3px;
+  border-radius: 8px;
+  }

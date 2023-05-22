@@ -1,3 +1,56 @@
+
+/* NAVBAR */
+
+.ppdrink {
+  max-width: 100px;
+}
+
+.header-navbar {
+  width: 100%;
+  background-color: #0F1827 ;
+ font-weight: 800;
+   list-style: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+  }
+
+.logo-navbar {
+margin-right: 1000px;
+}
+
+.navbarLista li{
+  display: inline;
+  margin: 0 0 0 15px;  
+}
+
+.navbarLista a{
+  color: #ffff;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.botao-gradiente {
+  background-image: linear-gradient(to right, #32C0D7,#1d676d);
+  border-radius: 31px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid #0F1827;
+  transition: 0.5s;
+  padding: 10px;
+}
+
+.botao-gradiente:hover {
+  opacity: 0.8;
+  box-shadow:
+  1px 1px #53a7ea,
+  2px 2px #53a7ea;
+  -webkit-transform: translateX(-3px);
+transform: translateX(-3px);
+}
+
+
 /* HOME */
 
 .containerGeralhome {
@@ -8,8 +61,7 @@
   background-repeat: no-repeat;
 }
 
-/* SOBRE NÓS */
-
+/* CONTEXTO PUMP DRINK */
 
 .meio h2 {
   color: #1d676d;
@@ -67,19 +119,59 @@
   justify-content: center;
 }
 
+
+/*SERVIÇOS*/
+
+.services-title {
+  font-family: 'Vogie Black', sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  color:  #1d676d; 
+  text-align: center;
+  margin-top: 5%;
+}
+
+.sessao-2 .container, .content {
+  display: flex;
+  align-items: center;
+  margin: 1% 0 1% 1%;
+}
+
+.card-s2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 5px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  transition: 0.8s;
+  padding: 20px;
+  margin: 1% 0 5% 0;
+}
+
+.card-s2 img{
+  margin-right: 5px;
+  width: 70px;
+}
+
+.card-s2:hover {
+  transform: scale(0.9)
+}
+
+
 /* ENTRE EM CONTATO*/
 
 .contato {
+  width: 100%;
+  background:#3ea2a7; 
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.contato p {
-  width: 600px;
+  color: #1d676d;
+  font-weight: bold;
   font-size: 25px;
   text-align: center;
 }
+
 
 input {
   margin: 8px 8px;
@@ -100,77 +192,28 @@ input {
   margin-bottom: 3%;
 }
 
-button {
-  background-color: #1d676d;
+.btn {
+  background-image: linear-gradient(to right, #32C0D7,#1d676d);
   color: #ebded5;
   border: 0;
+  border-radius: 10px;
+  font-size: 15px;
   margin-bottom: 5%;
-  width: 150px;
-  height: 40px;
-  border-radius: 10px;
-  transition: all .5s ease-out;
-  border: 2px solid #1d676d ;
+  border: 1px solid #0F1827;
+  transition: 0.5s;
+  padding: 20px;
+  text-transform: uppercase;
 }
 
-button:hover{
-  color: #ebded5;
-    background-color: #77a4a6;
+.btn:hover{
+  opacity: 0.8;
+  box-shadow:
+  1px 1px #53a7ea,
+  2px 2px #53a7ea;
+  -webkit-transform: translateX(-3px);
+transform: translateX(-3px);
 }
 
-/* NAVBAR */
-
-.container-header {
-  display: flex;
-  width: 100%;
-  /* font-size: 100%; */
-  
-  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
-  background-color: #1d676d; ;
-  padding-left: 25px;
-
-} 
-
-.ppdrink {
-  max-width: 100px;
-}
-
-/* para colocar a header para descer junto com a pagina tem que colocar: "position: fixed;
-width: 100vw;" na header */
-
-.navbar a {
-  color: #ffff;
-  text-decoration: none;
-}
-
-.navbarLista {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  list-style: none;
-justify-content: end;
-padding-right: 50px;
-
-}
-
-.navbarLista ul,
-.navbarLista li a {
-  justify-content: space-evenly;
-  padding: 5px 10px;
-  color: #0F1631;
-  font-weight: 800;
-  text-decoration: none;
-  color: white;
-  font-weight: 400;
-}
-
-.loginBtn {
-  padding: 7px 25px;
-  color: white;
-  letter-spacing: 1px;
-  border-radius: 10px;
-  text-decoration: none;
-  background-color: #77a4a6;
-}
 
 
 /* FOOTER */
@@ -178,7 +221,7 @@ padding-right: 50px;
 .footer {
   display: flex;
   justify-content: center;
-  background-color: #1d676d;
+  background-color: #0F1827;;
   color: white;
 }
 
