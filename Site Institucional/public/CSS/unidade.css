@@ -86,53 +86,36 @@ select{
 /* UNIDADE */
 
 
-.card_baixo{
+.card{
     display: flex;
     flex-direction: column;
+    width: 40%;
+    padding: 2vh;
+}
+
+.card span{
+    margin: 10px;
+}
+.card p{
+    margin: 10px;
+}
+
+.baixo{
+    color: #FFFFFF;
     background-color: #E4442E;
-    width: 40%;
-    color: #FFFFFF;
-    padding: 2vh;
 }
 
-.card_baixo span{
-    margin: 10px;
-}
-.card_baixo p{
-    margin: 10px;
-}
-
-.card_esperado{
-    display: flex;
-    flex-direction: column;
+.esperado{
     background-color: #E4BC2E;
-    width: 40%;
     color: black;
-    padding: 2vh;
 }
 
-.card_esperado span{
-    margin: 10px;
-}
-.card_esperado p{
-    margin: 10px;
-}
-
-.card_alto{
-    display: flex;
-    flex-direction: column;
-    background-color: #54854C;
-    width: 40%;
+.alto{
     color: #FFFFFF;
-    padding: 2vh;
+    background-color: #54854C;
 }
 
-.card_alto span{
-    margin: 10px;
-}
-.card_alto p{
-    margin: 10px;
-}
+
 
 .card_unidade{
     display: flex;
