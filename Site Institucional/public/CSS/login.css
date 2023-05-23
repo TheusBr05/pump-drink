@@ -210,31 +210,3 @@ p {
 .divisao{
   display: flex;
 }
-
-/*-------------- CADASTRO DE BEBIDAS ----------------*/
-
-.login{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.login label{
- margin-left: 4%;
-}
-
-.login input{
-padding: 3% 8%;
-}
-
-.login p{
-color: #1d676d; 
-padding: 3px;
-}
-
-select{
-  background-color: antiquewhite; 
-  color: #1d676d; 
-  padding: 3px;
-  border-radius: 8px;
-  }
