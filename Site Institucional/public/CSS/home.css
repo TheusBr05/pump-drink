@@ -53,6 +53,145 @@ transform: translateX(-3px);
 
 /* HOME */
 
+/* BANNER */
+
+.banner{
+  background-image: url('../assets/banner_inicio.png');
+  background-size: 100%;
+}
+
+.banner .container{
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  color: #ffff;
+  flex-direction: column;
+}
+
+.container h2{
+  font-weight: 850;
+  font-size:  26px;
+}
+
+.container p {
+  margin-top: 1rem;
+  word-wrap:  normal;
+  color: white;
+  font-size: larger;
+}
+
+.botao_banner button{
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: #ffff;
+  color: #1D676D;
+}
+
+/* INFO */
+
+.algumas_info{
+  background-color: #ffff;
+  background-position: 100%;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+
+.text1{
+  margin-left: 6rem;
+}
+
+.text1 h4{
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+.text1 p{
+  font-size: 18px;
+}
+
+/* DADOS */
+
+.dados{
+  background-color: #77A4A6;
+  width: 100%;
+  height: 76.2vh;
+}
+
+.dados_2{
+  display: flex;
+  justify-content: space-between;
+  padding: 10vh;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffff;
+}
+
+.box p{
+  align-items: center;
+}
+
+.box img{
+  width: 170px;
+}
+
+
+/* VOCE SABIA? */
+
+.voce_sabia{
+  background-color: #ffff;
+  width: 100%;
+  height: 90vh;
+  padding: 6rem 0;
+}
+
+.texto_vc_sabia h4{
+  margin-left: 9.1rem;
+}
+
+.contexto_vc_sabia{
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.texto2_vc_sabia{}
+
+.imagem_vc_sabia{
+  background-color: #1d676d;
+  border-radius: 20px;
+  width: 250px;
+  height: 415px;
+}
+
+.imagem_vc_sabia img{
+  height: 416px;
+  width: 300px;
+  justify-content: center;
+  display: flex;
+}
+
+
+/* MARKETING */
+
+.marketing{
+  background-color: #77A4A6;
+  width: 100%;
+  height: 90vh;
+  padding: 6rem 0;
+  display: flex-start;
+}
+
+.textos_marketing{}
+
+.titulo_texto_marketing{}
+
 .containerGeralhome {
   background-color: #AFDADB;
   background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
@@ -61,9 +200,16 @@ transform: translateX(-3px);
   background-repeat: no-repeat;
 }
 
-/* CONTEXTO PUMP DRINK */
+<<<<<<< HEAD
 
-.meio h2 {
+
+/* SOBRE NÓS */
+
+=======
+/* CONTEXTO PUMP DRINK */
+>>>>>>> 923b8e8c8b39c728fa60c1addc5281c1c935f031
+
+/* .meio h2 {
   color: #1d676d;
   margin: 0;
   padding-top: 70px;
@@ -117,7 +263,7 @@ transform: translateX(-3px);
   border-radius: 20px;
   display: flex;
   justify-content: center;
-}
+} */
 
 
 /*SERVIÇOS*/
@@ -214,6 +360,63 @@ input {
 transform: translateX(-3px);
 }
 
+<<<<<<< HEAD
+/* NAVBAR */
+
+.container-header {
+  display: flex;
+  width: 100%;
+  /* font-size: 100%; */
+  
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+  background-color: #1d676d; ;
+  padding-left: 25px;
+
+} 
+
+.ppdrink {
+  max-width: 100px;
+}
+
+/* para colocar a header para descer junto com a pagina tem que colocar: "position: fixed;
+width: 100vw;" na header */
+
+.navbar a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.navbarLista {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  list-style: none;
+justify-content: end;
+padding-right: 50px;
+
+}
+
+.navbarLista ul,
+.navbarLista li a {
+  justify-content: space-evenly;
+  padding: 5px 10px;
+  color: #0F1631;
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+}
+
+.loginBtn {
+  padding: 7px 25px;
+  color: #77a4a6;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #ffff;
+}
+=======
+>>>>>>> 923b8e8c8b39c728fa60c1addc5281c1c935f031
 
 
 /* FOOTER */
