@@ -28,22 +28,35 @@
     width: 20%;
 }
 
+#muito_baixo{
+    background-color: #8f1505;
+    color: #FFFFFF;
+    width: 30%;
+    text-align: center;
+}
+
 #baixo{
     background-color: #E4442E;
     color: #FFFFFF;
     width: 30%;
     text-align: center;
 }
-
-#esperado{
+#quase{
     background-color: #E4BC2E;
     color: #FFFFFF;
     width: 30%;
     text-align: center;
 }
 
-#alto{
+#esperado{
     background-color: #54854C;
+    color: #FFFFFF;
+    width: 30%;
+    text-align: center;
+}
+
+#alto{
+    background-color: #1fb708;
     color: #FFFFFF;
     width: 30%;
     text-align: center;
@@ -100,19 +113,29 @@ select{
     margin: 10px;
 }
 
+.muito_baixo{
+    color: #FFFFFF;
+    background-color: #8f1505;
+}
+
 .baixo{
     color: #FFFFFF;
     background-color: #E4442E;
 }
 
-.esperado{
-    background-color: #E4BC2E;
+.quase{
+    background-color:#E4BC2E;
     color: black;
+}
+
+.esperado{
+    background-color: #54854C;
+    color: #FFFFFF;
 }
 
 .alto{
     color: #FFFFFF;
-    background-color: #54854C;
+    background-color: #1fb708;
 }
 
 
