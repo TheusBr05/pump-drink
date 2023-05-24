@@ -1,0 +1,89 @@
+.conteudo_pagina{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #AFDADB;
+}
+
+.btn_voltar{
+    display: flex;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    margin: 20px 40px;
+}
+
+.conteudo_pagina .btn_voltar{
+    align-self: flex-start;
+}
+
+.card_cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 40%;
+    margin-bottom: 10vh;
+}
+
+.card_cadastro h1{
+    margin-bottom: 40px;
+}
+
+.campos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 4vh;
+}
+.campo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.campo:not(:last-child){
+    margin-right: 2vw;
+}
+
+.input{
+    width: 100%;
+    font-size: 20px;
+    padding: 1vh .5vw;
+    border-radius: 10px;
+    border: none;
+}
+
+.input:focus{
+    outline: 0;
+}
+
+.texto_input{
+    margin-top: 10px;
+}
+
+.rua{
+    width: 80%;
+}
+
+.num{
+    width: 20%;
+}
+
+.campos_horizontais{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btn_cadastrar{
+    font-size: 20px;
+    padding: 10px 40px;
+    background-color: #1d676d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
