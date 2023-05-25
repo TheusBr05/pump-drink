@@ -4,5 +4,7 @@ package-lock.json
 
 site/node_modules
 site/package-lock.json
+.vscode
+selects_matheus.sql
 
 .github

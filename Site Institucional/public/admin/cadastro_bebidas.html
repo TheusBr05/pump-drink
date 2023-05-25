@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/3.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../CSS/admin-style.css" />
+  <link rel="stylesheet" href="../CSS/cadastro_bebidas.css">
+  <title>Pump Drink | Bebidas</title>
+</head>
+
+<body>
+  <!-------------------- NAVBAR ------------------->
+
+  <div class="header">
+    <div class="container">
+
+      <div>
+        <img src="../assets/logo.png" class="logo">
+        <img src="../assets/text_logo.png" class="logo">
+      </div>
+
+      <div class="search-bar">
+        <input type="search" placeholder="Pesquisar">
+        <button type="submit">
+          <img src="../assets/pesquisar.png">
+        </button>
+      </div>
+
+      <ul class="navbar">
+        <li><a href="./dashboard.html">DASHBOARD</a></li>
+        <li><a href="./tela_bebidas.html">BEBIDAS</a></li>
+        <li><a href="./unidade.html">UNIDADES</a></li>
+      </ul>
+
+
+      <div class="perfil_header">
+        <img src="../assets/notification.png"> <!--icone notificação -->
+        <h5>USER CLIENTE</h5>
+        <img src="../assets/seta.png" id="seta_user">
+      </div>
+
+    </div>
+  </div>
+  <div class="conteudo_pagina">
+    <div class="btn_voltar">
+      <img src="../assets/001-left-arrow.png" alt="">
+    </div>
+    <div class="card_cadastro">
+      <h1>Cadastro de Bebidas</h1>
+      <div class="campos">
+        <div class="campo">
+          <p class="texto_input">Nome: </p>
+          <input type="text" class="input" placeholder="Sua bebida">
+        </div>
+        <div class="campo">
+          <p class="texto_input">Tipo: </p>
+          <select type="text" class="input">
+            <option value="centro_oeste">-</option>
+            <option value="sul">Pré-Treino</option>
+            <option value="sudeste">Pós-Treino</option>
+          </select>
+        </div>
+        <div class="campos_horizontais">
+          <div class="campo">
+            <p class="texto_input">Prazo Inicial: </p>
+            <input type="date" class="input">
+          </div>
+          <div class="campo">
+            <p class="texto_input">Prazo Final: </p>
+            <input type="text" class="input">
+          </div>
+        </div>
+        <div class="campos_horizontais">
+          <div class="campo">
+            <p class="texto_input">Meta Mensal: </p>
+            <input type="text" class="input">
+          </div>
+          <div class="campo">
+            <p class="texto_input">Meta Semanal: </p>
+            <input type="text" class="input">
+          </div>
+        </div>
+        <br>
+        <h5>Lembre-se de que a meta vai ser um parâmetro para medir o desempenho.
+          *É importante que seja realista!
+        </h5>
+      </div>
+      <button class="btn_cadastrar">Cadastrar</button>
+    </div>
+  </div>
+
+
+  </div>
+  <div class="footer">
+    <div class="container">
+      <h4>©PumpDrink 2023</h4>
+    </div>
+  </div>
+
+</body>
+
+</html>

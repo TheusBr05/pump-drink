@@ -1,0 +1,80 @@
+body{
+    overflow-x: hidden;
+    margin: 0;
+    background-color: #AFDADB;
+}
+
+.tela_inteira{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.campos_topo{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    height: 10%;
+}
+
+.desempenho_bebidas{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    align-items: flex-end;
+}
+
+.card_baixo{
+    width: 22%;
+    background-color: red;
+    text-align: center;
+    color: white;
+    height: 40%;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-top: 0.5%;
+}
+
+.card_esperado{
+    width: 22%;
+    background-color: hsl(49, 100%, 50%);
+    text-align: center;
+    color: white;
+    height: 40%;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-top: 0.5%;
+}
+
+.card_alto{
+    width: 22%;
+    background-color: green;
+    text-align: center;
+    color: white;
+    height: 40%;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-top: 0.5%;
+}
+
+
+#btn_add_bebida{
+    background-color: #1d676d;
+    width: 30%;
+    height: 100%;
+    border-radius: 7px;
+    padding: 2%;
+    color: white;
+    border: 0;
+}
+
+.add_bebida{
+    width: 40%;
+    height: 60%;
+}

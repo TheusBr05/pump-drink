@@ -17,40 +17,36 @@
 <body>
   <div class="containerGeralCalculadora">
     <!-- HEADER PUMPDRINK -->
-    <div class="header">
-      <div class="container-header">
-        <div>
-          <a href="index.html"><img src="./assets/logo.png" href="index.html" class="ppdrink" /></a>
-          </div>
-          <div>
-          <a href="index.html"><img src="./assets/text_logo.png" href="index.html" class="ppdrink" /></a>
+    <div class="header-navbar">
+      <div class="logo-navbar">
+        <a href="index.html"><img src="./assets/logo.png" href="index.html" class="ppdrink" /></a>
+        <a href="index.html"><img src="./assets/text_logo.png" href="index.html" class="ppdrink" /></a>
+       </div>
+        <div class="list-navbar">
+          <ul class="navbarLista">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="simule.html">Simule</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Nosso Time</a></li>
+            <li class="nav-item"><a class="nav-link" href="#link_contato">Contato</a></li>
+            <li class="nav-item">
+              <a href="login.html" class="botao-gradiente loginBtn" href="login.html" target="_blank">Acessar
+                Plataforma</a>
+            </li>
+          </ul>
         </div>
-   
-        <ul class="navbarLista">
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="">SOBRE NÓS</a></li>
-          <li><a href="simule.html">SIMULE</a></li>
-          <li><a href="">CONTATE-NOS</a></li>
-          <a href="login.html" class="loginBtn">
-            <li><b>Login</b></li>
-          </a>
-        </ul>
       </div>
-    </div>
     <div class="containerCalculosGeral">
       <div class="tituloCalculadora">
-        <h1> Faça uma <span> Simulação </span></h1>
+        <h1> Simule Aqui!</h1>
       </div>
       <div class="containerCalculadoraInputs">
         <div class="InputEsquerdoCalculadora">
-          <h3> Informe - nos<span> sobre:</span> </h3>
-          <input class="InputCalculadora" id="input_gasto_convencional"
-            placeholder="Gastos com teste de aceitação e mercado:">
+              <input class="InputCalculadora" id="input_gasto_convencional"
+            placeholder="Gastos com testes">
           <input class="InputCalculadora" id="input_qtd_maquinas"
-            placeholder="Quantidade de máquinas que deseja alugar:">
+            placeholder="Quantidade de máquinas que deseja alugar">
           <input class="InputCalculadora" type="number" min="6" id="input_qtd_meses"
-            placeholder="Quantidade de meses que deseja alugar:">
-
+            placeholder="Quantidade de meses que deseja alugar">
         </div>
 
         <div class="InputDireitoCalculadora">
@@ -60,7 +56,7 @@
 
       </div>
       <div class="ButtonDivCalculadora">
-        <button onclick="calcular_economia()">Simular Economia</button>
+        <button onclick="calcular_economia()">Simular</button>
       </div>
 
     </div>
