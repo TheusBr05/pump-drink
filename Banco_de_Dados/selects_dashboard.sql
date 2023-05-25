@@ -84,7 +84,7 @@ FROM (
         GROUP BY tb_maquina.id_maquina,
             tb_bebida.meta_geral / maquinas_bebida
     ) AS subquery
-WHERE Saidas > meta_unidade;
+WHERE Saidas => meta_unidade;
 
 
 -- unidades abaixo do esperado
@@ -117,3 +117,26 @@ FROM (
             tb_bebida.meta_geral / maquinas_bebida
     ) AS subquery
 WHERE Saidas < meta_unidade;
+
+
+-- gráfico período de teste em dias, não em semanas
+SELECT DAY(tb_registro.datahora_registro),
+    count(*)
+FROM tb_registro
+    JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
+    JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
+    JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
+WHERE fk_bebida = 1
+GROUP BY DAY(tb_registro.datahora_registro)
+ORDER BY DAY(tb_registro.datahora_registro) DESC
+LIMIT 7;
+
+
+-- gráfico saídas por unidades (desempenho por unidades)
+SELECT count(*), tb_maquina.descricao
+FROM tb_registro
+    JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
+    JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
+    JOIN tb_maquina ON tb_maquina.id_maquina = tb_dispenser.fk_maquina
+    JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
+GROUP BY descricao;
