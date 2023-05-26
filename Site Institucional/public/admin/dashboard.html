@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../CSS/admin-style.css" />
     <link rel="stylesheet" href="../CSS/graficos-style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/char.js"></script>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -256,7 +257,8 @@
 
     // --------------------------------------------------------------------------------------------------
 
-    var listaGraficoSemana = []
+    var listaGraficoSemana = [];
+
 
     const graficoLinha_hoje = document.getElementById('desempenho_hoje');
     const graficoPizza_regiao = document.getElementById('desempenho_regiao');
@@ -307,24 +309,6 @@
             responsive: true,
             maintainAspectRatio: false,
             autoPadding: true
-        }
-    });
-
-    new Chart(graficoPizza_regiao, {
-        type: 'pie',
-        data: {
-            labels: ['Sul', 'Sudeste', 'Norte', 'Nordeste', 'Centro-Oeste'],
-            datasets: [{
-                label: 'Regiões',
-                data: [55, 52, 31, 25, 28],
-                borderWidth: 1,
-
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-
         }
     });
 
