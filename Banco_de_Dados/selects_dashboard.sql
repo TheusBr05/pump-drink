@@ -84,7 +84,7 @@ FROM (
         GROUP BY tb_maquina.id_maquina,
             tb_bebida.meta_geral / maquinas_bebida
     ) AS subquery
-WHERE Saidas => meta_unidade;
+WHERE Saidas >= meta_unidade;
 
 
 -- unidades abaixo do esperado
