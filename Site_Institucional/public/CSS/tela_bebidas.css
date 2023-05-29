@@ -1,34 +1,51 @@
 body{
     overflow-x: hidden;
     margin: 0;
-    background-color: #AFDADB;
+    background-color:  #77a4a6;;
 }
 
 .tela_inteira{
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
 
+.topo{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
 .campos_topo{
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    height: 10%;
+    height: 5%;
 }
 
 .desempenho_bebidas{
     display: flex;
     justify-content: space-around;
     width: 40%;
+    height: 10vh;
     align-items: flex-end;
 }
 
+#div_desempenho {
+    margin: 2%;
+    color: white;
+}
+
 .card_baixo{
-    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
     background-color: red;
     text-align: center;
     color: white;
@@ -40,7 +57,10 @@ body{
 }
 
 .card_esperado{
-    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
     background-color: hsl(49, 100%, 50%);
     text-align: center;
     color: white;
@@ -52,7 +72,10 @@ body{
 }
 
 .card_alto{
-    width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
     background-color: green;
     text-align: center;
     color: white;
@@ -65,16 +88,113 @@ body{
 
 
 #btn_add_bebida{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #1d676d;
-    width: 30%;
+    width: 50%;
     height: 100%;
     border-radius: 7px;
     padding: 2%;
     color: white;
     border: 0;
+    margin-top: 25%;
 }
 
 .add_bebida{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40%;
-    height: 60%;
+    height: 100%;
+}
+
+.tupla_bebidas {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.bebida {
+    width: 40vh;
+    height: 22vw;
+    background-color: rgb(207, 207, 207);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.253);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.topo_card_bebida {
+    display: flex;
+    height: 20%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.desempenho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 45%;
+    color: white;
+    background-color: rgb(255, 72, 0);
+    border-radius: 2px;
+}
+
+.imagem_bebida{
+    display: flex;
+    width: 60%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+.meio_card_bebida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.nome_bebida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.nome_bebida h6{
+    font-size: large;
+    letter-spacing: 1px;
+    font-weight: 100;
+    
+}
+
+.campos_btn{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.campos_btn button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 50%;
+    border-radius: 5px;
+    border: 0;
+    background-color: #1d676d;
+    color: white;
+
 }
