@@ -1,5 +1,6 @@
-/* NAVBAR */
+/* HOME */
 
+/* NAVBAR */
 .ppdrink {
   max-width: 100px;
 }
@@ -15,9 +16,6 @@
   padding: 0 5rem;
 }
 
-
-
-
 .navbar a {
   color: #ffff;
   text-decoration: none;
@@ -29,12 +27,10 @@
   align-items: center;
   list-style: none;
   justify-content: end;
-  /* padding-right: 50px; */
   padding: 0 5rem;
 }
 
-.navbarLista ul,
-.navbarLista li a {
+.navbarLista ul, .navbarLista li a {
   justify-content: space-evenly;
   padding: 5px 10px;
   color: #0F1631;
@@ -46,56 +42,21 @@
 
 .loginBtn {
   padding: 7px 25px;
-  color: #77a4a6;
+  color: #1d676d;
   letter-spacing: 1px;
   border-radius: 10px;
   text-decoration: none;
   background-color: #ffff;
 }
 
-
-/* .navbarLista ul{
-  padding: 0 5rem;
-}
-
-.navbarLista a{
-  color: #ffff;
-  text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 1px;
-} */
-
-.botao-gradiente {
-  background-image: linear-gradient(to right, #32C0D7,#1d676d);
-  border-radius: 31px;
-  font-size: 15px;
-  font-weight: 600;
-  border: 1px solid #0F1827;
-  transition: 0.5s;
-  padding: 10px;
-}
-
-.botao-gradiente:hover {
-  opacity: 0.8;
-  box-shadow:
-  1px 1px #53a7ea,
-  2px 2px #53a7ea;
-  -webkit-transform: translateX(-3px);
-transform: translateX(-3px);
-}
-
-
-/* HOME */
-
 /* BANNER */
-
 .banner{
   background-image: url('../assets/banner_inicio.png');
   background-size: 100%;
 }
 
 .banner .container{
-  height: 500px;
+  height: 510.1px;
   justify-content: center;
   align-items: center;
   color: #ffff;
@@ -125,7 +86,6 @@ transform: translateX(-3px);
 }
 
 /* INFO */
-
 .algumas_info{
   background-color: #ffff;
   background-position: 100%;
@@ -134,6 +94,18 @@ transform: translateX(-3px);
   display: flex;
   align-items: center;
   gap: 10rem;
+}
+
+.meio .meioBorder {
+  height: 5px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, gray, white);
+}
+
+.meio .meioBorder2 {
+  height: 5px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, white, gray);
 }
 
 .text1{
@@ -150,7 +122,6 @@ transform: translateX(-3px);
 }
 
 /* DADOS */
-
 .dados{
   background-color: #77A4A6;
   width: 100%;
@@ -178,9 +149,7 @@ transform: translateX(-3px);
   width: 170px;
 }
 
-
 /* VOCE SABIA? */
-
 .voce_sabia{
   background-color: #ffff;
   width: 100%;
@@ -198,8 +167,6 @@ transform: translateX(-3px);
   gap: 3rem;
 }
 
-.texto2_vc_sabia{}
-
 .imagem_vc_sabia{
   background-color: #1d676d;
   border-radius: 20px;
@@ -214,9 +181,7 @@ transform: translateX(-3px);
   display: flex;
 }
 
-
 /* MARKETING */
-
 .marketing{
   background-color: #77A4A6;
   width: 100%;
@@ -251,7 +216,6 @@ transform: translateX(-3px);
 }
 
 /* iformação de 1 a 4  */
-
 .posicoes{
   display: inherit;
 }
@@ -290,72 +254,7 @@ transform: translateX(-3px);
   background-repeat: no-repeat;
 }
 
-
-/* SOBRE NÓS */
-
-
-/* CONTEXTO PUMP DRINK */
-
-
-/* .meio h2 {
-  color: #1d676d;
-  margin: 0;
-  padding-top: 70px;
-  font-size: 35px;
-  font-weight: 800;
-  text-align: justify;
-}
-
-.meio p {
-  width: 500px;
-  color: rgb(80, 80, 80);
-  text-align: justify;
-}
-
-.meio span {
-  color: #1d676d;
-  font-size: 35px;
-  font-weight: 700;
-}
-
-.imagem1 {
-  background-color: #1d676d;
-  height: 300px;
-  width: 300px;
-  margin-top: 100px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: baseline;
-}
-
-.primeira_parte {
-  display: flex;
-  justify-content: space-around;
-}
-
-.segunda_parte {
-  display: flex;
-  justify-content: space-around;
-}
-
-.segunda_parte h2 {
-  text-align: justify;
-}
-
-.imagem2 {
-  background-color: #1d676d;
-  height: 517px;
-  width: 270px;
-  margin-top: 100px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-} */
-
-
 /*SERVIÇOS*/
-
 .services-title {
   font-family: 'Vogie Black', sans-serif;
   font-size: 30px;
@@ -393,19 +292,26 @@ transform: translateX(-3px);
 
 
 /* ENTRE EM CONTATO*/
-
 .contato {
   width: 100%;
-  background:#3ea2a7; 
+  background:#77A4A6; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #1d676d;
+  color: #ffff;
   font-weight: bold;
   font-size: 25px;
   text-align: center;
+  padding: 0 0 8rem 0;
 }
 
+.contato h2{
+  padding: 8rem 0 2rem 0;
+}
+
+.contato p {
+  padding: 0 0 2rem;
+}
 
 input {
   margin: 8px 8px;
@@ -414,7 +320,7 @@ input {
   width: 250px;
   border: 0;
   background-color: #dedede;
-  padding: 10px;
+  padding: 0.9rem;
 }
 
 #msg {
@@ -422,86 +328,68 @@ input {
   border-radius: 10px;
   width: 250px;
   height: 100px;
-  padding: 8px;
+  padding: 1rem;
   margin-bottom: 3%;
 }
 
 .btn {
-  background-image: linear-gradient(to right, #32C0D7,#1d676d);
-  color: #ebded5;
-  border: 0;
+  background-color: #fff;
+  padding: 1rem 2.9rem;
   border-radius: 10px;
-  font-size: 15px;
-  margin-bottom: 5%;
-  border: 1px solid #0F1827;
-  transition: 0.5s;
-  padding: 20px;
-  text-transform: uppercase;
+  border: none;
+  color: #1D676D;
+  cursor: pointer;
 }
-
-.btn:hover{
-  opacity: 0.8;
-  box-shadow:
-  1px 1px #53a7ea,
-  2px 2px #53a7ea;
-  -webkit-transform: translateX(-3px);
-transform: translateX(-3px);
-}
-
-/* NAVBAR */
-
-.container-header {
-  display: flex;
-  width: 100%;
-  /* font-size: 100%; */
-  
-  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
-  background-color: #1d676d; ;
-  padding-left: 25px;
-
-} 
-
-.ppdrink {
-  max-width: 100px;
-}
-
-/* para colocar a header para descer junto com a pagina tem que colocar: "position: fixed;
-width: 100vw;" na header */
-
-
-
 
 /* FOOTER */
-
-.footer {
+.footer{
+  width: 100%;
+  background-color: #1D676D;
   display: flex;
-  justify-content: center;
-  background-color: #0F1827;;
-  color: white;
+  padding: 1rem 5rem;
+  gap: 18.5rem;
+  color: #fff;
 }
 
-.footerContainer,
-.container-1,
-.container-3 {
+
+.help_desk{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-left: 5%;
-  margin-top: 2%;
-  margin-bottom: 1%;
-}
-.paragrafoFooter {
-  margin-bottom: 3%;
-  margin-top: 1.9%;
 }
 
- .primeiro_texto h2 {
-  margin-bottom: 4%;
+.redess{
+  display: flex;
+  gap: 0.5rem;
+  
 }
-.segundo_texto h2{
-  margin-bottom: 4%;
+
+.help_desk button{
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: #ffff;
+  color: #1D676D;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
 }
-.contato h2, p{
-  margin-bottom: 1%;
+
+.logo_footer{
+  background-color: #1D676D;
+  padding-left: 3rem;
+}
+
+.logo_footer img{
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  padding-left: 2rem;
+}
+
+.creditos_e_redes{
+  padding-top: 2rem;
+}
+
+.social_social img{
+  height: 8vh;
 }
