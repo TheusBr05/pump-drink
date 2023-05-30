@@ -231,6 +231,11 @@
   border: none;
 }
 
+.botao_marketing button a{
+  text-decoration: none;
+  color: #1d676d;
+}
+
 .titulo_texto_marketing{
   font-size: 23px;
   margin-bottom: 1rem;
@@ -395,8 +400,7 @@ input {
   width: 100%;
   background-color: #1D676D;
   display: flex;
-  padding: 1rem 5rem;
-  gap: 18.5rem;
+  padding: 3rem 5rem;
   color: #fff;
 }
 
@@ -409,22 +413,29 @@ input {
 .redess{
   display: flex;
   gap: 0.5rem;
-  
 }
 
 .help_desk button{
   margin-top: 1rem;
   cursor: pointer;
   background-color: #ffff;
-  color: #1D676D;
   padding: 10px;
   border-radius: 10px;
   border: none;
+  width: 6rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.help_desk button a{
+  text-decoration: none;
+  color: #1D676D;
+  width: 2rem;
 }
 
 .logo_footer{
   background-color: #1D676D;
-  padding-left: 3rem;
+  padding-left: 8.5rem;
 }
 
 .logo_footer img{
@@ -436,6 +447,7 @@ input {
 
 .creditos_e_redes{
   padding-top: 2rem;
+  padding-left: 19.5rem;
 }
 
 .social_social img{
