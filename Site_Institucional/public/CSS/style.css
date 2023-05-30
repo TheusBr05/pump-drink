@@ -12,7 +12,7 @@ display: flex;
 flex-flow: column;
 height: 100vh;
 line-height: 135%;
-background-color: #77a4a6;
+background-color: rgb(119, 164, 166);
 }
 
 /*SCROLL*/
@@ -22,7 +22,7 @@ background-color: #77a4a6;
   /* tamanho da linha*/
   
   ::-webkit-scrollbar-track {
-    background-color: #0F1631;
+    background-color: rgb(15, 22, 49);
   } /* cor de fundo do scrool*/
   
    ::-webkit-scrollbar-thumb {
