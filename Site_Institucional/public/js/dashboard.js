@@ -95,6 +95,10 @@ let proximaAtualizacao;
         const config = {
             type: 'line',
             data: dados,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
         };
 
         // Adicionando gráfico criado em div na tela
