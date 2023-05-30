@@ -1,9 +1,9 @@
 body {
-  background-color: aliceblue;
+  background-color: #77a4a6;
 }
 
 .sessao-1 {
-  background-color: aqua;
+  background-color: #1d676d;
   margin-top: 10%;
   max-width: 80%;
   padding: 100px;
@@ -18,25 +18,68 @@ h6 {
 }
 
 .meio{
-    background-color: green;
+    background-color: #1d676d;;
     margin-top: 5%;
     padding: 80px;
 }
 
-img{
+.meio-2{
+  background-color: #1d676d;
+  padding: 80px;
+}
+
+.figuras img{
     background-color: antiquewhite;
     border: 3px solid #101010;
     position: relative;
     left: 160px;
-    bottom: 30px;
+    bottom: 115px;
     width: 350px;
     height: 460px;
     margin-bottom: 2%;
     margin-right: 4%;
-    filter: grayscale(100%);
+    filter: grayscale(95%);
 }
 
-.final{
-    background-color: #101010;
-    padding: 80px;
+ .nomes-linha1{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  }
+
+  .nomes-linha1 p{
+    color: white;
+        position: relative;
+    left: 150px;
+    bottom: 105px;
+    margin-bottom: 2%;
+  }
+
+.info_redes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.info_redes img{
+margin-bottom: 5%;
+  width: 70px;
+  height: 80px;
+  margin-right: 5%
+}
+
+.span_redes_sociais{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: antiquewhite;
+  margin-bottom: 2%;
+}
+/*----------------------------- FOOTER -----------------------------------*/
+
+.footer{
+  background-color: #1d676d;
+  text-align: center;
+  color: wheat;
 }
