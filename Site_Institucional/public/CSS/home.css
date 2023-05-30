@@ -7,9 +7,9 @@
 
 .header-navbar {
   width: 100%;
-  background-color: #1d676d ;
+  background-color: #1d676d;
   display: flex;
-  }
+}
 
 .logo-navbar {
   display: flex;
@@ -30,7 +30,8 @@
   padding: 0 5rem;
 }
 
-.navbarLista ul, .navbarLista li a {
+.navbarLista ul,
+.navbarLista li a {
   justify-content: space-evenly;
   padding: 5px 10px;
   color: #0F1631;
@@ -50,12 +51,12 @@
 }
 
 /* BANNER */
-.banner{
+.banner {
   background-image: url('../assets/banner_inicio.png');
   background-size: 100%;
 }
 
-.banner .container{
+.banner .container {
   height: 510.1px;
   justify-content: center;
   align-items: center;
@@ -63,19 +64,19 @@
   flex-direction: column;
 }
 
-.container h2{
+.container h2 {
   font-weight: 850;
-  font-size:  26px;
+  font-size: 26px;
 }
 
 .container p {
   margin-top: 1rem;
-  word-wrap:  normal;
+  word-wrap: normal;
   color: white;
   font-size: larger;
 }
 
-.botao_banner button{
+.botao_banner button {
   margin-top: 1rem;
   cursor: pointer;
   background-color: #ffff;
@@ -91,7 +92,7 @@
 }
 
 /* INFO */
-.algumas_info{
+.algumas_info {
   background-color: #ffff;
   background-position: 100%;
   height: 70vh;
@@ -113,27 +114,27 @@
   background-image: linear-gradient(to bottom, white, gray);
 }
 
-.text1{
+.text1 {
   margin-left: 6rem;
 }
 
-.text1 h4{
+.text1 h4 {
   font-size: 20px;
   margin-bottom: 1rem;
 }
 
-.text1 p{
+.text1 p {
   font-size: 18px;
 }
 
 /* DADOS */
-.dados{
+.dados {
   background-color: #77A4A6;
   width: 100%;
   height: 76.2vh;
 }
 
-.dados_2{
+.dados_2 {
   display: flex;
   justify-content: space-between;
   padding: 10vh;
@@ -146,63 +147,63 @@
   color: #ffff;
 }
 
-.box p{
+.box p {
   align-items: center;
 }
 
-.box img{
+.box img {
   width: 170px;
 }
 
 /* VOCE SABIA? */
-.voce_sabia{
+.voce_sabia {
   background-color: #ffff;
   width: 100%;
 }
 
-.voce_sabia .vcsabiaBorder{
+.voce_sabia .vcsabiaBorder {
   height: 5px;
   width: 100%;
   background-image: linear-gradient(to bottom, gray, white);
 }
 
-.voce_sabia .vcsabiaBorder2{
+.voce_sabia .vcsabiaBorder2 {
   height: 5px;
   width: 100%;
   background-image: linear-gradient(to bottom, white, gray);
 }
 
-.texto_vc_sabia h4{
+.texto_vc_sabia h4 {
   margin-left: 17rem;
   padding-top: 6rem;
   margin-bottom: 2rem;
   font-size: large;
 }
 
-.contexto_vc_sabia{
+.contexto_vc_sabia {
   display: flex;
   justify-content: center;
   gap: 3rem;
   padding: 0 0 6rem 0;
 }
 
-.imagem_vc_sabia{
+.imagem_vc_sabia {
+  display: flex;
+  justify-content: center;
   background-color: #1d676d;
   border-radius: 20px;
-  width: 250px;
-  height: 415px;
+  width: 180px;
+  height: 385px;
   margin-left: 1rem;
 }
 
-.imagem_vc_sabia img{
-  height: 416px;
-  width: 270px;
-  justify-content: center;
+.imagem_vc_sabia img {
   display: flex;
+
 }
 
 /* MARKETING */
-.marketing{
+.marketing {
   background-color: #77A4A6;
   width: 100%;
   height: 90vh;
@@ -211,17 +212,17 @@
   justify-content: center;
 }
 
-.marketing img{
+.marketing img {
   width: 427px;
   height: 453px;
 }
 
-.textos_marketing{
+.textos_marketing {
   padding: 10rem;
   color: #fff;
 }
 
-.textos_marketing button{
+.textos_marketing button {
   margin-top: 1rem;
   cursor: pointer;
   background-color: #ffff;
@@ -231,58 +232,56 @@
   border: none;
 }
 
-.botao_marketing button a{
+.botao_marketing button a {
   text-decoration: none;
   color: #1d676d;
 }
 
-.titulo_texto_marketing{
+.titulo_texto_marketing {
   font-size: 23px;
   margin-bottom: 1rem;
 }
 
 /* iformação de 1 a 4  */
-.posicoesb{
-  margin-top: 4rem;
+.posicoesb {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 1rem 0;
+}
+
+.posicoes {
+  display: flex;
   flex-direction: row;
+  margin: 1rem 0;
 }
 
-.posicoesc{
-  margin-bottom: 9rem;
-}
-
-.posicoes{
-  display: inherit;
-  flex-direction: row;
-}
-
-.infoBorder{
+.infoBorder {
   height: 5px;
   width: 100%;
   background-image: linear-gradient(to bottom, gray, white);
 }
 
-.infoBorder2{
+.infoBorder2 {
   height: 5px;
   width: 100%;
   background-image: linear-gradient(to bottom, white, gray);
 }
 
-.informacoes{
+.informacoes {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.numeros{
+.numeros {
   background-color: #77A4A6;
   border-radius: 50%;
   height: 100px;
   width: 100px;
 }
 
-.dentro_circulo{
+.dentro_circulo {
   justify-content: center;
   display: flex;
   align-items: center;
@@ -305,12 +304,13 @@
   font-family: 'Vogie Black', sans-serif;
   font-size: 30px;
   text-transform: uppercase;
-  color:  #1d676d; 
+  color: #1d676d;
   text-align: center;
   margin-top: 5%;
 }
 
-.sessao-2 .container, .content {
+.sessao-2 .container,
+.content {
   display: flex;
   align-items: center;
   margin: 1% 0 1% 1%;
@@ -327,7 +327,7 @@
   margin: 1% 0 5% 0;
 }
 
-.card-s2 img{
+.card-s2 img {
   margin-right: 5px;
   width: 70px;
 }
@@ -337,18 +337,20 @@
 }
 
 /* ENTRE EM CONTATO*/
-.texto_inicio_info{
+.texto_inicio_info {
   margin-top: 9rem;
+  margin-bottom: 5rem;
   font-size: x-large;
 }
 
-.texto{
+.texto {
   font-size: small;
+  margin: 0 50px;
 }
 
 .contato {
   width: 100%;
-  background:#77A4A6; 
+  background: #77A4A6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -359,7 +361,7 @@
   padding: 0 0 8rem 0;
 }
 
-.contato h2{
+.contato h2 {
   padding: 8rem 0 2rem 0;
 }
 
@@ -396,7 +398,7 @@ input {
 }
 
 /* FOOTER */
-.footer{
+.footer {
   width: 100%;
   background-color: #1D676D;
   display: flex;
@@ -404,18 +406,18 @@ input {
   color: #fff;
 }
 
-.help_desk{
+.help_desk {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.redess{
+.redess {
   display: flex;
   gap: 0.5rem;
 }
 
-.help_desk button{
+.help_desk button {
   margin-top: 1rem;
   cursor: pointer;
   background-color: #ffff;
@@ -427,30 +429,30 @@ input {
   margin-top: 2rem;
 }
 
-.help_desk button a{
+.help_desk button a {
   text-decoration: none;
   color: #1D676D;
   width: 2rem;
 }
 
-.logo_footer{
+.logo_footer {
   background-color: #1D676D;
   padding-left: 8.5rem;
 }
 
-.logo_footer img{
+.logo_footer img {
   width: 100px;
   height: 100px;
   justify-content: center;
   padding-left: 2rem;
 }
 
-.creditos_e_redes{
+.creditos_e_redes {
   padding-top: 2rem;
   padding-left: 19.5rem;
 }
 
-.social_social img{
+.social_social img {
   height: 2rem;
   margin-top: 1rem;
   cursor: pointer;
