@@ -22,8 +22,8 @@ SELECT format(
 END $$
 
 -- Procedure Unidades Abaixo
-DELIMITER $$ 
-CREATE PROCEDURE unidades_abaixo (IdBebidaVAR int)
+DELIMITER $$
+CREATE PROCEDURE unidades_abaixo(IdBebidaVAR int)
 BEGIN
 
 SELECT (
@@ -31,9 +31,9 @@ SELECT (
             SELECT COUNT(*) AS total_maquinas
             FROM tb_maquina
                 JOIN tb_dispenser ON tb_maquina.id_maquina = tb_dispenser.fk_maquina
-            WHERE tb_dispenser.fk_bebida = 5
+            WHERE tb_dispenser.fk_bebida = IdBebidaVAR
         ) * 100
-    ) AS percentual_acima_meta
+    ) AS percentual_abaixo_meta
 FROM (
         SELECT tb_maquina.id_maquina,
             COUNT(*) AS Saidas,
@@ -47,21 +47,21 @@ FROM (
                 SELECT fk_maquina,
                     COUNT(*) AS maquinas_bebida
                 FROM tb_dispenser
-                WHERE fk_bebida = 5
+                WHERE fk_bebida = IdBebidaVAR
                 GROUP BY fk_maquina
             ) AS subquery ON tb_maquina.id_maquina = subquery.fk_maquina
-        WHERE tb_bebida.id_bebida = 5
+        WHERE tb_bebida.id_bebida = IdBebidaVAR
         GROUP BY tb_maquina.id_maquina,
             tb_bebida.meta_geral / maquinas_bebida
     ) AS subquery
 WHERE Saidas < meta_unidade;
 
-END 
-$$ 
+
+END$$
 
 -- Procedure Unidades Acima
-DELIMITER $$ 
-CREATE PROCEDURE unidades_acima (IdBebidaVAR int)
+DELIMITER $$
+CREATE PROCEDURE unidades_acima(IdBebidaVAR int)
 BEGIN
 
 SELECT (
@@ -69,7 +69,7 @@ SELECT (
             SELECT COUNT(*) AS total_maquinas
             FROM tb_maquina
                 JOIN tb_dispenser ON tb_maquina.id_maquina = tb_dispenser.fk_maquina
-            WHERE tb_dispenser.fk_bebida = 5
+            WHERE tb_dispenser.fk_bebida = IdBebidaVAR
         ) * 100
     ) AS percentual_acima_meta
 FROM (
@@ -85,24 +85,24 @@ FROM (
                 SELECT fk_maquina,
                     COUNT(*) AS maquinas_bebida
                 FROM tb_dispenser
-                WHERE fk_bebida = 5
+                WHERE fk_bebida = IdBebidaVAR
                 GROUP BY fk_maquina
             ) AS subquery ON tb_maquina.id_maquina = subquery.fk_maquina
-        WHERE tb_bebida.id_bebida = 5
+        WHERE tb_bebida.id_bebida = IdBebidaVAR
         GROUP BY tb_maquina.id_maquina,
             tb_bebida.meta_geral / maquinas_bebida
     ) AS subquery
 WHERE Saidas >= meta_unidade;
 
-END 
-$$ 
+
+END$$
 
 -- Procedure Perído de Teste
 DELIMITER $$
 CREATE PROCEDURE periodo_de_teste(IdBebidaVAR INT)
 BEGIN 
 
-SELECT DAY(tb_registro.datahora_registro),
+SELECT DAY(tb_registro.datahora_registro) as 'dia',
     count(*) as 'saidas'
 FROM tb_registro
     JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
@@ -110,7 +110,7 @@ FROM tb_registro
     JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
 WHERE fk_bebida = IdBebidaVAR
 GROUP BY DAY(tb_registro.datahora_registro)
-ORDER BY DAY(tb_registro.datahora_registro)
+ORDER BY DAY(tb_registro.datahora_registro) DESC
 LIMIT 7;
 
 END $$
