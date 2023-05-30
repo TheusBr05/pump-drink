@@ -85,6 +85,11 @@
   border: none;
 }
 
+.botao_banner button a {
+  text-decoration: none;
+  color: #1D676D;
+}
+
 /* INFO */
 .algumas_info{
   background-color: #ffff;
@@ -153,8 +158,6 @@
 .voce_sabia{
   background-color: #ffff;
   width: 100%;
-  /* height: 90vh; */
-
 }
 
 .voce_sabia .vcsabiaBorder{
@@ -172,6 +175,8 @@
 .texto_vc_sabia h4{
   margin-left: 17rem;
   padding-top: 6rem;
+  margin-bottom: 2rem;
+  font-size: large;
 }
 
 .contexto_vc_sabia{
@@ -186,11 +191,12 @@
   border-radius: 20px;
   width: 250px;
   height: 415px;
+  margin-left: 1rem;
 }
 
 .imagem_vc_sabia img{
   height: 416px;
-  width: 300px;
+  width: 270px;
   justify-content: center;
   display: flex;
 }
@@ -214,6 +220,7 @@
   padding: 10rem;
   color: #fff;
 }
+
 .textos_marketing button{
   margin-top: 1rem;
   cursor: pointer;
@@ -230,8 +237,18 @@
 }
 
 /* iformação de 1 a 4  */
+.posicoesb{
+  margin-top: 4rem;
+  flex-direction: row;
+}
+
+.posicoesc{
+  margin-bottom: 9rem;
+}
+
 .posicoes{
   display: inherit;
+  flex-direction: row;
 }
 
 .infoBorder{
@@ -251,11 +268,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: 10rem; */
 }
 
 .numeros{
-  background-color: #1d676d;
+  background-color: #77A4A6;
   border-radius: 50%;
   height: 100px;
   width: 100px;
@@ -315,8 +331,16 @@
   transform: scale(0.9)
 }
 
-
 /* ENTRE EM CONTATO*/
+.texto_inicio_info{
+  margin-top: 9rem;
+  font-size: x-large;
+}
+
+.texto{
+  font-size: small;
+}
+
 .contato {
   width: 100%;
   background:#77A4A6; 
@@ -375,7 +399,6 @@ input {
   gap: 18.5rem;
   color: #fff;
 }
-
 
 .help_desk{
   display: flex;
