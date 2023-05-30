@@ -153,18 +153,32 @@
 .voce_sabia{
   background-color: #ffff;
   width: 100%;
-  height: 90vh;
-  padding: 6rem 0;
+  /* height: 90vh; */
+
+}
+
+.voce_sabia .vcsabiaBorder{
+  height: 5px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, gray, white);
+}
+
+.voce_sabia .vcsabiaBorder2{
+  height: 5px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, white, gray);
 }
 
 .texto_vc_sabia h4{
   margin-left: 17rem;
+  padding-top: 6rem;
 }
 
 .contexto_vc_sabia{
   display: flex;
   justify-content: center;
   gap: 3rem;
+  padding: 0 0 6rem 0;
 }
 
 .imagem_vc_sabia{
@@ -220,13 +234,24 @@
   display: inherit;
 }
 
+.infoBorder{
+  height: 5px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, gray, white);
+}
+
+.infoBorder2{
+  height: 5px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, white, gray);
+}
+
 .informacoes{
   background-color: #fff;
-  /* padding: 10% 30%; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10rem;
+  /* padding: 10rem; */
 }
 
 .numeros{
@@ -391,5 +416,7 @@ input {
 }
 
 .social_social img{
-  height: 8vh;
+  height: 2rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
