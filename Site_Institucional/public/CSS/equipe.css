@@ -1,0 +1,42 @@
+body {
+  background-color: aliceblue;
+}
+
+.sessao-1 {
+  background-color: aqua;
+  margin-top: 10%;
+  max-width: 80%;
+  padding: 100px;
+  display: flex;
+  margin-left: 3%;
+  text-align: justify;
+}
+
+h6 {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.meio{
+    background-color: green;
+    margin-top: 5%;
+    padding: 80px;
+}
+
+img{
+    background-color: antiquewhite;
+    border: 3px solid #101010;
+    position: relative;
+    left: 160px;
+    bottom: 30px;
+    width: 350px;
+    height: 460px;
+    margin-bottom: 2%;
+    margin-right: 4%;
+    filter: grayscale(100%);
+}
+
+.final{
+    background-color: #101010;
+    padding: 80px;
+}
