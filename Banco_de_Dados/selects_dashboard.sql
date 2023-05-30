@@ -128,7 +128,7 @@ FROM tb_registro
     JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
 WHERE fk_bebida = 1
 GROUP BY DAY(tb_registro.datahora_registro)
-ORDER BY DAY(tb_registro.datahora_registro) DESC
+ORDER BY DAY(tb_registro.datahora_registro)
 LIMIT 7;
 
 
@@ -139,4 +139,17 @@ FROM tb_registro
     JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
     JOIN tb_maquina ON tb_maquina.id_maquina = tb_dispenser.fk_maquina
     JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
+    JOIN tb_local ON tb_local.id_local = tb_maquina.fk_local
+WHERE id_bebida = 1
 GROUP BY descricao;
+
+-- gráfico saídas por regiões (Desempenho por região)
+SELECT count(*) as 'saidas', tb_local.regiao
+FROM tb_registro
+    JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
+    JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
+    JOIN tb_maquina ON tb_maquina.id_maquina = tb_dispenser.fk_maquina
+    JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
+    JOIN tb_local ON tb_local.id_local = tb_maquina.fk_local
+WHERE id_bebida = 1
+GROUP BY regiao;
