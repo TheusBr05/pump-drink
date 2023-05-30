@@ -16,77 +16,90 @@
 
 <body>
   <div class="containerGeralCalculadora">
-    <!-- HEADER PUMPDRINK -->
-    <div class="header-navbar">
+
+     <!-------------------- NAVBAR ------------------->
+
+     <div class="header-navbar">
       <div class="logo-navbar">
         <a href="index.html"><img src="./assets/logo.png" href="index.html" class="ppdrink" /></a>
         <a href="index.html"><img src="./assets/text_logo.png" href="index.html" class="ppdrink" /></a>
        </div>
-        <div class="list-navbar">
-          <ul class="navbarLista">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="simule.html">Simule</a></li>
-            <li class="nav-item"><a class="nav-link" href="">Nosso Time</a></li>
-            <li class="nav-item"><a class="nav-link" href="#link_contato">Contato</a></li>
-            <li class="nav-item">
-              <a href="login.html" class="botao-gradiente loginBtn" href="login.html" target="_blank">Acessar
-                Plataforma</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <ul class="navbarLista">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="">NOSSO TIME</a></li>
+        <li><a href="simule.html">SIMULE</a></li>
+        <li><a href="#link_contato">CONTATO</a></li>
+        
+        <a href="login.html" class="loginBtn">
+          <li><b>Acessar Plataforma</b></li>
+        </a>
+      </ul>
+    </div>
+  </div>
+  
     <div class="containerCalculosGeral">
       <div class="tituloCalculadora">
         <h1> Simule Aqui!</h1>
       </div>
       <div class="containerCalculadoraInputs">
         <div class="InputEsquerdoCalculadora">
-              <input class="InputCalculadora" id="input_gasto_convencional"
-            placeholder="Gastos com testes">
+          <input class="InputCalculadora" id="input_gasto_convencional" placeholder="Gastos com testes">
           <input class="InputCalculadora" id="input_qtd_maquinas"
             placeholder="Quantidade de máquinas que deseja alugar">
           <input class="InputCalculadora" type="number" min="6" id="input_qtd_meses"
             placeholder="Quantidade de meses que deseja alugar">
         </div>
-
         <div class="InputDireitoCalculadora">
           <h3> Veja sua <span>economia</span></h3>
           <div id="div_resultado" class="container_right"></div>
         </div>
-
       </div>
       <div class="ButtonDivCalculadora">
-        <button onclick="calcular_economia()">Simular</button>
+        <button id="btn_simular" onclick="calcular_economia()">Simular</button>
       </div>
-
     </div>
 
-
-      <!-- FOOTER PUMPDRINK -->
+    <!-- FOOTER PUMPDRINK -->
   <div class="footer">
-    <div class="footerContainer">
-      <p> » Blog </p>
-      <p class="paragrafoFooter"> » Trabalhe Conosco </p><br>
-      <p class="paragrafoFooter"> <span><b>Contato:</b></span> (55+) 11-9444-9898 </p>
-      <p class="paragrafoFooter"> <span><b>Horário:</b></span> Segunda a Sexta - 10:30h às 16:30h </p>
-      <p> <span><b>E-mail:</b></span>PumpDrink@gmail.com </p>
-    </div>
-    <div class="container-1">
-      <p class="paragrafoFooter"><span><b>Endereço:</b></span> Rua Haddock Lobo, 595 São Paulo - SP</p>
-         <iframe id="mapaGoogle"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.287345323343!2d-46.66418892499157!3d-23.558121278802066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2b063f663%3A0xc567c0d16d0bc582!2sS%C3%A3o%20Paulo%20Tech%20School!5e0!3m2!1spt-BR!2sbr!4v1681743959247!5m2!1spt-BR!2sbr"
-        width="260" height="245" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="container-3">
-      <p>
-        ©PumpDrink 2023. Todos os direitos reservados.
-      </p>
+    <div class="help_desk">
+      Precisa de ajuda? <br>
+      Entre em contato por esse e-mail: <br>
+      support@pumpdrinksolutions.atlassian.net
+      
+      <button onclick="botao_helpdesk()">
+        <a href="https://pumpdrinksolutions.atlassian.net/servicedesk/customer/portal/1">Ajuda</a>
+      </button>
     </div>
 
-  </div>
+    <div class="logo_footer">
+      <img src="./assets/logo.png" alt="">
+      <p>© Pump Drink 2023</p>
+    </div>
 
-  </div>
+    <div class="creditos_e_redes">
+      <div class="texto_footer">
+        <p>
+          Redes Sociais:
+        </p>
+      </div>
+      <div class="redess">
+        <div class="social_social">
+          <a href="https://github.com/MatheusHenrique005/Pump_Drink"><img src="/public/assets/github.svg" alt=""></a>
+        </div>
+  
+        <div class="social_social">
+          <a href=""><img src="/public/assets/instagram-filled.svg" alt=""></a>
+        </div>
+  
+        <div class="social_social">
+          <a href=""><img src="/public/assets/facebook.svg" alt=""></a>
+        </div>
+  
+        <div class="social_social">
+          <a href=""><img src="/public/assets/linkedin-rect.svg" alt=""></a>
+        </div>
+      </div>
+      </div>
   </div>
 
 </body>
@@ -105,16 +118,25 @@
     var valorSoftware = valorTotalAluguel * 0.05; // custo
     var valorTotalPlano = valorSoftware + valorTotalAluguel + custoBase;
     var economia = (gastoConvencional - valorTotalPlano).toFixed(2);
-     var economia_porc = (economia * 100) / gastoConvencional;
+    var economia_porc = (economia * 100) / gastoConvencional;
 
     if (gastoConvencional > 0 && qtdMaquinas > 0 && qtdMeses >= 6) {
       div_resultado.innerHTML = `
-            <h5>O valor atual de um teste de aceitação é de <b><span style="color: black">R$${gastoConvencional.toFixed(2)}</span></b> <br>
-            O valor do nosso serviço é de <b><span style="color: black">R$${valorTotalPlano.toFixed(2)}</span></b> <br>
-            Contratando nosso serviço você economizará:
-            <b style="color: black">R$${economia}</b><br>
-            Uma economia de: <b><span style="color: black;">${economia_porc.toFixed(2)}%</span></b></h5>
-            `;
+            <h5 style=" margin-top: 5%; color: white;">O valor atual de um teste de aceitação é de 
+              <b><span style="color:white">R$${gastoConvencional.toFixed(2)}</span></b> 
+                          <br>
+              <h5>
+           <h5 style="color: white;"> O valor do nosso serviço é de:
+             <b><span style="color:white">R$${valorTotalPlano.toFixed(2)}</span></b> 
+             <br>
+             <h5>
+              <h5 style="color: white;"> Contratando nosso serviço você economizará:
+            <b style="color:white">R$${economia}</b>
+            <br>
+            </h5>
+                       <h5 style="color: white;"> Uma economia de: 
+              <b><style="color:white">${economia_porc.toFixed(2)}%</b>
+            </h5>`;
     } else if (gastoConvencional == 0 && qtdMaquinas == 0 && qtdMeses == 0) {
       alert("Atenção! Preencha os campos para que a simulação seja efetuada");
     } else if (gastoConvencional == 0 || qtdMaquinas == 0 || qtdMeses == 0) {
