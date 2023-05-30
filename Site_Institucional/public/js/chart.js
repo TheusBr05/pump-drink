@@ -202,33 +202,19 @@ function atualizarMetricas() {
         return response.json()
     }).then((total) => {
         var desempenho = total[0]
+
         console.log("desempenho:", desempenho.desempenho)
         div_desempenho.innerHTML = desempenho.desempenho + "%";
-
         
-        for(var i = 0; i < desempenho.length; i++){
-            var desempenhoGrafico = desempenho[i].desempenho
-            dados_dsp_geral.datasets[0].data.push(desempenhoGrafico);
-    
+        // console.log(dados_dsp_geral)
+        // dados_dsp_geral.datasets[0].data.push()
+        dados_dsp_geral.datasets[0].data.push(desempenhoGrafico, 100 - desempenhoGrafico)
+
+        for(var i = 0; i < total.length; i++){
+            var desempenhoGrafico = total[i].desempenho
+            dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+            graficoDonut_dsp_geral.update()
         }
-
-        // new Chart(graficoDonut_dsp_geral, {
-        //     type: 'doughnut',
-        //     data: {
-        //         datasets: [{
-        //             data: [desempenho.desempenho, 100 - desempenho.desempenho],
-        //             cutout: 70,
-        //             backgroundColor: [
-        //                 'green', 'gray'
-        //             ]
-        //         }]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         maintainAspectRatio: false,
-
-        //     }
-        // });
     })
 
     // fetch("/medidas/graficoSemana", {
