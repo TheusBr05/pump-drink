@@ -61,8 +61,8 @@
                 </div>
 
                 <button>Adicionar Unidade</button>
-                <Select>
-                    <option value="">Coca-cola</option>
+                <Select id="select">
+                    <option value="Coca-cola">Coca-cola</option>
                 </Select>
             </div>
             <div class="card_unidade">
@@ -192,12 +192,12 @@
 </html>
 
 <script>
-    for (var i = 0; i < resultado.length; i + 2) {
+    for (var i = 0; i < resultado.length; i += 2) {
 
         var cor_card1 = ''
         var unidade1 = resultado[i].unidade
         var endereco1 = resultado[i].endereco
-        var bebida = resultado[i].bebida
+        var bebida = select.value
         var desempenho1 = resultado[i].desempenho
         var meta = x
         var prazo = resultado[i].prazo
@@ -237,7 +237,7 @@
                 <div class="card ${cor_card1}">
                     <span>${unidade1}</span>
                     <p>${endereco1}</p>
-                    <span>Bebida: ${bebida1}</span>
+                    <span>Bebida: ${bebida}</span>
                     <div class="meta">
                         <span>Total Saídas: ${desempenho1}</span>
                         <span>Meta: ${meta1} </span>
@@ -247,11 +247,11 @@
                 <div class="card ${cor_card2}">
                     <span>${unidade2}</span>
                     <p>${endereco2}</p>
-                    <span>Bebida: ${bebida2}</span>
+                    <span>Bebida: ${bebida}</span>
                     <div class="meta">
                         <span>Total Saídas: ${desempenho2}</span>
-                        <span>Meta: ${meta2} </span>
-                        <span>Semanas restantes: ${prazo2}</span>
+                        <span>Meta: ${meta} </span>
+                        <span>Semanas restantes: ${prazo}</span>
                     </div>
                 </div>
             </div>
@@ -262,11 +262,11 @@
                 <div class="card ${cor_card1}">
                     <span>${unidade1}</span>
                     <p>${endereco1}</p>
-                    <span>Bebida: ${bebida1}</span>
+                    <span>Bebida: ${bebida}</span>
                     <div class="meta">
                         <span>Total Saídas: ${desempenho1}</span>
                         <span>Meta: ${meta1} </span>
-                        <span>Semanas restantes: ${prazo1}</span>
+                        <span>Semanas restantes: ${prazo}</span>
                     </div>
                 </div>
             </div>
