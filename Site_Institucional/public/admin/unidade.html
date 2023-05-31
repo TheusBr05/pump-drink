@@ -85,6 +85,9 @@
 </html>
 
 <script>
+
+    var select_bebida = select.value
+
     function alerta() {
         
         var bebida = select.value;
@@ -205,6 +208,13 @@
             }
         }
     }
+    setInterval(() => {
+        if (select_bebida != select.value){
+            alerta()
+            select_bebida = select.value
+        }
+    }, 500);
+    
 
     // setTimeout(() => {
     //     alerta()
