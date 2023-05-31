@@ -17,12 +17,16 @@
   margin-bottom: 5%;
 }
 
-/* .login {
-  background-color: color: antiquewhite;  
+ .login {
   padding: 30px 60px;
   border-radius: 4%;
-  box-shadow: 4px 4px 10px 7px #00000060;
-} */
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: white;
+font-weight: bold;
+} 
 
 .container-2 h1 {
   display: flex;
@@ -49,45 +53,16 @@
   text-decoration: none;
 }
 
+.label-float{
+  margin-bottom: 4%;
+}
+
 .label-float input {
    padding: 5px 5px;
   background-color: antiquewhite;  ;
  font-size: 16px;
  border: none;
   border-radius: 8px;
-}
-
-.label-float {
-  position: relative;
-  padding-top: 13px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.label-float input:focus {
-  border-bottom: 2px solid #1d676d;
-}
-
-.label-float label {
-  color: #1d676d;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: 13px;
-  transition: all 0.3s ease-out;
-}
-
-.label-float input:focus + label,
-.label-float input:not(:placeholder-shown) + label,
-.label-float input:valid + label {
-  font-size: 15px;
-  margin-top: 0;
-  color: #77a67e;
-}
-
-.label-float input:focus:required:invalid {
-  border-bottom: 2px solid red;
 }
 
 button {
@@ -99,7 +74,7 @@ button {
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 16px;
-  margin: 10px 20px;
+  margin: 20px 20px;
   border-radius: 4px;
   cursor: pointer;
   outline: none;

@@ -7,36 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="assets/3.png" type="image/x-icon" />
   <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/home.css">
   <link rel="stylesheet" href="./CSS/login.css">
   <title>Pump Drink | Login</title>
 </head>
 
 <body>
   <!-- HEADER PUMPDRINK -->
-  <div class="header">
-    <div class="container-header">
-      <div>
-        <a href="index.html"><img src="./assets/logo.png" href="index.html" class="ppdrink" /></a>
-      </div>
-      <div>
-        <a href="index.html"><img src="./assets/text_logo.png" href="index.html" class="ppdrink" /></a>
-      </div>
-
-      <ul class="navbarLista">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="">SOBRE NÓS</a></li>
-        <li><a href="simule.html">SIMULE</a></li>
-        <li><a href="">CONTATE-NOS</a></li>
-        <a href="login.html" class="loginBtn">
-          <li><b>Login</b></li>
-        </a>
-      </ul>
+  <div class="header-navbar">
+    <div class="logo-navbar">
+      <a href="index.html"><img src="./assets/logo.png" href="index.html" class="ppdrink" /></a>
+      <a href="index.html"><img src="./assets/text_logo.png" href="index.html" class="ppdrink" /></a>
     </div>
+    <ul class="navbarLista">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="">NOSSO TIME</a></li>
+      <li><a href="simule.html">SIMULE</a></li>
+      <li><a href="#link_contato">CONTATO</a></li>
+
+      <a href="login.html" class="loginBtn">
+        <li><b>ACESSAR PLATAFORMA</b></li>
+      </a>
+    </ul>
   </div>
 
   <div class="card_erro" id="cardErro">
     <span id="mensagem_erro"></span>
   </div>
+
   <!-- LOGIN -->
   <div class="containerGeralhome">
     <div class="container-2">
@@ -45,12 +43,10 @@
           Login
         </h1>
         <div class="label-float">
-          <label class="email" type="email" maxlength="30" placeholder=" " required></label>
-          <input id="ipt_email" for="usuario">E-mail
+          <input id="ipt_email" for="usuario" placeholder="meuemail@provedor.com">
         </div>
         <div class="label-float">
-          <label class="senha" type="password" maxlength="10" placeholder=" " required></label>
-          <input id="ipt_password" for="usuario">Senha
+          <input id="ipt_password" for="usuario" placeholder="sua senha">
         </div>
         <div class="container-btn">
           <div class='btn-forms'>
@@ -67,32 +63,49 @@
       </div>
     </div>
   </div>
+  
   <!-- FOOTER PUMPDRINK -->
-
   <div class="footer">
-    <div class="footerContainer">
+    <div class="help_desk">
+      Precisa de ajuda? <br>
+      Entre em contato por esse e-mail: <br>
+      support@pumpdrinksolutions.atlassian.net
 
-      <p> » Blog </p>
-      <p class="paragrafoFooter"> » Trabalhe Conosco </p>
-      <p class="paragrafoFooter"> <span><b>Contato:</b></span> (55+) 11-9444-9898 </p>
-      <p class="paragrafoFooter"> <span><b>Horário:</b></span> Segunda a Sexta - 10:30h às 16:30h </p>
-      <p> <span><b>E-mail:</b></span>PumpDrink@gmail.com </p>
-    </div>
-    <div class="container-1">
-      <p class="paragrafoFooter"><span><b>Endereço:</b></span> Rua Haddock Lobo, 595 São Paulo - SP</p>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.287345323343!2d-46.66418892499157!3d-23.558121278802066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2b063f663%3A0xc567c0d16d0bc582!2sS%C3%A3o%20Paulo%20Tech%20School!5e0!3m2!1spt-BR!2sbr!4v1681743959247!5m2!1spt-BR!2sbr"
-        width="260" height="245" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="container-3">
-      <p>
-        ©PumpDrink 2023. Todos os direitos reservados.
-      </p>
+      <button onclick="botao_helpdesk()">
+        <a href="https://pumpdrinksolutions.atlassian.net/servicedesk/customer/portal/1">Ajuda</a>
+      </button>
     </div>
 
+    <div class="logo_footer">
+      <img src="./assets/logo.png" alt="">
+      <p>© Pump Drink 2023</p>
+    </div>
+
+    <div class="creditos_e_redes">
+      <div class="texto_footer">
+        <p>
+          Redes Sociais:
+        </p>
+      </div>
+      <div class="redess">
+        <div class="social_social">
+          <a href="https://github.com/MatheusHenrique005/Pump_Drink"><img src="assets/github.svg" alt=""></a>
+        </div>
+
+        <div class="social_social">
+          <a href=""><img src="assets/instagram-filled.svg" alt=""></a>
+        </div>
+
+        <div class="social_social">
+          <a href=""><img src="assets/facebook.svg" alt=""></a>
+        </div>
+
+        <div class="social_social">
+          <a href=""><img src="assets/linkedin-rect.svg" alt=""></a>
+        </div>
+      </div>
+    </div>
   </div>
-
 </body>
 
 </html>
