@@ -86,7 +86,10 @@
 
 <script>
 
+    var meta_prazo_global = [];
     var select_bebida = select.value
+
+    meta_prazo(select_bebida);
 
     function alerta() {
         
@@ -107,7 +110,7 @@
                     unidades = (json);
 
                     setTimeout(function () {
-                        unidade(unidades, meta_prazo(bebida))
+                        unidade(unidades)
                     }, 150); // apenas para exibir o loading
 
                 });
@@ -126,122 +129,128 @@
 
     }
 
+
     function meta_prazo(bebida) {
+
         
-        fetch(`/unidade/unidade/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
+        fetch(`/unidade/meta_prazo/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
                 console.log(resposta);
 
                 resposta.json().then(json => {
-                    console.log(json);
+                    console.log(json + "Teste");
                     console.log(JSON.stringify(json));
 
-                    return json
+                    meta_prazo_global.splice(0,1,json[0])
 
                 });
-
+                
             } else {
-
+                
                 console.log("Houve um erro ao tentar realizar o login!");
-
+                
                 
             }
-
+            
         })
-
-        return false;
-
+        
 
     }
-    function unidade(resultado, meta_prazo) {
-        for (var i = 0; i < resultado.length; i += 2) {
 
-            var cor_card1 = ''
-            var unidade1 = resultado[i].unidade
-            var endereco1 = resultado[i].endereco
-            var bebida = select.value
-            var desempenho1 = resultado[i].saidas
-            var meta = meta_prazo.meta / resultado.length
-            var prazo = meta_prazo.prazo
-            var cor_card2 = ''
-            var unidade2 = resultado[i + 1].unidade
-            var endereco2 = resultado[i + 1].endereco
-            var desempenho2 = resultado[i + 1].saidas
+    function unidade(resultado) {
+
+        
+            for (var i = 0; i < resultado.length; i += 2) {
+
+var cor_card1 = ''
+var unidade1 = resultado[i].unidade
+var endereco1 = resultado[i].endereco
+var bebida = select.value
+var desempenho1 = resultado[i].saidas
+var meta = meta_prazo_global[0].meta / resultado.length
+var prazo = meta_prazo_global[0].prazo
+var cor_card2 = ''
+var unidade2 = resultado[i + 1].unidade
+var endereco2 = resultado[i + 1].endereco
+var desempenho2 = resultado[i + 1].saidas
 
 
-            if (resultado[i].saidas <= meta*0.25) {
-                cor_card1 = 'muito_baixo'
-            } else if (resultado[i].saidas <= meta*5) {
-                cor_card1 = 'baixo'
-            } else if (resultado[i].saidas <= meta*0.75) {
-                cor_card1 = 'quase'
-            } else if (resultado[i].saidas <= meta) {
-                cor_card1 = 'esperado'
-            } else if (resultado[i].saidas > meta) {
-                cor_card1 = 'acima'
-            }
-            if (resultado[i + 1].saidas <= meta*0.25) {
-                cor_card2 = 'muito_baixo'
-            } else if (resultado[i + 1].saidas <= meta*0.5) {
-                cor_card2 = 'baixo'
-            } else if (resultado[i + 1].saidas <= meta*0.75) {
-                cor_card2 = 'quase'
-            } else if (resultado[i + 1].saidas <= meta) {
-                cor_card2 = 'esperado'
-            } else if (resultado[i + 1].saidas > meta) {
-                cor_card2 = 'acima'
-            }
+if (resultado[i].saidas <= meta*0.25) {
+    cor_card1 = 'muito_baixo'
+} else if (resultado[i].saidas <= meta*5) {
+    cor_card1 = 'baixo'
+} else if (resultado[i].saidas <= meta*0.75) {
+    cor_card1 = 'quase'
+} else if (resultado[i].saidas <= meta) {
+    cor_card1 = 'esperado'
+} else if (resultado[i].saidas > meta) {
+    cor_card1 = 'acima'
+}
+if (resultado[i + 1].saidas <= meta*0.25) {
+    cor_card2 = 'muito_baixo'
+} else if (resultado[i + 1].saidas <= meta*0.5) {
+    cor_card2 = 'baixo'
+} else if (resultado[i + 1].saidas <= meta*0.75) {
+    cor_card2 = 'quase'
+} else if (resultado[i + 1].saidas <= meta) {
+    cor_card2 = 'esperado'
+} else if (resultado[i + 1].saidas > meta) {
+    cor_card2 = 'acima'
+}
 
-            if (i + 1 < resultado.length) {
+if (i + 1 < resultado.length) {
 
-                div_unidade.innerHTML += `
-                <div class="card_unidade">
-                    <div class="card ${cor_card1}">
-                        <span>${unidade1}</span>
-                        <p>${endereco1}</p>
-                        <span>Bebida: ${bebida}</span>
-                        <div class="meta">
-                            <span>Total Saídas: ${desempenho1}</span>
-                            <span>Meta: ${meta} </span>
-                            <span>Semanas restantes: ${prazo}</span>
-                        </div>
-                    </div>
-                    <div class="card ${cor_card2}">
-                        <span>${unidade2}</span>
-                        <p>${endereco2}</p>
-                        <span>Bebida: ${bebida}</span>
-                        <div class="meta">
-                            <span>Total Saídas: ${desempenho2}</span>
-                            <span>Meta: ${meta} </span>
-                            <span>Semanas restantes: ${prazo}</span>
-                        </div>
-                    </div>
-                </div>
-                `
-            } else {
-                div_unidade.innerHTML += `
-                <div class="card_unidade">
-                    <div class="card ${cor_card1}">
-                        <span>${unidade1}</span>
-                        <p>${endereco1}</p>
-                        <span>Bebida: ${bebida}</span>
-                        <div class="meta">
-                            <span>Total Saídas: ${desempenho1}</span>
-                            <span>Meta: ${meta} </span>
-                            <span>Semanas restantes: ${prazo}</span>
-                        </div>
-                    </div>
-                </div>
-                `
-            }
-        }
+    div_unidade.innerHTML += `
+    <div class="card_unidade">
+        <div class="card ${cor_card1}">
+            <span>${unidade1}</span>
+            <p>${endereco1}</p>
+            <span>Bebida: ${bebida}</span>
+            <div class="meta">
+                <span>Total Saídas: ${desempenho1}</span>
+                <span>Meta: ${meta} </span>
+                <span>Semanas restantes: ${prazo}</span>
+            </div>
+        </div>
+        <div class="card ${cor_card2}">
+            <span>${unidade2}</span>
+            <p>${endereco2}</p>
+            <span>Bebida: ${bebida}</span>
+            <div class="meta">
+                <span>Total Saídas: ${desempenho2}</span>
+                <span>Meta: ${meta} </span>
+                <span>Semanas restantes: ${prazo}</span>
+            </div>
+        </div>
+    </div>
+    `
+} else {
+    div_unidade.innerHTML += `
+    <div class="card_unidade">
+        <div class="card ${cor_card1}">
+            <span>${unidade1}</span>
+            <p>${endereco1}</p>
+            <span>Bebida: ${bebida}</span>
+            <div class="meta">
+                <span>Total Saídas: ${desempenho1}</span>
+                <span>Meta: ${meta} </span>
+                <span>Semanas restantes: ${prazo}</span>
+            </div>
+        </div>
+    </div>
+    `
+}
+}
+
+        
     }
     setInterval(() => {
         if (select_bebida != select.value){
-            alerta()
-            select_bebida = select.value
+            alerta();
+            select_bebida = select.value;
+            meta_prazo(select_bebida);
         }
     }, 500);
     
