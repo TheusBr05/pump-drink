@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body>
+<body onload="alerta()">
     <!-- HEADER PUMPDRINK -->
     <div class="header">
         <div class="container">
@@ -84,10 +84,12 @@
 
 <script>
     function alerta() {
+        
+        var bebida = select.value;
+        div_container_unidade.innerHTML = "";
 
-        var bebida = select.value
 
-        fetch(`unidade/unidade/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
+        fetch(`/unidade/unidade/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
@@ -97,11 +99,11 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    unidades = json;
+                    unidades = (json);
 
                     setTimeout(function () {
                         unidade(unidades)
-                    }, 1000); // apenas para exibir o loading
+                    }, 150); // apenas para exibir o loading
 
                 });
 
@@ -134,32 +136,32 @@
             var desempenho2 = resultado[i + 1].saidas
 
 
-            if (resultado[i].desempenho <= meta*0.25) {
+            if (resultado[i].saidas <= meta*0.25) {
                 cor_card1 = 'muito_baixo'
-            } else if (resultado[i].desempenho <= meta*5) {
+            } else if (resultado[i].saidas <= meta*5) {
                 cor_card1 = 'baixo'
-            } else if (resultado[i].desempenho <= meta*0.75) {
+            } else if (resultado[i].saidas <= meta*0.75) {
                 cor_card1 = 'quase'
-            } else if (resultado[i].desempenho <= meta) {
+            } else if (resultado[i].saidas <= meta) {
                 cor_card1 = 'esperado'
-            } else if (resultado[i].desempenho > meta) {
+            } else if (resultado[i].saidas > meta) {
                 cor_card1 = 'acima'
             }
-            if (resultado[i + 1].desempenho <= meta*0.25) {
+            if (resultado[i + 1].saidas <= meta*0.25) {
                 cor_card2 = 'muito_baixo'
-            } else if (resultado[i + 1].desempenho <= meta*0.5) {
+            } else if (resultado[i + 1].saidas <= meta*0.5) {
                 cor_card2 = 'baixo'
-            } else if (resultado[i + 1].desempenho <= meta*0.75) {
+            } else if (resultado[i + 1].saidas <= meta*0.75) {
                 cor_card2 = 'quase'
-            } else if (resultado[i + 1].desempenho <= meta) {
+            } else if (resultado[i + 1].saidas <= meta) {
                 cor_card2 = 'esperado'
-            } else if (resultado[i + 1].desempenho > meta) {
+            } else if (resultado[i + 1].saidas > meta) {
                 cor_card2 = 'acima'
             }
 
             if (i + 1 < resultado.length) {
 
-                div_container_unidade += `
+                div_container_unidade.innerHTML += `
                 <div class="card_unidade">
                     <div class="card ${cor_card1}">
                         <span>${unidade1}</span>
@@ -184,7 +186,7 @@
                 </div>
                 `
             } else {
-                div_container_unidade += `
+                div_container_unidade.innerHTML += `
                 <div class="card_unidade">
                     <div class="card ${cor_card1}">
                         <span>${unidade1}</span>
@@ -202,7 +204,7 @@
         }
     }
 
-    setTimeout(() => {
-        alerta()
-    }, 1000);
+    // setTimeout(() => {
+    //     alerta()
+    // }, 250);
 </script>

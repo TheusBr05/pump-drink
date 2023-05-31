@@ -1,5 +1,11 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 .unidade{
     background-color: #77a4a6;
+    min-height: 80vh;
 }
 
 /* TOPO  */

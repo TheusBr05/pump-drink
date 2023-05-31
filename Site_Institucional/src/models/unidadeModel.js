@@ -22,7 +22,7 @@ function alerta_unidade(bebida) {
         JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
         JOIN tb_sensor ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
         JOIN tb_registro ON tb_sensor.id_sensor = tb_registro.fk_sensor
-        WHERE tb_bebida.nome = ${bebida}
+        WHERE tb_bebida.nome_bebida = '${bebida}'
         GROUP BY fk_local`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
