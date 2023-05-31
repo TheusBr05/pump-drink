@@ -65,7 +65,9 @@
                     <option value="Coca-Cola">Coca-cola</option>
                 </Select>
             </div>
-            
+            <div id="div_unidade">
+                
+            </div>
 
         </div>
     </div>
@@ -86,7 +88,7 @@
     function alerta() {
         
         var bebida = select.value;
-        div_container_unidade.innerHTML = "";
+        div_unidade.innerHTML = "";
 
 
         fetch(`/unidade/unidade/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
@@ -161,7 +163,7 @@
 
             if (i + 1 < resultado.length) {
 
-                div_container_unidade.innerHTML += `
+                div_unidade.innerHTML += `
                 <div class="card_unidade">
                     <div class="card ${cor_card1}">
                         <span>${unidade1}</span>
@@ -186,7 +188,7 @@
                 </div>
                 `
             } else {
-                div_container_unidade.innerHTML += `
+                div_unidade.innerHTML += `
                 <div class="card_unidade">
                     <div class="card ${cor_card1}">
                         <span>${unidade1}</span>
