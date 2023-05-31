@@ -59,8 +59,22 @@ https://github.com/arthursilemanali <br>
 https://github.com/Naufel2510
 
 <br>
-##Status do Projeto: 
-<b>EM ANDAMENTO</b>
+# Como Rodar o Site
+
+1º Clonar o repositório <br>
+2º Abra a pasta e entre na pasta SITE <br>
+3º Abra o terminal de comando do seu sistema ou o git bash <br>
+4º Digite npm i <br>
+5º Digite npm start <br>
+Aparecerá as seguintes informações: <br>
+
+> pumpDrink@2.0.0 start  <br>
+> node app.js  <br>
+Servidor rodando em xxxxxxxxxxxxx <br>
+
+6º Clique em xxxxxxxxxxxxxx <br>
+
+O site abrirá e é só aproveitar!!! 
 
 ## Agradecimentos
 
