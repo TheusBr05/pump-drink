@@ -107,7 +107,7 @@
                     unidades = (json);
 
                     setTimeout(function () {
-                        unidade(unidades)
+                        unidade(unidades, meta_prazo(bebida))
                     }, 150); // apenas para exibir o loading
 
                 });
@@ -125,7 +125,37 @@
 
 
     }
-    function unidade(resultado) {
+
+    function meta_prazo(bebida) {
+        
+        fetch(`/unidade/unidade/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    return json
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                
+            }
+
+        })
+
+        return false;
+
+
+    }
+    function unidade(resultado, meta_prazo) {
         for (var i = 0; i < resultado.length; i += 2) {
 
             var cor_card1 = ''
@@ -133,8 +163,8 @@
             var endereco1 = resultado[i].endereco
             var bebida = select.value
             var desempenho1 = resultado[i].saidas
-            var meta = 10
-            var prazo = 2024
+            var meta = meta_prazo.meta / resultado.length
+            var prazo = meta_prazo.prazo
             var cor_card2 = ''
             var unidade2 = resultado[i + 1].unidade
             var endereco2 = resultado[i + 1].endereco

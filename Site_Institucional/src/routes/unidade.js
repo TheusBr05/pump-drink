@@ -7,4 +7,8 @@ router.get("/unidade/:bebida", function (req, res) {
     unidadeController.alerta_unidade(req, res);
 })
 
+router.get("/unidade/:bebida", function (req, res) {
+    unidadeController.meta_prazo(req, res);
+})
+
 module.exports = router;
