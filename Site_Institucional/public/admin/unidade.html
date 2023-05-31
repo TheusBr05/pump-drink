@@ -87,7 +87,7 @@
 
         var bebida = select.value
 
-        fetch(`/unidade/:${bebida}`, { cache: 'no-store' }).then(function (resposta) {
+        fetch(`unidade/unidade/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
