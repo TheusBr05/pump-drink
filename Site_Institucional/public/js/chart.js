@@ -16,7 +16,8 @@ const config_regioes = {
     type: 'pie',
     options: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        animation: false
     }
 }
 
@@ -42,7 +43,8 @@ const config_unidades = {
             }
         },
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        animation: false
     }
 }
 
@@ -92,7 +94,8 @@ const config_dsp_semana = {
         },
         responsive: true,
         maintainAspectRatio: false,
-        autoPadding: true
+        autoPadding: true,
+        animation: false
     }
 }
 
@@ -113,7 +116,7 @@ const config_dsp_geral = {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-
+        animation: false
     }
 }
 
@@ -185,6 +188,7 @@ function atualizarMetricas() {
         h3_totalUnidades.innerHTML = totalSaida.totalUnidadesBD;
         h3_totalTempo = totalSaida.tempoTesteBD;
         h3_totalMetaGeral.innerHTML = totalSaida.metaGeralBD;
+        h3_metaUnidade.innerHTML = totalSaida.metaGeralBD / totalSaida.totalUnidadesBD;
         i_nome_bebida.innerHTML = totalSaida.nomeBebidaBD;
 
     })

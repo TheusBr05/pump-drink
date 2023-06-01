@@ -47,7 +47,7 @@ SELECT format(
                 JOIN tb_dispenser ON id_dispenser = fk_dispenser
             WHERE fk_bebida = 1
         ) * 100 / (
-            SELECT meta_geral / timestampdiff(day, prazo_inicio, prazo_final) * timestampdiff(day, prazo_inicio, now())
+            SELECT (meta_geral / timestampdiff(day, prazo_inicio, prazo_final)) * timestampdiff(day, prazo_inicio, now())
             FROM tb_bebida
             WHERE id_bebida = 1
         ),

@@ -399,9 +399,11 @@ input {
 
 /* FOOTER */
 .footer {
-  width: 100%;
-  background-color: #1D676D;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 100%;
+  background-color: #1D676D;
   padding: 3rem 5rem;
   color: #fff;
 }

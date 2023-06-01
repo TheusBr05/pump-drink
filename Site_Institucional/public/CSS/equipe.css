@@ -1,37 +1,51 @@
 body {
-  margin: 1% 0%;
+  margin: 0;
   background-color: #AFDADB;
   background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
   background-size: 35%, 50%;
   background-position: right top, left top;
   background-repeat: no-repeat;
- }
+}
+
+.sessao-inicio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .sessao-1 {
   background-image: url("https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: 100%;
   background-position: 40%;
   background-repeat: no-repeat;
- opacity: 0.7;
+  opacity: 0.7;
   margin-top: 3%;
   max-width: 70%;
-  padding: 100px;
   display: flex;
-  margin-left: 9%;
   text-align: justify;
+  background-color: black;
 }
 
-.text-1{
+.background{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.text-1 {
   text-shadow: 1px 3px 4px #000000;
 }
 
-.logo{
+.logo {
   background-color: #1d676d;
   border-radius: 10px;
   margin-left: 7%;
 }
 
-.logo img{
+.logo img {
   width: 250px;
   opacity: 0.8;
 }
@@ -42,7 +56,8 @@ h6 {
   color: white;
 }
 
- .sessao-meio, .final {
+.sessao-meio,
+.final {
   background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
   background-size: 40%, 55%;
   background-position: right top, left bottom;
@@ -60,7 +75,8 @@ h6 {
   box-shadow: 2px 4px 6px black;
 }
 
-.nomes-linha1, p {
+.nomes-linha1,
+p {
   display: flex;
   align-items: center;
   justify-content: space-around;

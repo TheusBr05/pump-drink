@@ -1,9 +1,7 @@
-
-.container-card{ 
+.container-card {
   display: flex;
   justify-content: center;
- 
-   background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
+  background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
   background-size: 35%, 50%;
   background-position: right top, left top;
   background-repeat: no-repeat;
@@ -21,27 +19,27 @@
 }
 
 .card {
-  margin-top: 7%; 
+  margin-top: 7%;
   margin-bottom: 7%;
-   background-color: #ffffff;
-  padding: 0 4% ;
+  background-color: #ffffff;
+  padding: 0 4%;
   border-radius: 1%;
   box-shadow: 4px 4px 10px 7px #00000060;
   width: 45%;
 }
 
-h1{
+h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #1d676d;  
+  color: #1d676d;
 }
 
-.label-float input{
+.label-float input {
   width: 100%;
   padding: 8px;
   display: inline-block;
   border: 0;
-  border-bottom: 2px solid #1d676d;  
+  border-bottom: 2px solid #1d676d;
   background-color: transparent;
   outline: none;
   min-width: 180px;
@@ -50,19 +48,19 @@ h1{
   border-radius: 0;
 }
 
-.label-float{
+.label-float {
   position: relative;
   padding-top: 13px;
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
-.label-float input:focus{
+.label-float input:focus {
   border-bottom: 2px solid #1d676d;
 }
 
-.label-float label{
-  color: #1d676d;  
+.label-float label {
+  color: #1d676d;
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -71,22 +69,22 @@ h1{
   transition: all .3s ease-out;
 }
 
-.label-float input:focus + label,
-.label-float input:not(:placeholder-shown) + label,
-.label-float input:valid + label{
+.label-float input:focus+label,
+.label-float input:not(:placeholder-shown)+label,
+.label-float input:valid+label {
   font-size: 15px;
   margin-top: 0;
   color: #77a67e;
 }
 
-.label-float input:focus:required:invalid{
+.label-float input:focus:required:invalid {
   border-bottom: 2px solid red;
 }
 
-button{
+button {
   background-color: #ebded5;
   border-color: #1d676d;
-  color:#77a4a6;
+  color: #77a4a6;
   text-transform: uppercase;
   padding: 8px;
   font-weight: bold;
@@ -99,31 +97,31 @@ button{
   transition: all .5s ease-out;
 }
 
-button:hover{
+button:hover {
   color: #ebded5;
-    background-color: #77a4a6;
+  background-color: #77a4a6;
 }
 
-.container-btn{
+.container-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
-margin-bottom: 8%;
+  margin-bottom: 8%;
 }
 
-.fa-eye{
+.fa-eye {
   position: absolute;
   top: 15px;
   right: 10px;
   cursor: pointer;
-  color:  #1d676d;
+  color: #1d676d;
 }
 
 #div_erros_login {
   display: none
 }
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -140,11 +138,7 @@ margin-bottom: 8%;
   margin-right: 10%;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
 }
-
-
-
-

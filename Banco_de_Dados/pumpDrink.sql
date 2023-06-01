@@ -95,22 +95,21 @@ CREATE TABLE tb_bebida(
 	prazo_inicio DATE,
     prazo_final DATE,
     meta_geral INT,
-    meta_semanal INT,
 	constraint fk_empresa_bebida FOREIGN KEY (fk_empresa) references tb_empresa(id_empresa),
     constraint pk_bebida PRIMARY KEY (id_bebida, fk_empresa) 
 );
 
 INSERT INTO tb_bebida VALUES
-    (NULL, "Suco de uva", "Pré-Treino", 1, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Suco de Manga", "Pós-Treino", 1, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Café", "Pré-Treino", 2, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Chá", "Pós-Treino", 2, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Coca-cola", "Pré-Treino", 3, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Guaraná", "Pós-Treino", 3, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Gatorade", "Pré-Treino", 4, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Ironage", "Pós-Treino", 4, '2023-02-20', '2023-04-24', 10000, 730),
-	(NULL, "Todynho", "Pré-Treino", 5, '2023-02-20', '2023-04-24', 10000, 730),
-    (NULL, "Nescau", "Pós-Treino", 5, '2023-02-20', '2023-04-24', 10000, 730);
+    (NULL, "Suco de uva", "Pré-Treino", 1, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Suco de Manga", "Pós-Treino", 1, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Café", "Pré-Treino", 2, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Chá", "Pós-Treino", 2, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Coca-cola", "Pré-Treino", 3, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Guaraná", "Pós-Treino", 3, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Gatorade", "Pré-Treino", 4, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Ironage", "Pós-Treino", 4, '2023-02-20', '2023-04-24', 100),
+	(NULL, "Todynho", "Pré-Treino", 5, '2023-02-20', '2023-04-24', 100),
+    (NULL, "Nescau", "Pós-Treino", 5, '2023-02-20', '2023-04-24', 100);
 
 
 CREATE TABLE tb_dispenser(
@@ -126,7 +125,7 @@ CREATE TABLE tb_dispenser(
 
 INSERT INTO tb_dispenser VALUES
 	-- Máquina 1
-	(NULL, 1, 1, 1),
+	(NULL, 1, 1, 1);
     (NULL, 2, 1, 2),
     (NULL, 3, 1, 3),
     (NULL, 4, 1, 4),
@@ -189,33 +188,32 @@ CREATE TABLE tb_registro(
 	datahora_registro DATETIME DEFAULT current_timestamp() ,
 	fk_sensor INT,
     aprox_registro CHAR (1),
-    total_saida INT,
 	constraint fk_sensor FOREIGN KEY (fk_sensor) references tb_sensor(id_sensor),
     constraint pk_registro PRIMARY KEY (id_registro, fk_sensor)
 );
 
 SELECT * FROM tb_sensor;
 INSERT INTO tb_registro VALUES
-    (NULL, default, 1, '1', 9000),
-    (NULL, default, 2, NULL,9743),
-    (NULL, default, 3, '1', 8999),
-	(NULL, default, 4, '1', 5768),
-	(NULL, default, 5, NULL, 9123),
-	(NULL, default, 6, '1', 9456),
-	(NULL, default, 7, NULL, 9678),
-	(NULL, default, 8, '1', 9901),
-	(NULL, default, 9, '1', 8123),
-	(NULL, default, 10, NULL, 8456),
-	(NULL, default, 11, '1', 8789),
-	(NULL, default, 12, '1', 8901),
-	(NULL, default, 13, '1', 9345),
-	(NULL, default, 14, NULL, 9453),
-	(NULL, default, 15, '1', 9534),
-	(NULL, default, 16, '1', 9657),
-	(NULL, default, 17, '1', 9839),
-	(NULL, default, 18, NULL, 9825),
-	(NULL, default, 19, '1', 7345),
-	(NULL, default,20, '1', 8019);
+    (NULL, default, 1, '1'),
+    (NULL, default, 2, NULL),
+    (NULL, default, 3, '1'),
+	(NULL, default, 4, '1'),
+	(NULL, default, 5, NULL),
+	(NULL, default, 6, '1'),
+	(NULL, default, 7, NULL),
+	(NULL, default, 8, '1'),
+	(NULL, default, 9, '1'),
+	(NULL, default, 10, NULL),
+	(NULL, default, 11, '1'),
+	(NULL, default, 12, '1'),
+	(NULL, default, 13, '1'),
+	(NULL, default, 14, NULL),
+	(NULL, default, 15, '1'),
+	(NULL, default, 16, '1'),
+	(NULL, default, 17, '1'),
+	(NULL, default, 18, NULL),
+	(NULL, default, 19, '1'),
+	(NULL, default,20, '1');
 
 
 -- --------------------------------------- SELECTS ---------------------------------------------------------------
