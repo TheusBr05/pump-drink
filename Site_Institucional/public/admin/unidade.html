@@ -31,7 +31,7 @@
 
             <ul class="navbar">
                 <li><a href="dashboard.html">DASHBOARD</a></li>
-                <li><a href="tela_bebidas.html">BEBIDAS</a></li>
+                <li><a href="bebidas.html">BEBIDAS</a></li>
                 <li><a href="unidade.html">UNIDADES</a></li>
             </ul>
 
@@ -100,7 +100,7 @@
                     for (var i = 0; i < resposta.length; i++) {
                         
                         select.innerHTML += `
-                            <option value="${resposta[i].nome_bebida}">${resposta[i].nome_bebida}</option>
+                            <option value="${resposta[i].id_bebida}">${resposta[i].nome_bebida}</option>
                         `;
                         
                     }
@@ -184,10 +184,14 @@
 
         for (var i = 0; i < resultado.length; i += 2) {
 
+            var select = document.querySelector('select');
+            var option = select.children[select.selectedIndex];
+            var texto = option.textContent;
+
             var cor_card1 = ''
             var unidade1 = resultado[i].unidade
             var endereco1 = resultado[i].endereco
-            var bebida = select.value
+            var bebida = texto
             var desempenho1 = resultado[i].saidas
             var meta = meta_prazo_global[0].meta / resultado.length
             var prazo = meta_prazo_global[0].prazo
