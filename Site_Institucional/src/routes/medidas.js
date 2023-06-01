@@ -11,11 +11,12 @@ router.get("/tempo-real/:idBebida", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-router.post("/graficoDesempenho", function (req, res) {
+router.get("/graficoDesempenho/:idBebida", function (req, res) {
     medidaController.graficoDesempenho(req, res);
 })
 
-router.post("/totalSaidas", function(req, res){
+
+router.get("/totalSaidas/:idBebida", function(req, res){
     medidaController.totalSaidas(req, res);
 })
 
