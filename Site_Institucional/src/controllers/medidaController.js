@@ -40,7 +40,7 @@ function buscarMedidasEmTempoReal(req, res) {
 
 
 function totalSaidas(req, res){
-    var idBebida = req.body.idBebida;
+    var idBebida = req.params.idBebida;
 
     medidaModel.totalSaidas(idBebida).then(function (resultado) {
         if (resultado.length > 0) {
@@ -56,7 +56,7 @@ function totalSaidas(req, res){
 }
 
 function graficoDesempenho(req, res){
-    var idBebida = req.body.idBebida;
+    var idBebida = req.params.idBebida;
 
     medidaModel.graficoDesempenho(idBebida).then(function (resultado) {
         if (resultado.length > 0) {

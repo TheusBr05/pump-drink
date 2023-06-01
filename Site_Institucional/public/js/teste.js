@@ -1,93 +1,69 @@
-function cadastrar() {
-    aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var cpfVar = cpf_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
-    if(emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1 ){
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(O email inválido)";
-
-        finalizarAguardar();
-        return false;
-               
-    } else if(senhaVar.length < 6){
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(A senha precisa ter no mínimo 6 caracteres)";
-
-        finalizarAguardar();
-        return false;
-    }else if(senhaVar != confirmacaoSenhaVar){
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Confirme a senha!)";
-
-        finalizarAguardar();
-        return false;
-    }else if(cpfVar.length != 14){
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(O cpf inválido)";
-
-        finalizarAguardar();
-        return false;
-    
-    }
-
-   else if (nomeVar == "" || emailVar == "" || senhaVar == "" || cpfVar == "" || confirmacaoSenhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "Mensagem de erro para todos os campos em branco";
-
-        finalizarAguardar();
-        return false;
-    }else {
-        setInterval(sumirMensagem, 5000)
-    }
-    
-   
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-        method: "POST",
+function atualizarMetricas() {  
+    fetch("/medidas/graficoDesempenho", {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            cpfServer: cpfVar,
-            senhaServer: senhaVar
+            idBebida: 1
         })
-    }).then(function (resposta) {
+    }).then((response) => {
+        console.log(response);
+        return response.json()
+    }).then((total) => {
+        var desempenho = total[0]
 
-        console.log("resposta: ", resposta);
+        console.log("desempenho:", desempenho.desempenho)
+        div_desempenho.innerHTML = desempenho.desempenho + "%";
+        
+        // console.log(dados_dsp_geral)
+        // dados_dsp_geral.datasets[0].data.push()
+        dados_dsp_geral.datasets[0].data.push(desempenhoGrafico, 100 - desempenhoGrafico)
 
-        if (resposta.ok) {
-            cardErro.style.display = "block";
-
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-            setTimeout(() => {
-                window.location = "login.html";
-            }, "2000")
-
-            limparFormulario();
-            finalizarAguardar();
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
+        for(var i = 0; i < total.length; i++){
+            var desempenhoGrafico = total[i].desempenho
+            dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+            graficoDonut_dsp_geral.update()
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-    });
+    })
 
-    return false;
+    setTimeout(atualizarMetricas, 2000);
 }
 
-function sumirMensagem() {
-    cardErro.style.display = "none"
+function atualizarGraficos() {
+    fetch("/medidas/graficoDesempenho", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            idBebida: 1
+        })
+    }).then((response) => {
+        console.log(response);
+        return response.json()
+    }).then((total) => {
+        var desempenho = total[0]
+
+        console.log("desempenho:", desempenho.desempenho_geral)
+        div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+
+        // console.log(dados_dsp_geral)
+        // dados_dsp_geral.datasets[0].data.push()
+        // dados_dsp_geral.datasets[0].data.push(desempenhoGrafico, 100 - desempenhoGrafico)
+
+        for (var i = 0; i < total.length; i++) {
+            var desempenhoGrafico = total[i].desempenho_geral
+            dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+            graficoDonut_dsp_geral.update()
+        }
+    })
+
+    graficosParametros(1)
+
+
+
+    // setTimeout(atualizarGraficos(), 10000);
+
 }

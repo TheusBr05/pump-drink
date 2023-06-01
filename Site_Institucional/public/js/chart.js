@@ -53,21 +53,21 @@ const config_unidades = {
 const labels_semana = [];
 
 const dados_dsp_semana = {
-        labels: labels_semana,
-        datasets: [
+    labels: labels_semana,
+    datasets: [
         {
             label: 'Bebida X',
             data: [],
             borderWidth: 1
         },
-        
+
         {
             label: 'Meta Semanal',
             data: [],
             borderWidth: 1
         }
-        ]
-    };
+    ]
+};
 
 const config_dsp_semana = {
     data: dados_dsp_semana,
@@ -85,8 +85,8 @@ const config_dsp_semana = {
                 }
             }
         },
-    
-    
+
+
         scales: {
             y: {
                 beginAtZero: true
@@ -161,89 +161,58 @@ const config_dsp_uni_acima = {
 
     }
 }
-
-
 //CHAMANDO FETCHTS
-function atualizarMetricas() {
-    fetch("/medidas/totalSaidas", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            idBebida: 1
-        })
-    }).then((response) => {
-        console.log(response);
-        return response.json()
-    }).then((total) => {
-        var totalSaida = total[0]
-        console.log("O seu resultado foi ", totalSaida)
-        console.log("valor final: ", totalSaida.totalSaidasBD);
-        console.log("valor UNIDADES: ", totalSaida.totalUnidadesBD);
-        console.log("TEMPO RESTANTE: ", totalSaida.tempoTesteBD);
-        console.log("meta geral: ", totalSaida.metaGeralBD);
+function graficosParametros(idBebida) {
 
-        h3_totalSaidas.innerHTML = totalSaida.totalSaidasBD;
-        h3_totalUnidades.innerHTML = totalSaida.totalUnidadesBD;
-        h3_totalTempo = totalSaida.tempoTesteBD;
-        h3_totalMetaGeral.innerHTML = totalSaida.metaGeralBD;
-        h3_metaUnidade.innerHTML = totalSaida.metaGeralBD / totalSaida.totalUnidadesBD;
-        i_nome_bebida.innerHTML = totalSaida.nomeBebidaBD;
+    //Desempenho Geral
+    fetch(`/medidas/graficoDesempenho/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
 
-    })
+                var desempenho = resposta[0]
 
-    fetch("/medidas/graficoDesempenho", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            idBebida: 1
-        })
-    }).then((response) => {
-        console.log(response);
-        return response.json()
-    }).then((total) => {
-        var desempenho = total[0]
+                console.log("desempenho:", desempenho.desempenho_geral)
+                div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
 
-        console.log("desempenho:", desempenho.desempenho)
-        div_desempenho.innerHTML = desempenho.desempenho + "%";
-        
-        // console.log(dados_dsp_geral)
-        // dados_dsp_geral.datasets[0].data.push()
-        dados_dsp_geral.datasets[0].data.push(desempenhoGrafico, 100 - desempenhoGrafico)
-
-        for(var i = 0; i < total.length; i++){
-            var desempenhoGrafico = total[i].desempenho
-            dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
-            graficoDonut_dsp_geral.update()
+           
+                for (var i = 0; i < resposta.length; i++) {
+                    var desempenhoGrafico = resposta[i].desempenho_geral
+                    dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                    graficoDonut_dsp_geral.update()
+                }
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
         }
     })
 
-    // fetch("/medidas/graficoSemana", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         idBebida: 1
-    //     })
-    // }).then((response) => {
-    //     console.log(response);
-    //     return response.json()
-    // }).then((total) => {
-    //     listaGraficoSemana = total[0]
-    //     console.log("Total Semana: " + totalSemana.semana)
+    fetch(`/medidas/totalSaidas/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
 
-    //     for (let index = 0; index < total.length; index++) {
-    //         graficoBarra_semana.datasets[index].data.push(totalSemana.semana);
-    //     }
+                var totalSaida = resposta[0]
 
-    // })
+                console.log("O seu resultado foi ", totalSaida)
+                console.log("valor final: ", totalSaida.totalSaidasBD);
+                console.log("valor UNIDADES: ", totalSaida.totalUnidadesBD);
+                console.log("TEMPO RESTANTE: ", totalSaida.tempoTesteBD);
+                console.log("meta geral: ", totalSaida.metaGeralBD);
 
-
-    setTimeout(atualizarMetricas, 2000);
+                h3_totalSaidas.innerHTML = totalSaida.totalSaidasBD;
+                h3_totalUnidades.innerHTML = totalSaida.totalUnidadesBD;
+                h3_totalTempo = totalSaida.tempoTesteBD;
+                h3_totalMetaGeral.innerHTML = totalSaida.metaGeralBD;
+                h3_metaUnidade.innerHTML = totalSaida.metaGeralBD / totalSaida.totalUnidadesBD;
+                i_nome_bebida.innerHTML = totalSaida.nomeBebidaBD;
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
 }
 
 
