@@ -162,29 +162,28 @@ const config_dsp_uni_acima = {
     }
 }
 //CHAMANDO FETCHTS
-function graficosParametros(idBebida) {
 
+
+
+function graficosParametros(idBebida) {
+   
+    //var vetor_global_dsp_geral = [];
+    //var dsp_geral = [];
     //Desempenho Geral
     fetch(`/medidas/graficoDesempenho/${idBebida}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
-
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
                 
-                var desempenho = JSON.stringify(resposta[0].desempenho_geral);
-
-                
-                console.log('resposta 2:', resposta2);
+                var desempenho = resposta[0][0].desempenho_geral;
 
                 var div_desempenho = document.getElementById('div_desempenho')
-                console.log("desempenho:", desempenho)
-                div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+                console.log("desempenhoOO: ", resposta[0][0].desempenho_geral)
+                div_desempenho.innerHTML = desempenho + " % ";
 
            
                 for (var i = 0; i < resposta.length; i++) {
-                    var desempenhoGrafico = resposta[i].desempenho_geral
+                    var desempenhoGrafico = resposta[0][0].desempenho_geral
                     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
                     graficoDonut_dsp_geral.update()
                 }
@@ -202,17 +201,18 @@ function graficosParametros(idBebida) {
                 console.log(`Unidades Acima: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
 
-                // var desempenho = resposta[0]
+                var desempenhoUnidadesAcima = resposta[0][0].percentual_acima_meta
 
-                // console.log("desempenho:", desempenho.desempenho_geral)
-                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+                var desempenho_unidadesAcima = document.getElementById('desempenho_unidadesAcima')
+                console.log("desempenhoOO UNIDADES ACIMA: ", resposta[0][0].percentual_acima_meta)
+                desempenho_unidadesAcima.innerHTML = desempenhoUnidadesAcima + " % ";
 
            
-                // for (var i = 0; i < resposta.length; i++) {
-                //     var desempenhoGrafico = resposta[i].desempenho_geral
-                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
-                //     graficoDonut_dsp_geral.update()
-                // }
+                for (var i = 0; i < resposta.length; i++) {
+                    var desempenhoGrafico = resposta[0][i].percentual_acima_meta;
+                    dados_dsp_uni_abaixo.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                    graficoDonut_dsp_unidades_acima.update()
+                }
 
             });
         } else {
@@ -298,7 +298,7 @@ function graficosParametros(idBebida) {
             console.error('Nenhum dado encontrado ou erro na API');
         }
     })
-    
+
 
     //PERÍODO DE TESTE
     fetch(`/medidas/periodoTeste/${idBebida}`, { cache: 'no-store' }).then(function (response) {
