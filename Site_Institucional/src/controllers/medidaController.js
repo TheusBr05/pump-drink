@@ -71,10 +71,10 @@ function graficoDesempenho(req, res){
     });
 }
 
-function graficoSemana(req, res){
-    var idBebida = req.body.idBebida;
+function unidadesAcima(req, res){
+    var idBebida = req.params.idBebida;
 
-    medidaModel.graficoSemana(idBebida).then(function (resultado) {
+    medidaModel.unidadesAcima(idBebida).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -87,11 +87,80 @@ function graficoSemana(req, res){
     });
 }
 
+function  unidadesAbaixo(req, res){
+    var idBebida = req.params.idBebida;
+
+    medidaModel.unidadesAbaixo(idBebida).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function saidasPorUnidades(req, res){
+    var idBebida = req.params.idBebida;
+
+    medidaModel.saidasPorUnidades(idBebida).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function saidasPorRegiao(req, res){
+    var idBebida = req.params.idBebida;
+
+    medidaModel.saidasPorRegiao(idBebida).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function periodoTeste(req, res){
+    var idBebida = req.params.idBebida;
+
+    medidaModel.periodoTeste(idBebida).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+
+
 module.exports = {
     buscarUltimasMedidas,
-    graficoSemana,
     graficoDesempenho,
     totalSaidas,
-    buscarMedidasEmTempoReal
-
+    unidadesAcima,
+    unidadesAbaixo,
+    saidasPorUnidades,
+    saidasPorRegiao,
+    periodoTeste,
 }
