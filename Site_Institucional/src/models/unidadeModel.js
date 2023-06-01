@@ -22,7 +22,7 @@ function alerta_unidade(bebida) {
         JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
         JOIN tb_sensor ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
         JOIN tb_registro ON tb_sensor.id_sensor = tb_registro.fk_sensor
-        WHERE tb_bebida.nome_bebida = '${bebida}'
+        WHERE tb_bebida.id_bebida = ${bebida}
         GROUP BY fk_local`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -42,7 +42,7 @@ function meta_prazo(bebida) {
             SELECT date_format(prazo_final, '%d-%m-%Y') as 'prazo',
                 meta_geral as 'meta'
             FROM tb_bebida
-            WHERE nome_bebida = '${bebida}'
+            WHERE id_bebida = ${bebida}
         ;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
@@ -50,7 +50,7 @@ function meta_prazo(bebida) {
             SELECT date_format(prazo_final, '%d-%m-%Y') as 'prazo',
                 meta_geral as 'meta'
             FROM tb_bebida
-            WHERE nome_bebida = '${bebida}'
+            WHERE id_bebida = ${bebida}
         ;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -64,7 +64,7 @@ function meta_prazo(bebida) {
 function todas_bebidas(){
 
     instrucaoSql = `
-        SELECT nome_bebida FROM tb_bebida;
+        SELECT * FROM tb_bebida;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

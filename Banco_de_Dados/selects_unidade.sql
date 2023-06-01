@@ -42,4 +42,4 @@ SELECT date_format(prazo_final, '%d-%m-%Y') as 'prazo',
 FROM tb_bebida
 WHERE nome_bebida = 'Coca-Cola';
 
-SELECT nome_bebida FROM tb_bebida;
+SELECT * FROM tb_bebida;
