@@ -79,45 +79,43 @@ function totalSaidas(idBebida){
 
 function graficoDesempenho(idBebida){
 
-    instrucaoSql = `
-        SELECT format(
-            (
-                SELECT count(*)
-                FROM tb_registro
-                    JOIN tb_sensor ON id_sensor = fk_sensor
-                    JOIN tb_dispenser ON id_dispenser = fk_dispenser
-                WHERE fk_bebida = ${idBebida}
-            ) * 100 / (
-                SELECT (meta_geral / timestampdiff(day, prazo_inicio, prazo_final)) * timestampdiff(day, prazo_inicio, now())
-                FROM tb_bebida
-                WHERE id_bebida = ${idBebida}
-            ),
-            2
-        ) as 'desempenho';;
-    `
-
+    instrucaoSql = `CALL desempenho_geral(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
-function graficoSemana(idBebida){
-
-    instrucaoSql = `SELECT count(*) AS "semana"
-    FROM tb_registro
-        JOIN tb_sensor ON id_sensor = fk_sensor
-        JOIN tb_dispenser ON id_dispenser = fk_dispenser
-    WHERE fk_bebida = ${idBebida}
-    GROUP BY WEEK(datahora_registro);
-    `
-
+function unidadesAcima(idBebida){
+    instrucaoSql = `CALL unidades_acima(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
+function unidadesAbaixo(idBebida){
+    instrucaoSql = `CALL unidades_abaixo(${idBebida});`
+    return database.executar(instrucaoSql);
+}
 
+function saidasPorRegiao(idBebida){
+    instrucaoSql = `CALL saidas_por_regiao(${idBebida});`
+    return database.executar(instrucaoSql);
+}
+
+function saidasPorUnidades(idBebida){
+    instrucaoSql = `CALL saidas_por_unidade(${idBebida});`
+    return database.executar(instrucaoSql);
+}
+
+function periodoTeste(idBebida){
+    instrucaoSql = `CALL periodo_de_teste(${idBebida});`
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     graficoDesempenho,
     buscarUltimasMedidas,
     totalSaidas,
-    graficoSemana,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    unidadesAcima,
+    unidadesAbaixo,
+    saidasPorUnidades,
+    saidasPorRegiao,
+    periodoTeste,
 }
