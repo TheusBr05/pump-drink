@@ -255,6 +255,10 @@
   margin: 1rem 0;
 }
 
+.margin_posicoesb{
+  margin-bottom: 5rem;
+} 
+
 .infoBorder {
   height: 5px;
   width: 100%;
