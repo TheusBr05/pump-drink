@@ -179,7 +179,7 @@ function graficosParametros(idBebida) {
 
                 var div_desempenho = document.getElementById('div_desempenho')
                 console.log("desempenhoOO: ", resposta[0][0].desempenho_geral)
-                div_desempenho.innerHTML = desempenho + " % ";
+                div_desempenho.innerHTML = parseInt(desempenho) + "% ";
 
            
                 for (var i = 0; i < resposta.length; i++) {
@@ -199,18 +199,18 @@ function graficosParametros(idBebida) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Unidades Acima: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
+                // resposta.reverse();
 
                 var desempenhoUnidadesAcima = resposta[0][0].percentual_acima_meta
 
-                var desempenho_unidadesAcima = document.getElementById('desempenho_unidadesAcima')
+                var desempenho_unidadesAcima = document.getElementById('percentual_uni_acima')
                 console.log("desempenhoOO UNIDADES ACIMA: ", resposta[0][0].percentual_acima_meta)
-                desempenho_unidadesAcima.innerHTML = desempenhoUnidadesAcima + " % ";
+                desempenho_unidadesAcima.innerHTML = parseInt(desempenhoUnidadesAcima) + "% ";
 
            
-                for (var i = 0; i < resposta.length; i++) {
+                for (var i = 0; i < resposta[0].length; i++) {
                     var desempenhoGrafico = resposta[0][i].percentual_acima_meta;
-                    dados_dsp_uni_abaixo.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                    dados_dsp_uni_acima.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
                     graficoDonut_dsp_unidades_acima.update()
                 }
 
@@ -226,19 +226,19 @@ function graficosParametros(idBebida) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Unidades Abaixo: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
 
-                // var desempenho = resposta[0]
+                var desempenhoUnidadesAbaixo = resposta[0][0].percentual_abaixo_meta
 
-                // console.log("desempenho:", desempenho.desempenho_geral)
-                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+                var desempenho_unidadesAbaixo = document.getElementById('percentual_uni_abaixo')
+                console.log("desempenhoOO UNIDADES Abaixo: ", resposta[0][0].percentual_abaixo_meta)
+                desempenho_unidadesAbaixo.innerHTML = parseInt(desempenhoUnidadesAbaixo) + "%";
 
            
-                // for (var i = 0; i < resposta.length; i++) {
-                //     var desempenhoGrafico = resposta[i].desempenho_geral
-                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
-                //     graficoDonut_dsp_geral.update()
-                // }
+                for (var i = 0; i < resposta[0].length; i++) {
+                    var desempenhoGrafico = resposta[0][i].percentual_abaixo_meta;
+                    dados_dsp_uni_abaixo.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                    graficoDonut_dsp_unidades_abaixo.update()
+                }
 
             });
         } else {

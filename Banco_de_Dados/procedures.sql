@@ -95,6 +95,10 @@ FROM (
 WHERE Saidas >= meta_unidade;
 
 
+UPDATE tb_bebida set prazo_final = now() where id_bebida = 1;
+
+SELECT * from tb_bebida;
+
 END$$
 
 -- Procedure Perído de Teste
