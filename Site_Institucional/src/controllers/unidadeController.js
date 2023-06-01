@@ -39,7 +39,24 @@ function meta_prazo(req, res) {
     });
 }
 
+function todas_bebidas(req, res){
+
+    unidadeModel.todas_bebidas().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as bebidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
 module.exports = {
     alerta_unidade,
-    meta_prazo
+    meta_prazo,
+    todas_bebidas
 }

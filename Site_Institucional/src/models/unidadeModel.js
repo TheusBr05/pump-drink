@@ -38,16 +38,20 @@ function meta_prazo(bebida) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc`;
+        instrucaoSql = `
+            SELECT date_format(prazo_final, '%d-%m-%Y') as 'prazo',
+                meta_geral as 'meta'
+            FROM tb_bebida
+            WHERE nome_bebida = '${bebida}'
+        ;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT date_format(prazo_final, '%d-%m-%Y') as 'prazo', meta_geral as 'meta' FROM tb_bebida WHERE nome_bebida = 'Coca-Cola';`;
+        instrucaoSql = `
+            SELECT date_format(prazo_final, '%d-%m-%Y') as 'prazo',
+                meta_geral as 'meta'
+            FROM tb_bebida
+            WHERE nome_bebida = '${bebida}'
+        ;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -57,7 +61,18 @@ function meta_prazo(bebida) {
     return database.executar(instrucaoSql);
 }
 
+function todas_bebidas(){
+
+    instrucaoSql = `
+        SELECT nome_bebida FROM tb_bebida;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     alerta_unidade,
-    meta_prazo
+    meta_prazo,
+    todas_bebidas
 }

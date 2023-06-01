@@ -11,4 +11,8 @@ router.get("/meta_prazo/:bebida", function (req, res) {
     unidadeController.meta_prazo(req, res);
 })
 
+router.get("/todas_bebidas", function (req, res){
+    unidadeController.todas_bebidas(req, res);
+})
+
 module.exports = router;

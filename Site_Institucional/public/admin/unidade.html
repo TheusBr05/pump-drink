@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body onload="alerta()">
+<body onload="alerta(), todas_bebidas()">
     <!-- HEADER PUMPDRINK -->
     <div class="header">
         <div class="container">
@@ -30,9 +30,9 @@
             </div>
 
             <ul class="navbar">
-                <li><a href="">DASHBOARD</a></li>
-                <li><a href="">BEBIDAS</a></li>
-                <li><a href="">UNIDADES</a></li>
+                <li><a href="dashboard.html">DASHBOARD</a></li>
+                <li><a href="tela_bebidas.html">BEBIDAS</a></li>
+                <li><a href="unidade.html">UNIDADES</a></li>
             </ul>
 
 
@@ -62,11 +62,11 @@
 
                 <button>Adicionar Unidade</button>
                 <Select id="select">
-                    <option value="Coca-Cola">Coca-cola</option>
+
                 </Select>
             </div>
             <div id="div_unidade">
-                
+
             </div>
 
         </div>
@@ -91,8 +91,28 @@
 
     meta_prazo(select_bebida);
 
+    function todas_bebidas(){
+
+        fetch(`/unidade/todas_bebidas`, {cache: 'no-store'}).then(function (resposta){
+            if (resposta.ok) {
+                resposta.json().then(function (resposta){
+
+                    for (var i = 0; i < resposta.length; i++) {
+                        
+                        select.innerHTML += `
+                            <option value="${resposta[i].nome_bebida}">${resposta[i].nome_bebida}</option>
+                        `;
+                        
+                    }
+
+                })
+            }
+        })
+
+    }
+
     function alerta() {
-        
+
         var bebida = select.value;
         div_unidade.innerHTML = "";
 
@@ -119,7 +139,7 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                
+
             }
 
         })
@@ -132,7 +152,7 @@
 
     function meta_prazo(bebida) {
 
-        
+
         fetch(`/unidade/meta_prazo/${bebida}`, { cache: 'no-store' }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
@@ -143,117 +163,117 @@
                     console.log(json + "Teste");
                     console.log(JSON.stringify(json));
 
-                    meta_prazo_global.splice(0,1,json[0])
+                    meta_prazo_global.splice(0, 1, json[0])
 
                 });
-                
+
             } else {
-                
+
                 console.log("Houve um erro ao tentar realizar o login!");
-                
-                
+
+
             }
-            
+
         })
-        
+
 
     }
 
     function unidade(resultado) {
 
-        
-            for (var i = 0; i < resultado.length; i += 2) {
 
-var cor_card1 = ''
-var unidade1 = resultado[i].unidade
-var endereco1 = resultado[i].endereco
-var bebida = select.value
-var desempenho1 = resultado[i].saidas
-var meta = meta_prazo_global[0].meta / resultado.length
-var prazo = meta_prazo_global[0].prazo
-var cor_card2 = ''
-var unidade2 = resultado[i + 1].unidade
-var endereco2 = resultado[i + 1].endereco
-var desempenho2 = resultado[i + 1].saidas
+        for (var i = 0; i < resultado.length; i += 2) {
+
+            var cor_card1 = ''
+            var unidade1 = resultado[i].unidade
+            var endereco1 = resultado[i].endereco
+            var bebida = select.value
+            var desempenho1 = resultado[i].saidas
+            var meta = meta_prazo_global[0].meta / resultado.length
+            var prazo = meta_prazo_global[0].prazo
+            var cor_card2 = ''
+            var unidade2 = resultado[i + 1].unidade
+            var endereco2 = resultado[i + 1].endereco
+            var desempenho2 = resultado[i + 1].saidas
 
 
-if (resultado[i].saidas <= meta*0.25) {
-    cor_card1 = 'muito_baixo'
-} else if (resultado[i].saidas <= meta*5) {
-    cor_card1 = 'baixo'
-} else if (resultado[i].saidas <= meta*0.75) {
-    cor_card1 = 'quase'
-} else if (resultado[i].saidas <= meta) {
-    cor_card1 = 'esperado'
-} else if (resultado[i].saidas > meta) {
-    cor_card1 = 'acima'
-}
-if (resultado[i + 1].saidas <= meta*0.25) {
-    cor_card2 = 'muito_baixo'
-} else if (resultado[i + 1].saidas <= meta*0.5) {
-    cor_card2 = 'baixo'
-} else if (resultado[i + 1].saidas <= meta*0.75) {
-    cor_card2 = 'quase'
-} else if (resultado[i + 1].saidas <= meta) {
-    cor_card2 = 'esperado'
-} else if (resultado[i + 1].saidas > meta) {
-    cor_card2 = 'acima'
-}
+            if (resultado[i].saidas <= meta * 0.25) {
+                cor_card1 = 'muito_baixo'
+            } else if (resultado[i].saidas <= meta * 5) {
+                cor_card1 = 'baixo'
+            } else if (resultado[i].saidas <= meta * 0.75) {
+                cor_card1 = 'quase'
+            } else if (resultado[i].saidas <= meta) {
+                cor_card1 = 'esperado'
+            } else if (resultado[i].saidas > meta) {
+                cor_card1 = 'acima'
+            }
+            if (resultado[i + 1].saidas <= meta * 0.25) {
+                cor_card2 = 'muito_baixo'
+            } else if (resultado[i + 1].saidas <= meta * 0.5) {
+                cor_card2 = 'baixo'
+            } else if (resultado[i + 1].saidas <= meta * 0.75) {
+                cor_card2 = 'quase'
+            } else if (resultado[i + 1].saidas <= meta) {
+                cor_card2 = 'esperado'
+            } else if (resultado[i + 1].saidas > meta) {
+                cor_card2 = 'acima'
+            }
 
-if (i + 1 < resultado.length) {
+            if (i + 1 < resultado.length) {
 
-    div_unidade.innerHTML += `
-    <div class="card_unidade">
-        <div class="card ${cor_card1}">
-            <span>${unidade1}</span>
-            <p>${endereco1}</p>
-            <span>Bebida: ${bebida}</span>
-            <div class="meta">
-                <span>Total Saídas: ${desempenho1}</span>
-                <span>Meta: ${meta} </span>
-                <span>Semanas restantes: ${prazo}</span>
-            </div>
-        </div>
-        <div class="card ${cor_card2}">
-            <span>${unidade2}</span>
-            <p>${endereco2}</p>
-            <span>Bebida: ${bebida}</span>
-            <div class="meta">
-                <span>Total Saídas: ${desempenho2}</span>
-                <span>Meta: ${meta} </span>
-                <span>Semanas restantes: ${prazo}</span>
-            </div>
-        </div>
-    </div>
-    `
-} else {
-    div_unidade.innerHTML += `
-    <div class="card_unidade">
-        <div class="card ${cor_card1}">
-            <span>${unidade1}</span>
-            <p>${endereco1}</p>
-            <span>Bebida: ${bebida}</span>
-            <div class="meta">
-                <span>Total Saídas: ${desempenho1}</span>
-                <span>Meta: ${meta} </span>
-                <span>Semanas restantes: ${prazo}</span>
-            </div>
-        </div>
-    </div>
-    `
-}
-}
+                div_unidade.innerHTML += `
+                    <div class="card_unidade">
+                        <div class="card ${cor_card1}">
+                            <span>${unidade1}</span>
+                            <p>${endereco1}</p>
+                            <span>Bebida: ${bebida}</span>
+                            <div class="meta">
+                                <span>Total Saídas: ${desempenho1}</span>
+                                <span>Meta: ${meta} </span>
+                                <span>Semanas restantes: ${prazo}</span>
+                            </div>
+                        </div>
+                        <div class="card ${cor_card2}">
+                            <span>${unidade2}</span>
+                            <p>${endereco2}</p>
+                            <span>Bebida: ${bebida}</span>
+                            <div class="meta">
+                                <span>Total Saídas: ${desempenho2}</span>
+                                <span>Meta: ${meta} </span>
+                                <span>Semanas restantes: ${prazo}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                div_unidade.innerHTML += `
+                    <div class="card_unidade">
+                        <div class="card ${cor_card1}">
+                            <span>${unidade1}</span>
+                            <p>${endereco1}</p>
+                            <span>Bebida: ${bebida}</span>
+                            <div class="meta">
+                                <span>Total Saídas: ${desempenho1}</span>
+                                <span>Meta: ${meta} </span>
+                                <span>Semanas restantes: ${prazo}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
 
-        
+
     }
     setInterval(() => {
-        if (select_bebida != select.value){
+        if (select_bebida != select.value) {
             alerta();
             select_bebida = select.value;
             meta_prazo(select_bebida);
         }
     }, 500);
-    
+
 
     // setTimeout(() => {
     //     alerta()
