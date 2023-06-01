@@ -59,7 +59,7 @@ font-weight: bold;
 
 .label-float input {
    padding: 5px 5px;
-  background-color: antiquewhite;  ;
+  background-color: #fff;  ;
  font-size: 16px;
  border: none;
   border-radius: 8px;
@@ -81,11 +81,11 @@ button {
   transition: all 0.5s ease-out;
   border: 0;
   width: 250px;
-  color: antiquewhite;  
+  color: #fff;  
 }
 
 button:hover {
-  color: antiquewhite;  
+  color: #fff;  
     background-color: #77a4a6;
 }
 
@@ -112,7 +112,7 @@ button:hover {
 }
 
 .navbar a {
-  color: antiquewhite;  
+  color: #fff;  
   text-decoration: none;
 }
 
@@ -132,16 +132,23 @@ button:hover {
   color: #0f1631;
   font-weight: 800;
   text-decoration: none;
-  color: antiquewhite;  
+  color: #ffff;  
 }
 
 .loginBtn {
   padding: 7px 25px;
-  color: antiquewhite;  
+  color: #ffff;  
   letter-spacing: 1px;
   border-radius: 10px;
   text-decoration: none;
-  background-color: #c8cfee;
+  background-color: #ffff;
+  color: #1d676d;
+}
+
+.cadastrar{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 }
 
 /* FOOTER */
@@ -150,7 +157,7 @@ button:hover {
   display: flex;
   justify-content: center;
   background-color: #1d676d;
-  color: antiquewhite;  
+  color: #fff;  
 }
 
 .footerContainer,
