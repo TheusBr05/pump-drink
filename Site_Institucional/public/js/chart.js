@@ -5,9 +5,9 @@ const labels_regioes = [];
 const dados_regioes = {
     labels: labels_regioes,
     datasets: [{
-        label: 'Regiões',
-        data: [1, 2, 3],
+        data: [],
         borderWidth: 1,
+        backgroundColor: 'purple'
     }]
 }
 
@@ -95,7 +95,8 @@ const config_dsp_semana = {
         responsive: true,
         maintainAspectRatio: false,
         autoPadding: true,
-        animation: false
+        animation: false,
+        tension: 0.2
     }
 }
 
@@ -166,7 +167,7 @@ const config_dsp_uni_acima = {
 
 
 function graficosParametros(idBebida) {
-   
+
     //var vetor_global_dsp_geral = [];
     //var dsp_geral = [];
     //Desempenho Geral
@@ -174,14 +175,14 @@ function graficosParametros(idBebida) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
-                
+
                 var desempenho = resposta[0][0].desempenho_geral;
 
                 var div_desempenho = document.getElementById('div_desempenho')
                 console.log("desempenhoOO: ", resposta[0][0].desempenho_geral)
                 div_desempenho.innerHTML = parseInt(desempenho) + "% ";
 
-           
+
                 for (var i = 0; i < resposta.length; i++) {
                     var desempenhoGrafico = resposta[0][0].desempenho_geral
                     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
@@ -207,7 +208,7 @@ function graficosParametros(idBebida) {
                 console.log("desempenhoOO UNIDADES ACIMA: ", resposta[0][0].percentual_acima_meta)
                 desempenho_unidadesAcima.innerHTML = parseInt(desempenhoUnidadesAcima) + "% ";
 
-           
+
                 for (var i = 0; i < resposta[0].length; i++) {
                     var desempenhoGrafico = resposta[0][i].percentual_acima_meta;
                     dados_dsp_uni_acima.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
@@ -233,7 +234,7 @@ function graficosParametros(idBebida) {
                 console.log("desempenhoOO UNIDADES Abaixo: ", resposta[0][0].percentual_abaixo_meta)
                 desempenho_unidadesAbaixo.innerHTML = parseInt(desempenhoUnidadesAbaixo) + "%";
 
-           
+
                 for (var i = 0; i < resposta[0].length; i++) {
                     var desempenhoGrafico = resposta[0][i].percentual_abaixo_meta;
                     dados_dsp_uni_abaixo.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
@@ -252,19 +253,20 @@ function graficosParametros(idBebida) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Saídas por Unidade: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
 
-                // var desempenho = resposta[0]
 
-                // console.log("desempenho:", desempenho.desempenho_geral)
-                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+                for (var i = 0; i < resposta[0].length; i++) {
+                    var saidas = resposta[0][i].saidas
+                    var unidades = resposta[0][i].nome_local
 
-           
-                // for (var i = 0; i < resposta.length; i++) {
-                //     var desempenhoGrafico = resposta[i].desempenho_geral
-                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
-                //     graficoDonut_dsp_geral.update()
-                // }
+
+                    console.log("SAÍDAS:", saidas);
+                    console.log("UNIDADES:", unidades);
+
+                    dados_unidades.datasets[0].data.splice(i, 1, saidas);
+                    labels_unidades.splice(i, 1, unidades);
+                    graficoPizza_regiao.update()
+                }
 
             });
         } else {
@@ -279,19 +281,19 @@ function graficosParametros(idBebida) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Saídas por região: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
 
-                // var desempenho = resposta[0]
+                for (var i = 0; i < resposta[0].length; i++) {
+                    var saidas = resposta[0][i].saidas
+                    var regioes = resposta[0][i].regiao
 
-                // console.log("desempenho:", desempenho.desempenho_geral)
-                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
 
-           
-                // for (var i = 0; i < resposta.length; i++) {
-                //     var desempenhoGrafico = resposta[i].desempenho_geral
-                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
-                //     graficoDonut_dsp_geral.update()
-                // }
+                    console.log("saidas:", saidas);
+                    console.log("regioes:", regioes);
+
+                    dados_regioes.datasets[0].data.splice(0, resposta[0].length, saidas);
+                    labels_regioes.splice(0, resposta[0].length, regioes);
+                    graficoPizza_regiao.update()
+                }
 
             });
         } else {
@@ -304,28 +306,29 @@ function graficosParametros(idBebida) {
     fetch(`/medidas/periodoTeste/${idBebida}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
-                console.log(`Período de teste: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
+                resposta[0].reverse()
 
-                // var desempenho = resposta[0]
+                for (var i = 0; i < resposta[0].length; i++) {
+                    var desempenhoSaidas = resposta[0][i].saidas
+                    var desempenhoPeriodo = resposta[0][i].dia
 
-                // console.log("desempenho:", desempenho.desempenho_geral)
-                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+                    dados_dsp_semana.datasets[0].data.splice(i, 1, desempenhoSaidas)
+                    labels_semana.splice(i, 1, desempenhoPeriodo);
+                    graficoLinha_hoje.update()
 
-           
-                // for (var i = 0; i < resposta.length; i++) {
-                //     var desempenhoGrafico = resposta[i].desempenho_geral
-                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
-                //     graficoDonut_dsp_geral.update()
-                // }
+                }
+
 
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
+
+
     })
 
     fetch(`/medidas/totalSaidas/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        graficoBarra_semana.update()
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -345,11 +348,20 @@ function graficosParametros(idBebida) {
                 h3_totalMetaGeral.innerHTML = totalSaida.metaGeralBD;
                 h3_metaUnidade.innerHTML = totalSaida.metaGeralBD / totalSaida.totalUnidadesBD;
                 i_nome_bebida.innerHTML = totalSaida.nomeBebidaBD;
+
+
+                dados_dsp_semana.datasets[0].label = totalSaida.nomeBebidaBD
+                graficoLinha_hoje.update()
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
     })
+
+    setTimeout(() => {
+        graficoBarra_semana.update()
+        graficosParametros(idBebida)
+    }, 5000);
 }
 
 

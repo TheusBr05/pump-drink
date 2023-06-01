@@ -59,6 +59,7 @@ WHERE Saidas < meta_unidade;
 
 END$$
 
+
 -- Procedure Unidades Acima
 DELIMITER $$
 CREATE PROCEDURE unidades_acima(IdBebidaVAR int)
@@ -95,26 +96,21 @@ FROM (
 WHERE Saidas >= meta_unidade;
 
 
-UPDATE tb_bebida set prazo_final = now() where id_bebida = 1;
-
-SELECT * from tb_bebida;
-
 END$$
 
 -- Procedure Perído de Teste
 DELIMITER $$
 CREATE PROCEDURE periodo_de_teste(IdBebidaVAR INT)
 BEGIN 
-
-SELECT DAY(tb_registro.datahora_registro) as 'dia',
+SELECT DATE_FORMAT(tb_registro.datahora_registro, '%d-%m') as dia,
     count(*) as 'saidas'
 FROM tb_registro
     JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
     JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
     JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
-WHERE fk_bebida = IdBebidaVAR
-GROUP BY DAY(tb_registro.datahora_registro)
-ORDER BY DAY(tb_registro.datahora_registro) DESC
+WHERE fk_bebida = 1
+GROUP BY DATE_FORMAT(tb_registro.datahora_registro, '%d-%m')
+ORDER BY DATE_FORMAT(tb_registro.datahora_registro, '%d-%m') DESC
 LIMIT 7;
 
 END $$
@@ -124,15 +120,15 @@ DELIMITER $$
 CREATE PROCEDURE saidas_por_unidade(IdBebidaVAR INT)
 BEGIN
 
-SELECT count(*) as 'saidas', tb_maquina.descricao
+SELECT count(*) as 'saidas', tb_local.nome as nome_local
 FROM tb_registro
     JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
     JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
     JOIN tb_maquina ON tb_maquina.id_maquina = tb_dispenser.fk_maquina
     JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
     JOIN tb_local ON tb_local.id_local = tb_maquina.fk_local
-WHERE id_bebida = IdBebidaVAR
-GROUP BY descricao;
+WHERE id_bebida = 1
+GROUP BY nome_local;
 
 END $$
 
@@ -152,3 +148,6 @@ WHERE id_bebida = IdBebidaVAR
 GROUP BY regiao;
 
 END $$
+
+
+CALL saidas_por_unidade(1);
