@@ -171,9 +171,15 @@ function graficosParametros(idBebida) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
 
-                var desempenho = resposta[0]
 
-                console.log("desempenho:", desempenho.desempenho_geral)
+                
+                var desempenho = JSON.stringify(resposta[0].desempenho_geral);
+
+                
+                console.log('resposta 2:', resposta2);
+
+                var div_desempenho = document.getElementById('div_desempenho')
+                console.log("desempenho:", desempenho)
                 div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
 
            
@@ -182,6 +188,137 @@ function graficosParametros(idBebida) {
                     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
                     graficoDonut_dsp_geral.update()
                 }
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+
+    //Unidades Acima 
+    fetch(`/medidas/unidadesAcima/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Unidades Acima: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                // var desempenho = resposta[0]
+
+                // console.log("desempenho:", desempenho.desempenho_geral)
+                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+
+           
+                // for (var i = 0; i < resposta.length; i++) {
+                //     var desempenhoGrafico = resposta[i].desempenho_geral
+                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                //     graficoDonut_dsp_geral.update()
+                // }
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+
+    //Unidades Abaixo
+    fetch(`/medidas/unidadesAbaixo/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Unidades Abaixo: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                // var desempenho = resposta[0]
+
+                // console.log("desempenho:", desempenho.desempenho_geral)
+                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+
+           
+                // for (var i = 0; i < resposta.length; i++) {
+                //     var desempenhoGrafico = resposta[i].desempenho_geral
+                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                //     graficoDonut_dsp_geral.update()
+                // }
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+
+    //SAÍDAS POR UNIDADES
+    fetch(`/medidas/saidasPorUnidades/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Saídas por Unidade: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                // var desempenho = resposta[0]
+
+                // console.log("desempenho:", desempenho.desempenho_geral)
+                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+
+           
+                // for (var i = 0; i < resposta.length; i++) {
+                //     var desempenhoGrafico = resposta[i].desempenho_geral
+                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                //     graficoDonut_dsp_geral.update()
+                // }
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+
+
+    //SAÍDAS POR REGIÃO
+    fetch(`/medidas/saidasPorRegiao/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Saídas por região: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                // var desempenho = resposta[0]
+
+                // console.log("desempenho:", desempenho.desempenho_geral)
+                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+
+           
+                // for (var i = 0; i < resposta.length; i++) {
+                //     var desempenhoGrafico = resposta[i].desempenho_geral
+                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                //     graficoDonut_dsp_geral.update()
+                // }
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+    
+
+    //PERÍODO DE TESTE
+    fetch(`/medidas/periodoTeste/${idBebida}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Período de teste: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                // var desempenho = resposta[0]
+
+                // console.log("desempenho:", desempenho.desempenho_geral)
+                // div_desempenho.innerHTML = desempenho.desempenho_geral + " % ";
+
+           
+                // for (var i = 0; i < resposta.length; i++) {
+                //     var desempenhoGrafico = resposta[i].desempenho_geral
+                //     dados_dsp_geral.datasets[0].data.splice(0, 2, desempenhoGrafico, 100 - desempenhoGrafico)
+                //     graficoDonut_dsp_geral.update()
+                // }
+
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
