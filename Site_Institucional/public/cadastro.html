@@ -160,7 +160,7 @@
 
         } else if (nome_empresa.length <= 4) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(O email inválido)";
+            mensagem_erro.innerHTML = "(Nome inválido)";
 
             finalizarAguardar();
             return false;
@@ -192,7 +192,19 @@
 
             finalizarAguardar();
             return false;
-        } else {
+        }else if (cep_empresa.length != 9) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(CEP inválido)";
+
+            finalizarAguardar();
+            return false;
+        }else if (cnpj_empresa.length != 18) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(CNPJ inválido)";
+
+            finalizarAguardar();
+            return false;
+        }   else {
             setInterval(sumirMensagem(), 5000)
         }
 
