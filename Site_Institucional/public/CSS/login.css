@@ -130,7 +130,7 @@ button:hover {
   justify-content: space-evenly;
   padding: 5px 10px;
   color: #0f1631;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   color: #ffff;  
 }
@@ -143,6 +143,12 @@ button:hover {
   text-decoration: none;
   background-color: #ffff;
   color: #1d676d;
+}
+
+.loginBtn{
+  background-image: linear-gradient(to right, #afdadb, white, #1f4662);
+  background-size: 200%;
+  transition: all 0.5s;
 }
 
 .cadastrar{
