@@ -99,6 +99,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10rem;
 }
 
@@ -129,6 +130,9 @@
 
 /* DADOS */
 .dados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #77A4A6;
   width: 100%;
   height: 76.2vh;
@@ -137,6 +141,7 @@
 .dados_2 {
   display: flex;
   justify-content: space-between;
+  width: 90%;
   padding: 10vh;
 }
 
@@ -157,6 +162,10 @@
 
 /* VOCE SABIA? */
 .voce_sabia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #ffff;
   width: 100%;
 }
@@ -173,9 +182,12 @@
   background-image: linear-gradient(to bottom, white, gray);
 }
 
+.texto_vc_sabia{
+  width: 50%;
+}
+
 .texto_vc_sabia h4 {
-  margin-left: 17rem;
-  padding-top: 6rem;
+  margin-top: 6rem;
   margin-bottom: 2rem;
   font-size: large;
 }
@@ -204,6 +216,9 @@
 
 /* MARKETING */
 .marketing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #77A4A6;
   width: 100%;
   height: 90vh;
