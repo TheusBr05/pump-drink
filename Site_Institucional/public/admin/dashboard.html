@@ -225,7 +225,7 @@
     // --------------------------------------------------------------------------------------------------
 
     var listaGraficoSemana = [];
-    graficosParametros(1)
+    graficosParametros(sessionStorage.ID_BEBIDA)
 
     const graficoLinha_hoje = new Chart(document.getElementById('desempenho_hoje'), config_dsp_semana);
     const graficoPizza_regiao =  new Chart (document.getElementById('desempenho_regiao'), config_regioes)

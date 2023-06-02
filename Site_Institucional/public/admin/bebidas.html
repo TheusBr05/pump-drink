@@ -69,8 +69,8 @@
         </div>
 
         <div id="tupla_bebidas" class="tupla_bebidas">
-            
-            
+
+
         </div>
 
 
@@ -100,6 +100,8 @@
                         var meta1 = resultado[i].meta;
                         var bebida = '';
 
+                        sessionStorage.ID_BEBIDA = resultado[i].id_bebida
+
                         if (resultado[i].saidas <= meta1 * 0.25) {
                             cor_card = 'muito_baixo'
                         } else if (resultado[i].saidas <= meta1 * 5) {
@@ -112,49 +114,27 @@
                             cor_card = 'acima'
                         }
 
-                        if ((i % 4) != 0) {
-                            bebida = `
-                                <div class="bebida">
-                                    <div class="topo_card_bebida">
-                                        <div class="desempenho ${cor_card}">
-                                            <b>baixo</b>
-                                        </div>
-                                    </div>
-                                    <div class="meio_card_bebida">
-                                        <div class="imagem_bebida"></div>
-                                    </div>
-                                    <div class="nome_bebida">
-                                        <h6>${resultado[i].nome_bebida}</h6>
-                                    </div>
 
-                                    <div class="campos_btn">
-                                        <button id="btn_analisar">Analisar</button>
-                                        <button id="btn_info">Informações</button>
+                        bebida = `
+                            <div class="bebida">
+                                <div class="topo_card_bebida">
+                                    <div class="desempenho ${cor_card}">
+                                        <b>baixo</b>
                                     </div>
                                 </div>
-                            `;
-                        } else {
-                            bebida = `
-                                <div class="bebida">
-                                    <div class="topo_card_bebida">
-                                        <div class="desempenho ${cor_card}">
-                                            <b>baixo</b>
-                                        </div>
-                                    </div>
-                                    <div class="meio_card_bebida">
-                                        <div class="imagem_bebida"></div>
-                                    </div>
-                                    <div class="nome_bebida">
-                                        <h6>${resultado[i].nome_bebida}</h6>
-                                    </div>
+                                <div class="meio_card_bebida">
+                                    <div class="imagem_bebida"></div>
+                                </div>
+                                <div class="nome_bebida">
+                                    <h6>${resultado[i].nome_bebida}</h6>
+                                </div>
 
-                                    <div class="campos_btn">
-                                        <button id="btn_analisar">Analisar</button>
-                                        <button id="btn_info">Informações</button>
-                                    </div>
-                                </div> <br>
+                                <div class="campos_btn">
+                                    <button id="btn_analisar" onclick="analisar(${resultado[i].id_bebida})">Analisar</button>
+                                    <button id="btn_info">Informações</button>
+                                </div>
+                            </div>
                             `;
-                        }
 
                         tupla_bebidas.innerHTML += bebida;
 
@@ -162,5 +142,10 @@
                 })
             }
         })
+    }
+
+    function analisar(id_bebida){
+        sessionStorage.ID_BEBIDA = id_bebida;
+        window.location = "dashboard.html"
     }
 </script>
