@@ -47,7 +47,9 @@ SELECT format(
                 JOIN tb_dispenser ON id_dispenser = fk_dispenser
             WHERE fk_bebida = 1
         ) * 100 / (
-            SELECT (meta_geral / timestampdiff(day, prazo_inicio, prazo_final)) * timestampdiff(day, prazo_inicio, now())
+            SELECT (
+                    meta_geral / timestampdiff(day, prazo_inicio, prazo_final)
+                ) * timestampdiff(day, prazo_inicio, now())
             FROM tb_bebida
             WHERE id_bebida = 1
         ),
@@ -133,7 +135,8 @@ LIMIT 7;
 
 
 -- gráfico saídas por unidades (desempenho por unidades)
-SELECT count(*), tb_maquina.descricao
+SELECT count(*),
+    tb_maquina.descricao
 FROM tb_registro
     JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
     JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
@@ -144,7 +147,8 @@ WHERE id_bebida = 1
 GROUP BY descricao;
 
 -- gráfico saídas por regiões (Desempenho por região)
-SELECT count(*) as 'saidas', tb_local.regiao
+SELECT count(*) as 'saidas',
+    tb_local.regiao
 FROM tb_registro
     JOIN tb_sensor ON tb_sensor.id_sensor = tb_registro.fk_sensor
     JOIN tb_dispenser ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
@@ -153,3 +157,28 @@ FROM tb_registro
     JOIN tb_local ON tb_local.id_local = tb_maquina.fk_local
 WHERE id_bebida = 1
 GROUP BY regiao;
+
+
+
+SELECT nome_bebida AS "nomeBebidaBD",
+    (
+        SELECT count(aprox_registro) AS "totalSaidas"
+        FROM tb_registro
+            JOIN tb_sensor ON id_sensor = fk_sensor
+            JOIN tb_dispenser ON id_dispenser = fk_dispenser
+        WHERE fk_bebida = 2
+    ) AS "totalSaidasBD",
+    (
+        select count(fk_bebida)
+        FROM tb_dispenser
+        WHERE fk_bebida = 2
+    ) AS "totalUnidadesBD",
+    timestampdiff(week, prazo_inicio, prazo_final) AS "tempoTesteBD",
+    meta_geral AS "metaGeralBD"
+FROM tb_bebida 
+    LEFT JOIN tb_dispenser ON tb_dispenser.fk_bebida = tb_bebida.id_bebida
+    LEFT JOIN tb_sensor ON tb_sensor.fk_dispenser = tb_dispenser.id_dispenser
+    LEFT JOIN tb_registro ON tb_registro.fk_sensor = tb_sensor.id_sensor
+WHERE id_bebida = 2;
+
+select * from tb_bebida;

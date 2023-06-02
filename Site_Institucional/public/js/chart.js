@@ -358,10 +358,9 @@ function graficosParametros(idBebida) {
         }
     })
 
-    setTimeout(() => {
-        graficoBarra_semana.update()
+    setTimeout(() => {  
         graficosParametros(idBebida)
-    }, 5000);
+    }, 2000);
 }
 
 

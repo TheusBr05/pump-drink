@@ -14,9 +14,9 @@ function buscarUltimasMedidas(idBebida) {
                     where fk_aquario = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql =`select format(((select count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
+        instrucaoSql = `select format(((select count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
         JOIN tb_dispenser ON id_dispenser = fk_dispenser) / meta_geral) * 100, 2) AS "desempenho" from tb_bebida WHERE id_bebida = ${idBebida};`
-        
+
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -56,54 +56,60 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
-function totalSaidas(idBebida){
+function totalSaidas(idBebida) {
 
-    instrucaoSql = `
-    SELECT nome_bebida AS "nomeBebidaBD", 
-        (SELECT count(aprox_registro) AS "totalSaidas" FROM tb_registro JOIN tb_sensor ON id_sensor = fk_sensor 
-	JOIN tb_dispenser ON id_dispenser = fk_dispenser WHERE aprox_registro = 1 AND fk_bebida = ${idBebida}) AS "totalSaidasBD",
-		(select count(fk_bebida) FROM tb_dispenser WHERE fk_bebida =  ${idBebida}) AS "totalUnidadesBD",
-		timestampdiff(week, prazo_inicio, prazo_final) AS "tempoTesteBD",
-        meta_geral AS "metaGeralBD"
-        FROM tb_registro 
-            JOIN tb_sensor ON id_sensor = fk_sensor 
-		    JOIN tb_dispenser ON id_dispenser = fk_dispenser 
-            JOIN tb_maquina ON id_maquina = fk_maquina 
-            JOIN tb_bebida ON fk_bebida = id_bebida 
-                WHERE id_bebida =  ${idBebida}
-                limit 1;
-    `
+    instrucaoSql = `SELECT nome_bebida AS "nomeBebidaBD",
+    (
+        SELECT count(aprox_registro) AS "totalSaidas"
+        FROM tb_registro
+            JOIN tb_sensor ON id_sensor = fk_sensor
+            JOIN tb_dispenser ON id_dispenser = fk_dispenser
+        WHERE fk_bebida = ${idBebida}
+    ) AS "totalSaidasBD",
+    (
+        select count(fk_bebida)
+        FROM tb_dispenser
+        WHERE fk_bebida = ${idBebida}
+    ) AS "totalUnidadesBD",
+    timestampdiff(week, prazo_inicio, prazo_final) AS "tempoTesteBD",
+    meta_geral AS "metaGeralBD"
+FROM tb_bebida 
+    LEFT JOIN tb_dispenser ON tb_dispenser.fk_bebida = tb_bebida.id_bebida
+    LEFT JOIN tb_sensor ON tb_sensor.fk_dispenser = tb_dispenser.id_dispenser
+    LEFT JOIN tb_registro ON tb_registro.fk_sensor = tb_sensor.id_sensor
+WHERE id_bebida = ${idBebida}
+limit 1;`
 
     return database.executar(instrucaoSql);
 }
 
-function graficoDesempenho(idBebida){
+function graficoDesempenho(idBebida) {
 
     instrucaoSql = `CALL desempenho_geral(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
-function unidadesAcima(idBebida){
+function unidadesAcima(idBebida) {
     instrucaoSql = `CALL unidades_acima(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
-function unidadesAbaixo(idBebida){
+function unidadesAbaixo(idBebida) {
     instrucaoSql = `CALL unidades_abaixo(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
-function saidasPorRegiao(idBebida){
+function saidasPorRegiao(idBebida) {
     instrucaoSql = `CALL saidas_por_regiao(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
-function saidasPorUnidades(idBebida){
+function saidasPorUnidades(idBebida) {
     instrucaoSql = `CALL saidas_por_unidade(${idBebida});`
     return database.executar(instrucaoSql);
 }
 
-function periodoTeste(idBebida){
+function periodoTeste(idBebida) {
     instrucaoSql = `CALL periodo_de_teste(${idBebida});`
     return database.executar(instrucaoSql);
 }
