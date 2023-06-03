@@ -12,7 +12,6 @@ GROUP BY nome_bebida;
 
 
 SELECT bebida.id_bebida, bebida.nome_bebida,
-            format(
                 (
                     SELECT count(*)
                     FROM tb_registro
@@ -24,10 +23,9 @@ SELECT bebida.id_bebida, bebida.nome_bebida,
                     timestampdiff(day, prazo_inicio, now())
                     FROM tb_bebida
                     WHERE id_bebida = bebida.id_bebida
-                ),
-                2
+                
             ) as 'desempenho_geral'
         FROM tb_bebida bebida
         ORDER BY desempenho_geral; 
 
-UPDATE tb_bebida SET meta_geral = 15 WHERE id_bebida = 5;
+UPDATE tb_bebida SET meta_geral = 10 WHERE id_bebida = 5;
