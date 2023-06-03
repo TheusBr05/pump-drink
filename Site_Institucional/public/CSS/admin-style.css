@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Verdana;
 
 }
 
-.container{
+.container {
     display: flex;
     margin: 0;
     width: 90%;
@@ -14,12 +14,12 @@
 
 
 /* ---------------------- Header Dashboard----------------------- */
-.header .container{
+.header .container {
     justify-content: space-between;
     align-items: center;
 }
 
-.header{
+.header {
     background-color: #1d676d;
     display: flex;
     flex-direction: row;
@@ -29,12 +29,12 @@
 
 }
 
-.logo{
+.logo {
     max-width: 80px;
 
 }
 
-.navbar{
+.navbar {
     display: flex;
     flex-direction: row;
     gap: 40px;
@@ -43,55 +43,53 @@
     align-items: center;
     justify-self: left;
     margin-left: 50px;
-    
-    
+
+
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     color: white;
 }
 
-.perfil_header{
+.perfil_header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.perfil_header img{
+.perfil_header img {
     width: 30px;
     margin-right: 8px;
     margin-left: 20px;
 }
 
-.perfil_header h5{
-   font-weight: 100;
-   font-size: 14px;
+.perfil_header h5 {
+    font-weight: 100;
+    font-size: 14px;
 }
 
-#seta_user{
+#seta_user {
     width: 20px;
     margin-left: 10px;
 }
 
 /* ---------------------- PESQUISAR ----------------------- */
-.search-bar{
+.search-bar {
     max-width: 500px;
     height: 14px;
     display: flex;
     align-items: center;
     border-radius: 60px;
     padding: 10px 20px;
-    background-color: rgba(255,255,255, 0.2);
-   justify-self: center;
-   justify-content: center;
-   margin-left: 100px;
- 
-    
+    background-color: rgba(255, 255, 255, 0.2);
+    justify-self: center;
+    justify-content: center;
+    margin-left: 100px;
 }
 
-.search-bar input{
+.search-bar input {
     background: transparent;
     flex: 1;
     border: 0;
@@ -101,15 +99,15 @@
     color: white;
 }
 
-::placeholder{
+::placeholder {
     color: rgba(255, 255, 255, 0.719);
 }
 
-.search-bar button img{
+.search-bar button img {
     width: 20px;
 }
 
-.search-bar button{
+.search-bar button {
     border: 0;
     border-radius: 50%;
     width: 50px;
@@ -118,6 +116,23 @@
     background-color: transparent;
 
 }
+/* ---------------------- Pop-up's ----------------------- */
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #e6005a 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
+  }
 
 /* ---------------------- Footer ----------------------- */
 .footer {
@@ -126,28 +141,33 @@
     height: 100px;
     background-color: #1d676d;
     color: white;
-    display: flex; 
+    display: flex;
     justify-content: center;
-  }
-  
-  .footer .container {
+}
+
+.footer .container {
     justify-content: center;
     align-items: center;
     height: 100%;
-  }
+}
 
 
-  /*SCROLL*/
+/*SCROLL*/
 ::-webkit-scrollbar {
     width: 8px;
-  }  
-  /* tamanho da linha*/
-  
-  ::-webkit-scrollbar-track {
+}
+
+/* tamanho da linha*/
+
+::-webkit-scrollbar-track {
     background-color: #0F1631;
-  } /* cor de fundo do scrool*/
-  
-   ::-webkit-scrollbar-thumb {
+}
+
+/* cor de fundo do scrool*/
+
+::-webkit-scrollbar-thumb {
     background-color: #1F4662;
     border-radius: 20px;
-  } /* cor da barra de rolagem*/
+}
+
+/* cor da barra de rolagem*/

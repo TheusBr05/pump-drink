@@ -31,41 +31,43 @@ body{
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-    width: 20%;
+    width: 40%;
+}
+
+.medida_metrica{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    text-align: center;
+    color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 1% 0;
 }
 
 #muito_baixo{
     background-color: #8f1505;
     color: #FFFFFF;
-    width: 30%;
-    text-align: center;
 }
 
 #baixo{
     background-color: #E4442E;
     color: #FFFFFF;
-    width: 30%;
-    text-align: center;
 }
 #quase{
     background-color: #E4BC2E;
     color: #FFFFFF;
-    width: 30%;
-    text-align: center;
 }
 
 #esperado{
     background-color: #54854C;
     color: #FFFFFF;
-    width: 30%;
-    text-align: center;
 }
 
 #alto{
     background-color: #1fb708;
     color: #FFFFFF;
-    width: 30%;
-    text-align: center;
 }
 
 button{
@@ -110,13 +112,36 @@ select{
     flex-direction: column;
     width: 40%;
     padding: 2vh;
+    background-color: #1d676d;
+    border-radius: 15px;
 }
 
 .card span{
     margin: 10px;
 }
+
 .card p{
     margin: 10px;
+}
+
+.alerta{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+}
+
+.alerta span{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
 }
 
 .muito_baixo{

@@ -31,7 +31,7 @@ body{
 .desempenho_bebidas{
     display: flex;
     justify-content: space-around;
-    width: 40%;
+    width: 60%;
     height: 10vh;
     align-items: flex-end;
 }
@@ -41,12 +41,11 @@ body{
     color: white;
 }
 
-.card_baixo{
+.card{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30%;
-    background-color: red;
     text-align: center;
     color: white;
     height: 40%;
@@ -56,34 +55,29 @@ body{
     padding-top: 0.5%;
 }
 
-.card_esperado{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    background-color: hsl(49, 100%, 50%);
-    text-align: center;
-    color: white;
-    height: 40%;
-    margin-bottom: 2%;
-    margin-left: 3%;
-    margin-right: 3%;
-    padding-top: 0.5%;
+.muito_baixo{
+    color: #FFFFFF;
+    background-color: #8f1505;
 }
 
-.card_alto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    background-color: green;
-    text-align: center;
-    color: white;
-    height: 40%;
-    margin-bottom: 2%;
-    margin-left: 3%;
-    margin-right: 3%;
-    padding-top: 0.5%;
+.baixo{
+    color: #FFFFFF;
+    background-color: #E4442E;
+}
+
+.quase{
+    background-color:#E4BC2E;
+    color: black;
+}
+
+.esperado{
+    background-color: #54854C;
+    color: #FFFFFF;
+}
+
+.alto{
+    color: #FFFFFF;
+    background-color: #1fb708;
 }
 
 

@@ -16,13 +16,13 @@ function alerta_unidade(bebida) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `SELECT tb_local.nome as 'unidade', concat(rua, ', ', ifnull(numero, 'S/N'), ' - ', bairro, ' - ', cep, ' - ', cidade, ' - ', estado) as 'endereco',
         count(id_registro) as 'saidas'
-    FROM tb_maquina
-        JOIN tb_local ON tb_local.id_local = tb_maquina.fk_local
-        JOIN tb_dispenser ON tb_dispenser.fk_maquina = tb_maquina.id_maquina
-        JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
-        JOIN tb_sensor ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
-        JOIN tb_registro ON tb_sensor.id_sensor = tb_registro.fk_sensor
-        WHERE tb_bebida.id_bebida = ${bebida}
+        FROM tb_maquina
+            LEFT JOIN tb_local ON tb_local.id_local = tb_maquina.fk_local
+            LEFT JOIN tb_dispenser ON tb_dispenser.fk_maquina = tb_maquina.id_maquina
+            LEFT JOIN tb_bebida ON tb_bebida.id_bebida = tb_dispenser.fk_bebida
+            LEFT JOIN tb_sensor ON tb_dispenser.id_dispenser = tb_sensor.fk_dispenser
+            LEFT JOIN tb_registro ON tb_sensor.id_sensor = tb_registro.fk_sensor
+            WHERE tb_bebida.id_bebida = ${bebida}
         GROUP BY fk_local`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -85,8 +85,33 @@ function todas_bebidas(){
     return database.executar(instrucaoSql);
 }
 
+function cadastrar_unidade(dispenser1, dispenser2, dispenser3, dispenser4, nome, descricao, rua, num, comp, cep, bairro, cidade, estado, regiao, pais){
+    var instrucaoSql1 = `
+        INSERT INTO tb_local VALUES 
+            (null, ${nome}, ${pais}, ${regiao}, ${estado}, ${cidade}, ${bairro}, ${rua}, ${num}, ${comp}, ${cep});
+    `;
+
+    var instrucaoSql2 = `
+        INSERT INTO tb_maquina VALUES
+            (null, ${descricao}, (SELECT id_local FROM tb_local ORDER BY id_local DESC LIMIT 1))
+    `;
+
+    var instrucaoSql3 = `
+        INSERT INTO tb_dispenser VALUES
+            (null, 1, (SELECT id_maquina FROM tb_maquina ORDER BY id_maquina DESC LIMIT 1), ${dispenser1}),
+            (null, 2, (SELECT id_maquina FROM tb_maquina ORDER BY id_maquina DESC LIMIT 1), ${dispenser2}),
+            (null, 3, (SELECT id_maquina FROM tb_maquina ORDER BY id_maquina DESC LIMIT 1), ${dispenser3}),
+            (null, 4, (SELECT id_maquina FROM tb_maquina ORDER BY id_maquina DESC LIMIT 1), ${dispenser4});
+    `;
+
+    database.executar(instrucaoSql1);
+    database.executar(instrucaoSql2);
+    return database.executar(instrucaoSql3);
+}
+
 module.exports = {
     alerta_unidade,
     meta_prazo,
+    cadastrar_unidade,
     todas_bebidas
 }

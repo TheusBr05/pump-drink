@@ -32,12 +32,35 @@
     margin-bottom: 40px;
 }
 
+.campo_bebidas{
+    display: flex;
+}
+
+.input_bebida{
+    width: 100%;
+    font-size: 15px;
+    padding: 1vh .5vw;
+    border-radius: 10px;
+    border: none;
+}
+
+.campos_bebidas{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dispenser:not(:last-child){
+    margin-right: 2vw;
+}
+
 .campos{
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 4vh;
 }
+
 .campo{
     display: flex;
     flex-direction: column;
@@ -49,7 +72,6 @@
 }
 
 .input{
-    width: 100%;
     font-size: 20px;
     padding: 1vh .5vw;
     border-radius: 10px;
@@ -86,4 +108,13 @@
     color: white;
     border: none;
     border-radius: 10px;
+}
+
+.campos_horizontais_3itens{
+    display: flex;
+    flex-direction: row;
+}
+
+.campos_horizontais_3itens .campo .input{
+    width: 92.2%;
 }

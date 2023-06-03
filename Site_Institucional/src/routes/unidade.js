@@ -3,6 +3,10 @@ var router = express.Router();
 
 var unidadeController = require("../controllers/unidadeController");
 
+router.post("/cadastrar_unidade", function(req, res){
+    unidadeController.cadastrar_unidade(req, res);
+})
+
 router.get("/unidade/:bebida", function (req, res) {
     unidadeController.alerta_unidade(req, res);
 })

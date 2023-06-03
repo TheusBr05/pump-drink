@@ -81,11 +81,11 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else if (cnpj == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Seu CNPJ está undefined!");
     } else if (duracao_contrato == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Sua duração de contrato está undefined!");
     } else if (cep == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Seu CEP está undefined!");
     } 
     else {
         

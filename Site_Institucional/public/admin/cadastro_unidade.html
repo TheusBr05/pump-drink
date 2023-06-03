@@ -8,10 +8,11 @@
     <link rel="shortcut icon" href="../assets/3.png" type="image/x-icon" />
     <link rel="stylesheet" href="../CSS/admin-style.css" />
     <link rel="stylesheet" href="../CSS/cadastro_unidade.css">
+    <script src="../js/funcoes.js"></script>
     <title>PumpDrink | Cadastro de Unidades</title>
 </head>
 
-<body>
+<body onload="todas_bebidas()">
     <!-- HEADER PUMPDRINK -->
     <div class="header">
         <div class="container">
@@ -43,6 +44,9 @@
 
         </div>
     </div>
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
     <div class="conteudo_pagina">
         <div class="btn_voltar">
             <img src="../assets/001-left-arrow.png" alt="">
@@ -50,94 +54,86 @@
         <div class="card_cadastro">
             <h1>Cadastro de Unidades</h1>
             <div class="campos">
-                <div class="campo">
-                    <p class="texto_input">Cadastre as bebida nos dispenser </p>
+                <div class="campos_bebidas">
+                    <h4 class="texto_input">Cadastre as bebida nos dispenser </h4>
 
-                    <div class="CampoBebidas">
+                    <div class="campo_bebidas">
                         <div class="dispenser">
                             Dispenser 1:
-                            <select id="select_dispenser1">
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
+                            <select class="input_bebida" id="select_dispenser1">
+                                
                             </select>
                         </div>
 
 
                         <div class="dispenser">
                             Dispenser 2:
-                            <select id="select_dispenser1">
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
+                            <select class="input_bebida" id="select_dispenser2">
+                                
                             </select>
                         </div>
 
                         <div class="dispenser">
                             Dispenser 3:
-                            <select id="select_dispenser3">
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
+                            <select class="input_bebida" id="select_dispenser3">
+                                
                             </select>
                         </div>
 
                         <div class="dispenser">
                             Dispenser 4:
-                            <select id="select_dispenser4">
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
-                                <option value="">Bebida 1</option>
+                            <select class="input_bebida" id="select_dispenser4">
+                                
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="campo">
                     <p class="texto_input">Apelido para Local: </p>
-                    <input type="text" class="input">
+                    <input type="text" class="input" id="input_nome">
+                </div>
+                <div class="campo">
+                    <p class="texto_input">Descrição do Local: </p>
+                    <input type="text" class="input" id="input_descricao">
                 </div>
                 <div class="campos_horizontais">
                     <div class="campo rua">
                         <p class="texto_input">Rua: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_rua">
                     </div>
                     <div class="campo num">
                         <p class="texto_input">Número: </p>
-                        <input type="text" class="input">
+                        <input type="number" class="input" id="input_num">
                     </div>
                 </div>
                 <div class="campos_horizontais">
                     <div class="campo">
                         <p class="texto_input">Complemento: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_comp">
                     </div>
                     <div class="campo">
                         <p class="texto_input">CEP: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_cep">
                     </div>
                 </div>
                 <div class="campos_horizontais">
                     <div class="campo">
                         <p class="texto_input">Bairro: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_bairro">
                     </div>
                     <div class="campo">
                         <p class="texto_input">Cidade: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_cidade">
                     </div>
                 </div>
-                <div class="campos_horizontais">
+                <div class="campos_horizontais_3itens">
                     <div class="campo">
                         <p class="texto_input">Estado: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_estado">
                     </div>
                     <div class="campo">
                         <p class="texto_input">Região: </p>
-                        <select type="text" class="input">
+                        <select type="text" class="input" id="select_regiao">
                             <option value="sul">Sul</option>
                             <option value="sudeste">Sudeste</option>
                             <option value="centro_oeste">Centro-Oeste</option>
@@ -147,12 +143,12 @@
                     </div>
                     <div class="campo">
                         <p class="texto_input">País: </p>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="input_pais">
                     </div>
                 </div>
 
             </div>
-            <button class="btn_cadastrar">Cadastrar</button>
+            <button class="btn_cadastrar" onclick="cadastrar_unidade()">Cadastrar</button>
         </div>
     </div>
     <div class="footer">
@@ -164,3 +160,99 @@
 </body>
 
 </html>
+
+<script>
+
+    function todas_bebidas() {
+
+        fetch(`/unidade/todas_bebidas`, { cache: 'no-store' }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+
+                    for (var i = 0; i < resposta.length; i++) {
+
+                        select_dispenser1.innerHTML += `
+                            <option value="${resposta[i].id_bebida}">${resposta[i].nome_bebida}</option>
+                        `;
+
+                        select_dispenser2.innerHTML += `
+                            <option value="${resposta[i].id_bebida}">${resposta[i].nome_bebida}</option>
+                        `;
+
+                        select_dispenser3.innerHTML += `
+                            <option value="${resposta[i].id_bebida}">${resposta[i].nome_bebida}</option>
+                        `;
+
+                        select_dispenser4.innerHTML += `
+                            <option value="${resposta[i].id_bebida}">${resposta[i].nome_bebida}</option>
+                        `;
+
+                    }
+
+                })
+            }
+        })
+
+    }
+
+    function cadastrar_unidade(){
+
+        var dispenser1 = select_dispenser1.value;
+        var dispenser2 = select_dispenser2.value;
+        var dispenser3 = select_dispenser3.value;
+        var dispenser4 = select_dispenser4.value;
+
+        var nome = input_nome.value;
+        var descricao = input_descricao.value;
+        var rua = input_rua.value;
+        var num = Number(input_num.value);
+        var comp = input_comp.value;
+        var cep = input_cep.value;
+        var bairro = input_bairro.value;
+        var cidade = input_cidade.value;
+        var estado = input_estado.value;
+        var regiao = select_regiao.value;
+        var pais = input_pais.value;
+
+        fetch("/unidade/cadastrar_unidade", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+
+                dispenser1Server: dispenser1,
+                dispenser2Server: dispenser2,
+                dispenser3Server: dispenser3,
+                dispenser4Server: dispenser4,
+                nomeServer: nome,
+                descricaoServer: descricao,
+                ruaServer: rua,
+                numServer: num,
+                compServer: comp,
+                cepServer: cep,
+                bairroServer: bairro,
+                cidadeServer: cidade,
+                estadoServer: estado,
+                regiaoServer: regiao,
+                paisServer: pais
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                setTimeout(() => {
+                    window.location = "bebidas.html";
+                }, "2000")
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    }
+
+</script>

@@ -53,20 +53,21 @@
             </span>
             <div class="topo">
                 <div class="metrica">
-                    <span id="muito_baixo"> Muito Baixo</span>
-                    <span id="baixo">Baixo</span>
-                    <span id="quase">Quase</span>
-                    <span id="esperado">Esperado</span>
-                    <span id="alto">Alto</span>
+                    <span class="medida_metrica" id="muito_baixo"> Muito Baixo</span>
+                    <span class="medida_metrica" id="baixo">Baixo</span>
+                    <span class="medida_metrica" id="quase">Quase</span>
+                    <span class="medida_metrica" id="esperado">Esperado</span>
+                    <span class="medida_metrica" id="alto">Alto</span>
                 </div>
 
-                <button>Adicionar Unidade</button>
+                <button onclick="window.location = 'cadastro_unidade.html'">Adicionar Unidade</button>
                 <Select id="select">
 
                 </Select>
             </div>
             <div id="div_unidade">
-
+                
+                </div>
             </div>
 
         </div>
@@ -91,24 +92,21 @@
 
     meta_prazo(select_bebida);
 
-    function todas_bebidas(){
+    function todas_bebidas() {
 
-        fetch(`/unidade/todas_bebidas`, {cache: 'no-store'}).then(function (resposta){
+        fetch(`/unidade/todas_bebidas`, { cache: 'no-store' }).then(function (resposta) {
             if (resposta.ok) {
-                resposta.json().then(function (resposta){
+                resposta.json().then(function (resposta) {
 
                     for (var i = 0; i < resposta.length; i++) {
-                        
+
                         select.innerHTML += `
                             <option value="${resposta[i].id_bebida}">${resposta[i].nome_bebida}</option>
                         `;
-                        
                     }
-
                 })
             }
         })
-
     }
 
     function alerta() {
@@ -131,8 +129,7 @@
 
                     setTimeout(function () {
                         unidade(unidades)
-                    }, 150); // apenas para exibir o loading
-
+                    }, 50); // apenas para exibir o loading
                 });
 
             } else {
@@ -141,12 +138,8 @@
 
 
             }
-
         })
-
         return false;
-
-
     }
 
 
@@ -227,42 +220,50 @@
             if (i + 1 < resultado.length) {
 
                 div_unidade.innerHTML += `
-                    <div class="card_unidade">
-                        <div class="card ${cor_card1}">
+                <div class="card_unidade">
+                    <div class="card">
+                        <div class="alerta">
                             <span>${unidade1}</span>
-                            <p>${endereco1}</p>
-                            <span>Bebida: ${bebida}</span>
-                            <div class="meta">
-                                <span>Total Saídas: ${desempenho1}</span>
-                                <span>Meta: ${meta} </span>
-                                <span>Prazo Final: ${prazo}</span>
-                            </div>
+                            <div class="circulo ${cor_card1}"></div>
                         </div>
-                        <div class="card ${cor_card2}">
+                        <p>${endereco1}</p>
+                        <span>Bebida: ${bebida}</span>
+                        <div class="meta">
+                            <span>Total Saídas: ${desempenho1}</span>
+                            <span>Meta: ${meta} </span>
+                            <span>Prazo Final: ${prazo}</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="alerta">
                             <span>${unidade2}</span>
-                            <p>${endereco2}</p>
-                            <span>Bebida: ${bebida}</span>
-                            <div class="meta">
-                                <span>Total Saídas: ${desempenho2}</span>
-                                <span>Meta: ${meta} </span>
-                                <span>Prazo Final: ${prazo}</span>
-                            </div>
+                            <div class="circulo ${cor_card2}"></div>
+                        </div>
+                        <p>${endereco2}</p>
+                        <span>Bebida: ${bebida}</span>
+                        <div class="meta">
+                            <span>Total Saídas: ${desempenho2}</span>
+                            <span>Meta: ${meta} </span>
+                            <span>Prazo Final: ${prazo}</span>
                         </div>
                     </div>
                 `;
             } else {
                 div_unidade.innerHTML += `
                     <div class="card_unidade">
-                        <div class="card ${cor_card1}">
+                        <div class="card">
+                        <div class="alerta">
                             <span>${unidade1}</span>
-                            <p>${endereco1}</p>
-                            <span>Bebida: ${bebida}</span>
-                            <div class="meta">
-                                <span>Total Saídas: ${desempenho1}</span>
-                                <span>Meta: ${meta} </span>
-                                <span>Semanas restantes: ${prazo}</span>
-                            </div>
+                            <div class="circulo ${cor_card1}"></div>
                         </div>
+                        <p>${endereco1}</p>
+                        <span>Bebida: ${bebida}</span>
+                        <div class="meta">
+                            <span>Total Saídas: ${desempenho1}</span>
+                            <span>Meta: ${meta} </span>
+                            <span>Prazo Final: ${prazo}</span>
+                        </div>
+                    </div>
                     </div>
                 `;
             }
