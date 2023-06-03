@@ -210,7 +210,7 @@
             } else if (resultado[i].saidas <= meta) {
                 cor_card1 = 'esperado'
             } else if (resultado[i].saidas > meta) {
-                cor_card1 = 'acima'
+                cor_card1 = 'alto'
             }
             if (resultado[i + 1].saidas <= meta * 0.25) {
                 cor_card2 = 'muito_baixo'
@@ -221,7 +221,7 @@
             } else if (resultado[i + 1].saidas <= meta) {
                 cor_card2 = 'esperado'
             } else if (resultado[i + 1].saidas > meta) {
-                cor_card2 = 'acima'
+                cor_card2 = 'alto'
             }
 
             if (i + 1 < resultado.length) {
@@ -235,7 +235,7 @@
                             <div class="meta">
                                 <span>Total Saídas: ${desempenho1}</span>
                                 <span>Meta: ${meta} </span>
-                                <span>Semanas restantes: ${prazo}</span>
+                                <span>Prazo Final: ${prazo}</span>
                             </div>
                         </div>
                         <div class="card ${cor_card2}">
@@ -245,7 +245,7 @@
                             <div class="meta">
                                 <span>Total Saídas: ${desempenho2}</span>
                                 <span>Meta: ${meta} </span>
-                                <span>Semanas restantes: ${prazo}</span>
+                                <span>Prazo Final: ${prazo}</span>
                             </div>
                         </div>
                     </div>

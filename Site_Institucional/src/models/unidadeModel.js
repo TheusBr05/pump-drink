@@ -64,7 +64,24 @@ function meta_prazo(bebida) {
 function todas_bebidas(){
 
     instrucaoSql = `
-        SELECT * FROM tb_bebida;
+        SELECT bebida.id_bebida, bebida.nome_bebida,
+            format(
+                (
+                    SELECT count(*)
+                    FROM tb_registro
+                        JOIN tb_sensor ON id_sensor = fk_sensor
+                        JOIN tb_dispenser ON id_dispenser = fk_dispenser
+                    WHERE fk_bebida = bebida.id_bebida
+                ) * 100 / (
+                    SELECT meta_geral / timestampdiff(day, prazo_inicio, prazo_final) * 
+                    timestampdiff(day, prazo_inicio, now())
+                    FROM tb_bebida
+                    WHERE id_bebida = bebida.id_bebida
+                ),
+                2
+            ) as 'desempenho_geral'
+        FROM tb_bebida bebida
+        ORDER BY desempenho_geral;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

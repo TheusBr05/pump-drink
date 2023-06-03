@@ -17,7 +17,9 @@ const config_regioes = {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        animation: false
+        animation: {
+            duration: 0
+        }
     }
 }
 
@@ -44,7 +46,9 @@ const config_unidades = {
         },
         responsive: true,
         maintainAspectRatio: false,
-        animation: false
+        animation: {
+            duration: 0
+        }
     }
 }
 
@@ -95,7 +99,9 @@ const config_dsp_semana = {
         responsive: true,
         maintainAspectRatio: false,
         autoPadding: true,
-        animation: false,
+        animation: {
+            duration: 0
+        },
         tension: 0.2
     }
 }
@@ -117,7 +123,9 @@ const config_dsp_geral = {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        animation: false
+        animation: {
+            duration: 0
+        }
     }
 }
 
@@ -138,7 +146,9 @@ const config_dsp_uni_abaixo = {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-
+        animation: {
+            duration: 0
+        }
     }
 }
 
@@ -159,7 +169,9 @@ const config_dsp_uni_acima = {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-
+        animation: {
+            duration: 0
+        }
     }
 }
 //CHAMANDO FETCHTS
@@ -346,7 +358,7 @@ function graficosParametros(idBebida) {
                 h3_totalUnidades.innerHTML = totalSaida.totalUnidadesBD;
                 h3_totalTempo = totalSaida.tempoTesteBD;
                 h3_totalMetaGeral.innerHTML = totalSaida.metaGeralBD;
-                h3_metaUnidade.innerHTML = totalSaida.metaGeralBD / totalSaida.totalUnidadesBD;
+                h3_metaUnidade.innerHTML = `${parseInt(totalSaida.metaGeralBD / totalSaida.totalUnidadesBD)} ≈`;
                 i_nome_bebida.innerHTML = totalSaida.nomeBebidaBD;
 
 

@@ -97,21 +97,18 @@
 
                     for (var i = 0; i < resultado.length; i++) {
                         var cor_card = '';
-                        var meta1 = resultado[i].meta;
                         var bebida = '';
 
-                        sessionStorage.ID_BEBIDA = resultado[i].id_bebida
-
-                        if (resultado[i].saidas <= meta1 * 0.25) {
+                        if (resultado[i].desempenho_geral <= 25) {
                             cor_card = 'muito_baixo'
-                        } else if (resultado[i].saidas <= meta1 * 5) {
+                        } else if (resultado[i].desempenho_geral <= 50) {
                             cor_card = 'baixo'
-                        } else if (resultado[i].saidas <= meta1 * 0.75) {
+                        } else if (resultado[i].desempenho_geral <= 75) {
                             cor_card = 'quase'
-                        } else if (resultado[i].saidas <= meta1) {
+                        } else if (resultado[i].desempenho_geral <= 100) {
                             cor_card = 'esperado'
-                        } else if (resultado[i].saidas > meta1) {
-                            cor_card = 'acima'
+                        } else if (resultado[i].desempenho_geral > 100) {
+                            cor_card = 'alto'
                         }
 
 
