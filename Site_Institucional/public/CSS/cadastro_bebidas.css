@@ -12,6 +12,7 @@
     height: 45px;
     overflow: hidden;
     margin: 20px 40px;
+    cursor: pointer;
 }
 
 .conteudo_pagina .btn_voltar{
@@ -83,7 +84,19 @@
     font-size: 20px;
     padding: 10px 40px;
     background-color: #1d676d;
+    border: #1d676d 2px;
     color: white;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease-out;
+}
+
+button:hover{
+    color: #ebded5;
+      background-color: #77a4a6;
+}
+
+select{
+    cursor: pointer;
 }
