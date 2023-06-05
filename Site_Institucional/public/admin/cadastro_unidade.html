@@ -48,8 +48,13 @@
         <span id="mensagem_erro"></span>
       </div>
     <div class="conteudo_pagina">
-        <div class="btn_voltar">
-            <img src="../assets/001-left-arrow.png" alt="">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+            <div class="btn_voltar">
+                <img src="../assets/001-left-arrow.png" alt="">
+            </div>
         </div>
         <div class="card_cadastro">
             <h1>Cadastro de Unidades</h1>
@@ -150,6 +155,9 @@
             </div>
             <button class="btn_cadastrar" onclick="cadastrar_unidade()">Cadastrar</button>
         </div>
+        <div id="div_aguardar" class="loading-div">
+            <img src="../assets/loading.gif" id="loading-gif">
+        </div>
     </div>
     <div class="footer">
         <div class="container">
@@ -196,6 +204,7 @@
     }
 
     function cadastrar_unidade(){
+        aguardar();
 
         var dispenser1 = select_dispenser1.value;
         var dispenser2 = select_dispenser2.value;
@@ -243,10 +252,12 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+                finalizarAguardar();
                 setTimeout(() => {
                     window.location = "bebidas.html";
                 }, "2000")
             } else {
+                finalizarAguardar("Houve um erro ao tentar realizar o cadastro!");
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {

@@ -88,12 +88,12 @@ function todas_bebidas(){
 function cadastrar_unidade(dispenser1, dispenser2, dispenser3, dispenser4, nome, descricao, rua, num, comp, cep, bairro, cidade, estado, regiao, pais){
     var instrucaoSql1 = `
         INSERT INTO tb_local VALUES 
-            (null, ${nome}, ${pais}, ${regiao}, ${estado}, ${cidade}, ${bairro}, ${rua}, ${num}, ${comp}, ${cep});
+            (null, '${nome}', '${pais}', '${regiao}', '${estado}', '${cidade}', '${bairro}', '${rua}', ${num}, '${comp}', '${cep}');
     `;
 
     var instrucaoSql2 = `
         INSERT INTO tb_maquina VALUES
-            (null, ${descricao}, (SELECT id_local FROM tb_local ORDER BY id_local DESC LIMIT 1))
+            (null, '${descricao}', (SELECT id_local FROM tb_local ORDER BY id_local DESC LIMIT 1))
     `;
 
     var instrucaoSql3 = `
