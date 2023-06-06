@@ -109,9 +109,34 @@ function cadastrar_unidade(dispenser1, dispenser2, dispenser3, dispenser4, nome,
     return database.executar(instrucaoSql3);
 }
 
+function cadastrar_bebida(nome, tipo, prazo_inicio, prazo_final, meta, id_empresa) {
+    
+    var instrucaoSql = `
+        INSERT INTO tb_bebida (
+            nome_bebida,
+            tipo,
+            fk_empresa,
+            prazo_inicio,
+            prazo_final,
+            meta_geral
+        )
+        VALUES (
+            '${nome}',
+            '${tipo}',
+            ${id_empresa},
+            '${prazo_inicio}',
+            '${prazo_final}',
+            '${meta}'
+        );
+    `;
+        
+    return database.executar(instrucaoSql)
+}
+
 module.exports = {
     alerta_unidade,
     meta_prazo,
     cadastrar_unidade,
-    todas_bebidas
+    todas_bebidas,
+    cadastrar_bebida
 }

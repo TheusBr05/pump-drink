@@ -19,4 +19,8 @@ router.get("/todas_bebidas", function (req, res){
     unidadeController.todas_bebidas(req, res);
 })
 
+router.post("/cadastrar_bebida", function(req, res){
+    unidadeController.cadastrar_bebida(req, res);
+})
+
 module.exports = router;

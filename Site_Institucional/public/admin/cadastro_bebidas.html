@@ -8,6 +8,7 @@
   <link rel="shortcut icon" href="assets/3.png" type="image/x-icon" />
   <link rel="stylesheet" href="../CSS/admin-style.css" />
   <link rel="stylesheet" href="../CSS/cadastro_bebidas.css">
+  <script src="../js/funcoes.js"></script>
   <title>Pump Drink | Bebidas</title>
 </head>
 
@@ -39,34 +40,29 @@
       <div class="campos">
         <div class="campo">
           <p class="texto_input">Nome: </p>
-          <input type="text" class="input" placeholder="Sua bebida">
+          <input id="input_nome" type="text" class="input" placeholder="Sua bebida">
         </div>
         <div class="campo">
           <p class="texto_input">Tipo: </p>
-          <select type="text" class="input">
-            <option value="centro_oeste">-</option>
-            <option value="sul">Pré-Treino</option>
-            <option value="sudeste">Pós-Treino</option>
+          <select id="select_tipo" type="text" class="input">
+            <option value="pre-treino">Pré-Treino</option>
+            <option value="pos-treino">Pós-Treino</option>
           </select>
         </div>
         <div class="campos_horizontais">
           <div class="campo">
             <p class="texto_input">Prazo Inicial: </p>
-            <input type="date" class="input">
+            <input id="input_prazo_inicio" type="date" class="input">
           </div>
           <div class="campo">
             <p class="texto_input">Prazo Final: </p>
-            <input type="text" class="input">
+            <input id="input_prazo_final" type="date" class="input">
           </div>
         </div>
         <div class="campos_horizontais">
           <div class="campo">
-            <p class="texto_input">Meta Mensal: </p>
-            <input type="text" class="input">
-          </div>
-          <div class="campo">
-            <p class="texto_input">Meta Semanal: </p>
-            <input type="text" class="input">
+            <p class="texto_input">Meta: </p>
+            <input id="input_meta" type="number" class="input">
           </div>
         </div>
         <br>
@@ -74,7 +70,10 @@
           *É importante que seja realista!
         </h5>
       </div>
-      <button class="btn_cadastrar">Cadastrar</button>
+      <div id="div_aguardar" class="loading-div">
+        <img src="../assets/loading.gif" id="loading-gif">
+      </div>
+      <button class="btn_cadastrar" onclick="cadastrar_bebida()">Cadastrar</button>
     </div>
   </div>
 
@@ -89,3 +88,43 @@
 </body>
 
 </html>
+<script>
+  function cadastrar_bebida() {
+    aguardar();
+
+    var nome = input_nome.value;
+    var tipo = select_tipo.value;
+    var prazo_inicio = input_prazo_inicio.value;
+    var prazo_final = input_prazo_final.value;
+    var meta = input_meta.value;
+    var id_empresa = sessionStorage.ID_USUARIO;
+
+    fetch("/unidade/cadastrar_bebida", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nomeServer: nome,
+        tipoServer: tipo,
+        prazo_inicioServer: prazo_inicio,
+        prazo_finalServer: prazo_final,
+        metaServer: meta,
+        id_empresaServer: id_empresa
+      })
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        finalizarAguardar();
+        setTimeout(() => {
+          window.location = "bebida.html"
+        }, 2000);
+      } else {
+        finalizarAguardar();
+        throw ("Erro ao realizar cadastro de bebidas")
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    })
+
+  }
+</script>

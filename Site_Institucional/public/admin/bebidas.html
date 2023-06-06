@@ -86,17 +86,23 @@
                     for (var i = 0; i < resultado.length; i++) {
                         var cor_card = '';
                         var bebida = '';
+                        var texto = '';
 
                         if (resultado[i].desempenho_geral <= 25) {
                             cor_card = 'muito_baixo'
+                            texto = 'Muito Baixo'
                         } else if (resultado[i].desempenho_geral <= 50) {
                             cor_card = 'baixo'
+                            texto = 'Baixo'
                         } else if (resultado[i].desempenho_geral <= 75) {
                             cor_card = 'quase'
+                            texto = 'Quase'
                         } else if (resultado[i].desempenho_geral <= 100) {
                             cor_card = 'esperado'
+                            texto = 'Esperado'
                         } else if (resultado[i].desempenho_geral > 100) {
                             cor_card = 'alto'
+                            texto = 'Alto'
                         }
 
 
@@ -104,7 +110,7 @@
                             <div class="bebida">
                                 <div class="topo_card_bebida">
                                     <div class="desempenho ${cor_card}">
-                                        <b>baixo</b>
+                                        <b>${texto}</b>
                                     </div>
                                 </div>
                                 <div class="meio_card_bebida">

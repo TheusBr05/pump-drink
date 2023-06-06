@@ -91,9 +91,36 @@ function cadastrar_unidade(req, res) {
         );
 }
 
+function cadastrar_bebida(req, res) {
+
+    var nome = req.body.nomeServer
+    var tipo = req.body.tipoServer
+    var prazo_inicio = req.body.prazo_inicioServer
+    var prazo_final = req.body.prazo_finalServer
+    var meta = req.body.metaServer
+    var id_empresa = req.body.id_empresaServer
+
+    unidadeModel.cadastrar_bebida(nome, tipo, prazo_inicio, prazo_final, meta, id_empresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro de unidade! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     alerta_unidade,
     meta_prazo,
     cadastrar_unidade,
-    todas_bebidas
+    todas_bebidas,
+    cadastrar_bebida
 }

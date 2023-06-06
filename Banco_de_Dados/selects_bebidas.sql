@@ -29,3 +29,30 @@ SELECT bebida.id_bebida, bebida.nome_bebida,
         ORDER BY desempenho_geral; 
 
 UPDATE tb_bebida SET meta_geral = 10 WHERE id_bebida = 5;
+
+SELECT * FROM tb_bebida;
+
+INSERT INTO tb_bebida (
+        nome_bebida,
+        tipo,
+        fk_empresa,
+        prazo_inicio,
+        prazo_final,
+        meta_geral
+    )
+VALUES (
+        '${nome}',
+        '${tipo}',
+        ${id_empresa},
+        '${prazo_inicio}',
+        '${prazo_final}',
+        '${meta}'
+    );
+
+SELECT * FROM tb_bebida;
+
+DESCRIBE tb_empresa;
+
+SELECT * FROM tb_empresa;
+
+delete from tb_empresa where id_empresa = 7;

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="stylesheet" href="./CSS/home.css">
   <link rel="stylesheet" href="./CSS/login.css">
+  <script src="js/funcoes.js"></script>
   <title>Pump Drink | Login</title>
 </head>
 
@@ -48,9 +49,12 @@
         </div>
         <div class="container-btn">
           <div class='btn-forms'>
-            <button onclick="validacaoLogin()" type="submit" class="btn_entrar">Entrar</button>
+            <button onclick="entrar()" type="submit" class="btn_entrar">Entrar</button>
           </div>
           <button type="submit" onclick=" redirectUserToCadastro()" class="btn_voltar">Voltar </button>
+        </div>
+        <div id="div_aguardar" class="loading-div">
+          <img src="../assets/loading.gif" id="loading-gif">
         </div>
         <div class="recuperacao_cadastro">
           <a class="recuperar_senha" href="index.html">Esqueceu sua senha?</a>
@@ -124,17 +128,15 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = 'Digite Corretamente seu E-mail';
       return false;
-    } else {
-      mensagem_erro.innerHTML = "Valeu pelo cadastro, bora iniciar?"
-      setInterval(sumirMensagem, 5000)
-      window.location.href = "./admin/bebidas.html"            // setInterval(sumirMensagem, 5000) //função assincrona tempo de intervalo
-      return true;
     }
   }
 
   function entrar() {
     aguardar();
     validacaoLogin();
+
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_password.value;
 
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
@@ -159,12 +161,14 @@
           console.log(JSON.stringify(json));
 
           sessionStorage.EMAIL_USUARIO = json.email;
-          sessionStorage.NOME_USUARIO = json.nome;
-          sessionStorage.ID_USUARIO = json.id; 
-          sessionStorage.CPF_USUARIO = json.cpf;
+          sessionStorage.NOME_USUARIO = json.nome_empresa;
+          sessionStorage.ID_USUARIO = json.id_empresa; 
+          sessionStorage.CNPJ_USUARIO = json.CNPJ;
+          sessionStorage.RAZAO_SOCIAL_USUARIO = json.razao_social;
+          sessionStorage.CEP_USUARIO = json.cep;
 
           setTimeout(function () {
-            window.location = "./admin/dashboard.html";
+            window.location = "./admin/bebidas.html";
           }, 1000); // apenas para exibir o loading
 
         });
