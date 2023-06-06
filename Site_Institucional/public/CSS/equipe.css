@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #AFDADB;
+  background-color: #e2f4f4;
   background-image: url("../assets/Linhas 1ª dobra direita.svg"), url("../assets/Linhas 1ª dobra esquerda.svg");
   background-size: 35%, 50%;
   background-position: right top, left top;
@@ -18,12 +18,10 @@ body {
   background-size: 100%;
   background-position: 40%;
   background-repeat: no-repeat;
-  opacity: 0.7;
-  margin-top: 3%;
+ margin-top: 3%;
   max-width: 70%;
   display: flex;
   text-align: justify;
-  background-color: black;
 }
 
 .background{
@@ -32,11 +30,12 @@ body {
   width: 100%;
   height: 100%;
   padding: 100px;
-  background-color: rgba(0, 0, 0, 0.75);
 }
 
-.text-1 {
+.text-1 h2, p{
   text-shadow: 1px 3px 4px #000000;
+  font-weight: bold;
+  color: white;
 }
 
 .logo {
@@ -66,23 +65,22 @@ h6 {
 
 .figuras img {
   border: 7px solid #e2e1e1;
-  width: 350px;
-  height: 460px;
+  width: 250px;
+  height: 360px;
   margin-bottom: 2%;
   margin-right: 4%;
   filter: grayscale(95%);
-  margin-left: 8%;
+  margin-left: 10%;
   box-shadow: 2px 4px 6px black;
 }
 
-.nomes-linha1,
-p {
+.nomes-linha1 p, .nomes-linha1 {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  color: white;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  justify-content: center;
+  color: #1d676d;
+  font-weight: bold;
+  margin: 2% 4% ;
 }
 
 .span_redes_sociais {
