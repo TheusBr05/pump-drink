@@ -17,21 +17,23 @@
   margin-bottom: 5%;
 }
 
- .login {
-  padding: 30px 60px;
-  border-radius: 4%;
+.login {
+padding: 30px 60px;
+border-radius: 4%;
 display:flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 color: white;
 font-weight: bold;
+background-color: #1d676d;
+box-shadow: 6px 6px 6px 6px #0f16315d;
 } 
 
 .container-2 h1 {
   display: flex;
   justify-content: center;
-  color: #1d676d;
+  color: #77a4a6;
   font-size: 300%;
   font-weight: bold;
   margin-bottom: 70px;
@@ -44,13 +46,13 @@ font-weight: bold;
   flex-direction: row;
   justify-content: center;
   margin: 10px 10px;
-  color: #1d676d;
+  color: #fff;
   text-decoration: none;
 }
 
 .sem_conta a {
   margin-left: 8px;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .label-float{
@@ -66,8 +68,8 @@ font-weight: bold;
 }
 
 button {
-  background-color: #1d676d;
-  border-color: #1d676d;
+  background-color: #0f1631;
+  border-color: #0f1631;
   color: #77a4a6;
   text-transform: uppercase;
   padding: 10px;
@@ -80,7 +82,7 @@ button {
   outline: none;
   transition: all 0.5s ease-out;
   border: 0;
-  width: 250px;
+  width: 100px;
   color: #fff;  
 }
 
