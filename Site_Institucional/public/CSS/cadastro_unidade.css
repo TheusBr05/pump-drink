@@ -131,7 +131,12 @@ button:hover{
 
 .loading-div{
     display: none;
-}
+  }
+  
+  .loading-div img{
+    width: 50px;
+    height: 50px;
+  }
 
 .alerta_erro {
     display: flex;

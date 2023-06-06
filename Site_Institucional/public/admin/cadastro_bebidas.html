@@ -114,9 +114,9 @@
       })
     }).then(function (resposta) {
       if (resposta.ok) {
-        finalizarAguardar();
         setTimeout(() => {
-          window.location = "bebida.html"
+          finalizarAguardar();
+          window.location = "bebidas.html"
         }, 2000);
       } else {
         finalizarAguardar();

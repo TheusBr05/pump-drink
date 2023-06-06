@@ -169,3 +169,12 @@ form h2 {
   align-items: center;
   flex-direction: column;
 }
+
+.loading-div{
+  display: none;
+}
+
+.loading-div img{
+  width: 50px;
+  height: 50px;
+}

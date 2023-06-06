@@ -47,35 +47,31 @@
         <div class="tela-cadastro">
             <form action="">
                 <h2>Bem-vindo</h2>
-                <h6>(*) Campos Obrigatórios</h6>
                 <div class="inputs">
-                    <input type="text" name="" id="" placeholder="*Nome Completo">
+                    <input type="text" id="input_nome" placeholder="Nome Completo">
                 </div>
                 <div class="inputs">
-                    <input type="tel" name="" id="" placeholder="*Razão Social">
+                    <input type="text" id="input_razao" placeholder="Razão Social">
                 </div>
                 <div class="inputs">
-                    <input type="tel" name="" id="" placeholder="*CNPJ">
+                    <input type="text" id="input_cnpj" placeholder="CNPJ">
                 </div>
                 <div class="inputs">
-                    <input type="tel" name="" id="" placeholder="*Cidade">
+                    <input type="text" id="input_cep" placeholder="CEP">
                 </div>
                 <div class="inputs">
-                    <input type="tel" name="" id="" placeholder="*Estado">
+                    <input type="email" id="input_email" placeholder="Email">
                 </div>
                 <div class="inputs">
-                    <input type="email" name="" id="" placeholder="Email">
+                    <input type="password" id="input_senha" placeholder="Senha">
                 </div>
                 <div class="inputs">
-                    <input type="end" name="" id="" placeholder="Endereço">
+                    <input type="password" id="input_confirmar" placeholder="Confirmar Senha">
                 </div>
-                <div class="inputs">
-                    <input type="password" name="" id="" placeholder="*Senha">
+                <div id="div_aguardar" class="loading-div">
+                    <img src="../assets/loading.gif" id="loading-gif">
                 </div>
-                <div class="inputs">
-                    <input type="password" name="" id="" placeholder="*Confirmar Senha">
-                </div>
-                <input class="btn" type="submit" value="Cadastrar">
+                <button class="btn" onclick="cadastrar()">CADASTRAR</button>
             </form>
         </div>
     </div>
@@ -134,114 +130,124 @@
     function cadastrar() {
         aguardar();
 
-        var nome_empresa = nome.value
-        var razao_social = razao.value
-        var cnpj_empresa = cnpj.value
-        var cep_empresa = cep.value
-        var duracao_contrato = contrato.value
-        var email_empresa = email.value
-        var senha_empresa = senha.value
-        var confirmSenha_empresa = confirmSenha.value
+        var nome = input_nome.value
+        var razao = input_razao.value
+        var cnpj = input_cnpj.value
+        var cep = input_cep.value
+        var email = input_email.value
+        var senha = input_senha.value
+        var confirmacao_senha = input_confirmar.value
 
-        var validacao = (email_empresa == "" && nome_empresa == "" && email_empresa == "" && senha_empresa == "" && confirmSenha_empresa == "");
+        var validacao = (email == "" && nome == "" && email == "" && senha == "" && confirmacao_senha == "");
 
         if (validacao) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Mensagem de erro para todos os campos em branco";
 
-            finalizarAguardar();
-            return false;
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
 
-        } else if (nome_empresa.length <= 4) {
+        } else if (nome.length <= 4) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Nome inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
 
-        } else if (email_empresa.length <= 8 || email_empresa == "") {
+        } else if (email.length <= 8 || email == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(O email inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
 
-        } else if (!email_empresa.includes("@")) {
+        } else if (!email.includes("@")) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(O email inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
 
-        } else if (senha_empresa.length <= 6 || senha == "") {
+        } else if (senha.length <= 6 || senha == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(O email inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
 
-        } else if (senha_empresa != confirmSenha_empresa) {
+        } else if (senha != confirmacao_senha) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(O email inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
-        } else if (cep_empresa.length != 9) {
+        } else if (cep.length != 9) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(CEP inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
-        } else if (cnpj_empresa.length != 18) {
+        } else if (cnpj.length != 18) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(CNPJ inválido)";
 
-            finalizarAguardar();
+            setTimeout(() => {
+                finalizarAguardar();
+            }, 2000);
             return false;
         } else {
-            setInterval(sumirMensagem(), 5000)
-        }
 
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
 
-                nomeEmpresaServer: nome_empresa,
-                razao_socialServer: razao_social,
-                cnpjServer: cnpj_empresa,
-                cepServer: cep_empresa,
-                duracao_contratoServer: duracao_contrato,
-                emailServer: email_empresa,
-                senhaServer: senha_empresa
+                    nomeServer: nome,
+                    razaoServer: razao,
+                    cnpjServer: cnpj,
+                    cepServer: cep,
+                    emailServer: email,
+                    senhaServer: senha
 
-            })
-        }).then(function (resposta) {
+                })
+            }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+                console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-                cardErro.style.display = "block";
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+                    // limparFormulario();
+                    setTimeout(() => {
+                        window.location = "login.html"
+                        finalizarAguardar();
+                    }, 2000);
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
                 setTimeout(() => {
-                    window.location = "index.html";
-                }, "2000")
-
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
+                    finalizarAguardar();
+                }, 2000);
+            });
+        }
     }
 
     function sumirMensagem() {
