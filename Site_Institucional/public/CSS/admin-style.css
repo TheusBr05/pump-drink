@@ -12,6 +12,18 @@
 
 }
 
+.btn_sair{
+    font-size: 16px;
+    padding: 10px 40px;
+    background-color: #1d676d;
+    border: #1d676d 2px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease-out;
+}
+
 
 /* ---------------------- Header Dashboard----------------------- */
 .header .container {
@@ -41,7 +53,7 @@
     text-decoration: none;
     list-style: none;
     align-items: center;
-    justify-self: left;
+    justify-self: center;
     margin-left: 50px;
 
 

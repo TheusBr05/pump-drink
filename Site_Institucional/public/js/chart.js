@@ -64,12 +64,6 @@ const dados_dsp_semana = {
             data: [],
             borderWidth: 1
         },
-
-        {
-            label: 'Meta Semanal',
-            data: [],
-            borderWidth: 1
-        }
     ]
 };
 

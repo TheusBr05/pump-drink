@@ -114,11 +114,13 @@ body{
 
 .bebida {
     width: 40vh;
-    height: 22vw;
+    height: 12vw;
     background-color: rgb(207, 207, 207);
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.253);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     margin: 20px;
     
 }
@@ -139,11 +141,13 @@ body{
     width: 60%;
     height: 45%;
     border-radius: 2px;
+    padding: 15px;
 }
 
 .muito_baixo{
     color: #FFFFFF;
     background-color: #8f1505;
+    
 }
 
 .baixo{
@@ -216,4 +220,8 @@ body{
     background-color: #1d676d;
     color: white;
 
+}
+
+#btn_analisar{
+    height: 30px;
 }

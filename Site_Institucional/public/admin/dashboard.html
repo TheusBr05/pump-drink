@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../CSS/graficos-style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -17,7 +18,7 @@
     <title>PumpDrink | DashBoard</title>
 </head>
 
-<body>
+<body onload=" graficosParametros(Number(sessionStorage.ID_BEBIDA))">
     <!-- HEADER PUMPDRINK -->
     <div class="header">
         <div class="container">
@@ -32,6 +33,12 @@
                 <li><a href="bebidas.html">BEBIDAS</a></li>
                 <li><a href="unidade.html">UNIDADES</a></li>
             </ul>
+
+            <div class="logaut" style="display: flex; align-items: center; gap: 10px;">
+                <h4>Olá, <span id="usuario"></span></h4>
+                <button onclick="limparSessao()" class="btn_sair" style="background-color: white; color: #1d676d;">Sair</button>
+            </div>
+
 
         </div>
     </div>
@@ -48,10 +55,9 @@
 
                         <div class="info_bebida">
                             <i id="i_nome_bebida">BEBIDA X</i>
-                            <img src="../assets/edit.png">
                         </div>
 
-                        <button type="submit">DESEMPENHO ALTO</button>
+        
                     </div>
 
 
@@ -170,18 +176,6 @@
                     <div class="card-grafico" id="regiao">
                         <div class="legenda_filtro">
                             <h4>Desempenho por região</h4>
-                            <select name="" id="" class="select">
-                                <option value="" selected>Geral</option>
-                                <option value="">Semana 1</option>
-                                <option value="">Semana 2</option>
-                                <option value="">Semana 3</option>
-                                <option value="">Semana 4</option>
-                                <option value="">Semana 5</option>
-                                <option value="">Semana 6</option>
-                                <option value="">Semana 7</option>
-                                <option value="">Semana 8</option>
-                                <option value="">Semana 9</option>
-                            </select>
                         </div>
                         <canvas id="desempenho_regiao" class="vetor"></canvas>
 
@@ -210,8 +204,9 @@
 
     // --------------------------------------------------------------------------------------------------
 
+    usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var listaGraficoSemana = [];
-    graficosParametros(Number(sessionStorage.ID_BEBIDA))
+   
 
     const graficoLinha_hoje = new Chart(document.getElementById('desempenho_hoje'), config_dsp_semana);
     const graficoPizza_regiao =  new Chart (document.getElementById('desempenho_regiao'), config_regioes)
@@ -221,7 +216,9 @@
     const graficoDonut_dsp_unidades_abaixo = new Chart (document.getElementById('desempenho_unidadesAbaixo'), config_dsp_uni_abaixo);
     const graficoDonut_dsp_unidades_acima = new Chart(document.getElementById('desempenho_unidadesAcima'), config_dsp_uni_acima);
 
-   
+   if(sessionStorage.ID_BEBIDA == undefined){
+    graficosParametros(1)
+   }
     // function atualizarMetricas() {
     //     fetch("/medidas/totalSaidas", {
     //         method: 'POST',

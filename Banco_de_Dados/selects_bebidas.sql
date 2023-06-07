@@ -53,6 +53,17 @@ SELECT * FROM tb_bebida;
 
 DESCRIBE tb_empresa;
 
-SELECT * FROM tb_empresa;
+
+SELECT * FROM tb_bebida;
 
 delete from tb_empresa where id_empresa = 7;
+
+UPDATE tb_bebida SET meta_geral = 550 WHERE id_bebida IN(1);
+
+
+INSERT INTO tb_registro VALUES 
+    (null, '')
+
+SELECT * FROM tb_local;
+
+UPDATE tb_local SET regiao = 'Nordeste' WHERE id_local = 3;

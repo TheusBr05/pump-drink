@@ -29,6 +29,11 @@
         <li><a href="./unidade.html">UNIDADES</a></li>
       </ul>
 
+      <div class="logaut" style="display: flex; align-items: center; gap: 10px;">
+        <h4>Olá, <span id="usuario"></span></h4>
+        <button onclick="limparSessao()" class="btn_sair" style="background-color: white; color: #1d676d;">Sair</button>
+      </div>
+
     </div>
   </div>
   <div class="conteudo_pagina">
@@ -89,6 +94,8 @@
 
 </html>
 <script>
+
+ 
   function cadastrar_bebida() {
     aguardar();
 
@@ -127,4 +134,6 @@
     })
 
   }
+
+  usuario.innerHTML = sessionStorage.NOME_USUARIO;
 </script>

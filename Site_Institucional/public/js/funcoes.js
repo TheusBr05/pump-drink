@@ -6,15 +6,16 @@ function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
     var cpf = sessionStorage.CPF_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
+    
+
+    var usuario = document.getElementById("usuario");
     var b_cpf = document.getElementById("b_cpf");
 
 
     if (email != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
-        b_usuario.innerHTML = nome;
-        b_cpf.innerHTML = cpf;
-
+        usuario.innerHTML = nome;
+       
         // finalizarAguardar();
     } else {
         window.location = "../login.html";

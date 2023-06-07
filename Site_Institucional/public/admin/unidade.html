@@ -27,6 +27,12 @@
                 <li><a href="bebidas.html">BEBIDAS</a></li>
                 <li><a href="unidade.html">UNIDADES</a></li>
             </ul>
+
+            <div class="logaut" style="display: flex; align-items: center; gap: 10px;">
+                <h4>Olá, <span id="usuario"></span></h4>
+                <button onclick="limparSessao()" class="btn_sair" style="background-color: white; color: #1d676d;">Sair</button>
+            </div>
+
             
         </div>
     </div>
@@ -73,6 +79,7 @@
 
 <script>
 
+usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var meta_prazo_global = [];
     var select_bebida = select.value
 
