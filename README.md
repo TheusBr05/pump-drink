@@ -51,7 +51,7 @@ Canvas
 
 ## Autores
 1ADSC
-https://github.com/MatheusHenrique005 <br>
+https://github.com/TheusBr05 <br>
 https://github.com/melissaSBNeves <br>
 https://github.com/IsabelCAlberti <br>
 https://github.com/Arthur-Ciliberti <br>
